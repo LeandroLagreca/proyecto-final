@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getAllGames, getGameById } from "../reducers/videoGame";
 
-const API = "http:localhost:3000/";
+const API = "http:localhost:3001/";
 
 export const getGames = (name) =>
   async function (dispatch) {
