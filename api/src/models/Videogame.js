@@ -9,6 +9,7 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
       unique: true,
+      autoIncrement: true,
     },
     name: {
       type: DataTypes.STRING,
@@ -37,7 +38,10 @@ module.exports = (sequelize) => {
     images: {
       type: DataTypes.TEXT,
     },
-    requirements: {
+    requirements_minimum: {
+      type: DataTypes.TEXT,
+    },
+    requirements_recommended: {
       type: DataTypes.TEXT,
     },
 

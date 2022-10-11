@@ -44,13 +44,13 @@ const { Videogame, Genre, User, Comment} = sequelize.models;
 //Relaciones Videojuego
 Videogame.belongsToMany(Genre, {through : 'VideogameGenre'});
 Videogame.belongsToMany(User, {through : 'VideogameUser'});
-Videogame.hasMany(Comment, {through : 'VideogameComment'});
+Videogame.belongsToMany(Comment, {through : 'VideogameComment'});
 
 //Relaciones Genre
 Genre.belongsToMany(Videogame, {through : 'VideogameGenre'});
 
 //Relaciones User
-User.hasMany(Comment, {through : 'UserComment'})
+User.belongsToMany(Comment, {through : 'UserComment'})
 User.belongsToMany(Videogame, {through : 'VideogameUser'});
 
 //Relaciones Comment
