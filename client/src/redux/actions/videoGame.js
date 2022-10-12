@@ -4,7 +4,7 @@ import { getAllGames, getGameById } from "../reducers/videoGame";
 const API = "http://localhost:3001/";
 
 export const getGames = (name) =>{
-  const queryName = name && name
+  const queryName = name ? name : ''
   
   return async function (dispatch) {
     try {
