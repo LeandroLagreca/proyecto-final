@@ -1,5 +1,6 @@
 import React from "react";
 import MainCard from "./Card";
+import { Link } from "react-router-dom";
 
 export default function Cards({ games }) {
 
@@ -8,6 +9,7 @@ export default function Cards({ games }) {
       <section>
         {games.map((element, index) => (
           <div key={element.id}>
+             <Link to={`/detail/${element.id}`}>
               <MainCard
                 key={index}
                 id={element.id}
@@ -16,6 +18,7 @@ export default function Cards({ games }) {
                 background_image={element.background_image}
                 price={element.price}
               />
+              </Link>
           </div>
         ))}
       </section>
