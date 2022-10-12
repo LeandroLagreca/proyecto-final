@@ -1,7 +1,9 @@
-import React from 'react';
-import { InputBase, alpha } from '@mui/material';
+import React, { useEffect } from 'react';
+import { InputBase, alpha, Box } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/material/styles';
+import Card from '../Cards/Card';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Search = styled('div')(({ theme }) => ({
 	position: 'relative',
@@ -43,7 +45,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 	},
 }));
 
-const Searchbar = () => {
+const Searchbar = ({setInput, input}) => {
+
+
+	const handleInputChange = (e) => {
+		setInput(e.target.value);
+		console.log(e.target.value);
+	};
+
 	return (
 		<>
 			<Search>
@@ -51,6 +60,8 @@ const Searchbar = () => {
 					<SearchIcon />
 				</SearchIconWrapper>
 				<StyledInputBase
+					value={input}
+					onChange={handleInputChange}
 					placeholder="Search…"
 					inputProps={{ 'aria-label': 'search' }}
 				/>
