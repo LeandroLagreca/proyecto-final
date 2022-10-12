@@ -18,7 +18,6 @@ const MainHome = () => {
     <div>
       <Home />
       <About />
-      <Cards games={games}/>
       <Paginated/>
     </div>
   );

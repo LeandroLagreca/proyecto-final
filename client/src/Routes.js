@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes as Rutas, Route } from 'react-router-dom';
 import { useMediaQuery, useTheme } from '@mui/material';
-import { MainHome } from './pages';
+import { Detail, MainHome } from './pages';
 import { Navbar, Social, Footer, Loader,  } from './components';
 
 
@@ -16,6 +16,7 @@ const Routes = () => {
 			{!isMobile ? <Social /> : null}
 			<Rutas>
 				<Route exact path="/" element={<MainHome />} />
+				<Route path="/detail" element={<Detail />} />
 				
 			</Rutas>
 			<Footer />
