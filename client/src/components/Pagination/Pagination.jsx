@@ -31,9 +31,9 @@ const Paginated = () => {
         setPage(p)
     }
     
-    useEffect(() => {
-        dispatch(getGames())
-    })
+    // useEffect(() => {
+    //     dispatch(getGames())
+    // })
     
     
     
