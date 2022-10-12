@@ -6,7 +6,7 @@ const initialState = {
 }
 
 const videoGameSlice = createSlice({
-    name: 'videoGames',
+    name: 'videogames',
     initialState,
     reducers: {
 			getAllGames: (state, { payload }) => {
