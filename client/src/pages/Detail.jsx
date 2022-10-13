@@ -2,8 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getDetails } from "../redux/actions/videoGame";
-import { Button, Typography, Container, Box, Paper } from "@mui/material";
+import { getDetails, addWishes } from "../redux/actions/videoGame";
+import { Button, Typography, Container, Box, Paper} from "@mui/material";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import "./Detail.css";
 
@@ -113,6 +113,8 @@ export default function Detail() {
         </Box>
       </Box>
       <Box sx={{ border: "1px dashed grey" }}>RESEÑAS</Box>
+      <Button size="small" onClick={() => {dispatch(addWishes({name:gameDetail.name, description:gameDetail.description, background_image:gameDetail.background_image, price:gameDetail.price}))}}>Add to wishes</Button>
+
     </Container>
   );
 }

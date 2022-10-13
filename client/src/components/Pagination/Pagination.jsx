@@ -16,8 +16,8 @@ const Paginated = () => {
     const [page, setPage] = useState(1);
     const [gamesPerPage, setGamesPerPage] = useState(5);
     const indexOfLastGame = gamesPerPage * page; // 10
-    const indexOfFirtsGame = indexOfLastGame - gamesPerPage // 0
-    const currentGames = allGames.slice(indexOfFirtsGame, indexOfLastGame)
+    const indexOfFirtsGame = indexOfLastGame - gamesPerPage; // 0
+    const currentGames = allGames.slice(indexOfFirtsGame, indexOfLastGame);
     
     
     // let pageNumbers = 0;
@@ -31,13 +31,6 @@ const Paginated = () => {
         setGamesPerPage(5)
         setPage(p)
     }
-    
-    // useEffect(() => {
-    //     dispatch(getGames())
-    // })
-    
-    
-    
     
     return(
         <div style={{textAling: "center", justifyContent: "center"}} >

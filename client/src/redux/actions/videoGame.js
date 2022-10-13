@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getAllGames, getGameById, filterByPrice } from '../reducers/videoGame';
+import { getAllGames, getGameById, filterByPrice, addToWishes, removeToWishes } from '../reducers/videoGame';
 
 const API = 'http://localhost:3001/';
 
@@ -48,3 +48,27 @@ export const filterByRating = (games, order) => {};
 export const filterByType = (games, type) => {};
 
 export const filterBySearch = (games, input) => {};
+
+export const addWishes = (game) => {
+	try {
+	  return function(dispatch){
+		dispatch(addToWishes(game))
+	  
+	
+	  }  
+	} catch (error) {
+	  console.log(error)
+	 }
+	  
+	
+	}
+
+export const removeWishes = (name) => {
+	try {
+		return function(dispatch){
+			dispatch(removeToWishes(name))
+		}
+	}catch(error){
+		console.log(error)
+	}
+}
