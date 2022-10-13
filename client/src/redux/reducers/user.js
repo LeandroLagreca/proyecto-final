@@ -15,9 +15,14 @@ const userSlice = createSlice({
 				state.role = payload
 			},
 			addToCart: (state, { payload }) => {
-				state.cartList = [...state.cartList, payload]
-				const parseCart = JSON.stringify([...state.cartList, payload])
-				localStorage.setItem('cartList', parseCart)
+				const alreadyIs = state.cartList.some(el => el.id === payload.id);
+				if(!alreadyIs) {
+					state.cartList = [...state.cartList, payload]
+					const parseCart = JSON.stringify([...state.cartList, payload])
+					localStorage.setItem('cartList', parseCart)
+				} else {
+					return
+				}
 			},
 			deleteFromCart: (state, { payload }) => {
 				state.cartList = state.cartList.filter(prod => prod.id !== payload)
