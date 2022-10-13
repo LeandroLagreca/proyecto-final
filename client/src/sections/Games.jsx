@@ -24,6 +24,7 @@ const Games = () => {
 								style={{
 									display: 'flex',
 									flexWrap: 'wrap',
+									width: "190px",
 									justifyContent: 'center',
 									listStyle: 'none',
 								}}

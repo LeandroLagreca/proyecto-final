@@ -3,19 +3,32 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getDetails, addWishes } from "../redux/actions/videoGame";
-import { Button, Typography, Container, Box, Checkbox,  } from "@mui/material";
-import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
-import Favorite from '@mui/icons-material/Favorite';
+import { Button, Typography, Container, Box, Checkbox, TextField} from "@mui/material";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import Favorite from "@mui/icons-material/Favorite";
 import Carousel from "react-material-ui-carousel";
 import "./Detail.css";
 import Item from "../components/Items/Item";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import FormatBoldIcon from '@mui/icons-material/FormatBold';
+import FormatItalicIcon from '@mui/icons-material/FormatItalic';
 
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function Detail() {
   const gameDetail = useSelector((state) => state.videogames.details);
   const dispatch = useDispatch();
   let { id } = useParams();
+
+
+  //Form de Reseñas
+  const [value, setValue] = React.useState('Controlled'); //Estado local
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+    console.log(value)
+  };
 
   useEffect(() => {
     dispatch(getDetails(id));
@@ -111,9 +124,7 @@ export default function Detail() {
               className="nombrePrecio"
               sx={{ border: "1px dashed grey" }}
             >
-        <Box>
-      
-    </Box>
+              <Box></Box>
               <Typography padding={1} variant="h5" component="div">
                 {gameDetail.name}
               </Typography>
@@ -122,25 +133,25 @@ export default function Detail() {
               </Typography>
             </Box>
             <Box display="flex" sx={{ border: "" }}>
-              <Button variant="contained">Comprar</Button>
+              <Button variant="contained"><AddShoppingCartIcon/> </Button>
             </Box>
             <Box>
-            <Checkbox 
-            {...label} 
-            icon={<FavoriteBorder />} 
-            checkedIcon={<Favorite />} 
-        size="small"
-        onClick={() => {
-          dispatch(
-            addWishes({
-              name: gameDetail.name,
-              description: gameDetail.description,
-              background_image: gameDetail.background_image,
-              price: gameDetail.price,
-            })
-          );
-        }}
-      ></Checkbox>
+              <Checkbox
+                {...label}
+                icon={<FavoriteBorder />}
+                checkedIcon={<Favorite />}
+                size="small"
+                onClick={() => {
+                  dispatch(
+                    addWishes({
+                      name: gameDetail.name,
+                      description: gameDetail.description,
+                      background_image: gameDetail.background_image,
+                      price: gameDetail.price,
+                    })
+                  );
+                }}
+              ></Checkbox>
             </Box>
           </Box>
           <Box
@@ -151,7 +162,7 @@ export default function Detail() {
             display="inline-block"
             sx={{ borderRadius: "4px" }}
           >
-            <Carousel>
+            <Carousel className="carusel">
               {ejemplo.map((item) => (
                 <Item key={item.id} item={item} />
               ))}
@@ -164,30 +175,7 @@ export default function Detail() {
               alt="not found"
             /> */}
           </Box>
-          <Box className="smallImages" backgroundColor="#ffffff">
-            <img
-              className="small"
-              src={gameDetail.background_image}
-              width={90}
-              height={50}
-              alt="not found"
-              margin={2}
-            />
-            <img
-              className="small"
-              src={gameDetail.background_image}
-              width={90}
-              height={50}
-              alt="not found"
-            />
-            <img
-              className="small"
-              src={gameDetail.background_image}
-              width={90}
-              height={50}
-              alt="not found"
-            />
-          </Box>
+        
           <Box className="description" borderRadius={0.5}>
             <Typography
               variant="body2"
@@ -216,8 +204,23 @@ export default function Detail() {
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ border: "1px dashed grey" }}>RESEÑAS</Box>
-      
+      <section>
+      <Box width={340} sx={{  }}>RESEÑAS
+      <TextField
+          onChange={handleChange}
+          id="standard-multiline-static"
+          fullWidth
+          label="Reseñas"
+          multiline
+          rows={4}
+          defaultValue="Agrega un comentario..."
+          variant="standard"
+        />
+        <Box className="postActions">
+<AddPhotoAlternateIcon/> | <FormatBoldIcon/> <FormatItalicIcon/>
+        </Box>
+        </Box>
+      </section>
     </Container>
   );
 }
