@@ -41,20 +41,33 @@ export const getDetails = (id) =>
 
 export const setFilterByPrice = (games, order) => (dispatch) => {
 	const gamesCopy = [...games];
-
+	var orderPrice = [];
 	try {
-		if (order === 'asc') {
-			gamesCopy.sort(
-				(a, b) => Number(a.price.replace('$', '')) - b.price.replace('$', '')
-			);
-		} else if (order === 'desc') {
-			gamesCopy.sort(
-				(a, b) => Number(b.price.replace('$', '')) - a.price.replace('$', '')
-			);
-		} else {
-			gamesCopy.sort((a, b) => a.id - b.id);
+		switch (order) {
+			
+			case "":
+				orderPrice = gamesCopy.filter((e) => Number(e.price.replace('$', '')));
+				break;
+
+			case "5":
+				orderPrice = gamesCopy.filter((e) => Number(e.price.replace('$', '')) <= 5);
+				break;
+			case "5a10":
+				orderPrice = gamesCopy.filter((e) => Number(e.price.replace('$', ''))>= 5 && Number(e.price.replace('$', '')) <= 10);
+				break;
+			case "10a30":
+				orderPrice = gamesCopy.filter((e) => Number(e.price.replace('$', '')) >= 10 && Number(e.price.replace('$', '')) <= 30);
+				break;
+			case "30a50":
+				orderPrice = gamesCopy.filter((e) => Number(e.price.replace('$', '')) >= 30 && Number(e.price.replace('$', '')) <= 50);
+				break;
+			case "50":
+				orderPrice = gamesCopy.filter((e) => Number(e.price.replace('$', '')) >= 50);
+				break;
+			default:
+				break;
 		}
-		dispatch(filterByPrice(gamesCopy));
+		dispatch(filterByPrice(orderPrice));
 	} catch (error) {
 		return;
 	}
@@ -62,16 +75,35 @@ export const setFilterByPrice = (games, order) => (dispatch) => {
 
 export const setFilterByRating = (games, order) => (dispatch) => {
 	const gamesCopy = [...games];
+	var orderRating = [];
 
 	try {
-		if (order === 'asc') {
-			gamesCopy.sort((a, b) => a.rating_api - b.rating_api);
-		} else if (order === 'desc') {
-			gamesCopy.sort((a, b) => b.rating_api - a.rating_api);
-		} else {
-			gamesCopy.sort((a, b) => a.id - b.id);
+
+
+		switch (order) {
+			case "":
+				orderRating = gamesCopy.filter((e) => e.rating_api);
+				break;
+			case "1star":
+				orderRating = gamesCopy.filter((e) => e.rating_api < 2);
+				break;
+			case "2star":
+				orderRating = gamesCopy.filter((e) => e.rating_api >= 2 && e.rating_api < 3);
+				break;
+			case "3star":
+				orderRating = gamesCopy.filter((e) => e.rating_api >= 3 && e.rating_api < 4);
+				break;
+			case "4star":
+				orderRating = gamesCopy.filter((e) => e.rating_api >= 4 && e.rating_api < 5);
+				break;
+			case "5star":
+				orderRating = gamesCopy.filter((e) => e.rating_api === 5);
+				break;
+			default:
+				break;
 		}
-		dispatch(filterByRating(gamesCopy));
+
+		dispatch(filterByRating(orderRating));
 	} catch (error) {
 		return;
 	}
@@ -84,10 +116,20 @@ export const setFilterByGenere = (games, genere) => (dispatch) => {
 	dispatch(filterByGenere(gamesFilter));
 };
 
-export const setFilterByType = (games, type) => (dispatch) => {
+export const setFilterByType = (games, order) => (dispatch) => {
 	const gamesCopy = [...games];
-	const gamesFilter = gamesCopy.filter((game) => game.type === type);
-	dispatch(filterByType(gamesFilter));
+
+	try {
+		if (order === 'asc') {
+			gamesCopy.sort((a, b) => a.name.localeCompare(b.name));
+		} else {
+			gamesCopy.sort((a, b) => b.name.localeCompare(a.name));
+		}
+
+		dispatch(filterByType(gamesCopy));
+	} catch (error) {
+		return;
+	}
 };
 
 export const setFilterBySearch = (games, input) => (dispatch) => {
@@ -102,20 +144,20 @@ export const setFilterBySearch = (games, input) => (dispatch) => {
 
 export const addWishes = (game) => {
 	try {
-	  return function(dispatch){
-		dispatch(addToWishes(game))
-	  }  
+		return function (dispatch) {
+			dispatch(addToWishes(game))
+		}
 	} catch (error) {
-	  console.log(error)
-	 }
+		console.log(error)
+	}
 }
 
 export const removeWishes = (name) => {
 	try {
-		return function(dispatch){
+		return function (dispatch) {
 			dispatch(removeToWishes(name))
 		}
-	}catch(error){
+	} catch (error) {
 		console.log(error)
 	}
 }

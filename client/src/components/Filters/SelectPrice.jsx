@@ -26,10 +26,16 @@ export default function SelectPrice() {
 					<MenuItem value="">
 						<em>None</em>
 					</MenuItem>
-					<MenuItem value="asc">Alto</MenuItem>
-					<MenuItem value="desc">Bajo</MenuItem>
+					<MenuItem value="5">Hasta $5</MenuItem>
+					<MenuItem value="5a10">$5 a $10</MenuItem>
+					<MenuItem value="10a30">$10 a $30</MenuItem>
+					<MenuItem value="30a50">$30 a $50</MenuItem>
+					<MenuItem value="50">Más de $50</MenuItem>
 				</Select>
 			</FormControl>
 		</div>
 	);
 }
+
+
+
