@@ -1,5 +1,15 @@
 import axios from 'axios';
-import { getAllGames, getGameById, filterByPrice, addToWishes, removeToWishes } from '../reducers/videoGame';
+
+import {
+	getAllGames,
+	getGameById,
+	filterByPrice,
+	filterByRating,
+	filterByGenere,
+	filterByType,
+	filterBySearch,
+} from '../reducers/videoGame';
+
 
 const API = 'http://localhost:3001/';
 
@@ -31,9 +41,13 @@ export const setFilterByPrice = (games, order) => (dispatch) => {
 
 	try {
 		if (order === 'asc') {
-			gamesCopy.sort((a, b) => Number(a.price.replace("$","")) - (b.price.replace("$","")));
+			gamesCopy.sort(
+				(a, b) => Number(a.price.replace('$', '')) - b.price.replace('$', '')
+			);
 		} else if (order === 'desc') {
-			gamesCopy.sort((a, b) => Number(b.price.replace("$","")) - (a.price.replace("$","")));
+			gamesCopy.sort(
+				(a, b) => Number(b.price.replace('$', '')) - a.price.replace('$', '')
+			);
 		} else {
 			gamesCopy.sort((a, b) => a.id - b.id);
 		}
@@ -43,9 +57,43 @@ export const setFilterByPrice = (games, order) => (dispatch) => {
 	}
 };
 
-export const filterByRating = (games, order) => {};
+export const setFilterByRating = (games, order) => (dispatch) => {
+	const gamesCopy = [...games];
 
-export const filterByType = (games, type) => {};
+	try {
+		if (order === 'asc') {
+			gamesCopy.sort((a, b) => a.rating_api - b.rating_api);
+		} else if (order === 'desc') {
+			gamesCopy.sort((a, b) => b.rating_api - a.rating_api);
+		} else {
+			gamesCopy.sort((a, b) => a.id - b.id);
+		}
+		dispatch(filterByRating(gamesCopy));
+	} catch (error) {
+		return;
+	}
+};
+
+
+export const setFilterByGenere = (games, genere) => (dispatch) => {
+	const gamesCopy = [...games];
+	const gamesFilter = gamesCopy.filter((game) => game.generes.includes(genere));
+	dispatch(filterByGenere(gamesFilter));
+};
+
+export const setFilterByType = (games, type) => (dispatch) => {
+	const gamesCopy = [...games];
+	const gamesFilter = gamesCopy.filter((game) => game.type === type);
+	dispatch(filterByType(gamesFilter));
+};
+
+export const setFilterBySearch = (games, input) => (dispatch) => {
+	const gamesCopy = [...games];
+	const gamesFilter = gamesCopy.filter((game) =>
+		game.name.toLowerCase().includes(input.toLowerCase())
+	);
+	dispatch(filterBySearch(gamesFilter));
+};
 
 export const filterBySearch = (games, input) => {};
 
@@ -53,15 +101,11 @@ export const addWishes = (game) => {
 	try {
 	  return function(dispatch){
 		dispatch(addToWishes(game))
-	  
-	
 	  }  
 	} catch (error) {
 	  console.log(error)
 	 }
-	  
-	
-	}
+}
 
 export const removeWishes = (name) => {
 	try {
@@ -72,3 +116,4 @@ export const removeWishes = (name) => {
 		console.log(error)
 	}
 }
+

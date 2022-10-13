@@ -7,7 +7,7 @@ import Select from '@mui/material/Select';
 import { setFilterByPrice } from '../../redux/actions/videoGame';
 
 export default function SelectPrice() {
-  const dispatch = useDispatch();
+	const dispatch = useDispatch();
 	// const filterGames = useSelector((state) => state.videogames.filterGames);
 	const games = useSelector((state) => state.videogames.games);
 
@@ -15,8 +15,7 @@ export default function SelectPrice() {
 
 	const handlePrice = (event) => {
 		setPrice(event.target.value);
-    dispatch(setFilterByPrice(games,event.target.value));
-
+		dispatch(setFilterByPrice(games, event.target.value));
 	};
 
 	return (
