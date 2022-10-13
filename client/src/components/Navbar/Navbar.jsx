@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import {
 	AppBar,
@@ -156,6 +157,11 @@ const Navbar = () => {
 						<Button sx={{ my: 2, color: 'white', display: 'block' }}>
 							About
 						</Button>
+						<Link to="/wishes">
+							<Button sx={{ my: 2, color: 'white', display: 'block' }}>
+								Favorites
+							</Button>
+						</Link>
 					</Box>
 
 					<Box sx={{ display: { xs: 'none', md: 'flex' } }}>

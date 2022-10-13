@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import {
 	getAllGames,
 	getGameById,
@@ -8,6 +9,7 @@ import {
 	filterByType,
 	filterBySearch,
 } from '../reducers/videoGame';
+
 
 const API = 'http://localhost:3001/';
 
@@ -72,6 +74,7 @@ export const setFilterByRating = (games, order) => (dispatch) => {
 	}
 };
 
+
 export const setFilterByGenere = (games, genere) => (dispatch) => {
 	const gamesCopy = [...games];
 	const gamesFilter = gamesCopy.filter((game) => game.generes.includes(genere));
@@ -91,3 +94,26 @@ export const setFilterBySearch = (games, input) => (dispatch) => {
 	);
 	dispatch(filterBySearch(gamesFilter));
 };
+
+export const filterBySearch = (games, input) => {};
+
+export const addWishes = (game) => {
+	try {
+	  return function(dispatch){
+		dispatch(addToWishes(game))
+	  }  
+	} catch (error) {
+	  console.log(error)
+	 }
+}
+
+export const removeWishes = (name) => {
+	try {
+		return function(dispatch){
+			dispatch(removeToWishes(name))
+		}
+	}catch(error){
+		console.log(error)
+	}
+}
+

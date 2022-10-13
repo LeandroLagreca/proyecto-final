@@ -1,7 +1,13 @@
 import React from "react";
 import {Card, CardActions, CardContent, CardMedia, Button,Typography,} from "@mui/material";
 
+
+
+
 export default function MainCard({ name, description, background_image, price, id}) {
+
+  
+  
   
 var descriptionFilter = "";
   function descFilter() {   //Agrego una funcion que me acorte la descripcion, ya que me la trae muy larga de la API, en detalle se podra ver completa

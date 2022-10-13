@@ -2,7 +2,14 @@ import React from 'react';
 import { Routes as Rutas, Route } from 'react-router-dom';
 import { useMediaQuery, useTheme } from '@mui/material';
 import { Detail, MainHome, Landing } from './pages';
-import { Navbar, Social, Footer, Loader } from './components';
+
+
+
+import { Navbar, Social, Footer, Loader,  } from './components';
+import Wishes from './components/Wishes/AddtoWishes';
+
+
+
 
 const Routes = () => {
 	const theme = useTheme();
@@ -17,6 +24,7 @@ const Routes = () => {
 				<Route exact path="/landing" element={<Landing />} />
 				<Route exact path="/" element={<MainHome />} />
 				<Route path="/detail/:id" element={<Detail />} />
+				<Route path='/wishes' element={<Wishes/>} />
 			</Rutas>
 			<Footer />
 		</>
