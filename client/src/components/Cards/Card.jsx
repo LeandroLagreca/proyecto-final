@@ -1,12 +1,16 @@
 import React from "react";
-import {Card, CardActions, CardContent, CardMedia, Button,Typography,} from "@mui/material";
+import {Card, CardActions, CardContent, CardMedia, Button,Typography, Checkbox} from "@mui/material";
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
+import { useSelector, useDispatch } from "react-redux";
+import { addWishes } from "../../redux/actions/videoGame";
 
 
-
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 export default function MainCard({ name, description, background_image, price, id}) {
-
-  
+  const games = useSelector((state) => state.videogames.games)
+  const dispatch = useDispatch()
   
   
 var descriptionFilter = "";
@@ -35,8 +39,25 @@ var descriptionFilter = "";
         </Typography>
       </CardContent>
       <CardActions>
+        <Checkbox 
+
+            {...label} 
+            icon={<FavoriteBorder />} 
+            checkedIcon={<Favorite />} 
+        size="small"
+        onClick={() => {
+          dispatch(
+            addWishes({
+              name: games.name,
+              description: games.description,
+              background_image: games.background_image,
+              price: games.price,
+            })
+          );
+        }}
+        ></Checkbox>
         <Button size="small">Buy</Button>
-        <Button size="small">More Detail...</Button>
+        <Button size="small">More Detail</Button>
       </CardActions>
     </Card>
   );
