@@ -14,8 +14,15 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Searchbar from './Searchbar';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+	const [input, setInput] = React.useState('');
+	const videogames = useSelector((state) => state.videogames.games);
+	const currentGames = videogames.filter((game) => {
+		return game.name.toLowerCase().includes(input.toLowerCase());
+	});
+
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -113,6 +120,10 @@ const Navbar = () => {
 		</Menu>
 	);
 
+	React.useEffect(() => {
+		console.log(currentGames);
+	}, [input]);
+
 	return (
 		<Box sx={{ flexGrow: 1 }}>
 			<AppBar position="static">
@@ -126,7 +137,7 @@ const Navbar = () => {
 						HENRY GAMES
 					</Typography>
 
-					<Searchbar />
+					<Searchbar setInput={setInput} input={input} />
 
 					<Box sx={{ flexGrow: 1 }} />
 
