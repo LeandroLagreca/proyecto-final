@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import axios from "axios";
-import { getAllGames, getGameById, } from "../reducers/videoGame";
-=======
 import axios from 'axios';
-import { getAllGames, getGameById, filterByPrice } from '../reducers/videoGame';
->>>>>>> origin
+import { getAllGames, getGameById, filterByPrice, addToWishes, removeToWishes } from '../reducers/videoGame';
 
 const API = 'http://localhost:3001/';
 
@@ -22,19 +17,6 @@ export const getGames = (name) => {
 };
 
 export const getDetails = (id) =>
-<<<<<<< HEAD
-  async function (dispatch) {
-    try {
-      const request = await axios(API + `videogames/${id}`);
-      dispatch(getGameById(request.data));
-    } catch (error) {
-        return
-    }
-};
-
-
-
-=======
 	async function (dispatch) {
 		try {
 			const request = await axios(API + `videogames/${id}`);
@@ -66,4 +48,27 @@ export const filterByRating = (games, order) => {};
 export const filterByType = (games, type) => {};
 
 export const filterBySearch = (games, input) => {};
->>>>>>> origin
+
+export const addWishes = (game) => {
+	try {
+	  return function(dispatch){
+		dispatch(addToWishes(game))
+	  
+	
+	  }  
+	} catch (error) {
+	  console.log(error)
+	 }
+	  
+	
+	}
+
+export const removeWishes = (name) => {
+	try {
+		return function(dispatch){
+			dispatch(removeToWishes(name))
+		}
+	}catch(error){
+		console.log(error)
+	}
+}

@@ -15,6 +15,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Searchbar from './Searchbar';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 	const [input, setInput] = React.useState('');
@@ -148,6 +149,11 @@ const Navbar = () => {
 						<Button sx={{ my: 2, color: 'white', display: 'block' }}>
 							About
 						</Button>
+						<Link to="/wishes">
+							<Button sx={{ my: 2, color: 'white', display: 'block' }}>
+								Favorites
+							</Button>
+						</Link>
 					</Box>
 
 					<Box sx={{ display: { xs: 'none', md: 'flex' } }}>

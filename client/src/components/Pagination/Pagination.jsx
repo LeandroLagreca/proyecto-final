@@ -2,14 +2,6 @@ import { Pagination, Box } from '@mui/material';
 import {React, useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import Card from '../Cards/Card';
-<<<<<<< HEAD
-
-
-
-const Paginated = () => {
-    const allGames = useSelector((state) => state.videogames.games);
-    const dispatch = useDispatch();
-=======
 import { NavLink } from "react-router-dom";
 import { getGames } from '../../redux/actions/videoGame';
 
@@ -21,7 +13,6 @@ const Paginated = () => {
 
     
     const dispatch = useDispatch()
->>>>>>> origin
     const [page, setPage] = useState(1);
     const [gamesPerPage, setGamesPerPage] = useState(5);
     const indexOfLastGame = gamesPerPage * page; // 10

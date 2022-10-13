@@ -17,8 +17,8 @@ export default function Cards({ games }) {
                 description={element.description}
                 background_image={element.background_image}
                 price={element.price}
-              />
-              </Link>
+                />
+                </Link>
           </div>
         ))}
       </section>

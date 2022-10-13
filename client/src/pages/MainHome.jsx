@@ -27,10 +27,6 @@ const MainHome = () => {
 			</div>
       <Home />
       <About />
-<<<<<<< HEAD
-      {/* saco el renderizado de cards directo en el home */}
-=======
->>>>>>> origin
       <Paginated/>
     </div>
     </>
