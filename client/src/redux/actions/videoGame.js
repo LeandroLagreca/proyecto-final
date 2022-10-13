@@ -8,6 +8,9 @@ import {
 	filterByGenere,
 	filterByType,
 	filterBySearch,
+	addToWishes,
+	removeToWishes
+
 } from '../reducers/videoGame';
 
 
@@ -95,7 +98,7 @@ export const setFilterBySearch = (games, input) => (dispatch) => {
 	dispatch(filterBySearch(gamesFilter));
 };
 
-export const filterBySearch = (games, input) => {};
+// export const filterBySearch = (games, input) => {};
 
 export const addWishes = (game) => {
 	try {
