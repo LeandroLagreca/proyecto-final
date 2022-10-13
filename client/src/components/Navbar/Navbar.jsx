@@ -1,21 +1,29 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Badge from '@mui/material/Badge';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import Button from '@mui/material/Button';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Searchbar from './Searchbar';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import {
+	AppBar,
+	Box,
+	Toolbar,
+	IconButton,
+	Typography,
+	Badge,
+	MenuItem,
+	Menu,
+	Button
+} from '@mui/material';
+
+import {
+	AccountCircle,
+	Mail as MailIcon,
+	Notifications as NotificationsIcon,
+	MoreVert as MoreIcon
+} from '@mui/icons-material';
+
+import CartWidget from '../CartWidget';
+import Searchbar from './Searchbar';
+
 
 const Navbar = () => {
 	const [input, setInput] = React.useState('');
@@ -157,15 +165,7 @@ const Navbar = () => {
 					</Box>
 
 					<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-						<IconButton
-							size="large"
-							aria-label="show 17 new notifications"
-							color="inherit"
-						>
-							<Badge badgeContent={17} color="primary">
-								<ShoppingCartIcon />
-							</Badge>
-						</IconButton>
+						<CartWidget />
 						<IconButton
 							size="large"
 							edge="end"
