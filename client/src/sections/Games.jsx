@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Box } from '@mui/material';
 import Card from '../components/Cards/Card';
-import Paginated from '../components/Pagination/Pagination';
+import Pagined from '../components/Pagination/Pagination';
 
 const Games = () => {
 	const allGames = useSelector((state) => state.videogames.filterGames);
@@ -15,7 +15,7 @@ const Games = () => {
 
 	return (
 		<div>
-			<Paginated setPage={setPage} setGamesPerPage={setGamesPerPage} />
+			<Pagined setPage={setPage} setGamesPerPage={setGamesPerPage} />
 			<Box display="flex" flexDirection={'row'}>
 				{currentGames?.map((e, index) => {
 					return (

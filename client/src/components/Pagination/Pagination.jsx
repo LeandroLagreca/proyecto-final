@@ -24,6 +24,8 @@ const Paginated = ({ setGamesPerPage, setPage }) => {
 	);
 };
 
+export default Paginated;
+
 // <<<<<<< fix/reducer-videogames
 // export default Paginated;
 // =======
