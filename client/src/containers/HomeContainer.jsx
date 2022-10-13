@@ -7,7 +7,6 @@ const HomeContainer = ({ children, ...rest }) => {
 	const classes = useStyles();
 
 	return (
-		
 		<Container className={classes.Container} {...rest}>
 			{children}
 		</Container>

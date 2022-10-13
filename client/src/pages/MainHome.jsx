@@ -16,7 +16,6 @@ const MainHome = () => {
       dispatch(getGames())
     }, []);
 
-  
   return (
       <>
     <div>
