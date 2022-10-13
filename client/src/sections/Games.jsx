@@ -33,6 +33,7 @@ const Games = () => {
 										<Card
 											background_image={e.background_image}
 											name={e.name}
+											id={e.id}
 											price={e.price}
 											description={e.description}
 										/>
