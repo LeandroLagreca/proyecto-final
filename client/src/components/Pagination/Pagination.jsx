@@ -2,7 +2,7 @@ import { Pagination, Box } from '@mui/material';
 import {React, useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import Card from '../Cards/Card';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { getGames } from '../../redux/actions/videoGame';
 
 
@@ -51,7 +51,7 @@ const Paginated = () => {
                 return(
                     <Box key={index}>
                         <ul style={{  display: "flex", flexWrap: "wrap", justifyContent:"center", listStyle: "none"}} >
-                        <Link to={`/detail/${e.id}`}> <li >{<Card  background_image={e.background_image} name={e.name} price={e.price} description={e.description}  />}</li></Link>
+                        <NavLink to={`/detail/${e.id}`}> <li >{<Card  background_image={e.background_image} name={e.name} price={e.price} description={e.description}  />}</li></NavLink>
                         </ul>
                     </Box>
                     )

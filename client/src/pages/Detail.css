@@ -1,7 +1,7 @@
 .imagenDetail{
     inset: 0px;
     width: 100%;
-    height: auto;
     object-fit: cover;
     overflow: hidden;
+    Clip-path: inset(0px 0px 0px 0px);
 }
