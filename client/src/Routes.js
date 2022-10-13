@@ -12,6 +12,7 @@ import Wishes from './components/Wishes/AddtoWishes';
 
 
 const Routes = () => {
+	//solve conflictos
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
