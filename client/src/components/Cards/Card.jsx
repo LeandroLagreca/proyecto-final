@@ -21,11 +21,11 @@ var descriptionFilter = "";
         <Typography gutterBottom variant="h5" component="div">
           {name}
         </Typography>
-        <Typography variant="h6" color="text.secondary">
+        <Typography variant="h6" color="text.primary">
           {price}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {descriptionFilter}
+          {descriptionFilter} . . .
         </Typography>
       </CardContent>
       <CardActions>

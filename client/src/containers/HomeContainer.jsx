@@ -7,11 +7,12 @@ const HomeContainer = ({ children, ...rest }) => {
 	const classes = useStyles();
 
 	return (
-		
+  <div>
 		<Container className={classes.Container} {...rest}>
 			{children}
 		</Container>
-		
+</div>
+
 	);
 };
 

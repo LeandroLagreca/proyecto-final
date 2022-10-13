@@ -2,7 +2,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Routes from './Routes';
 import './App.css';
 //editar home
+
 import MainHome from "./pages/MainHome";
+
 import Detail from "./pages/Detail";
 import Login from './screens/Login';
 import { useState } from 'react';
@@ -22,6 +24,7 @@ function App() {
 	return (
 		<BrowserRouter>
 		{user ? <MainHome /> : <Login />}
+
 			<Routes />
 		</BrowserRouter>
 	);
