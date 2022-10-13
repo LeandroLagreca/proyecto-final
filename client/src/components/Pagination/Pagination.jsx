@@ -6,7 +6,7 @@ import { getGames } from '../../redux/actions/videoGame';
 
 
 const Paginated = () => {
-    const allGames = useSelector((state) => state.videogames.games)
+    const allGames = useSelector((state) => state.videogames.filterGames);
 
 //     j
 
