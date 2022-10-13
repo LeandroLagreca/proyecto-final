@@ -139,7 +139,7 @@ const updateVideogame = async (req, res) => {
 const getGenres = async (req, res) => {
   try {
     const data = await Genre.findAll();
-    console.log(data);
+    
     if (data.length === 0) {
       const response = await axios.get(
         `https://api.rawg.io/api/genres?key=${API_KEY}`
