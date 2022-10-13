@@ -18,7 +18,7 @@ const userSlice = createSlice({
 				const alreadyIs = state.cartList.some(el => el.id === payload.id);
 				if(!alreadyIs) {
 					state.cartList = [...state.cartList, payload]
-					const parseCart = JSON.stringify([...state.cartList, payload])
+					const parseCart = JSON.stringify([...state.cartList])
 					localStorage.setItem('cartList', parseCart)
 				} else {
 					return
@@ -32,5 +32,5 @@ const userSlice = createSlice({
     }
 })
 
-export const { getAllGames, getGamesById } = userSlice.actions
+export const { getAllGames, getGamesById, addToCart } = userSlice.actions
 export default userSlice.reducer
