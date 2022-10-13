@@ -12,19 +12,24 @@ const Wishes = () => {
     
     return(
         <div>
-            {
-            wishes.map((e, index) => {
-                return(
-                    <Box key={index}>
-                        <ul style={{  display: "flex", flexWrap: "wrap", justifyContent:"center", listStyle: "none"}} >
-                            <li >{<Card name={e.name} description={e.description} background_image={e.background_image} price={e.price} />}
-                            <Button size="small" onClick={() => {dispatch(removeToWishes(e.name))}}>delete from favorites</Button>
-                            </li>
-                        </ul>
-                    </Box>
-                    )
-            })
-            }
+            <Box
+            display= "flex"
+            flexDirection={"row"}
+            >
+                {
+                wishes.map((e, index) => {
+                    return(
+                        <Box key={index}>
+                            <ul style={{  display: "flex", flexWrap: "wrap", justifyContent:"center", listStyle: "none"}} >
+                                <li >{<Card name={e.name} description={e.description} background_image={e.background_image} price={e.price} />}
+                                
+                                </li>
+                            </ul>
+                        </Box>
+                        )
+                })
+                }
+            </Box>
         </div>
     )
 }

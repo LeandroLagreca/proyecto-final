@@ -27,21 +27,20 @@ module.exports = (sequelize) => {
     },
     description: {
       type: DataTypes.TEXT,
+      defaultValue: null,
     },
     released: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
+      type: DataTypes.STRING,
+      defaultValue: null,
     },
     price: {
       type: DataTypes.STRING,
+      defaultValue: null,
     },
     images: {
       type: DataTypes.TEXT,
     },
-    requirements_minimum: {
-      type: DataTypes.TEXT,
-    },
-    requirements_recommended: {
+    requirements: {
       type: DataTypes.TEXT,
     },
 
