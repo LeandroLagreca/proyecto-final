@@ -3,11 +3,14 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getDetails, addWishes } from "../redux/actions/videoGame";
-import { Button, Typography, Container, Box } from "@mui/material";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { Button, Typography, Container, Box, Checkbox,  } from "@mui/material";
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
 import Carousel from "react-material-ui-carousel";
 import "./Detail.css";
 import Item from "../components/Items/Item";
+
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 export default function Detail() {
   const gameDetail = useSelector((state) => state.videogames.details);
@@ -108,6 +111,9 @@ export default function Detail() {
               className="nombrePrecio"
               sx={{ border: "1px dashed grey" }}
             >
+        <Box>
+      
+    </Box>
               <Typography padding={1} variant="h5" component="div">
                 {gameDetail.name}
               </Typography>
@@ -119,7 +125,22 @@ export default function Detail() {
               <Button variant="contained">Comprar</Button>
             </Box>
             <Box>
-              <FavoriteBorderIcon />
+            <Checkbox 
+            {...label} 
+            icon={<FavoriteBorder />} 
+            checkedIcon={<Favorite />} 
+        size="small"
+        onClick={() => {
+          dispatch(
+            addWishes({
+              name: gameDetail.name,
+              description: gameDetail.description,
+              background_image: gameDetail.background_image,
+              price: gameDetail.price,
+            })
+          );
+        }}
+      ></Checkbox>
             </Box>
           </Box>
           <Box
@@ -196,21 +217,7 @@ export default function Detail() {
         </Box>
       </Box>
       <Box sx={{ border: "1px dashed grey" }}>RESEÑAS</Box>
-      <Button
-        size="small"
-        onClick={() => {
-          dispatch(
-            addWishes({
-              name: gameDetail.name,
-              description: gameDetail.description,
-              background_image: gameDetail.background_image,
-              price: gameDetail.price,
-            })
-          );
-        }}
-      >
-        Add to wishes
-      </Button>
+      
     </Container>
   );
 }
