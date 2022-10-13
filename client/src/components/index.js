@@ -4,3 +4,4 @@ export { default as Navbar } from './Navbar/Navbar';
 export { default as Loader } from './Loader/Loader';
 export { default as LandingForm } from './LandingForm';
 export { default as AdminNavBar } from './AdminNavBar';
+export { default as AddToCartButton } from './AddToCartBtn'
