@@ -9,6 +9,7 @@ const HomeContainer = ({ children, ...rest }) => {
 	const classes = useStyles();
 
 	return (
+		<div>
 		<div> Home
 		<button onClick={()=> signOut(auth)} >
 			</button>
@@ -17,6 +18,7 @@ const HomeContainer = ({ children, ...rest }) => {
 		<Container className={classes.Container} {...rest}>
 			{children}
 		</Container>
+		</div>
 	);
 };
 

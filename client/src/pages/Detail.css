@@ -1,0 +1,7 @@
+.imagenDetail{
+    inset: 0px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    overflow: hidden;
+}
