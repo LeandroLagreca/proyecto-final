@@ -1,9 +1,6 @@
 import React from "react";
-import {Card, CardActions, CardContent, CardMedia, Button,Typography, Checkbox} from "@mui/material";
-import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
-import Favorite from '@mui/icons-material/Favorite';
-import { useSelector, useDispatch } from "react-redux";
-import { addWishes } from "../../redux/actions/videoGame";
+import {Card, CardActions, CardContent, CardMedia, Button,Typography,} from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -24,6 +21,7 @@ var descriptionFilter = "";
       <CardMedia
         component="img"
         alt="gameCard"
+        width={190}
         height="140"
         image={background_image}
       />
@@ -33,9 +31,6 @@ var descriptionFilter = "";
         </Typography>
         <Typography variant="h6" color="text.primary">
           {price}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {descriptionFilter} . . .
         </Typography>
       </CardContent>
       <CardActions>
@@ -57,7 +52,9 @@ var descriptionFilter = "";
         }}
         ></Checkbox>
         <Button size="small">Buy</Button>
-        <Button size="small">More Detail</Button>
+        <NavLink to={`/detail/${id}`}>
+        <Button variant="contained" size="small">More Detail</Button>
+        </NavLink>
       </CardActions>
     </Card>
   );
