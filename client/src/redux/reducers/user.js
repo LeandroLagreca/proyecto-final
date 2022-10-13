@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const cartList = JSON.parse(localStorage.getItem('cartList')) || []
+const cartList = localStorage.getItem('cartList') ? JSON.parse(localStorage.getItem('cartList')) : []
 
 const initialState = {
 	role: 'guest',
