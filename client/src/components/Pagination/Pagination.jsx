@@ -2,21 +2,17 @@ import { Pagination, Box } from '@mui/material';
 import {React, useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import Card from '../Cards/Card';
-import { getGames } from '../../redux/actions/videoGame';
+
 
 
 const Paginated = () => {
-    const allGames = useSelector((state) => state.videogames.games)
-
-//     j
-
-    
-    const dispatch = useDispatch()
+    const allGames = useSelector((state) => state.videogames.games);
+    const dispatch = useDispatch();
     const [page, setPage] = useState(1);
     const [gamesPerPage, setGamesPerPage] = useState(5);
     const indexOfLastGame = gamesPerPage * page; // 10
-    const indexOfFirtsGame = indexOfLastGame - gamesPerPage // 0
-    const currentGames = allGames.slice(indexOfFirtsGame, indexOfLastGame)
+    const indexOfFirtsGame = indexOfLastGame - gamesPerPage; // 0
+    const currentGames = allGames.slice(indexOfFirtsGame, indexOfLastGame);
     
     
     // let pageNumbers = 0;
@@ -30,13 +26,6 @@ const Paginated = () => {
         setGamesPerPage(5)
         setPage(p)
     }
-    
-    // useEffect(() => {
-    //     dispatch(getGames())
-    // })
-    
-    
-    
     
     return(
         <div style={{textAling: "center", justifyContent: "center"}} >

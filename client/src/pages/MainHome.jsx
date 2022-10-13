@@ -18,7 +18,7 @@ const MainHome = () => {
     <div>
       <Home />
       <About />
-      <Cards games={games}/>
+      {/* saco el renderizado de cards directo en el home */}
       <Paginated/>
     </div>
   );

@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 	games: [],
-	details: {}
+	details: {},
+	
 }
 
 const videoGameSlice = createSlice({
@@ -14,8 +15,9 @@ const videoGameSlice = createSlice({
 			},
 			getGameById: (state, { payload }) => {
 				state.details = payload
-			}
-    }
+			},
+			
+		}
 })
 
 export const { getAllGames, getGameById } = videoGameSlice.actions

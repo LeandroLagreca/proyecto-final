@@ -1,7 +1,11 @@
 import React from "react";
 import {Card, CardActions, CardContent, CardMedia, Button,Typography,} from "@mui/material";
+import { addWishes } from "../../redux/actions/videoGame";
+import { useDispatch } from "react-redux";
 
 export default function MainCard({ name, description, background_image, price, id}) {
+
+  const dispatch = useDispatch()
   
 var descriptionFilter = "";
   function descFilter() {   //Agrego una funcion que me acorte la descripcion, ya que me la trae muy larga de la API, en detalle se podra ver completa
@@ -29,6 +33,7 @@ var descriptionFilter = "";
         </Typography>
       </CardContent>
       <CardActions>
+        
         <Button size="small">Buy</Button>
         <Button size="small">More Detail...</Button>
       </CardActions>

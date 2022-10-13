@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getAllGames, getGameById } from "../reducers/videoGame";
+import { getAllGames, getGameById, } from "../reducers/videoGame";
 
 const API = "http://localhost:3001/";
 
@@ -24,3 +24,6 @@ export const getDetails = (id) =>
         return
     }
 };
+
+
+
