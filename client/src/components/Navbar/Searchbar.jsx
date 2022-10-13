@@ -4,6 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/material/styles';
 import Card from '../Cards/Card';
 import { useDispatch, useSelector } from 'react-redux';
+import { setFilterBySearch } from '../../redux/actions/videoGame';
 
 const Search = styled('div')(({ theme }) => ({
 	position: 'relative',
@@ -45,11 +46,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 	},
 }));
 
-const Searchbar = ({setInput, input}) => {
-
+const Searchbar = ({ setInput, input }) => {
+	const dispatch = useDispatch();
+	const games = useSelector((state) => state.videogames.games);
 
 	const handleInputChange = (e) => {
 		setInput(e.target.value);
+		dispatch(setFilterBySearch(games, e.target.value));
 		console.log(e.target.value);
 	};
 

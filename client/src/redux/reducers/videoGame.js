@@ -28,7 +28,10 @@ const videoGameSlice = createSlice({
 		},
 		filterByType: (state, { payload }) => {
 			state.filterGames = payload;
-		}
+		},
+		filterBySearch: (state, { payload }) => {
+			state.filterGames = payload;
+		},
 	},
 });
 
@@ -39,6 +42,7 @@ export const {
 	filterByRating,
 	filterByGenere,
 	filterByType,
+	filterBySearch,
 } = videoGameSlice.actions;
 
 export default videoGameSlice.reducer;

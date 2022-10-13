@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { videogameCodeoPost, videogameCodeoByID, allDataCodeoVideogames } = require('../controllers/hardcodeo.js');
+const { videogameCodeoPost, videogameCodeoByID, allDataCodeoVideogames,getGenres,updateVideogame } = require('../controllers/hardcodeo.js');
 const axios = require('axios');
 const { allDataUser, UserByID, UserPost, UserEliminated, UserUpdate } = require('../controllers/User.js');
 const router = Router();
@@ -11,9 +11,11 @@ router.post("/videogames", videogameCodeoPost)
 
 router.get("/videogames", allDataCodeoVideogames)
 
+router.get("/genres",getGenres)
 router.get("/user", allDataUser);
 router.post('/user', UserPost);
 router.get('/user/:id', UserByID);
 router.delete('/user/:id', UserEliminated);
 router.put('/user/:id', UserUpdate);
+router.put('/modify/:id',updateVideogame)
 module.exports = router;

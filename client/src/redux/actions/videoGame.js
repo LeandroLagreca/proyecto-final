@@ -6,6 +6,7 @@ import {
 	filterByRating,
 	filterByGenere,
 	filterByType,
+	filterBySearch,
 } from '../reducers/videoGame';
 
 const API = 'http://localhost:3001/';
@@ -83,4 +84,10 @@ export const setFilterByType = (games, type) => (dispatch) => {
 	dispatch(filterByType(gamesFilter));
 };
 
-export const filterBySearch = (games, input) => {};
+export const setFilterBySearch = (games, input) => (dispatch) => {
+	const gamesCopy = [...games];
+	const gamesFilter = gamesCopy.filter((game) =>
+		game.name.toLowerCase().includes(input.toLowerCase())
+	);
+	dispatch(filterBySearch(gamesFilter));
+};

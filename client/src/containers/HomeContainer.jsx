@@ -2,13 +2,17 @@ import React from 'react';
 import { Container } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
+
 const HomeContainer = ({ children, ...rest }) => {
 	const classes = useStyles();
 
 	return (
+  <div>
 		<Container className={classes.Container} {...rest}>
 			{children}
 		</Container>
+</div>
+
 	);
 };
 

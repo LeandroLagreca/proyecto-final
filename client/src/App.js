@@ -1,15 +1,12 @@
-import { BrowserRouter,Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import Routes from './Routes';
 import './App.css';
-import Detail from "./pages/Detail"
+//editar home
 
 function App() {
 	return (
-		<BrowserRouter >
-			<Routes>
-			
-			</Routes>
-
+		<BrowserRouter>
+			<Routes />
 		</BrowserRouter>
 	);
 }
