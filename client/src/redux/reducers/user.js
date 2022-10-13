@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const cartList = JSON.parse(localStorage.getItem('cartList')) || []
+const cartList = localStorage.getItem('cartList') ? JSON.parse(localStorage.getItem('cartList')) : []
 
 const initialState = {
 	role: 'guest',
@@ -15,9 +15,14 @@ const userSlice = createSlice({
 				state.role = payload
 			},
 			addToCart: (state, { payload }) => {
-				state.cartList = [...state.cartList, payload]
-				const parseCart = JSON.stringify([...state.cartList, payload])
-				localStorage.setItem('cartList', parseCart)
+				const alreadyIs = state.cartList.some(el => el.id === payload.id);
+				if(!alreadyIs) {
+					state.cartList = [...state.cartList, payload]
+					const parseCart = JSON.stringify([...state.cartList])
+					localStorage.setItem('cartList', parseCart)
+				} else {
+					return
+				}
 			},
 			deleteFromCart: (state, { payload }) => {
 				state.cartList = state.cartList.filter(prod => prod.id !== payload)
@@ -27,5 +32,5 @@ const userSlice = createSlice({
     }
 })
 
-export const { getAllGames, getGamesById } = userSlice.actions
+export const { addToCart, deleteFromCart } = userSlice.actions
 export default userSlice.reducer

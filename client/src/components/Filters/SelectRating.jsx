@@ -1,43 +1,36 @@
 import * as React from 'react';
 import InputLabel from '@mui/material/InputLabel';
+import { useSelector, useDispatch } from 'react-redux';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
+import { setFilterByRating } from '../../redux/actions/videoGame';
 
 export default function SelectRating() {
-  const [rating, setRating] = React.useState('');
+	const dispatch = useDispatch();
 
+	const [rating, setRating] = React.useState('');
 
-  const handleRating = (event) => {
-    setRating(event.target.value);
-  };
+	const games = useSelector((state) => state.videogames.games);
 
+	const handleRating = (event) => {
+		setRating(event.target.value);
+		console.log(event.target.value);
+		dispatch(setFilterByRating(games, event.target.value));
+	};
 
-  return (
-    <div>
-       <FormControl sx={{ m: 1, minWidth: 100 }}>
-
-        
-
-        <InputLabel >Rating</InputLabel>
-        <Select
-          value={rating}
-          onChange={handleRating}
-          autoWidth
-          label="Rating"
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value="alto">Alto</MenuItem>
-          <MenuItem value="bajo">Bajo</MenuItem>
-        </Select>
-
-
-      </FormControl>
-    </div>
-    
-  );
+	return (
+		<div>
+			<FormControl sx={{ m: 1, minWidth: 100 }}>
+				<InputLabel>Rating</InputLabel>
+				<Select value={rating} onChange={handleRating} autoWidth label="Rating">
+					<MenuItem value="">
+						<em>None</em>
+					</MenuItem>
+					<MenuItem value="desc">Alto</MenuItem>
+					<MenuItem value="asc">Bajo</MenuItem>
+				</Select>
+			</FormControl>
+		</div>
+	);
 }
-

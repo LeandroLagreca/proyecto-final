@@ -5,3 +5,21 @@
     overflow: hidden;
     Clip-path: inset(0px 0px 0px 0px);
 }
+
+.smallImages{
+display: flex;
+justify-content: center
+}
+
+.small{
+    display: flex;
+    margin-right: 30px;
+    border-radius: 5px;
+    opacity: 60%;
+}
+
+.small:hover {
+    opacity: 100%;
+    height: 60px;
+    width: 100px;
+  }
