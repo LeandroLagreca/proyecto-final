@@ -4,8 +4,11 @@ const initialState = {
 	games: [],
 	filterGames: [],
 	details: {},
-  wishes: [],
+  	wishes: [],
 };
+
+
+
 
 const videoGameSlice = createSlice({
 	name: 'videogames',
@@ -34,8 +37,8 @@ const videoGameSlice = createSlice({
 			state.filterGames = payload;
 		},
     
-    addToWishes: (state, { payload }) => {
-				state.wishes = [...state.wishes, payload]
+    	addToWishes: (state, { payload }) => {
+				state.wishes =  [...state.wishes, payload]
 		},
 		removeToWishes: (state, { payload }) => {
 				state.wishes = state.wishes.filter(((e) => e.name !== payload))
@@ -89,3 +92,7 @@ export default videoGameSlice.reducer;
 // export const { getAllGames, getGameById, filterByPrice, addToWishes, removeToWishes } = videoGameSlice.actions
 // export default videoGameSlice.reducer
 // >>>>>>> main
+
+
+
+// [...state.wishes, payload]

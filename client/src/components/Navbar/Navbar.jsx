@@ -159,7 +159,7 @@ const Navbar = () => {
 						</Button>
 						<Link to="/wishes">
 							<Button sx={{ my: 2, color: 'white', display: 'block' }}>
-								Favorites
+								Wish list
 							</Button>
 						</Link>
 					</Box>
