@@ -11,7 +11,7 @@
 require("dotenv").config();
 const { Router } = require("express");
 const axios = require("axios");
-const { Videogame,Genre } = require("../db");
+const { Videogame, Genre } = require("../db");
 const router = Router();
 const { API_KEY } = process.env;
 
@@ -90,27 +90,75 @@ const allDataCodeoVideogames = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-
-const getGenres=async (req,res)=> {
-    try {
-      const data = await Genre.findAll()
-      console.log(data)
-      if (data.length === 0) {
-        const response = await axios.get(`https://api.rawg.io/api/genres?key=${API_KEY}`)
-        const { results } = response.data
-        const data = results.map(genre => ({ name: genre.name }))
-        await Genre.bulkCreate(data)
-        res.send(data)
-      } else {
-        res.send(data)
-      }
-    } catch (error) {
-      console.log(error)
+const updateVideogame = async (req, res) => {
+  let { id } = req.params;
+  let {
+    name,
+    background_image,
+    rating_api,
+    rating_user,
+    description,
+    released,
+    price,
+    images,
+    requirements_minimum,
+    requirements_recommended,
+  } = req.body;
+  try {
+    let find = await Videogame.findOne({ where: { id: id } });
+    if (find) {
+      await Videogame.update(
+        {
+          name: name ? name : find.name,
+          background_image: background_image
+            ? background_image
+            : find.background_image,
+          rating_api: rating_api ? rating_api : find.rating_api,
+          rating_user: rating_user ? rating_user : find.rating_user,
+          description: description ? description : find.description,
+          released: released ? released : find.released,
+          price: price ? price : find.price,
+          images: images ? images : find.images,
+          requirements_minimum: requirements_minimum
+            ? requirements_minimum
+            : find.requirements_minimum,
+          requirements_recommended: requirements_recommended
+            ? requirements_recommended
+            : find.requirements_recommended,
+        },
+        { where: { id: id } }
+      );
+      return res.send({ msg: "Updated successfully" });
     }
+    res.send({ msg: "Videogame doesn't exist" });
+  } catch (error) {
+    console.log(error);
   }
+};
+
+const getGenres = async (req, res) => {
+  try {
+    const data = await Genre.findAll();
+    console.log(data);
+    if (data.length === 0) {
+      const response = await axios.get(
+        `https://api.rawg.io/api/genres?key=${API_KEY}`
+      );
+      const { results } = response.data;
+      const data = results.map((genre) => ({ name: genre.name }));
+      await Genre.bulkCreate(data);
+      res.send(data);
+    } else {
+      res.send(data);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 module.exports = {
   videogameCodeoPost,
   videogameCodeoByID,
   allDataCodeoVideogames,
-  getGenres
+  getGenres,
+  updateVideogame
 };
