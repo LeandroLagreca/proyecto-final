@@ -13,6 +13,7 @@ export default function AddToCartButton({ id, price, name, picture }) {
   useEffect(() => {
 		const find = cartList.some(el => el.id === id);
 		if(find) setAlreadyIs(true)
+		else setAlreadyIs(false)
 	}, [cartList, id]);
 
   function handleAdd() {
@@ -32,7 +33,7 @@ export default function AddToCartButton({ id, price, name, picture }) {
   return (
 		<>
 			{
-				alreadyIs 
+				!alreadyIs 
 					? (
 						<IconButton onClick={handleAdd}>
 							<AddShoppingCart/>

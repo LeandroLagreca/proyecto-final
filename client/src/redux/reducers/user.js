@@ -32,5 +32,5 @@ const userSlice = createSlice({
     }
 })
 
-export const { getAllGames, getGamesById, addToCart } = userSlice.actions
+export const { addToCart, deleteFromCart } = userSlice.actions
 export default userSlice.reducer
