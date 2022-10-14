@@ -114,7 +114,8 @@ export const setFilterByRating = (games, order) => (dispatch) => {
 
 export const setFilterByGenere = (games, genere) => (dispatch) => {
 	const gamesCopy = [...games];
-	const gamesFilter = gamesCopy.filter((game) => game.generes.includes(genere));
+	var gamesFilter = [];
+	gamesFilter = gamesCopy.filter((game) => game.genres.includes(genere));
 	dispatch(filterByGenere(gamesFilter));
 	dispatch(changePage(1))
 };
