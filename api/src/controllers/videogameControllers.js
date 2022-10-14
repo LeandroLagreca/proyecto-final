@@ -48,7 +48,6 @@ const allDataVideogames = async (req, res) => {
             rawgUrl2 = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=2`);
         }
         rawgUrl = rawgUrl.data.results.concat(rawgUrl2.data.results);
-        console.log(rawgUrl)
 
         const apiInfo = await rawgUrl.map((e) => {
             let forPC = e.platforms.map(element=> {
