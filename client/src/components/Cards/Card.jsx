@@ -1,16 +1,16 @@
 import React from "react";
 import {Card, CardActions, CardContent, CardMedia, Button,Typography,Checkbox} from "@mui/material";
-import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector, } from "react-redux";
 import { addWishes, removeWishes } from "../../redux/actions/videoGame";
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Favorite from "@mui/icons-material/Favorite";
 import { useState, useEffect } from "react";
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 
-export default function MainCard({ name, description, background_image, price, id}) {
+export default function MainCard({ name, background_image, price, id}) {
   const wishes = useSelector((state) => state.videogames.wishes)
   const [already, setAlreadyIs] = useState(false);
   const dispatch = useDispatch()
@@ -39,19 +39,18 @@ export default function MainCard({ name, description, background_image, price, i
 //   descFilter();
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, height:300 }}>
       <CardMedia
         component="img"
         alt="gameCard"
-        width={190}
-        height="140"
+        height="150"
         image={background_image}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom sx={{ fontWeight: 600 }} variant="subtitle1" component="div">
           {name}
         </Typography>
-        <Typography variant="h6" color="text.primary">
+        <Typography variant="subtitle2" color="text.primary">
           {price}
         </Typography>
       </CardContent>
@@ -59,7 +58,7 @@ export default function MainCard({ name, description, background_image, price, i
         {
           already ? <Button size="small" onClick={() => {
             dispatch(removeWishes(name))
-          }} ><DeleteIcon></DeleteIcon></Button>
+          }} ><Favorite ></Favorite ></Button>
           : <Checkbox 
 
           {...label} 
@@ -69,15 +68,12 @@ export default function MainCard({ name, description, background_image, price, i
           }} 
           
           size="small"
-         
       ></Checkbox>
-          
         }
-        
         <Button size="small">Buy</Button>
-        <NavLink to={`/detail/${id}`}>
-          <Button variant="contained" size="small">More Detail</Button>
-        </NavLink>
+        <Button variant="outlined" size="small" href={`/detail/${id}`}>
+          Detail
+        </Button>
       </CardActions>
     </Card>
   );

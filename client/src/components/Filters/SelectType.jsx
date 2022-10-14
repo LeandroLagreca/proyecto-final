@@ -16,19 +16,20 @@ export default function SelectType() {
 	// Se comento el dispatch para que no se rompa el codigo, se esta esperando que se cree este campo en la data de la API
 	const handleType = (event) => {
 		setType(event.target.value);
-		// dispatch(setFilterByType(games, event.target.value));
+		console.log(event.target.value);
+		 dispatch(setFilterByType(games, event.target.value));
 	};
 
 	return (
 		<div>
 			<FormControl sx={{ m: 1, minWidth: 100 }}>
-				<InputLabel>Type</InputLabel>
+				<InputLabel>A-Z</InputLabel>
 				<Select value={type} onChange={handleType} autoWidth label="Type">
 					<MenuItem value="">
 						<em>None</em>
 					</MenuItem>
-					<MenuItem value="alto">Pago</MenuItem>
-					<MenuItem value="bajo">Gratis</MenuItem>
+					<MenuItem value="asc">A/z</MenuItem>
+					<MenuItem value="desc">Z/a</MenuItem>
 				</Select>
 			</FormControl>
 		</div>

@@ -1,25 +1,37 @@
-.imagenDetail{
-    inset: 0px;
-    width: 100%;
-    object-fit: cover;
-    overflow: hidden;
-    Clip-path: inset(0px 0px 0px 0px);
+.imagenDetail {
+  inset: 0px;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  clip-path: inset(0px 0px 0px 0px);
 }
 
-.smallImages{
-display: flex;
-justify-content: center
+.smallImages {
+  display: flex;
+  justify-content: center;
 }
 
-.small{
-    display: flex;
-    margin-right: 30px;
-    border-radius: 5px;
-    opacity: 60%;
+.carusel {
+  border-radius: 4px;
+}
+
+.small {
+  display: flex;
+  margin-right: 30px;
+  border-radius: 5px;
+  opacity: 60%;
 }
 
 .small:hover {
-    opacity: 100%;
-    height: 60px;
-    width: 100px;
-  }
+  opacity: 100%;
+  height: 60px;
+  width: 100px;
+}
+
+.description {
+  -webkit-user-modify: read-write-plaintext-only;
+}
+
+.requeriments {
+  -webkit-user-modify: read-write-plaintext-only;
+}

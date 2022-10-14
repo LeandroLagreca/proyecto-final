@@ -3,88 +3,57 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getDetails, addWishes } from "../redux/actions/videoGame";
-import { Button, Typography, Container, Box, Checkbox,  } from "@mui/material";
-import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
-import Favorite from '@mui/icons-material/Favorite';
+import {
+  Button,
+  Typography,
+  Container,
+  Box,
+  Checkbox,
+  TextField,
+} from "@mui/material";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import Favorite from "@mui/icons-material/Favorite";
 import Carousel from "react-material-ui-carousel";
 import "./Detail.css";
 import Item from "../components/Items/Item";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
+import FormatBoldIcon from "@mui/icons-material/FormatBold";
+import FormatItalicIcon from "@mui/icons-material/FormatItalic";
+import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined';
+import LinkIcon from '@mui/icons-material/Link';
+import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
+
+
+
 
 export default function Detail() {
   const gameDetail = useSelector((state) => state.videogames.details);
   const dispatch = useDispatch();
   let { id } = useParams();
 
+  var aaa = []
+  if(gameDetail.images){
+    var images =gameDetail.images
+    aaa = images.split(",")
+  }
+
+  //Form de Reseñas
+  const [value, setValue] = React.useState("Controlled"); //Estado local
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+    console.log(aaa)
+    console.log(gameDetail)
+  };
+
   useEffect(() => {
     dispatch(getDetails(id));
   }, []);
 
-  //   useEffect(()=>{
-  //     return ()=>{
-  //       dispatch(cleanDetail())
-  //     }
-  //   },[])
-
-  const ejemplo = [
-    {
-      name: "Left 4 Dead 2",
-      background_image:
-        "https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg",
-    },
-    {
-      name: "Portal",
-      background_image:
-        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
-    },
-    {
-      name: "Grand Theft Auto V",
-      background_image:
-        "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
-    },
-
-    {
-      name: "The Witcher 3: Wild Hunt",
-      background_image:
-        "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg",
-    },
-    {
-      name: "Portal 2",
-      background_image: "https://wallpaperaccess.com/full/4334829.jpg",
-    },
-    {
-      name: "Tomb Raider (2013)",
-      background_image:
-        "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
-    },
-    {
-      name: "Borderlands 2",
-      background_image:
-        "https://media.rawg.io/media/games/588/588c6bdff3d4baf66ec36b1c05b793bf.jpg",
-    },
-    {
-      name: "Borderlands 2",
-      background_image:
-        "https://4kwallpapers.com/images/walls/thumbs_2t/8654.jpg",
-    },
-    {
-      name: "Borderlands 2",
-      background_image: "https://wallpaperaccess.com/full/917707.jpg",
-    },
-    {
-      name: "Borderlands 2",
-      background_image: "https://wallpaperaccess.com/full/4970714.jpg",
-    },
-    {
-      name: "Borderlands 2",
-      background_image: "https://wallpaperaccess.com/full/4970684.jpg",
-    },
-    {
-      name: "Borderlands 2",
-      background_image: "https://wallpaperaccess.com/full/4970671.jpg",
-    },
-  ];
 
   return (
     <Container>
@@ -111,9 +80,7 @@ export default function Detail() {
               className="nombrePrecio"
               sx={{ border: "1px dashed grey" }}
             >
-        <Box>
-      
-    </Box>
+              <Box></Box>
               <Typography padding={1} variant="h5" component="div">
                 {gameDetail.name}
               </Typography>
@@ -122,25 +89,27 @@ export default function Detail() {
               </Typography>
             </Box>
             <Box display="flex" sx={{ border: "" }}>
-              <Button variant="contained">Comprar</Button>
+              <Button variant="contained">
+                <AddShoppingCartIcon />{" "}
+              </Button>
             </Box>
             <Box>
-            <Checkbox 
-            {...label} 
-            icon={<FavoriteBorder />} 
-            checkedIcon={<Favorite />} 
-        size="small"
-        onClick={() => {
-          dispatch(
-            addWishes({
-              name: gameDetail.name,
-              description: gameDetail.description,
-              background_image: gameDetail.background_image,
-              price: gameDetail.price,
-            })
-          );
-        }}
-      ></Checkbox>
+              <Checkbox
+                {...label}
+                icon={<FavoriteBorder />}
+                checkedIcon={<Favorite />}
+                size="small"
+                onClick={() => {
+                  dispatch(
+                    addWishes({
+                      name: gameDetail.name,
+                      description: gameDetail.description,
+                      background_image: gameDetail.background_image,
+                      price: gameDetail.price,
+                    })
+                  );
+                }}
+              ></Checkbox>
             </Box>
           </Box>
           <Box
@@ -151,42 +120,11 @@ export default function Detail() {
             display="inline-block"
             sx={{ borderRadius: "4px" }}
           >
-            <Carousel>
-              {ejemplo.map((item) => (
+            <Carousel className="carusel">
+              {aaa.map((item) => (
                 <Item key={item.id} item={item} />
-              ))}
+              ))} 
             </Carousel>
-            {/* <img
-              className="imagenDetail"
-              src={gameDetail.background_image}
-              width="auto"
-              height={300}
-              alt="not found"
-            /> */}
-          </Box>
-          <Box className="smallImages" backgroundColor="#ffffff">
-            <img
-              className="small"
-              src={gameDetail.background_image}
-              width={90}
-              height={50}
-              alt="not found"
-              margin={2}
-            />
-            <img
-              className="small"
-              src={gameDetail.background_image}
-              width={90}
-              height={50}
-              alt="not found"
-            />
-            <img
-              className="small"
-              src={gameDetail.background_image}
-              width={90}
-              height={50}
-              alt="not found"
-            />
           </Box>
           <Box className="description" borderRadius={0.5}>
             <Typography
@@ -212,12 +150,27 @@ export default function Detail() {
             variant="body2"
             color="text.primary"
           >
-            {gameDetail.requirements_minimum}
+            {gameDetail.requirements}
           </Typography>
         </Box>
       </Box>
-      <Box sx={{ border: "1px dashed grey" }}>RESEÑAS</Box>
-      
+      <section>
+        <Box width={340} borderColor="blue" sx={{}}>
+          <TextField
+            onChange={handleChange}
+            id="standard-multiline-static"
+            fullWidth
+            label="Reseñas"
+            multiline
+            rows={4}
+            defaultValue="Agrega un comentario..."
+            variant="standard"
+          />
+          <Box className="postActions">
+            <AddPhotoAlternateIcon /> | <FormatBoldIcon /> <FormatItalicIcon /> <FormatUnderlinedIcon/> <LinkIcon/> <FormatQuoteIcon/>
+          </Box>
+        </Box>
+      </section>
     </Container>
   );
 }
