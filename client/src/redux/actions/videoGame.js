@@ -9,7 +9,8 @@ import {
 	filterByType,
 	filterBySearch,
 	addToWishes,
-	removeToWishes
+	removeToWishes,
+	changePage
 
 } from '../reducers/videoGame';
 
@@ -104,6 +105,7 @@ export const setFilterByRating = (games, order) => (dispatch) => {
 		}
 
 		dispatch(filterByRating(orderRating));
+		dispatch(changePage(1))
 	} catch (error) {
 		return;
 	}
@@ -114,6 +116,7 @@ export const setFilterByGenere = (games, genere) => (dispatch) => {
 	const gamesCopy = [...games];
 	const gamesFilter = gamesCopy.filter((game) => game.generes.includes(genere));
 	dispatch(filterByGenere(gamesFilter));
+	dispatch(changePage(1))
 };
 
 export const setFilterByType = (games, order) => (dispatch) => {
