@@ -26,7 +26,7 @@ const Games = () => {
 				total={totalPages}
 				current={page}
 			/>
-			<Box display="flex" flexDirection={'row'}>
+			<Box display="flex" style={{justifyContent: "center"}} flexDirection={'row'}>
 				{currentGames?.map((e, index) => {
 					return (
 						<Box key={index}>
