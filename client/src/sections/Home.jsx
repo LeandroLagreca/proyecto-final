@@ -9,22 +9,22 @@ import { Grid } from '@mui/material';
 const Home = () => {
 	return (
 		<HomeContainer id="home">
-		<div>
-		<Grid container direction="row" >
-		<Grid item xs>
-         <SelectRating/>
-		 </Grid>
-		 <Grid item xs>
-		 <SelectPrice/>
-		 </Grid>
-		 <Grid item xs>
-		 <SelectType/>
-		 </Grid>
-		 <Grid item xs>
-		 <SelectGenere/>
-		 </Grid>
-		 </Grid>	
-      </div>
+			<div>
+				<Grid container direction="row">
+					<Grid item xs>
+						<SelectRating />
+					</Grid>
+					<Grid item xs>
+						<SelectPrice />
+					</Grid>
+					<Grid item xs>
+						<SelectType />
+					</Grid>
+					<Grid item xs>
+						<SelectGenere />
+					</Grid>
+				</Grid>
+			</div>
 		</HomeContainer>
 	);
 };

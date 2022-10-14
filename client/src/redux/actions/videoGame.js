@@ -46,7 +46,7 @@ export const setFilterByPrice = (games, order) => (dispatch) => {
 	try {
 		switch (order) {
 			
-			case "":
+			case "none":
 				orderPrice = gamesCopy.filter((e) => Number(e.price.replace('$', '')));
 				break;
 
@@ -82,8 +82,8 @@ export const setFilterByRating = (games, order) => (dispatch) => {
 
 
 		switch (order) {
-			case "":
-				orderRating = gamesCopy.filter((e) => e.rating_api);
+			case "none":
+				orderRating = gamesCopy.filter((e) => e);
 				break;
 			case "1star":
 				orderRating = gamesCopy.filter((e) => e.rating_api < 2);
@@ -114,7 +114,8 @@ export const setFilterByRating = (games, order) => (dispatch) => {
 
 export const setFilterByGenere = (games, genere) => (dispatch) => {
 	const gamesCopy = [...games];
-	const gamesFilter = gamesCopy.filter((game) => game.generes.includes(genere));
+	var gamesFilter = [];
+	gamesFilter = gamesCopy.filter((game) => game.genres.includes(genere));
 	dispatch(filterByGenere(gamesFilter));
 	dispatch(changePage(1))
 };
@@ -123,9 +124,10 @@ export const setFilterByType = (games, order) => (dispatch) => {
 	const gamesCopy = [...games];
 
 	try {
+
 		if (order === 'asc') {
 			gamesCopy.sort((a, b) => a.name.localeCompare(b.name));
-		} else {
+		} if (order === 'desc') {
 			gamesCopy.sort((a, b) => b.name.localeCompare(a.name));
 		}
 

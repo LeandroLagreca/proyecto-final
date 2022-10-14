@@ -1,9 +1,9 @@
 import React from 'react'
 import { Container } from '@mui/material'
 
-export default function AdminContainer({children, ...props}) {
+export default function UsersContainer({children}) {
   return (
-    <Container {...props}>
+    <Container>
         {children}
     </Container>
   )

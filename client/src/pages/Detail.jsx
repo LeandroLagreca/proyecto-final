@@ -2,7 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getDetails, addWishes } from "../redux/actions/videoGame";
+import { getDetails } from "../redux/actions/videoGame";
+import { AddToWishes } from "../components";
 import {
   Button,
   Typography,
@@ -10,6 +11,8 @@ import {
   Box,
   Checkbox,
   TextField,
+  Paper,
+  IconButton
 } from "@mui/material";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
@@ -23,22 +26,17 @@ import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined';
 import LinkIcon from '@mui/icons-material/Link';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
-
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
-
-
-
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 export default function Detail() {
   const gameDetail = useSelector((state) => state.videogames.details);
   const dispatch = useDispatch();
   let { id } = useParams();
 
-  var aaa = []
+  var imgCarousel = []
   if(gameDetail.images){
     var images =gameDetail.images
-    aaa = images.split(",")
+    imgCarousel = images.split(",")
   }
 
   //Form de Reseñas
@@ -46,8 +44,7 @@ export default function Detail() {
 
   const handleChange = (event) => {
     setValue(event.target.value);
-    console.log(aaa)
-    console.log(gameDetail)
+    console.log(value)
   };
 
   useEffect(() => {
@@ -57,17 +54,18 @@ export default function Detail() {
 
   return (
     <Container>
+      <Paper elevation={8} sx={{padding:2}}>
       <Box display="flex" alignItems="flex-start" className="boxDivisor">
         <Box
           className="containerNombreImagenDescription"
-          backgroundColor="#e3f2fd"
+          backgroundColor="secondary.main"
           width={650}
           borderRadius={3}
           sx={{ border: "grey" }}
         >
           <Box
             display="flex"
-            backgroundColor="#90caf9"
+            backgroundColor="primary.main"
             borderRadius={1}
             sx={{
               borderColor: "#42a5f5",
@@ -81,10 +79,10 @@ export default function Detail() {
               sx={{ border: "1px dashed grey" }}
             >
               <Box></Box>
-              <Typography padding={1} variant="h5" component="div">
+              <Typography  padding={1} variant="h5" color={"white"} component="div">
                 {gameDetail.name}
               </Typography>
-              <Typography variant="h6" color="text.primary">
+              <Typography variant="h6" color={"white"} >
                 {gameDetail.price}
               </Typography>
             </Box>
@@ -94,22 +92,12 @@ export default function Detail() {
               </Button>
             </Box>
             <Box>
-              <Checkbox
-                {...label}
-                icon={<FavoriteBorder />}
-                checkedIcon={<Favorite />}
-                size="small"
-                onClick={() => {
-                  dispatch(
-                    addWishes({
-                      name: gameDetail.name,
-                      description: gameDetail.description,
-                      background_image: gameDetail.background_image,
-                      price: gameDetail.price,
-                    })
-                  );
-                }}
-              ></Checkbox>
+            <AddToWishes 
+              id={id}
+              name={gameDetail.name} 
+              image={gameDetail.background_image}
+              price={gameDetail.price}
+            />
             </Box>
           </Box>
           <Box
@@ -121,12 +109,12 @@ export default function Detail() {
             sx={{ borderRadius: "4px" }}
           >
             <Carousel className="carusel">
-              {aaa.map((item) => (
+              {imgCarousel.map((item) => (
                 <Item key={item.id} item={item} />
               ))} 
             </Carousel>
           </Box>
-          <Box className="description" borderRadius={0.5}>
+          <Box className="description" borderRadius={0.5} sx={{padding: 1}}>
             <Typography
               variant="body2"
               textAlign="justify"
@@ -136,17 +124,18 @@ export default function Detail() {
             </Typography>
           </Box>
         </Box>
-        <Box className="requeriments" margin={1} sx={{ borderRadius: "10" }}>
+        <Box className="requeriments" margin={1.5} sx={{ borderRadius: 1, padding: 1 }}>
           <Typography
             borderRadius={0.5}
-            backgroundColor="#90caf9"
-            variant="body2"
-            color="text.primary"
+            backgroundColor="primary.main"
+            variant="body1"
+            color="white"
           >
-            Requerimientos del sistema
+            Requeriments
           </Typography>
           <Typography
-            backgroundColor="#e3f2fd"
+          sx={{ borderRadius: 2 }}
+            backgroundColor="secondary.main"
             variant="body2"
             color="text.primary"
           >
@@ -154,8 +143,13 @@ export default function Detail() {
           </Typography>
         </Box>
       </Box>
+        </Paper>
       <section>
-        <Box width={340} borderColor="blue" sx={{}}>
+        <Box className="newComment">
+        <Box>
+          <AccountBoxIcon sx={{ fontSize: 50 }}/>
+        </Box>
+        <Box width={340} sx={{bgcolor: 'secondary.main',borderColor: 'primary.main', border: 1, borderRadius: 1, display: "inline-block"}}>
           <TextField
             onChange={handleChange}
             id="standard-multiline-static"
@@ -163,12 +157,15 @@ export default function Detail() {
             label="Reseñas"
             multiline
             rows={4}
-            defaultValue="Agrega un comentario..."
+            placeholder="Agrega un comentario..."
             variant="standard"
           />
-          <Box className="postActions">
-            <AddPhotoAlternateIcon /> | <FormatBoldIcon /> <FormatItalicIcon /> <FormatUnderlinedIcon/> <LinkIcon/> <FormatQuoteIcon/>
+          <Box className="postActions"  sx={{bgcolor: '#90caf9', borderColor: 'secondary.main', border: 1}}>
+            <Box className="iconsComment">
+            <IconButton><AddPhotoAlternateIcon opacity={30}/></IconButton> | <IconButton><FormatBoldIcon /></IconButton > <IconButton><FormatItalicIcon /> </IconButton><IconButton><FormatUnderlinedIcon/> </IconButton><IconButton><LinkIcon/></IconButton> <IconButton><FormatQuoteIcon/></IconButton>
+            </Box>
           </Box>
+        </Box>
         </Box>
       </section>
     </Container>
