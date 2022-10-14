@@ -5,17 +5,20 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { setFilterByPrice } from '../../redux/actions/videoGame';
+import { useState } from 'react';
 
 export default function SelectPrice() {
 	const dispatch = useDispatch();
 	// const filterGames = useSelector((state) => state.videogames.filterGames);
 	const games = useSelector((state) => state.videogames.games);
-
 	const [price, setPrice] = React.useState('');
+	const page = useSelector(state => state.videogames.page)
+	const [currentPage, setCurrentPage] = useState(page)
 
 	const handlePrice = (event) => {
 		setPrice(event.target.value);
 		dispatch(setFilterByPrice(games, event.target.value));
+		setCurrentPage(1);
 	};
 
 	return (
@@ -23,7 +26,7 @@ export default function SelectPrice() {
 			<FormControl sx={{ m: 1, minWidth: 100 }}>
 				<InputLabel>Price</InputLabel>
 				<Select value={price} onChange={handlePrice} autoWidth label="Price">
-					<MenuItem value="">
+					<MenuItem value="none">
 						<em>None</em>
 					</MenuItem>
 					<MenuItem value="5">Hasta $5</MenuItem>
