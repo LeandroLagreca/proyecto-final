@@ -2,7 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getDetails, addWishes } from "../redux/actions/videoGame";
+import { getDetails } from "../redux/actions/videoGame";
+import { AddToWishes } from "../components";
 import {
   Button,
   Typography,
@@ -25,8 +26,6 @@ import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined';
 import LinkIcon from '@mui/icons-material/Link';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function Detail() {
   const gameDetail = useSelector((state) => state.videogames.details);
@@ -92,22 +91,12 @@ export default function Detail() {
               </Button>
             </Box>
             <Box>
-              <Checkbox
-                {...label}
-                icon={<FavoriteBorder />}
-                checkedIcon={<Favorite />}
-                size="small"
-                onClick={() => {
-                  dispatch(
-                    addWishes({
-                      name: gameDetail.name,
-                      description: gameDetail.description,
-                      background_image: gameDetail.background_image,
-                      price: gameDetail.price,
-                    })
-                  );
-                }}
-              ></Checkbox>
+            <AddToWishes 
+              id={id}
+              name={gameDetail.name} 
+              image={gameDetail.background_image}
+              price={gameDetail.price}
+            />
             </Box>
           </Box>
           <Box
