@@ -1,16 +1,14 @@
 
 const { Router } = require('express');
 const axios = require('axios');
-const { Videogame } = require('../db');
+const { Videogame, Genre } = require('../db');
 const router = Router();
-const {
-    DB_USER, DB_PASSWORD, DB_HOST, API_KEY
-  } = process.env;
+const { API_KEY } = process.env;
 
 //Post
 const videogamePost = async (req, res) => {
     try {
-        const { name, background_image, rating_api, rating_user, description, released, price, images, requirements_minimum, requirements_recommended } = req.body
+        const { name, background_image, rating_api, rating_user, description, released, price, images, requirements, genres} = req.body
         const newVideogame = await Videogame.create({
             name,
             background_image,
@@ -22,6 +20,12 @@ const videogamePost = async (req, res) => {
             images,
             requirements,
         })
+
+        let genresDb = await Genre.findAll({
+            where: {name: genres}
+        })
+        newVideogame.addGenres(genresDb)
+
         res.status(200).json(newVideogame);
 
     } catch (error) {
@@ -30,61 +34,135 @@ const videogamePost = async (req, res) => {
 };
 
 
-const getApiInfo = async (req, res) => {
-    const rawgUrl =  await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);
+//Sube los datos de la api
+const allDataVideogames = async (req, res) => {
+    const {name} = req.query;
 
-    const apiInfo = await rawgUrl.data.results.map(e => {
-        let forPC = e.platforms.map(element=> {
-            if (element.platform.name == "PC") {return true}
-        })
-        if (forPC) {
-            let imgs = e.short_screenshots.map(el => {
-                return el.image;   
-            });
-            imgs = imgs.join();
+    try {
+        let rawgUrl;
+        if (name) {
+            rawgUrl = await axios.get(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}`);
+        } else {rawgUrl = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);}
 
-            let requirementsData = e.platforms.filter(function(el){
-                return el.platform.name == "PC";
+
+        const apiInfo = await rawgUrl.data.results.map((e) => {
+            let forPC = e.platforms.map(element=> {
+                if (element.platform.name == "PC") {return true}
             })
-            
+            if (forPC) {
+                let imgs = e.short_screenshots.map(el => {
+                    return el.image;
+                });
+                imgs = imgs.join();
+    
+                let requirementsData = e.platforms.filter(function(el){
+                    return el.platform.name == "PC";
+                })
 
-            return ({
-                name: e.name,
-                background_image: e.background_image,
-                rating_api: e.rating,
-                released: e.released,
-                images: imgs,
-                requirements: requirementsData[0].requirements_en,
-                id: e.id,
-            })
+                let requirements;
 
-        }
-    });
-        //console.log(apiInfo)
-        return apiInfo;
+                if (requirementsData[0] != null) {
+                    if (requirementsData[0] != undefined) {
+                        if (requirementsData[0].requirements_en != null) {
+                            if (requirementsData[0].requirements_en !== undefined) {
+                                requirements = Object.values(requirementsData[0].requirements_en)
+                                requirements = requirements.toString()
+                            }  else {requirements = null}
+                        } else {requirements = null}
+                    }  else {requirements = null}
+                }  else {requirements = null}
+
+                if (e != null) {
+                    if (e != undefined) {
+                        if (requirements != null) {
+                            if (requirements !== undefined) {
+                                requirements = requirements.toString()
+                            }
+                        }
+                    }
+                }
+
+                /*let price = await axios.get(`https://www.cheapshark.com/api/1.0/games?title=${e.name}&limit=1&exact=0`)
+                let priceUpload = null;
+        
+                if (price != null) {
+                    if (price != undefined) {
+                        if (price.data[0] != null) {
+                            if (price.data[0] != undefined) {
+                                if (price.data[0].cheapest != null) {
+                                    if (price.data[0].cheapest != undefined) {
+                                        priceUpload = price.data[0].cheapest
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }*/
+                
+        
+                /*let descriptionData = axios.get(`https://api.rawg.io/api/games/${e.id}?key=${API_KEY}`);
+        
+                let description = descriptionData.data.description;*/
+        
+                e.released = e.released.toString()
+                
+                const game = {
+                    id: e.id,   
+                    name: e.name,
+                    background_image: e.background_image,
+                    rating_api: e.rating,
+                    released: e.released,
+                    images: imgs,
+                    requirements: requirements,
+                    genres: e.genres.map((e) => e.name),
+                }
+                //description: description,
+                //price: priceUpload,
+                //console.log(game)
+                return game;
+            }
+        });
+    const dbInfo = await Videogame.findAll();
+    const apiDbInfo = apiInfo.concat(dbInfo)
+    res.status(200).send(apiDbInfo);
+
+    } catch (error) {
+        res.status(400).json({error: error.message});
+    }
 }
 
 
-const dataUpload = async (req, res) => {
-
-    const data = await getApiInfo()
-    const videogamesUploaded = [];
+//Get id
+const videogameByID = async (req, res) => {
+    const { id } = req.params;
+    
     try {
-    await data.map(async (e) => {
-        if (e != null) {
-            if (e != undefined) {
-                if (e.requirements != null) {
-                    if (e.requirements !== undefined) {
-                        e.requirements = Object.values(e.requirements)
-                        e.requirements = e.requirements.toString()
-                    }
-                }
-            }
-        }
+      if(/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(id)) {
+        const videoGameDb = await Videogame.findOne({
+          where: {
+            id: id,
+          },
+        });
+        res.json(videoGameDb);
+      } else {
+        const videoGameApiId = ( 
+            await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`)
+        ).data;
+        const price = (
+            await axios.get(`https://www.cheapshark.com/api/1.0/games?title=${videoGameApiId.name}&limit=1&exact=0`)
+        )
+        const images = (
+            await axios.get(`https://api.rawg.io/api/games?search=${videoGameApiId.name}&limit=1&exact=0&key=${API_KEY}`)
+        ).data.results[0];
 
-        let price = await axios.get(`https://www.cheapshark.com/api/1.0/games?title=${e.name}&limit=1&exact=0`)
+        let imgs = images.short_screenshots.map(el => {
+            return el.image;
+        });
+
+        imgs = imgs.join();
+
+
         let priceUpload = null;
-
         if (price != null) {
             if (price != undefined) {
                 if (price.data[0] != null) {
@@ -92,7 +170,6 @@ const dataUpload = async (req, res) => {
                         if (price.data[0].cheapest != null) {
                             if (price.data[0].cheapest != undefined) {
                                 priceUpload = price.data[0].cheapest
-                                console.log(priceUpload)
                             }
                         }
                     }
@@ -100,94 +177,29 @@ const dataUpload = async (req, res) => {
             }
         }
 
-        let descriptionData = await axios.get(`https://api.rawg.io/api/games/${e.id}?key=${API_KEY}`);
-        //let descriptionUpload = 
-        let description = descriptionData.data.description;
-
-        e.released = e.released.toString()
-
-        let game = Videogame.findOrCreate({
-            where: {
-                name: e.name,
-                background_image: e.background_image,
-                rating_api: e.rating_api,
-                released: e.released,
-                images: e.images,
-                requirements: e.requirements,
-                price: priceUpload,
-                description: description,
-            }
-        })
-
-        videogamesUploaded.push(game);
-    })
-    } catch (error) {
-        res.status(400).json({error: error.message});
-    }
-}
-
-
-const getDbInfo = async () => {
-    return await Videogame.findAll();
-}
-
-
-const getDbById = async (id) => {
-    return await Videogame.findByPk(id);
-}
-
-
-//Get id
-const videogameByID = async (req, res) => {
-    const { id } = req.params
-    try {
-        let dbVideogameById = await getDbById(id);
-        return res.status(200).json(dbVideogameById)
-    } catch {
-        return res.status(400).send('Videogame does not exist')
-    }
-}
-
-
-//Get todos los datos
-const allDataVideogames = async (req, res) => {
-    const {name} = req.query;
-    
-    const data = await dataUpload();
-    const info = await getDbInfo();
-
-    if (name !== undefined) {
-        if (name !== null) {
-            
+        const videoGameApi = {
+          name: videoGameApiId.name,
+          description: videoGameApiId.description,
+          background_image: videoGameApiId.background_image,
+          released: videoGameApiId.released,
+          rating_api: videoGameApiId.rating,
+          price: priceUpload,
+          images: imgs,
+          genres: videoGameApiId.genres.map((e) => e.name),
         }
-    }
-
-    try {
-        if (name !== undefined) {
-
-            if (name !== null) {
-                const videogameQuery = info.filter((e) => 
-                    e.name.toLowerCase().includes(name.toLowerCase())
-                );
-
-                if (videogameQuery.length === 0) {
-                    res.send("Videogame does not exist");
-                } else {
-                    res.status(200).json(videogameQuery);
-                }
-            }
-        } else { res.status(200).json(info)}
-
+        console.log(videoGameApi)
+        res.json(videoGameApi)
+      }
     } catch (error) {
-        res.status(400).json({error: error.message});
+      res.send(error);
     }
 }
 
 
+//Conseguir generos
 const getGenres = async (req, res) => {
     try {
       const data = await Genre.findAll();
-      console.log(data);
       if (data.length === 0) {
         const response = await axios.get(
           `https://api.rawg.io/api/genres?key=${API_KEY}`
@@ -200,12 +212,12 @@ const getGenres = async (req, res) => {
         res.send(data);
       }
     } catch (error) {
-      console.log(error);
+      res.status(400).send(error);
     }
-  };
+};
 
 
-  const updateVideogame = async (req, res) => {
+const updateVideogame = async (req, res) => {
     let { id } = req.params;
     let {
       name,
@@ -243,11 +255,9 @@ const getGenres = async (req, res) => {
       }
       res.send({ msg: "Videogame doesn't exist" });
     } catch (error) {
-      console.log(error);
+      res.status.send(error);
     }
-  };
-  
-
+};
 
 
 module.exports = {
