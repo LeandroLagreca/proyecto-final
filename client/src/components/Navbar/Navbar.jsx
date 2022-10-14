@@ -33,6 +33,7 @@ const styles = {
 
 const Navbar = () => {
   const [input, setInput] = React.useState("");
+  const role = useSelector(state => state.user.role)
   const videogames = useSelector((state) => state.videogames.games);
   const currentGames = videogames.filter((game) => {
     return game.name.toLowerCase().includes(input.toLowerCase());
@@ -178,7 +179,9 @@ const Navbar = () => {
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <CartWidget />
-            <IconButton
+            {
+              role !== 'guest' ? (
+                <IconButton
               size="large"
               edge="end"
               aria-label="account of current user"
@@ -189,6 +192,8 @@ const Navbar = () => {
             >
               <AccountCircle />
             </IconButton>
+              ) : ''
+            }
           </Box>
           <Divider orientation='vertical' variant='middle' flexItem sx={{marginX: 3, color: 'white'}} /> 
           <Box>
