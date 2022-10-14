@@ -40,16 +40,14 @@ const allDataVideogames = async (req, res) => {
 
     try {
         let rawgUrl;
-        let rawgUrl2
         if (name) {
             rawgUrl = await axios.get(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}&page=1`);
         } else {
             rawgUrl = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=1`);
-            rawgUrl2 = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=2`);
         }
-        rawgUrl = rawgUrl.data.results.concat(rawgUrl2.data.results);
 
-        const apiInfo = await rawgUrl.map((e) => {
+
+        const apiInfo = await rawgUrl.data.results.map((e) => {
             let forPC = e.platforms.map(element=> {
                 if (element.platform.name == "PC") {return true}
             })
@@ -86,9 +84,12 @@ const allDataVideogames = async (req, res) => {
                     }
                 }
 
-        
-                e.released = e.released.toString()
-                
+                let released;
+                if (e.released) {
+                    released = e.released.toString()
+                } else {released = null}
+
+
                 const game = {
                     id: e.id,   
                     name: e.name,
