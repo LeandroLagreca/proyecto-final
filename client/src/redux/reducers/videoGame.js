@@ -1,10 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const page = window.sessionStorage.getItem('page')
+	? JSON.parse(window.sessionStorage.getItem('page'))
+	: 1
+
 const initialState = {
 	games: [],
 	filterGames: [],
 	details: {},
   	wishes: [],
+	page
 };
 
 
@@ -36,14 +41,17 @@ const videoGameSlice = createSlice({
 		filterBySearch: (state, { payload }) => {
 			state.filterGames = payload;
 		},
-    
     	addToWishes: (state, { payload }) => {
 				state.wishes =  [...state.wishes, payload]
 		},
 		removeToWishes: (state, { payload }) => {
 				state.wishes = state.wishes.filter(((e) => e.name !== payload))
 		},
-    
+		changePage: (state, { payload }) => {
+			state.page = payload
+			const parsePage = JSON.stringify(state.page)
+			window.sessionStorage.setItem('page', parsePage)
+		}
 	},
 });
 
@@ -57,6 +65,7 @@ export const {
 	filterBySearch,
   addToWishes, 
   removeToWishes,
+  changePage
 } = videoGameSlice.actions;
 
 export default videoGameSlice.reducer;

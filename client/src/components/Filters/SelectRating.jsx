@@ -24,11 +24,14 @@ export default function SelectRating() {
 			<FormControl sx={{ m: 1, minWidth: 100 }}>
 				<InputLabel>Rating</InputLabel>
 				<Select value={rating} onChange={handleRating} autoWidth label="Rating">
-					<MenuItem value="">
+					<MenuItem value="none">
 						<em>None</em>
 					</MenuItem>
-					<MenuItem value="desc">Alto</MenuItem>
-					<MenuItem value="asc">Bajo</MenuItem>
+					<MenuItem value="1star">1⭐</MenuItem>
+					<MenuItem value="2star">2⭐⭐</MenuItem>
+					<MenuItem value="3star">3⭐⭐⭐</MenuItem>
+					<MenuItem value="4star">4⭐⭐⭐⭐</MenuItem>
+					<MenuItem value="5star">5⭐⭐⭐⭐⭐</MenuItem>
 				</Select>
 			</FormControl>
 		</div>
