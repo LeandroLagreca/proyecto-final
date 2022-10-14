@@ -35,3 +35,14 @@
 .requeriments {
   -webkit-user-modify: read-write-plaintext-only;
 }
+
+.iconsComment{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 70%;
+}
+
+.iconsComment :hover{
+  opacity: 160%;
+}

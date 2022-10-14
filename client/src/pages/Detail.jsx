@@ -26,19 +26,15 @@ import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-
-
-
-
 export default function Detail() {
   const gameDetail = useSelector((state) => state.videogames.details);
   const dispatch = useDispatch();
   let { id } = useParams();
 
-  var aaa = []
+  var imgCarousel = []
   if(gameDetail.images){
     var images =gameDetail.images
-    aaa = images.split(",")
+    imgCarousel = images.split(",")
   }
 
   //Form de Reseñas
@@ -46,8 +42,7 @@ export default function Detail() {
 
   const handleChange = (event) => {
     setValue(event.target.value);
-    console.log(aaa)
-    console.log(gameDetail)
+    console.log(value)
   };
 
   useEffect(() => {
@@ -121,7 +116,7 @@ export default function Detail() {
             sx={{ borderRadius: "4px" }}
           >
             <Carousel className="carusel">
-              {aaa.map((item) => (
+              {imgCarousel.map((item) => (
                 <Item key={item.id} item={item} />
               ))} 
             </Carousel>
@@ -155,7 +150,7 @@ export default function Detail() {
         </Box>
       </Box>
       <section>
-        <Box width={340} borderColor="blue" sx={{}}>
+        <Box width={340} sx={{backgroundColor: 'primary.dark', border: '3px primary', borderRadius: 1, display: "inline-block"}}>
           <TextField
             onChange={handleChange}
             id="standard-multiline-static"
@@ -163,11 +158,13 @@ export default function Detail() {
             label="Reseñas"
             multiline
             rows={4}
-            defaultValue="Agrega un comentario..."
+            placeholder="Agrega un comentario..."
             variant="standard"
           />
-          <Box className="postActions">
-            <AddPhotoAlternateIcon /> | <FormatBoldIcon /> <FormatItalicIcon /> <FormatUnderlinedIcon/> <LinkIcon/> <FormatQuoteIcon/>
+          <Box className="postActions"  sx={{backgroundColor: 'primary.main', borderColor: 'secondary.main', border: 1}}>
+            <Box className="iconsComment">
+            <AddPhotoAlternateIcon opacity={30}/> | <FormatBoldIcon /> <FormatItalicIcon /> <FormatUnderlinedIcon/> <LinkIcon/> <FormatQuoteIcon/>
+            </Box>
           </Box>
         </Box>
       </section>
