@@ -8,7 +8,7 @@ import {
   ListItem,
   Avatar,
   Typography,
-	Divider,
+  Divider
 } from "@mui/material";
 import { IconButton, Badge } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
@@ -50,29 +50,23 @@ export default function CartWidget() {
         anchor="right"
         PaperProps={{ sx: { width: 500, height: "max-content" } }}
       >
-        <List
-          display={'flex'}
-          flexDirection="column"
-          gap="10px"
-          sx={{ height: 500, overflowY: "scroll" }}
-        >
-          {cartList.map((el) => (
-            <ListItem alignItems="flex-start" sx={{display: 'flex', justifyContent: 'space-between', height: 'max-content', gap: 2}}>
-              <Avatar
-                variant="square"
-                src={el.picture}
-                sx={{ width: 90, height: "auto" }}
-                alt=""
-              />
-              <Box display={'flex'} flexDirection='column' justifyContent={'space-between'} width={'100%'} height={115}>
-								<Box>
-                	<Typography variant="h6">{el.name}</Typography>
-									<Typography>Cant: {el.cant}</Typography>
-								</Box>
-                <Typography textAlign={'end'}>{el.price}</Typography>
-              </Box>
-							<Divider />
-            </ListItem>
+        <List sx={{display: 'flex', flexDirection: 'column', gap: '3px', height: 500, overflowY: "scroll" }}>
+          {cartList.map((el, i) => (
+              <ListItem key={i} alignItems="flex-start" sx={{display: 'flex', justifyContent: 'space-between', height: 'max-content', gap: 2}}>
+                <Avatar
+                  variant="square"
+                  src={el.picture}
+                  sx={{ width: 90, height: "auto" }}
+                  alt=""
+                />
+                <Box display={'flex'} flexDirection={'column'} justifyContent={'space-between'} width={'100%'} height={80}>
+                  <Box>
+                    <Typography variant="h6">{el.name}</Typography>
+                  </Box>
+                  <Typography textAlign={'end'}>${el.price || 0}</Typography>
+                <Divider />
+                </Box>
+              </ListItem>
           ))}
         </List>
         <Box

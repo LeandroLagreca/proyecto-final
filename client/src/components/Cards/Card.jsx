@@ -1,20 +1,19 @@
-import React from "react";
-import {Card, CardActions, CardContent, CardMedia, Button,Typography,Checkbox} from "@mui/material";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector, } from "react-redux";
+import {Card, CardActions, CardContent, CardMedia, Button,Typography,Checkbox} from "@mui/material";
 import { addWishes, removeWishes } from "../../redux/actions/videoGame";
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
-import DeleteIcon from '@mui/icons-material/Delete';
-import { useState, useEffect } from "react";
+import Favorite from "@mui/icons-material/Favorite";
 
+import { AddToCartButton } from '../'
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
 
 
 export default function MainCard({ name, background_image, price, id}) {
   const wishes = useSelector((state) => state.videogames.wishes)
   const [already, setAlreadyIs] = useState(false);
   const dispatch = useDispatch()
-  console.log("alsdn")
-  
   const addToWishes = () => {
       dispatch(
       addWishes({
@@ -29,7 +28,7 @@ export default function MainCard({ name, background_image, price, id}) {
 		const find = wishes.some(el => el.name === name);
 		if(find) setAlreadyIs(true)
 		else setAlreadyIs(false)
-	}, [wishes, id]);
+	}, [wishes, name]);
       
 // var descriptionFilter = "";
 //   function descFilter() {   //Agrego una funcion que me acorte la descripcion, ya que me la trae muy larga de la API, en detalle se podra ver completa
@@ -38,15 +37,15 @@ export default function MainCard({ name, background_image, price, id}) {
 //   descFilter();
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, height:300 }}>
       <CardMedia
         component="img"
         alt="gameCard"
-        height="140"
+        height="150"
         image={background_image}
       />
       <CardContent>
-        <Typography gutterBottom variant="subtitle1" component="div">
+        <Typography gutterBottom sx={{ fontWeight: 600 }} variant="subtitle1" component="div">
           {name}
         </Typography>
         <Typography variant="subtitle2" color="text.primary">
@@ -57,7 +56,7 @@ export default function MainCard({ name, background_image, price, id}) {
         {
           already ? <Button size="small" onClick={() => {
             dispatch(removeWishes(name))
-          }} ><DeleteIcon></DeleteIcon></Button>
+          }} ><Favorite ></Favorite ></Button>
           : <Checkbox 
 
           {...label} 
@@ -67,14 +66,16 @@ export default function MainCard({ name, background_image, price, id}) {
           }} 
           
           size="small"
-         
       ></Checkbox>
-          
         }
-        
-        <Button size="small">Buy</Button>
+        <AddToCartButton 
+          id={id} 
+          name={name} 
+          picture={background_image}
+          price={price}
+        />
         <Button variant="outlined" size="small" href={`/detail/${id}`}>
-          Detail ...
+          Detail
         </Button>
       </CardActions>
     </Card>

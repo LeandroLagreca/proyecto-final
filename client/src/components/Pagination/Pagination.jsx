@@ -1,7 +1,7 @@
 import { Pagination } from '@mui/material';
 import { React } from 'react';
 
-const Paginated = ({ setGamesPerPage, setPage }) => {
+const Paginated = ({ setGamesPerPage, setPage, total, current }) => {
 	const Paginated = (e, p) => {
 		setGamesPerPage(5);
 		setPage(p);
@@ -15,10 +15,11 @@ const Paginated = ({ setGamesPerPage, setPage }) => {
 					textAling: 'center',
 					justifyContent: 'center',
 				}}
-				count={5}
+				count={total}
 				variant="outlined"
 				shape="rounded"
 				onChange={Paginated}
+				page={current}
 			/>
 		</div>
 	);
