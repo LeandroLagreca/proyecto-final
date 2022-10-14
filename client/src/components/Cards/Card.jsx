@@ -1,21 +1,20 @@
 import React from "react";
-import {Card, CardActions, CardContent, CardMedia, Button,Typography,Checkbox, Box, IconButton} from "@mui/material";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector, } from "react-redux";
+import {Card, CardActions, CardContent, CardMedia, Button,Typography,Checkbox, IconButton, Box} from "@mui/material";
 import { addWishes, removeWishes } from "../../redux/actions/videoGame";
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
-import DeleteIcon from '@mui/icons-material/Delete';
 import Favorite from "@mui/icons-material/Favorite";
-import { useState, useEffect } from "react";
 
+import { AddToCartButton } from '../'
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
 
 
 export default function MainCard({ name, background_image, price, id}) {
   const wishes = useSelector((state) => state.videogames.wishes)
   const [already, setAlreadyIs] = useState(false);
   const dispatch = useDispatch()
-  console.log("alsdn")
-  
   const addToWishes = () => {
       dispatch(
       addWishes({
@@ -30,7 +29,7 @@ export default function MainCard({ name, background_image, price, id}) {
 		const find = wishes.some(el => el.name === name);
 		if(find) setAlreadyIs(true)
 		else setAlreadyIs(false)
-	}, [wishes, id]);
+	}, [wishes, name]);
       
 // var descriptionFilter = "";
 //   function descFilter() {   //Agrego una funcion que me acorte la descripcion, ya que me la trae muy larga de la API, en detalle se podra ver completa
