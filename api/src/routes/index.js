@@ -12,12 +12,11 @@ router.post("/videogames", videogamePost)
 
 router.get("/videogames", allDataVideogames)
 
-router.put('/modify/:id',updateVideogame)
+router.put('/videogames/:id',updateVideogame)
 
 router.get("/genres",getGenres)
 
 //User
-
 router.get("/user", allDataUser);
 
 router.post('/user', UserPost);
@@ -27,7 +26,6 @@ router.get('/user/:id', UserByID);
 router.delete('/user/:id', UserEliminated);
 
 router.put('/user/:id', UserUpdate);
-
 
 
 
