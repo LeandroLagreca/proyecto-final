@@ -3,16 +3,23 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getDetails, addWishes } from "../redux/actions/videoGame";
-import { Button, Typography, Container, Box, Checkbox, TextField} from "@mui/material";
+import {
+  Button,
+  Typography,
+  Container,
+  Box,
+  Checkbox,
+  TextField,
+} from "@mui/material";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
 import Carousel from "react-material-ui-carousel";
 import "./Detail.css";
 import Item from "../components/Items/Item";
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-import FormatBoldIcon from '@mui/icons-material/FormatBold';
-import FormatItalicIcon from '@mui/icons-material/FormatItalic';
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
+import FormatBoldIcon from "@mui/icons-material/FormatBold";
+import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -21,17 +28,17 @@ export default function Detail() {
   const dispatch = useDispatch();
   let { id } = useParams();
 
-
   //Form de Reseñas
-  const [value, setValue] = React.useState('Controlled'); //Estado local
+  const [value, setValue] = React.useState("Controlled"); //Estado local
 
   const handleChange = (event) => {
     setValue(event.target.value);
-    console.log(value)
+    console.log(value);
   };
 
   useEffect(() => {
     dispatch(getDetails(id));
+    console.log(gameDetail);
   }, []);
 
   //   useEffect(()=>{
@@ -133,7 +140,9 @@ export default function Detail() {
               </Typography>
             </Box>
             <Box display="flex" sx={{ border: "" }}>
-              <Button variant="contained"><AddShoppingCartIcon/> </Button>
+              <Button variant="contained">
+                <AddShoppingCartIcon />{" "}
+              </Button>
             </Box>
             <Box>
               <Checkbox
@@ -167,15 +176,7 @@ export default function Detail() {
                 <Item key={item.id} item={item} />
               ))}
             </Carousel>
-            {/* <img
-              className="imagenDetail"
-              src={gameDetail.background_image}
-              width="auto"
-              height={300}
-              alt="not found"
-            /> */}
           </Box>
-        
           <Box className="description" borderRadius={0.5}>
             <Typography
               variant="body2"
@@ -205,20 +206,21 @@ export default function Detail() {
         </Box>
       </Box>
       <section>
-      <Box width={340} sx={{  }}>RESEÑAS
-      <TextField
-          onChange={handleChange}
-          id="standard-multiline-static"
-          fullWidth
-          label="Reseñas"
-          multiline
-          rows={4}
-          defaultValue="Agrega un comentario..."
-          variant="standard"
-        />
-        <Box className="postActions">
-<AddPhotoAlternateIcon/> | <FormatBoldIcon/> <FormatItalicIcon/>
-        </Box>
+        <Box width={340} sx={{}}>
+          RESEÑAS
+          <TextField
+            onChange={handleChange}
+            id="standard-multiline-static"
+            fullWidth
+            label="Reseñas"
+            multiline
+            rows={4}
+            defaultValue="Agrega un comentario..."
+            variant="standard"
+          />
+          <Box className="postActions">
+            <AddPhotoAlternateIcon /> | <FormatBoldIcon /> <FormatItalicIcon />
+          </Box>
         </Box>
       </section>
     </Container>

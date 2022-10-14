@@ -4,6 +4,7 @@ import { useDispatch, useSelector, } from "react-redux";
 import { addWishes, removeWishes } from "../../redux/actions/videoGame";
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Favorite from "@mui/icons-material/Favorite";
 import { useState, useEffect } from "react";
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -57,7 +58,7 @@ export default function MainCard({ name, background_image, price, id}) {
         {
           already ? <Button size="small" onClick={() => {
             dispatch(removeWishes(name))
-          }} ><DeleteIcon></DeleteIcon></Button>
+          }} ><Favorite ></Favorite ></Button>
           : <Checkbox 
 
           {...label} 
