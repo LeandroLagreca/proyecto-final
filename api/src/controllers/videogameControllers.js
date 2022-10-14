@@ -112,7 +112,7 @@ const allDataVideogames = async (req, res) => {
     }
 
     const apiDbInfo = apiInfo.concat(dbInfo)
-    res.status(200).send(apiDbInfo);
+    res.status(200).json(apiDbInfo);
 
     } catch (error) {
         res.status(400).json({error: error.message});
