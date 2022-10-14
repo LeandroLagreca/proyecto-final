@@ -177,12 +177,35 @@ const videogameByID = async (req, res) => {
             }
         }
 
+        let requirementsData = videoGameApiId.platforms.filter(function(el){
+            return el.platform.name == "PC";
+        })
+
+        if (requirementsData[0] != null) {
+            if (requirementsData[0] != undefined) {
+                if (requirementsData[0].requirements != null) {
+                    if (requirementsData[0].requirements !== undefined) {
+                        requirements = Object.values(requirementsData[0].requirements)
+                        requirements = requirements.toString()
+                    }  else {requirements = null}
+                } else {requirements = null}
+            }  else {requirements = null}
+        }  else {requirements = null}
+
+        if (requirements != null) {
+            if (requirements != undefined) {
+                requirements = requirements.toString()
+            }
+        }
+
+
         const videoGameApi = {
           name: videoGameApiId.name,
           description: videoGameApiId.description,
           background_image: videoGameApiId.background_image,
           released: videoGameApiId.released,
           rating_api: videoGameApiId.rating,
+          requirements: requirements,
           price: priceUpload,
           images: imgs,
           genres: videoGameApiId.genres.map((e) => e.name),
