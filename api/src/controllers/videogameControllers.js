@@ -41,8 +41,10 @@ const allDataVideogames = async (req, res) => {
     try {
         let rawgUrl;
         if (name) {
-            rawgUrl = await axios.get(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}`);
-        } else {rawgUrl = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);}
+            rawgUrl = await axios.get(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}&page=1`);
+        } else {
+            rawgUrl = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=1`);
+        }
 
 
         const apiInfo = await rawgUrl.data.results.map((e) => {
@@ -82,30 +84,12 @@ const allDataVideogames = async (req, res) => {
                     }
                 }
 
-                /*let price = await axios.get(`https://www.cheapshark.com/api/1.0/games?title=${e.name}&limit=1&exact=0`)
-                let priceUpload = null;
-        
-                if (price != null) {
-                    if (price != undefined) {
-                        if (price.data[0] != null) {
-                            if (price.data[0] != undefined) {
-                                if (price.data[0].cheapest != null) {
-                                    if (price.data[0].cheapest != undefined) {
-                                        priceUpload = price.data[0].cheapest
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }*/
-                
-        
-                /*let descriptionData = axios.get(`https://api.rawg.io/api/games/${e.id}?key=${API_KEY}`);
-        
-                let description = descriptionData.data.description;*/
-        
-                e.released = e.released.toString()
-                
+                let released;
+                if (e.released) {
+                    released = e.released.toString()
+                } else {released = null}
+
+
                 const game = {
                     id: e.id,   
                     name: e.name,
@@ -116,13 +100,17 @@ const allDataVideogames = async (req, res) => {
                     requirements: requirements,
                     genres: e.genres.map((e) => e.name),
                 }
-                //description: description,
-                //price: priceUpload,
-                //console.log(game)
+
                 return game;
             }
         });
-    const dbInfo = await Videogame.findAll();
+    
+    let dbInfo = await Videogame.findAll()
+    if (name) {
+        dbInfo = dbInfo.filter((e) => 
+        e.name.toLowerCase().includes(name.toLowerCase()))
+    }
+
     const apiDbInfo = apiInfo.concat(dbInfo)
     res.status(200).send(apiDbInfo);
 
