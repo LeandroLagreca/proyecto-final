@@ -210,6 +210,7 @@ const Navbar = () => {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+
     </Box>
   );
 };
