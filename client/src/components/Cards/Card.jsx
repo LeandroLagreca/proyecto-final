@@ -1,7 +1,7 @@
 import React from "react";
+import {Card, CardActions, CardContent, CardMedia, Button,Typography,Checkbox, Box, IconButton} from "@mui/material";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector, } from "react-redux";
-import {Card, CardActions, CardContent, CardMedia, Button,Typography,Checkbox, IconButton, Box} from "@mui/material";
+import { useDispatch, useSelector, } from "react-redux"
 import { addWishes, removeWishes } from "../../redux/actions/videoGame";
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from "@mui/icons-material/Favorite";
@@ -55,34 +55,32 @@ export default function MainCard({ name, background_image, price, id}) {
           {price}
         </Typography>
       </CardContent>
-      <Box
->
-        <CardActions>
-          {
-            already ? <IconButton 
-            arial-label="favorite"
-            onClick={() => {
-              dispatch(removeWishes(name))
-            }} >
-              <Favorite/>
-            </IconButton>
-            : <IconButton 
-            arial-label="favoriteBorder"
-            
-            onClick={() => {
-              addToWishes();
-            }} 
-            
-            
-            ><FavoriteBorder /></IconButton>
-            
-          }
-          <Button size="small">Buy</Button>
-          <Button variant="outlined" size="small" href={`/detail/${id}`}>
-            Detail
-          </Button>
-        </CardActions>
-      </Box>
+      <CardActions>
+        {
+          already ? <IconButton aria-label="Favorite" onClick={() => {
+            dispatch(removeWishes(name))
+          }} ><Favorite ></Favorite ></IconButton>
+          : <IconButton 
+          arial-label="FavoriteBorder"
+          
+          onClick={() => {
+            addToWishes();
+          }} 
+          
+          size="small"
+          ><FavoriteBorder /></IconButton>
+         
+        }
+        <AddToCartButton 
+          id={id} 
+          name={name} 
+          picture={background_image}
+          price={price}
+        />
+        <Button variant="outlined" size="small" href={`/detail/${id}`}>
+          Detail
+        </Button>
+      </CardActions>
     </Card>
   );
 }
