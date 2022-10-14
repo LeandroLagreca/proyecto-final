@@ -54,7 +54,7 @@ export default function Detail() {
 
   return (
     <Container>
-      <Paper sx={{padding:1}}>
+      <Paper elevation={8} sx={{padding:2}}>
       <Box display="flex" alignItems="flex-start" className="boxDivisor">
         <Box
           className="containerNombreImagenDescription"
@@ -124,7 +124,7 @@ export default function Detail() {
               ))} 
             </Carousel>
           </Box>
-          <Box className="description" borderRadius={0.5} sx={{}}>
+          <Box className="description" borderRadius={0.5} sx={{padding: 1}}>
             <Typography
               variant="body2"
               textAlign="justify"
@@ -134,7 +134,7 @@ export default function Detail() {
             </Typography>
           </Box>
         </Box>
-        <Box className="requeriments" margin={1.5} sx={{ borderRadius: 1 }}>
+        <Box className="requeriments" margin={1.5} sx={{ borderRadius: 1, padding: 1 }}>
           <Typography
             borderRadius={0.5}
             backgroundColor="#90caf9"
