@@ -40,12 +40,17 @@ const allDataVideogames = async (req, res) => {
 
     try {
         let rawgUrl;
+        let rawgUrl2
         if (name) {
-            rawgUrl = await axios.get(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}`);
-        } else {rawgUrl = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`);}
+            rawgUrl = await axios.get(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}&page=1`);
+        } else {
+            rawgUrl = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=1`);
+            rawgUrl2 = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=2`);
+        }
+        rawgUrl = rawgUrl.data.results.concat(rawgUrl2.data.results);
+        console.log(rawgUrl)
 
-
-        const apiInfo = await rawgUrl.data.results.map((e) => {
+        const apiInfo = await rawgUrl.map((e) => {
             let forPC = e.platforms.map(element=> {
                 if (element.platform.name == "PC") {return true}
             })
@@ -82,27 +87,6 @@ const allDataVideogames = async (req, res) => {
                     }
                 }
 
-                /*let price = await axios.get(`https://www.cheapshark.com/api/1.0/games?title=${e.name}&limit=1&exact=0`)
-                let priceUpload = null;
-        
-                if (price != null) {
-                    if (price != undefined) {
-                        if (price.data[0] != null) {
-                            if (price.data[0] != undefined) {
-                                if (price.data[0].cheapest != null) {
-                                    if (price.data[0].cheapest != undefined) {
-                                        priceUpload = price.data[0].cheapest
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }*/
-                
-        
-                /*let descriptionData = axios.get(`https://api.rawg.io/api/games/${e.id}?key=${API_KEY}`);
-        
-                let description = descriptionData.data.description;*/
         
                 e.released = e.released.toString()
                 
@@ -116,13 +100,17 @@ const allDataVideogames = async (req, res) => {
                     requirements: requirements,
                     genres: e.genres.map((e) => e.name),
                 }
-                //description: description,
-                //price: priceUpload,
-                //console.log(game)
+
                 return game;
             }
         });
-    const dbInfo = await Videogame.findAll();
+    
+    let dbInfo = await Videogame.findAll()
+    if (name) {
+        dbInfo = dbInfo.filter((e) => 
+        e.name.toLowerCase().includes(name.toLowerCase()))
+    }
+
     const apiDbInfo = apiInfo.concat(dbInfo)
     res.status(200).send(apiDbInfo);
 
