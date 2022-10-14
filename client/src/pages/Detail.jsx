@@ -10,6 +10,7 @@ import {
   Box,
   Checkbox,
   TextField,
+  Paper
 } from "@mui/material";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
@@ -23,6 +24,7 @@ import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined';
 import LinkIcon from '@mui/icons-material/Link';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -52,6 +54,7 @@ export default function Detail() {
 
   return (
     <Container>
+      <Paper sx={{padding:1}}>
       <Box display="flex" alignItems="flex-start" className="boxDivisor">
         <Box
           className="containerNombreImagenDescription"
@@ -121,7 +124,7 @@ export default function Detail() {
               ))} 
             </Carousel>
           </Box>
-          <Box className="description" borderRadius={0.5}>
+          <Box className="description" borderRadius={0.5} sx={{}}>
             <Typography
               variant="body2"
               textAlign="justify"
@@ -131,16 +134,17 @@ export default function Detail() {
             </Typography>
           </Box>
         </Box>
-        <Box className="requeriments" margin={1} sx={{ borderRadius: "10" }}>
+        <Box className="requeriments" margin={1.5} sx={{ borderRadius: 1 }}>
           <Typography
             borderRadius={0.5}
             backgroundColor="#90caf9"
-            variant="body2"
+            variant="body1"
             color="text.primary"
           >
-            Requerimientos del sistema
+            Requeriments
           </Typography>
           <Typography
+          sx={{ borderRadius: 2 }}
             backgroundColor="#e3f2fd"
             variant="body2"
             color="text.primary"
@@ -149,8 +153,13 @@ export default function Detail() {
           </Typography>
         </Box>
       </Box>
+        </Paper>
       <section>
-        <Box width={340} sx={{backgroundColor: 'primary.dark', border: '3px primary', borderRadius: 1, display: "inline-block"}}>
+        <Box className="newComment">
+        <Box>
+          <AccountBoxIcon sx={{ fontSize: 50 }}/>
+        </Box>
+        <Box width={340} sx={{bgcolor: '#e3f2fd',borderColor: 'secondary.main', border: 1, borderRadius: 1, display: "inline-block"}}>
           <TextField
             onChange={handleChange}
             id="standard-multiline-static"
@@ -161,11 +170,12 @@ export default function Detail() {
             placeholder="Agrega un comentario..."
             variant="standard"
           />
-          <Box className="postActions"  sx={{backgroundColor: 'primary.main', borderColor: 'secondary.main', border: 1}}>
+          <Box className="postActions"  sx={{bgcolor: '#90caf9', borderColor: 'secondary.main', border: 1}}>
             <Box className="iconsComment">
             <AddPhotoAlternateIcon opacity={30}/> | <FormatBoldIcon /> <FormatItalicIcon /> <FormatUnderlinedIcon/> <LinkIcon/> <FormatQuoteIcon/>
             </Box>
           </Box>
+        </Box>
         </Box>
       </section>
     </Container>

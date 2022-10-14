@@ -36,6 +36,11 @@
   -webkit-user-modify: read-write-plaintext-only;
 }
 
+.newComment{
+  display: flex;
+  justify-content: center;
+}
+
 .iconsComment{
   display: flex;
   align-items: center;
@@ -45,4 +50,8 @@
 
 .iconsComment :hover{
   opacity: 160%;
+}
+
+section{
+  margin-top: 10px;
 }
