@@ -20,91 +20,40 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import FormatBoldIcon from "@mui/icons-material/FormatBold";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
+import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined';
+import LinkIcon from '@mui/icons-material/Link';
+import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
+
+
+
 
 export default function Detail() {
   const gameDetail = useSelector((state) => state.videogames.details);
   const dispatch = useDispatch();
   let { id } = useParams();
 
+  var aaa = []
+  if(gameDetail.images){
+    var images =gameDetail.images
+    aaa = images.split(",")
+  }
+
   //Form de Reseñas
   const [value, setValue] = React.useState("Controlled"); //Estado local
 
   const handleChange = (event) => {
     setValue(event.target.value);
-    console.log(value);
+    console.log(aaa)
+    console.log(gameDetail)
   };
 
   useEffect(() => {
     dispatch(getDetails(id));
-    console.log(gameDetail);
   }, []);
 
-  //   useEffect(()=>{
-  //     return ()=>{
-  //       dispatch(cleanDetail())
-  //     }
-  //   },[])
-
-  const ejemplo = [
-    {
-      name: "Left 4 Dead 2",
-      background_image:
-        "https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg",
-    },
-    {
-      name: "Portal",
-      background_image:
-        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
-    },
-    {
-      name: "Grand Theft Auto V",
-      background_image:
-        "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
-    },
-
-    {
-      name: "The Witcher 3: Wild Hunt",
-      background_image:
-        "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg",
-    },
-    {
-      name: "Portal 2",
-      background_image: "https://wallpaperaccess.com/full/4334829.jpg",
-    },
-    {
-      name: "Tomb Raider (2013)",
-      background_image:
-        "https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg",
-    },
-    {
-      name: "Borderlands 2",
-      background_image:
-        "https://media.rawg.io/media/games/588/588c6bdff3d4baf66ec36b1c05b793bf.jpg",
-    },
-    {
-      name: "Borderlands 2",
-      background_image:
-        "https://4kwallpapers.com/images/walls/thumbs_2t/8654.jpg",
-    },
-    {
-      name: "Borderlands 2",
-      background_image: "https://wallpaperaccess.com/full/917707.jpg",
-    },
-    {
-      name: "Borderlands 2",
-      background_image: "https://wallpaperaccess.com/full/4970714.jpg",
-    },
-    {
-      name: "Borderlands 2",
-      background_image: "https://wallpaperaccess.com/full/4970684.jpg",
-    },
-    {
-      name: "Borderlands 2",
-      background_image: "https://wallpaperaccess.com/full/4970671.jpg",
-    },
-  ];
 
   return (
     <Container>
@@ -172,9 +121,9 @@ export default function Detail() {
             sx={{ borderRadius: "4px" }}
           >
             <Carousel className="carusel">
-              {ejemplo.map((item) => (
+              {aaa.map((item) => (
                 <Item key={item.id} item={item} />
-              ))}
+              ))} 
             </Carousel>
           </Box>
           <Box className="description" borderRadius={0.5}>
@@ -201,13 +150,12 @@ export default function Detail() {
             variant="body2"
             color="text.primary"
           >
-            {gameDetail.requirements_minimum}
+            {gameDetail.requirements}
           </Typography>
         </Box>
       </Box>
       <section>
-        <Box width={340} sx={{}}>
-          RESEÑAS
+        <Box width={340} borderColor="blue" sx={{}}>
           <TextField
             onChange={handleChange}
             id="standard-multiline-static"
@@ -219,7 +167,7 @@ export default function Detail() {
             variant="standard"
           />
           <Box className="postActions">
-            <AddPhotoAlternateIcon /> | <FormatBoldIcon /> <FormatItalicIcon />
+            <AddPhotoAlternateIcon /> | <FormatBoldIcon /> <FormatItalicIcon /> <FormatUnderlinedIcon/> <LinkIcon/> <FormatQuoteIcon/>
           </Box>
         </Box>
       </section>

@@ -8,7 +8,7 @@ export default function Item({item})
             <img className="imagenDetail"
               width="auto"
               height={300}
-              src={item.background_image} 
+              src={item} 
               alt={item.name}/>
 
         </Paper>
