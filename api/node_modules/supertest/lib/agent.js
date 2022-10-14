@@ -7,6 +7,12 @@
 const { agent: Agent } = require('superagent');
 const methods = require('methods');
 const http = require('http');
+let http2;
+try {
+  http2 = require('http2'); // eslint-disable-line global-require
+} catch (_) {
+  // eslint-disable-line no-empty
+}
 const Test = require('./test.js');
 
 /**
@@ -17,15 +23,24 @@ const Test = require('./test.js');
  * @api public
  */
 
-function TestAgent(app, options) {
+function TestAgent(app, options = {}) {
   if (!(this instanceof TestAgent)) return new TestAgent(app, options);
-  if (typeof app === 'function') app = http.createServer(app); // eslint-disable-line no-param-reassign
-  if (options) {
-    this._ca = options.ca;
-    this._key = options.key;
-    this._cert = options.cert;
+
+  Agent.call(this, options);
+  this._options = options;
+
+  if (typeof app === 'function') {
+    if (options.http2) {
+      if (!http2) {
+        throw new Error(
+          'supertest: this version of Node.js does not support http2'
+        );
+      }
+      app = http2.createServer(app); // eslint-disable-line no-param-reassign
+    } else {
+      app = http.createServer(app); // eslint-disable-line no-param-reassign
+    }
   }
-  Agent.call(this);
   this.app = app;
 }
 
@@ -44,10 +59,11 @@ TestAgent.prototype.host = function(host) {
 // override HTTP verb methods
 methods.forEach(function(method) {
   TestAgent.prototype[method] = function(url, fn) { // eslint-disable-line no-unused-vars
-    const req = new Test(this.app, method.toUpperCase(), url, this._host);
-    req.ca(this._ca);
-    req.cert(this._cert);
-    req.key(this._key);
+    const req = new Test(this.app, method.toUpperCase(), url);
+    if (this._options.http2) {
+      req.http2();
+    }
+
     if (this._host) {
       req.set('host', this._host);
     }
@@ -55,8 +71,8 @@ methods.forEach(function(method) {
     req.on('response', this._saveCookies.bind(this));
     req.on('redirect', this._saveCookies.bind(this));
     req.on('redirect', this._attachCookies.bind(this, req));
-    this._attachCookies(req);
     this._setDefaults(req);
+    this._attachCookies(req);
 
     return req;
   };

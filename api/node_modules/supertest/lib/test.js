@@ -6,7 +6,7 @@
 
 const { inspect } = require('util');
 const { STATUS_CODES } = require('http');
-const { Server } = require('https');
+const { Server } = require('tls');
 const { deepStrictEqual } = require('assert');
 const { Request } = require('superagent');
 
@@ -303,7 +303,12 @@ function wrapAssertFn(assertFn) {
 
   return function(res) {
     let badStack;
-    const err = assertFn(res);
+    let err;
+    try {
+      err = assertFn(res);
+    } catch (e) {
+      err = e;
+    }
     if (err instanceof Error && err.stack) {
       badStack = err.stack.replace(err.message, '').split('\n').slice(1);
       err.stack = [err.toString()]
