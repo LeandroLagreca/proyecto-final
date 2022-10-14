@@ -57,14 +57,14 @@ export default function Detail() {
       <Box display="flex" alignItems="flex-start" className="boxDivisor">
         <Box
           className="containerNombreImagenDescription"
-          backgroundColor="#e3f2fd"
+          backgroundColor="secondary.main"
           width={650}
           borderRadius={3}
           sx={{ border: "grey" }}
         >
           <Box
             display="flex"
-            backgroundColor="#90caf9"
+            backgroundColor="primary.main"
             borderRadius={1}
             sx={{
               borderColor: "#42a5f5",
@@ -78,10 +78,10 @@ export default function Detail() {
               sx={{ border: "1px dashed grey" }}
             >
               <Box></Box>
-              <Typography padding={1} variant="h5" component="div">
+              <Typography  padding={1} variant="h5" color={"white"} component="div">
                 {gameDetail.name}
               </Typography>
-              <Typography variant="h6" color="text.primary">
+              <Typography variant="h6" color={"white"} >
                 {gameDetail.price}
               </Typography>
             </Box>
@@ -126,15 +126,15 @@ export default function Detail() {
         <Box className="requeriments" margin={1.5} sx={{ borderRadius: 1, padding: 1 }}>
           <Typography
             borderRadius={0.5}
-            backgroundColor="#90caf9"
+            backgroundColor="primary.main"
             variant="body1"
-            color="text.primary"
+            color="white"
           >
             Requeriments
           </Typography>
           <Typography
           sx={{ borderRadius: 2 }}
-            backgroundColor="#e3f2fd"
+            backgroundColor="secondary.main"
             variant="body2"
             color="text.primary"
           >
@@ -148,7 +148,7 @@ export default function Detail() {
         <Box>
           <AccountBoxIcon sx={{ fontSize: 50 }}/>
         </Box>
-        <Box width={340} sx={{bgcolor: '#e3f2fd',borderColor: 'secondary.main', border: 1, borderRadius: 1, display: "inline-block"}}>
+        <Box width={340} sx={{bgcolor: 'secondary.main',borderColor: 'primary.main', border: 1, borderRadius: 1, display: "inline-block"}}>
           <TextField
             onChange={handleChange}
             id="standard-multiline-static"
