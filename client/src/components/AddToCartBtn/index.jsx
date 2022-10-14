@@ -5,6 +5,10 @@ import { AddShoppingCart, RemoveShoppingCart } from "@mui/icons-material";
 
 import { addToCart, deleteFromCart } from "../../redux/reducers/user";
 
+const buttonStyles = {
+	backgroundColor: 'rgba(196, 42, 8 , .6)'
+  }
+
 export default function AddToCartButton({ id, price, name, picture, styles }) {
   const cartList = useSelector((state) => state.user.cartList);
 	const [ alreadyIs, setAlreadyIs ] = useState(false)
@@ -35,12 +39,12 @@ export default function AddToCartButton({ id, price, name, picture, styles }) {
 			{
 				!alreadyIs 
 					? (
-						<IconButton sx={styles} onClick={handleAdd}>
+						<IconButton color='primary' sx={{...styles, ...buttonStyles}} onClick={handleAdd}>
 							<AddShoppingCart/>
 						</IconButton>
 					)
 					: (
-						<IconButton sx={styles} onClick={handleDelete}>
+						<IconButton color='primary' sx={styles} onClick={handleDelete}>
 							<RemoveShoppingCart />
 						</IconButton>
 					)
