@@ -22,6 +22,7 @@ import {
 
 import CartWidget from "../CartWidget";
 import Searchbar from "./Searchbar";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [input, setInput] = React.useState("");
@@ -155,12 +156,14 @@ const Navbar = () => {
             <Button sx={{ my: 2, color: "white", display: "block" }}>
               About
             </Button>
-            <Button
-              href={`/wishes`}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              Wish list
-            </Button>
+            <Link to={"/wishes"}>
+              <Button
+                href={`/wishes`}
+                sx={{ my: 2, color: "white", display: "block" }}
+                >
+                Wish list
+              </Button>
+            </Link>
           </Box>
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
