@@ -11,8 +11,7 @@ import {
   Box,
   Checkbox,
   TextField,
-  Paper,
-  IconButton
+  Paper
 } from "@mui/material";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
@@ -162,7 +161,7 @@ export default function Detail() {
           />
           <Box className="postActions"  sx={{bgcolor: '#90caf9', borderColor: 'secondary.main', border: 1}}>
             <Box className="iconsComment">
-            <IconButton><AddPhotoAlternateIcon opacity={30}/></IconButton> | <IconButton><FormatBoldIcon /></IconButton > <IconButton><FormatItalicIcon /> </IconButton><IconButton><FormatUnderlinedIcon/> </IconButton><IconButton><LinkIcon/></IconButton> <IconButton><FormatQuoteIcon/></IconButton>
+            <AddPhotoAlternateIcon opacity={30}/> | <FormatBoldIcon /> <FormatItalicIcon /> <FormatUnderlinedIcon/> <LinkIcon/> <FormatQuoteIcon/>
             </Box>
           </Box>
         </Box>
