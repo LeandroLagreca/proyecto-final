@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from 'react-router-dom'
 import { useSelector } from "react-redux";
 
 import {
@@ -11,6 +12,7 @@ import {
   MenuItem,
   Menu,
   Button,
+  Divider
 } from "@mui/material";
 
 import {
@@ -20,8 +22,14 @@ import {
   MoreVert as MoreIcon,
 } from "@mui/icons-material";
 
-import CartWidget from "../CartWidget";
+import { CartWidget, SessionButton } from "../";
 import Searchbar from "./Searchbar";
+
+const styles = {
+  link: {
+    textDecoration: 'none'
+  }
+}
 
 const Navbar = () => {
   const [input, setInput] = React.useState("");
@@ -149,18 +157,23 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 1 }} />
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Button href={`/`} sx={{ my: 2, color: "white", display: "block" }}>
-              Games
-            </Button>
-            <Button sx={{ my: 2, color: "white", display: "block" }}>
-              About
-            </Button>
-            <Button
-              href={`/wishes`}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              Wish list
-            </Button>
+            <Link style={styles.link} to='/'>
+              <Button sx={{ my: 2, color: "white", display: "block" }}>
+                Games
+              </Button>
+            </Link>
+            <Link style={styles.link}>
+              <Button sx={{ my: 2, color: "white", display: "block" }}>
+                About
+              </Button>
+            </Link>
+            <Link style={styles.link} to='/wishes'>
+              <Button
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Wish list
+              </Button>
+            </Link>
           </Box>
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
@@ -176,6 +189,10 @@ const Navbar = () => {
             >
               <AccountCircle />
             </IconButton>
+          </Box>
+          <Divider orientation='vertical' variant='middle' flexItem sx={{marginX: 3, color: 'white'}} /> 
+          <Box>
+            <SessionButton />
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
