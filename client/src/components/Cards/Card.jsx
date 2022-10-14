@@ -1,6 +1,7 @@
+import React from "react";
+import {Card, CardActions, CardContent, CardMedia, Button,Typography,Checkbox, Box, IconButton} from "@mui/material";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector, } from "react-redux";
-import {Card, CardActions, CardContent, CardMedia, Button,Typography,Checkbox} from "@mui/material";
+import { useDispatch, useSelector, } from "react-redux"
 import { addWishes, removeWishes } from "../../redux/actions/videoGame";
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from "@mui/icons-material/Favorite";
@@ -37,7 +38,9 @@ export default function MainCard({ name, background_image, price, id}) {
 //   descFilter();
 
   return (
-    <Card sx={{ maxWidth: 345, height:300 }}>
+    <Card
+
+    sx={{ maxWidth: 345, height:300 }}>
       <CardMedia
         component="img"
         alt="gameCard"
@@ -45,7 +48,7 @@ export default function MainCard({ name, background_image, price, id}) {
         image={background_image}
       />
       <CardContent>
-        <Typography gutterBottom sx={{ fontWeight: 600 }} variant="subtitle1" component="div">
+        <Typography  gutterBottom sx={{ fontWeight: 600 }} variant="subtitle1" component="div">
           {name}
         </Typography>
         <Typography variant="subtitle2" color="text.primary">
@@ -54,19 +57,19 @@ export default function MainCard({ name, background_image, price, id}) {
       </CardContent>
       <CardActions>
         {
-          already ? <Button size="small" onClick={() => {
+          already ? <IconButton aria-label="Favorite" onClick={() => {
             dispatch(removeWishes(name))
-          }} ><Favorite ></Favorite ></Button>
-          : <Checkbox 
-
-          {...label} 
-          icon={<FavoriteBorder />}
+          }} ><Favorite ></Favorite ></IconButton>
+          : <IconButton 
+          arial-label="FavoriteBorder"
+          
           onClick={() => {
             addToWishes();
           }} 
           
           size="small"
-      ></Checkbox>
+          ><FavoriteBorder /></IconButton>
+         
         }
         <AddToCartButton 
           id={id} 

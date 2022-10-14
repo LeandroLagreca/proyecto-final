@@ -5,18 +5,20 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { setFilterByRating } from '../../redux/actions/videoGame';
-
+import { useState } from 'react';
 export default function SelectRating() {
 	const dispatch = useDispatch();
 
 	const [rating, setRating] = React.useState('');
-
+	const page = useSelector(state => state.videogames.page)
 	const games = useSelector((state) => state.videogames.games);
+	const [currentPage, setCurrentPage] = useState(page)
 
 	const handleRating = (event) => {
 		setRating(event.target.value);
 		console.log(event.target.value);
 		dispatch(setFilterByRating(games, event.target.value));
+		setCurrentPage(1)
 	};
 
 	return (
