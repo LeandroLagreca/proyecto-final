@@ -18,6 +18,15 @@ const Games = () => {
 
 	const dispatch = useDispatch()
 
+	const styles = {
+		container: {
+			display: 'grid',
+			gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
+			justifyItems: 'center',
+			paddingX: 10
+		}
+	}
+
 	return (
 		<div>
 			<Pagined 
@@ -26,7 +35,7 @@ const Games = () => {
 				total={totalPages}
 				current={page}
 			/>
-			<Box display="flex" style={{justifyContent: "center"}} flexDirection={'row'}>
+			<Box sx={styles.container}>
 				{currentGames?.map((e, index) => {
 					return (
 						<Box key={index}>
