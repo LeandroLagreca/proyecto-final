@@ -26,7 +26,7 @@ const Games = () => {
   const totalPages = Math.ceil(allGames.length / gamesPerPage);
 
   const dispatch = useDispatch();
-
+  if (!allGames.length) {return (<h3>No hay resultados que coincidan con tu búsqueda.</h3>)}
   return (
     <div>
       <Pagined
@@ -37,6 +37,7 @@ const Games = () => {
       />
       <Box sx={styles.container}>
         {currentGames?.map((e, index) => {
+
           return (
             <Box key={index}>
               <ul
