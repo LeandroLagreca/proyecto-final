@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
-import { InputBase, alpha, Box } from '@mui/material';
+import React from 'react';
+import { InputBase, alpha } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/material/styles';
-import Card from '../Cards/Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilterBySearch } from '../../redux/actions/videoGame';
 
