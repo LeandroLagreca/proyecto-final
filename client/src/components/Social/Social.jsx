@@ -5,19 +5,18 @@ import Item from "../../components/Items/Item";
 import { useSelector } from "react-redux";
 import "./Social.css";
 
-  const Social = () => {
-    const gameBanner = useSelector((state) => state.videogames.games);
+const Social = () => {
+  const gameBanner = useSelector((state) => state.videogames.games);
 
   return (
     <Box className="boxBanner">
-    <Paper height={270} className="paperBanner" elevation={1}>
-      <Carousel className="carusel">
-        {gameBanner.map((item) => (
-          <Item key={item.id} item={item.background_image} />
-        ))}
-      </Carousel>
-      {/* <img src={ejemplo} className="imgbanner" alt="caca"/> */}
-    </Paper>
+      <Paper height={270} className="paperBanner" elevation={1}>
+        <Carousel className="carusel">
+          {gameBanner.map((item) => (
+            <Item key={item.id} item={item.background_image} />
+          ))}
+        </Carousel>
+      </Paper>
     </Box>
   );
 };
