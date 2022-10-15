@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 
 import { changePage } from "../redux/reducers/videoGame";
 
+import { Loader } from "../components";
 import Card from "../components/Cards/Card";
 import Pagined from "../components/Pagination/Pagination";
 
@@ -18,7 +19,7 @@ const styles = {
 
 const Games = () => {
   const allGames = useSelector((state) => state.videogames.filterGames);
-  const page = useSelector((state) => state.videogames.page);
+  const {loading, page} = useSelector(state => state.videogames)
   const [gamesPerPage, setGamesPerPage] = useState(5);
   const indexOfLastGame = gamesPerPage * page; // 10
   const indexOfFirtsGame = indexOfLastGame - gamesPerPage; // 0
@@ -26,7 +27,12 @@ const Games = () => {
   const totalPages = Math.ceil(allGames.length / gamesPerPage);
 
   const dispatch = useDispatch();
-  if (!allGames.length) {return (<h3>No hay resultados que coincidan con tu búsqueda.</h3>)}
+  
+  if(loading) return <Loader />
+  else if (!allGames.length) return (
+    <h3>No hay resultados que coincidan con tu búsqueda.</h3>
+  )
+ 
   return (
     <div>
       <Pagined
