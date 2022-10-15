@@ -28,9 +28,23 @@ const userSlice = createSlice({
 				state.cartList = state.cartList.filter(prod => prod.id !== payload)
 				const parseCart = JSON.stringify(state.cartList.filter(prod => prod.id !== payload ))
 				localStorage.setItem('cartList', parseCart)
+			},
+			addOne: ( state, { payload } ) => {
+				const productRef = state.cartList.find(el => el.id === payload)
+				const newCant = ++productRef.cant
+				productRef.cant = newCant
+				const parseCart = JSON.stringify([...state.cartList])
+				localStorage.setItem('cartList', parseCart)
+			},
+			removeOne: ( state, { payload } ) => {
+				const productRef = state.cartList.find(el => el.id === payload)
+				const newCant = --productRef.cant
+				productRef.cant = newCant
+				const parseCart = JSON.stringify([...state.cartList])
+				localStorage.setItem('cartList', parseCart)
 			}
     }
 })
 
-export const { addToCart, deleteFromCart } = userSlice.actions
+export const { addToCart, deleteFromCart, addOne, removeOne } = userSlice.actions
 export default userSlice.reducer

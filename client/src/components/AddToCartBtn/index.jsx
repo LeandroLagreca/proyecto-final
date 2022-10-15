@@ -26,6 +26,7 @@ export default function AddToCartButton({ id, price, name, picture, styles }) {
       name,
       price,
       picture,
+	  cant: 1
     };
     dispatch(addToCart(data));
   }
