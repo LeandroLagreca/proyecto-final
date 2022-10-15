@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from "react-redux";
 
 import {
@@ -34,13 +34,11 @@ const styles = {
 const Navbar = () => {
   const [input, setInput] = React.useState("");
   const role = useSelector(state => state.user.role)
-  const videogames = useSelector((state) => state.videogames.games);
-  const currentGames = videogames.filter((game) => {
-    return game.name.toLowerCase().includes(input.toLowerCase());
-  });
-
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const { pathname } = useLocation()
+
+  if(pathname === '/landing') return <></>
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -135,10 +133,6 @@ const Navbar = () => {
       </MenuItem>
     </Menu>
   );
-
-  React.useEffect(() => {
-    console.log(currentGames);
-  }, [input]);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
