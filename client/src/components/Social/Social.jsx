@@ -1,8 +1,13 @@
 import React from 'react'
+import { Paper, Box } from '@mui/material'
 
 const Social = () => {
   return (
-    <div>Social</div>
+    <Paper>
+      <Box>
+        Algo
+      </Box>
+    </Paper>
   )
 }
 

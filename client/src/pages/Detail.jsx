@@ -2,8 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getDetails } from "../redux/actions/videoGame";
-import { AddToWishes } from "../components";
+import { getDetails, addWishes } from "../redux/actions/videoGame";
 import {
   Button,
   Typography,
@@ -11,7 +10,8 @@ import {
   Box,
   Checkbox,
   TextField,
-  Paper
+  Paper,
+  IconButton
 } from "@mui/material";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
@@ -26,6 +26,8 @@ import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined';
 import LinkIcon from '@mui/icons-material/Link';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function Detail() {
   const gameDetail = useSelector((state) => state.videogames.details);
@@ -43,6 +45,12 @@ export default function Detail() {
 
   const handleChange = (event) => {
     setValue(event.target.value);
+    console.log(value)
+  };
+
+  //Icons
+  const handleBold = (event) => {
+    setValue("<b>"+value+"</b>")
     console.log(value)
   };
 
@@ -91,12 +99,23 @@ export default function Detail() {
               </Button>
             </Box>
             <Box>
-            <AddToWishes 
-              id={id}
-              name={gameDetail.name} 
-              image={gameDetail.background_image}
-              price={gameDetail.price}
-            />
+              <Checkbox
+                {...label}
+                icon={<FavoriteBorder  color={"secondary"}/>}
+                
+                checkedIcon={<Favorite  color={"secondary"}/>}
+                size="small"
+                onClick={() => {
+                  dispatch(
+                    addWishes({
+                      name: gameDetail.name,
+                      description: gameDetail.description,
+                      background_image: gameDetail.background_image,
+                      price: gameDetail.price,
+                    })
+                  );
+                }}
+              ></Checkbox>
             </Box>
           </Box>
           <Box
@@ -161,7 +180,7 @@ export default function Detail() {
           />
           <Box className="postActions"  sx={{bgcolor: '#90caf9', borderColor: 'secondary.main', border: 1}}>
             <Box className="iconsComment">
-            <AddPhotoAlternateIcon opacity={30}/> | <FormatBoldIcon /> <FormatItalicIcon /> <FormatUnderlinedIcon/> <LinkIcon/> <FormatQuoteIcon/>
+            <IconButton><AddPhotoAlternateIcon opacity={30}/></IconButton> | <IconButton onClick={handleBold}><FormatBoldIcon/></IconButton > <IconButton><FormatItalicIcon /> </IconButton><IconButton><FormatUnderlinedIcon/> </IconButton><IconButton><LinkIcon/></IconButton> <IconButton><FormatQuoteIcon/></IconButton>
             </Box>
           </Box>
         </Box>
