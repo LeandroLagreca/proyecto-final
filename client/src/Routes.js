@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes as Rutas, Route } from 'react-router-dom';
 import { useMediaQuery, useTheme } from '@mui/material';
-import { Detail, MainHome, Landing, AdminPanel } from './pages';
+import { Detail, MainHome, Landing, AdminPanel, NotFound } from './pages';
 
 
 
@@ -27,6 +27,7 @@ const Routes = () => {
 				<Route path="/detail/:id" element={<Detail />} />
 				<Route path='/wishes' element={<Wishes/>} />
 				<Route path='/admin' element={<AdminPanel/>} />
+				<Route path = '*' element = {<NotFound/>}/>
 			</Rutas>
 			<Footer />
 		</>
