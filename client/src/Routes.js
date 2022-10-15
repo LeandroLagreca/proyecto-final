@@ -5,7 +5,7 @@ import { Detail, MainHome, Landing, AdminPanel, NotFound } from './pages';
 
 
 
-import { Navbar, Social, Footer, Loader,  } from './components';
+import { Navbar, Social, Footer  } from './components';
 import Wishes from './components/Wishes/AddtoWishes';
 
 
@@ -18,7 +18,6 @@ const Routes = () => {
 
 	return (
 		<>
-			<Loader />
 			<Navbar />
 			{!isMobile ? <Social /> : null}
 			<Rutas>
