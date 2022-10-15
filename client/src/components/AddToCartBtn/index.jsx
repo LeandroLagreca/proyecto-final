@@ -39,12 +39,12 @@ export default function AddToCartButton({ id, price, name, picture, styles }) {
 			{
 				!alreadyIs 
 					? (
-						<IconButton color='primary' sx={{...styles, ...buttonStyles}} onClick={handleAdd}>
+						<IconButton sx={{...styles, color: "#32CD32"}} onClick={handleAdd}>
 							<AddShoppingCart/>
 						</IconButton>
 					)
 					: (
-						<IconButton color='primary' sx={styles} onClick={handleDelete}>
+						<IconButton color='primary' sx={{...styles, color: "#32CD32"}} onClick={handleDelete}>
 							<RemoveShoppingCart />
 						</IconButton>
 					)
