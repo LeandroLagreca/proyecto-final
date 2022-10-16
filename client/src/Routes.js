@@ -21,8 +21,8 @@ const Routes = () => {
 			<Navbar />
 			{!isMobile ? <Social /> : null}
 			<Rutas>
-				<Route exact path="/landing" element={<Landing />} />
-				<Route exact path="/" element={<MainHome />} />
+				<Route exact path="/" element={<Landing />} />
+				<Route exact path="/home" element={<MainHome />} />
 				<Route path="/detail/:id" element={<Detail />} />
 				<Route path='/wishes' element={<Wishes/>} />
 				<Route path='/admin' element={<AdminPanel/>} />

@@ -22,7 +22,7 @@ export default function LandingFormSection() {
 	return (
 		<Container sx={styles.container} >
 		<Typography variant="h3">{ register ? "Registrate" : "Iniciar Sesion" }</Typography>
-		<LandingForm register={register} />
+		<LandingForm register={register} setRegister={setRegister} />
 		<Button sx={styles.button} onClick={() => setRegister(!register)}>
 			{register ? "ya tengo una cuenta" : "quiero registrarme"}
 		</Button>
