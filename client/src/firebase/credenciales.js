@@ -4,12 +4,12 @@ import { initializeApp } from "firebase/app";
 
 // Añade aquí tus credenciales
 const firebaseConfig = {
-    apiKey: "AIzaSyAXW2QXwhBokxzxtz33ukECys0dea6Iy_Y",
-    authDomain: "steam-7cf48.firebaseapp.com",
-    projectId: "steam-7cf48",
-    storageBucket: "steam-7cf48.appspot.com",
-    messagingSenderId: "246844741287",
-    appId: "1:246844741287:web:6f8f0b14e5c05e3931ed82"
+    apiKey: "AIzaSyBXQ1-B6JsYM0DdbVk67oq4K2BfyzTKW9c",
+    authDomain: "steam-d5a8d.firebaseapp.com",
+    projectId: "steam-d5a8d",
+    storageBucket: "steam-d5a8d.appspot.com",
+    messagingSenderId: "162172861178",
+    appId: "1:162172861178:web:768b65eb8b1fa3809c6743"
 };
 
 // Inicializamos la aplicación y la guardamos en firebaseApp
