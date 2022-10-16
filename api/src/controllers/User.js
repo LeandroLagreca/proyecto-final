@@ -86,7 +86,7 @@ const UserUpdate = async (req, res) => {
 
 const LoginPost = async (req, res) => {
     try { 
-        const { name, image, password, mail, admin } = req.body
+        const { password, mail, admin } = req.body
         const newUser = await User.create({
             admin,
             password,
