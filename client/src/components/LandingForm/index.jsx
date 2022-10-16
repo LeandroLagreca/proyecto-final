@@ -7,6 +7,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { Link } from 'react-router-dom';
 
 const firestore = getFirestore(firebaseApp);
 const auth = getAuth(firebaseApp);
@@ -65,6 +66,9 @@ export default function LandingForm({ register }) {
             : "iniciar sesion"
           }
       </Button>
+      <Link to ='/Home'>
+          <Button>invitado</Button>
+          </Link>
           </FormControl>
     </Container>
   );

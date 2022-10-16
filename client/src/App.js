@@ -19,9 +19,9 @@ function App() {
 			setUser(null)
 		}
 	})
+	//{user ? <Home /> : <LandingFormSection />}
 	return (
 		<BrowserRouter>
-		{user ? <Home /> : <LandingFormSection />}
 			<Routes />
 		</BrowserRouter>
 	);
