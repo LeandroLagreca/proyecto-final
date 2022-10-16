@@ -137,6 +137,7 @@ export default function Detail() {
               borderRadius={0.5}
               backgroundColor="primary.main"
               variant="body1"
+              height={35}
               color="white"
             >
               Requeriments
