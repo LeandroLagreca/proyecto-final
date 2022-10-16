@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Box, Button, FormControl, Input, InputLabel } from "@mui/material";
+import { Box, Button, FormControl, Input, OutlinedInput, FilledInput, InputLabel, InputAdornment } from "@mui/material";
 import firebaseApp from "../../firebase/credenciales";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import {
@@ -86,8 +86,9 @@ export default function LandingForm({ register, setRegister }) {
   return (
     <Box component={"form"} onSubmit={submitHandler} sx={styles.container}>
       <FormControl>
-        <InputLabel htmlFor="email">E-mail</InputLabel>
-        <Input
+        <InputLabel variant="outlined" htmlFor="email">E-mail</InputLabel>
+        <OutlinedInput
+          label='E-mail'
           onChange={handleChange}
           id="email"
           name="email"
@@ -96,14 +97,17 @@ export default function LandingForm({ register, setRegister }) {
         />
       </FormControl>
       <FormControl>
-        <InputLabel htmlFor="password">Password</InputLabel>
-        <Input
+        <InputLabel variant="outlined" htmlFor="password">Password</InputLabel>
+        <OutlinedInput
           onChange={handleChange}
           id="password"
           name="password"
           value={userInfo.password}
           type="password"
-        />
+          label='Password'
+        >
+          <InputAdornment position="right">Show</InputAdornment>
+        </OutlinedInput>
         <Button type="submit" sx={styles.button} variant="outlined">
           {register ? "registrate" : "iniciar sesion"}
         </Button>
