@@ -9,7 +9,8 @@ const initialState = {
 	filterGames: [],
 	details: {},
   	wishes: [],
-	page
+	page,
+	loading: false
 };
 
 
@@ -22,9 +23,11 @@ const videoGameSlice = createSlice({
 		getAllGames: (state, { payload }) => {
 			state.games = payload;
 			state.filterGames = payload;
+			state.loading = false
 		},
 		getGameById: (state, { payload }) => {
 			state.details = payload;
+			state.loading = false
 		},
 		filterByPrice: (state, { payload }) => {
 			state.filterGames = payload;
@@ -51,6 +54,9 @@ const videoGameSlice = createSlice({
 			state.page = payload
 			const parsePage = JSON.stringify(state.page)
 			window.sessionStorage.setItem('page', parsePage)
+		},
+		setLoading: (state) => {
+			state.loading = true
 		}
 	},
 });
@@ -65,7 +71,8 @@ export const {
 	filterBySearch,
   addToWishes, 
   removeToWishes,
-  changePage
+  changePage,
+	setLoading
 } = videoGameSlice.actions;
 
 export default videoGameSlice.reducer;

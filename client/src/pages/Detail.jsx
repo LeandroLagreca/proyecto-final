@@ -1,8 +1,9 @@
 import React from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { AddToWishes } from "../components";
+import { AddToWishes, Loader } from "../components";
 import { useDispatch, useSelector } from "react-redux";
+import { setLoading } from "../redux/reducers/videoGame";
 import { getDetails } from "../redux/actions/videoGame";
 import Carousel from "react-material-ui-carousel";
 import LinkIcon from "@mui/icons-material/Link";
@@ -18,9 +19,12 @@ import "./Detail.css";
 import { Button,Typography,Container,Box,TextField,Paper,IconButton,} from "@mui/material";
 
 export default function Detail() {
+  const { loading } = useSelector(state => state.videogames)
   const gameDetail = useSelector((state) => state.videogames.details);
   const dispatch = useDispatch();
   let { id } = useParams();
+
+  
 
   var imgCarousel = [];
   if (gameDetail.images) {
@@ -35,6 +39,8 @@ export default function Detail() {
     setValue(event.target.value);
   };
 
+  
+
   //Icons
   const handleBold = (event) => {
     setValue("<b>" + value + "</b>");
@@ -42,8 +48,11 @@ export default function Detail() {
   };
 
   useEffect(() => { //UseEffect para traer los datos con la action x id
+    dispatch(setLoading())
     dispatch(getDetails(id));
   }, [dispatch, id]);
+
+  if(loading) return <Loader />
 
   return (
     <Container>
