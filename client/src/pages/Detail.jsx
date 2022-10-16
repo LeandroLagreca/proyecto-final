@@ -16,15 +16,21 @@ import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import Item from "../components/Items/Item";
 import "./Detail.css";
-import { Button,Typography,Container,Box,TextField,Paper,IconButton,} from "@mui/material";
+import {
+  Button,
+  Typography,
+  Container,
+  Box,
+  TextField,
+  Paper,
+  IconButton,
+} from "@mui/material";
 
 export default function Detail() {
-  const { loading } = useSelector(state => state.videogames)
+  const { loading } = useSelector((state) => state.videogames);
   const gameDetail = useSelector((state) => state.videogames.details);
   const dispatch = useDispatch();
   let { id } = useParams();
-
-  
 
   var imgCarousel = [];
   if (gameDetail.images) {
@@ -33,26 +39,83 @@ export default function Detail() {
   }
 
   //Estado locad de Form de Reseñas
-  const [value, setValue] = React.useState("Controlled"); //Estado local
+  const [value, setValue] = React.useState(); //Estado local
+  const [already, setAlready] = React.useState({
+    bold: false,
+    italic: false,
+    underline: false,
+    link: false,
+    quote: false,
+  });
 
-  const handleChange = (event) => { //Handle para Form
+  const handleChange = (event) => {
+    //Handle para Form
     setValue(event.target.value);
-  };
-
-  
-
-  //Icons
-  const handleBold = (event) => {
-    setValue("<b>" + value + "</b>");
     console.log(value);
   };
 
-  useEffect(() => { //UseEffect para traer los datos con la action x id
-    dispatch(setLoading())
+  //Icons
+  const handleImage = (event) => {
+    //Handle para BOLD
+  };
+  const handleBold = (event) => {
+    //Handle para BOLD
+    if (already.bold === true) {
+      console.log("entre");
+    } else {
+      setValue("<b>" + value + "</b>");
+      setAlready({ ...already, bold: true });
+    }
+    console.log(value, already);
+  };
+  const handleItalic = (event) => {
+    //Handle para ITALIC
+    if (already.italic === true) {
+      console.log("entre");
+    } else {
+      setValue("<i>" + value + "</i>");
+      setAlready({ ...already, italic: true });
+      console.log(value);
+    }
+  };
+  const handleUnderline = (event) => {
+    //Handle para UNDERLINE
+    if (already.underline === true) {
+      console.log("entre");
+    } else {
+      setValue("<u>" + value + "</u>");
+      setAlready({ ...already, underline: true });
+      console.log(value);
+    }
+  };
+  const handleLink = (event) => {
+    //Handle para LINK
+    if (already.link === true) {
+      console.log("entre");
+    } else {
+      setValue(`<a href="#">` + value);
+      setAlready({ ...already, link: true });
+      console.log(value);
+    }
+  };
+  const handleQuote = (event) => {
+    //Handle para QUOTE
+    if (already.quote === true) {
+      console.log("entre");
+    } else {
+      setValue("<blockquote>" + value + "</blockquote>");
+      setAlready({ ...already, quote: true });
+      console.log(value);
+    }
+  };
+
+  useEffect(() => {
+    //UseEffect para traer los datos con la action x id
+    dispatch(setLoading());
     dispatch(getDetails(id));
   }, [dispatch, id]);
 
-  if(loading) return <Loader />
+  if (loading) return <Loader />;
 
   return (
     <Container>
@@ -80,9 +143,9 @@ export default function Detail() {
                 className="nombrePrecio"
                 sx={{ border: "1px dashed grey" }}
               >
-                <Box></Box>      
-                                        {/* NOMBRE */}
-                <Typography      
+                <Box></Box>
+                {/* NOMBRE */}
+                <Typography
                   padding={1}
                   variant="h5"
                   color={"white"}
@@ -90,8 +153,8 @@ export default function Detail() {
                 >
                   {gameDetail.name}
                 </Typography>
-                                          {/* PRECIO */}
-                <Typography variant="h6" color={"white"}> 
+                {/* PRECIO */}
+                <Typography variant="h6" color={"white"}>
                   ${gameDetail.price}
                 </Typography>
               </Box>
@@ -100,7 +163,7 @@ export default function Detail() {
                   <AddShoppingCartIcon />{" "}
                 </Button>
               </Box>
-                                            {/* ADDWISHES_ICON */}
+              {/* ADDWISHES_ICON */}
               <Box>
                 <AddToWishes
                   id={id}
@@ -118,7 +181,7 @@ export default function Detail() {
               display="inline-block"
               sx={{ borderRadius: "4px" }}
             >
-                                                        {/* CARRUSEL */}
+              {/* CARRUSEL */}
               <Carousel className="carusel">
                 {imgCarousel.map((item) => (
                   <Item key={item.id} item={item} />
@@ -126,7 +189,7 @@ export default function Detail() {
               </Carousel>
             </Box>
             <Box className="description" borderRadius={0.5} sx={{ padding: 1 }}>
-                                                        {/* DESCRIPCION */}
+              {/* DESCRIPCION */}
               <Typography
                 variant="body2"
                 textAlign="justify"
@@ -141,7 +204,7 @@ export default function Detail() {
             margin={1.5}
             sx={{ borderRadius: 1, padding: 1 }}
           >
-                                                      {/* REQUERIMIENTOS */}
+            {/* REQUERIMIENTOS */}
             <Typography
               borderRadius={0.5}
               backgroundColor="primary.main"
@@ -162,7 +225,7 @@ export default function Detail() {
           </Box>
         </Box>
       </Paper>
-                                                {/* SECCION RESEÑAS */}
+      {/* SECCION RESEÑAS */}
       <section>
         <Box className="newComment">
           <Box>
@@ -183,6 +246,7 @@ export default function Detail() {
               id="standard-multiline-static"
               fullWidth
               label="Reseñas"
+              value={value}
               multiline
               rows={4}
               placeholder="Agrega un comentario..."
@@ -197,22 +261,23 @@ export default function Detail() {
               }}
             >
               <Box className="iconsComment">
-                <IconButton>
+                <IconButton onClick={handleImage}>
+                  <input type="file" hidden />
                   <AddPhotoAlternateIcon opacity={30} />
-                </IconButton>
+                </IconButton>|
                 <IconButton onClick={handleBold}>
                   <FormatBoldIcon />
                 </IconButton>
-                <IconButton>
+                <IconButton onClick={handleItalic}>
                   <FormatItalicIcon />
                 </IconButton>
-                <IconButton>
+                <IconButton onClick={handleUnderline}>
                   <FormatUnderlinedIcon />
                 </IconButton>
-                <IconButton>
+                <IconButton onClick={handleLink}>
                   <LinkIcon />
                 </IconButton>
-                <IconButton>
+                <IconButton onClick={handleQuote}>
                   <FormatQuoteIcon />
                 </IconButton>
               </Box>
