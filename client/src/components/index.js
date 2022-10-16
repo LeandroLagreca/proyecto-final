@@ -6,4 +6,6 @@ export { default as LandingForm } from './LandingForm';
 export { default as CartWidget } from './CartWidget';
 export { default as AdminNavBar } from './AdminNavBar';
 export { default as AddToCartButton } from './AddToCartBtn'
-export { default as SessionButton } from './SessionButton'
+export { default as AddToWishes } from './AddToWishBtn'
+export { default as SessionButton } from './SessionButton';
+export { default as CartCard } from './CartCard';

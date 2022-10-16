@@ -1,48 +1,32 @@
 import React from "react";
-import {Card, CardActions, CardContent, CardMedia, Button,Typography,Checkbox, Box, IconButton} from "@mui/material";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector, } from "react-redux"
-import { addWishes, removeWishes } from "../../redux/actions/videoGame";
-import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
-import Favorite from "@mui/icons-material/Favorite";
-import Swal from 'sweetalert2';
-
-import { AddToCartButton } from '../'
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 
+import { Link } from "react-router-dom";
+import {
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Button,
+  Typography,
+} from "@mui/material";
 
-export default function MainCard({ name, background_image, price, id}) {
-  const wishes = useSelector((state) => state.videogames.wishes)
-  const [already, setAlreadyIs] = useState(false);
-  const dispatch = useDispatch()
-  const addToWishes = () => {
-      dispatch(
-      addWishes({
-        name:name,
-        background_image:background_image
-      })
-    );
-  
-  }
+import { AddToCartButton, AddToWishes } from "../";
 
-  useEffect(() => {
-		const find = wishes.some(el => el.name === name);
-		if(find) setAlreadyIs(true)
-		else setAlreadyIs(false)
-    
-	}, [wishes, name]);
-      
-// var descriptionFilter = "";
-//   function descFilter() {   //Agrego una funcion que me acorte la descripcion, ya que me la trae muy larga de la API, en detalle se podra ver completa
-//     descriptionFilter = description.slice(0, 100);
-//   }
-//   descFilter();
+const styles = {
+  card: {
+    display: "flex",
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    maxWidth: 345,
+    height: 300,
+    position: "relative",
+  },
+};
 
+export default function MainCard({ name, background_image, price, id }) {
   return (
-    <Card
-
-    sx={{ maxWidth: 345, height:300 }}>
+    <Card sx={styles.card}>
       <CardMedia
         component="img"
         alt="gameCard"
@@ -50,7 +34,12 @@ export default function MainCard({ name, background_image, price, id}) {
         image={background_image}
       />
       <CardContent>
-        <Typography  gutterBottom sx={{ fontWeight: 600 }} variant="subtitle1" component="div">
+        <Typography
+          gutterBottom
+          sx={{ fontWeight: 600 }}
+          variant="subtitle1"
+          component="div"
+        >
           {name}
         </Typography>
         <Typography variant="subtitle2" color="text.primary">
@@ -58,57 +47,26 @@ export default function MainCard({ name, background_image, price, id}) {
         </Typography>
       </CardContent>
       <CardActions>
-        {
-          already ? <IconButton aria-label="Favorite" onClick={() => {
-            dispatch(removeWishes(name))
-            Swal.fire({
-              toast: true,
-              icon: 'error',
-              title: 'Was deleted to the wish list',
-              animation: false,
-              position: 'bottom-right',
-              showConfirmButton: false,
-              timer: 2000,
-              timerProgressBar: true,
-              
-            })
-            
-          }} ><Favorite ></Favorite ></IconButton>
-          : <IconButton 
-          arial-label="FavoriteBorder"
-          
-          onClick={() => {
-            addToWishes();
-            Swal.fire({
-              toast: true,
-              icon: 'success',
-              title: 'Was added to the wish list',
-              animation: false,
-              position: 'bottom-right',
-              showConfirmButton: false,
-              timer: 2000,
-              timerProgressBar: true,
-              
-            })
-          }} 
-          
-          size="small"
-          ><FavoriteBorder /></IconButton>
-         
-        }
-        <AddToCartButton 
-          id={id} 
-          name={name} 
+        <AddToWishes
+          id={id}
+          name={name}
+          image={background_image}
+          price={price}
+          styles={{ position: "absolute", left: 0, top: 0}}
+        />
+        <AddToCartButton
+          id={id}
+          name={name}
           picture={background_image}
           price={price}
-          
+          styles={{ position: "absolute", right: 0, top: 0}}
         />
-        <Button variant="outlined" size="small" href={`/detail/${id}`}>
+      </CardActions>
+      <Link to={`/detail/${id}`}>
+        <Button variant="outlined" size="small" sx={{ width: "100%" }}>
           Detail
         </Button>
-      </CardActions>
+      </Link>
     </Card>
   );
 }
-
-        

@@ -3,6 +3,7 @@
   width: 100%;
   object-fit: cover;
   overflow: hidden;
+  object-position: top;
   clip-path: inset(0px 0px 0px 0px);
 }
 
