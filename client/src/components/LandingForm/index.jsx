@@ -66,7 +66,7 @@ export default function LandingForm({ register }) {
             : "iniciar sesion"
           }
       </Button>
-      <Link to ='/Home'>
+      <Link to ='/'>
           <Button>invitado</Button>
           </Link>
           </FormControl>
