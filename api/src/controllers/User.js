@@ -88,8 +88,6 @@ const LoginPost = async (req, res) => {
     try { 
         const { name, image, password, mail, admin } = req.body
         const newUser = await User.create({
-            name,
-            image,
             admin,
             password,
             mail
