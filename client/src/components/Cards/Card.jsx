@@ -5,6 +5,7 @@ import { useDispatch, useSelector, } from "react-redux"
 import { addWishes, removeWishes } from "../../redux/actions/videoGame";
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from "@mui/icons-material/Favorite";
+import Swal from 'sweetalert2';
 
 import { AddToCartButton } from '../'
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -29,6 +30,7 @@ export default function MainCard({ name, background_image, price, id}) {
 		const find = wishes.some(el => el.name === name);
 		if(find) setAlreadyIs(true)
 		else setAlreadyIs(false)
+    
 	}, [wishes, name]);
       
 // var descriptionFilter = "";
@@ -59,12 +61,35 @@ export default function MainCard({ name, background_image, price, id}) {
         {
           already ? <IconButton aria-label="Favorite" onClick={() => {
             dispatch(removeWishes(name))
+            Swal.fire({
+              toast: true,
+              icon: 'error',
+              title: 'Was deleted to the wish list',
+              animation: false,
+              position: 'bottom-right',
+              showConfirmButton: false,
+              timer: 2000,
+              timerProgressBar: true,
+              
+            })
+            
           }} ><Favorite ></Favorite ></IconButton>
           : <IconButton 
           arial-label="FavoriteBorder"
           
           onClick={() => {
             addToWishes();
+            Swal.fire({
+              toast: true,
+              icon: 'success',
+              title: 'Was added to the wish list',
+              animation: false,
+              position: 'bottom-right',
+              showConfirmButton: false,
+              timer: 2000,
+              timerProgressBar: true,
+              
+            })
           }} 
           
           size="small"
@@ -76,6 +101,7 @@ export default function MainCard({ name, background_image, price, id}) {
           name={name} 
           picture={background_image}
           price={price}
+          
         />
         <Button variant="outlined" size="small" href={`/detail/${id}`}>
           Detail
