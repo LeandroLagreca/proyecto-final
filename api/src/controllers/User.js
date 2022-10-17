@@ -84,20 +84,21 @@ const UserUpdate = async (req, res) => {
 };
 
 
-const LoginPost = async (req, res) => {
-    try { 
-        const { password, mail, admin } = req.body
-        const newUser = await User.create({
-            admin,
-            password,
-            mail
-        })
-        res.status(200).json(newUser);
-
-    } catch (error) {
-        res.status(400).json({error: "User not create!"});
-    };
-};
+const GetLogin= async (req, res) => {
+    const {email} = req.body;
+    try {
+        let found = await User.findOne({ where: { email: email } });
+            if (found) {
+            return res.status(200).send(found);
+            } else {
+            return res
+                .status(404)
+                .send({ msg: "sorry, this email is not exist" });
+            }
+        } catch (error) {
+            res.status(400).send(error)
+        }
+        };
 
 
 module.exports={
@@ -106,5 +107,5 @@ module.exports={
     UserPost,
     UserEliminated,
     UserUpdate,
-    LoginPost
+    GetLogin
 }
