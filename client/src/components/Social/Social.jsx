@@ -1,9 +1,24 @@
-import React from 'react'
+import React from "react";
+import { Paper, Box } from "@mui/material";
+import Carousel from "react-material-ui-carousel";
+import Item from "../../components/Items/Item";
+import { useSelector } from "react-redux";
+import "./Social.css";
 
 const Social = () => {
-  return (
-    <div>Social</div>
-  )
-}
+  const gameBanner = useSelector((state) => state.videogames.games);
 
-export default Social
+  return (
+    <Box className="boxBanner">
+      <Paper height={270} className="paperBanner" elevation={1}>
+        <Carousel className="carusel" indicators={false} animation={"slide"} >
+          {gameBanner.map((item) => (
+            <Item key={item.id} item={item.background_image} />
+          ))}
+        </Carousel>
+      </Paper>
+    </Box>
+  );
+};
+
+export default Social;

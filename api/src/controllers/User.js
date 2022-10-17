@@ -84,6 +84,20 @@ const UserUpdate = async (req, res) => {
 };
 
 
+const LoginPost = async (req, res) => {
+    try { 
+        const { password, mail, admin } = req.body
+        const newUser = await User.create({
+            admin,
+            password,
+            mail
+        })
+        res.status(200).json(newUser);
+
+    } catch (error) {
+        res.status(400).json({error: "User not create!"});
+    };
+};
 
 
 module.exports={
@@ -91,5 +105,6 @@ module.exports={
     UserByID,
     UserPost,
     UserEliminated,
-    UserUpdate
+    UserUpdate,
+    LoginPost
 }

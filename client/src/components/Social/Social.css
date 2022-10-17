@@ -1,0 +1,17 @@
+.boxBanner {
+    height: 350px;
+    background: linear-gradient(rgb(19, 31, 67), rgb(61, 61, 205));
+    margin-bottom: 80px;
+}
+
+.paperBanner {
+  width: 96%;
+  justify-self: center;
+  align-self: center;
+  display: inline-block;
+  height: 400px;
+}
+
+.imgbanner {
+  width: 100%;
+}

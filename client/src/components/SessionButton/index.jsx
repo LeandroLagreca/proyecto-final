@@ -1,34 +1,45 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import firebaseApp from '../../firebase/credenciales';
-import { getAuth, signOut } from 'firebase/auth';
+import React from "react";
+import { Link } from "react-router-dom";
+import firebaseApp from "../../firebase/credenciales";
+import { useState, useEffect } from "react";
+import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 
-import { Button } from '@mui/material'
+import { Button } from "@mui/material";
 
 const auth = getAuth(firebaseApp);
 
 const styles = {
   link: {
-    textDecoration: 'none'
-  }
-}
+    textDecoration: "none",
+  },
+};
 
 export default function SessionButton() {
-  const logued = false
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (usuarioFirebase) => {
+      if (usuarioFirebase) {
+        setUser(usuarioFirebase);
+      } else {
+        setUser(null);
+      }
+    });
+  }, []);
+
   return (
     <>
-      {
-        !logued
-          ? (
-            <Link style={styles.link} to={'/landing'}>
-              <Button variant='contained' color='info' >Log In</Button>
-            </Link>
-          )
-          : (
-            <Button variant='contained' onClick={() => signOut(auth)}>Log Out</Button>
-          )
-      }
+      {!user ? (
+        <Link style={styles.link} to={"/"}>
+          <Button variant="contained" color="info">
+            Log In
+          </Button>
+        </Link>
+      ) : (
+        <Button variant="contained" onClick={() => signOut(auth)}>
+          Log Out
+        </Button>
+      )}
     </>
-    
-  )
+  );
 }

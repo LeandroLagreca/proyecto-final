@@ -1,3 +1,4 @@
+
 const { Router } = require("express");
 const axios = require("axios");
 const { Videogame, Genre } = require("../db");
@@ -43,6 +44,8 @@ const videogamePost = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+
+
 const populateDb=async(req,res)=>{
     try {
     Videogame.bulkCreate(json)
@@ -50,6 +53,8 @@ const populateDb=async(req,res)=>{
         res.status(400).json(error)
     }
 }
+
+
 const findGame = async (req, res, name) => {
   try {
     let found = await Videogame.findAll({ where: { name: name } });
@@ -75,51 +80,51 @@ const getGamesDb = async (req, res) => {
   }
 };
 
+
 const getAllGames = async (req, res) => {
   let { name } = req.query;
   try {
+    let games = await getGamesDb();
+    if (games.length === 0) {
+      await populateDb();
+      games = await getGamesDb();
+    }
+    
     if (name) {
-      await findGame(name);
-    } else {
-      let games = await getGamesDb();
-      if (games.length === 0) {
-        await populateDb();
-        let games = await getGamesDb();
-        res.status(200).send(games);
+      let found = await Videogame.findAll({ where: { name: name } });
+      if (found) {
+        return res.status(200).json(found);
       } else {
-        res.status(200).send(games);
+        return res
+          .status(404)
+          .send({ msg: "sorry, this game is not available now" });
       }
+    } else {
+      res.status(200).json(games);
     }
   } catch (error) {
     res.status(400).send(error);
   }
 };
 
-//Get id
+
 const videogameByID = async (req, res) => {
   const { id } = req.params;
 
   try {
-    if (
-      /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(
-        id
-      )
-    ) {
-      const videoGameDb = await Videogame.findOne({
+    const videoGameDb = await Videogame.findOne({
         where: {
-          id: id,
+        id: id,
         },
-      });
-      res.json(videoGameDb);
-    } else {
-      res.status(404).send({ msg: "we couldn't match that id! " });
-    }
+    });
+    res.json(videoGameDb);
+
   } catch (error) {
     res.send(error);
   }
 };
 
-//Conseguir generos
+
 const getGenres = async (req, res) => {
   try {
     const data = await Genre.findAll();
@@ -139,6 +144,7 @@ const getGenres = async (req, res) => {
   }
 };
 
+
 const updateVideogame = async (req, res) => {
   let { id } = req.params;
   let {
@@ -152,7 +158,9 @@ const updateVideogame = async (req, res) => {
     images,
     requirements,
   } = req.body;
+
   try {
+
     let find = await Videogame.findOne({ where: { id: id } });
     if (find) {
       await Videogame.update(
@@ -174,6 +182,7 @@ const updateVideogame = async (req, res) => {
       return res.send({ msg: "Updated successfully" });
     }
     res.send({ msg: "Videogame doesn't exist" });
+
   } catch (error) {
     res.status.send(error);
   }

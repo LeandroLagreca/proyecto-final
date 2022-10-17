@@ -1,8 +1,8 @@
 import React from 'react'
-
+import ErrorNotFound from '../components/ErrorNotFound/ErrorNotFound'
 const NotFound = () => {
   return (
-    <div>NotFound</div>
+    <div><ErrorNotFound/></div>
   )
 }
 

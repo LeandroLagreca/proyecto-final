@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from "react-redux";
 
 import {
@@ -33,14 +33,12 @@ const styles = {
 
 const Navbar = () => {
   const [input, setInput] = React.useState("");
-  const role = useSelector(state => state.user.role)
-  const videogames = useSelector((state) => state.videogames.games);
-  const currentGames = videogames.filter((game) => {
-    return game.name.toLowerCase().includes(input.toLowerCase());
-  });
-
+  const role = useSelector(state => state.user.status)
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const { pathname } = useLocation()
+
+  if(pathname === '/') return <></>
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -136,29 +134,25 @@ const Navbar = () => {
     </Menu>
   );
 
-  React.useEffect(() => {
-    console.log(currentGames);
-  }, [input]);
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            HENRY GAMES
-          </Typography>
+
+		  <Link style={styles.link} to='/home'>
+              <Button
+                sx={{ my: 2, color: "white", display: "block", fontSize: 22 }}
+              >
+               HENRY GAMES
+              </Button>
+            </Link>
 
           <Searchbar setInput={setInput} input={input} />
 
           <Box sx={{ flexGrow: 1 }} />
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Link style={styles.link} to='/'>
+            <Link style={styles.link} to='/home'>
               <Button sx={{ my: 2, color: "white", display: "block" }}>
                 Games
               </Button>

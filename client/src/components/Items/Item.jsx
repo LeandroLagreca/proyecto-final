@@ -7,7 +7,7 @@ export default function Item({item})
         <Paper>
             <img className="imagenDetail"
               width="auto"
-              height={300}
+              height={400}
               src={item} 
               alt={item.name}/>
 

@@ -9,7 +9,7 @@ import { useState } from 'react';
 export default function SelectType() {
 	const dispatch = useDispatch();
 
-	const games = useSelector((state) => state.videogames.games);
+	const games = useSelector((state) => state.videogames.filterGames);
 	const page = useSelector(state => state.videogames.page)
 	const [type, setType] = React.useState('');
 	const [currentPage, setCurrentPage] = useState(page)
