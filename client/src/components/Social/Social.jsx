@@ -11,7 +11,7 @@ const Social = () => {
   return (
     <Box className="boxBanner">
       <Paper height={270} className="paperBanner" elevation={1}>
-        <Carousel className="carusel">
+        <Carousel className="carusel" indicators={false} animation={"slide"} >
           {gameBanner.map((item) => (
             <Item key={item.id} item={item.background_image} />
           ))}

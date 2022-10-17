@@ -10,7 +10,8 @@ import {
 	filterBySearch,
 	addToWishes,
 	removeToWishes,
-	changePage
+	changePage,
+	cleanFilter
 
 } from '../reducers/videoGame';
 
@@ -47,23 +48,23 @@ export const setFilterByPrice = (games, order) => (dispatch) => {
 		switch (order) {
 			
 			case "none":
-				orderPrice = gamesCopy.filter((e) => Number(e.price.replace('$', '')));
+				orderPrice = gamesCopy.filter((e) => Number(e.price));
 				break;
 
 			case "5":
-				orderPrice = gamesCopy.filter((e) => Number(e.price.replace('$', '')) <= 5);
+				orderPrice = gamesCopy.filter((e) => Number(e.price <= 5));
 				break;
 			case "5a10":
-				orderPrice = gamesCopy.filter((e) => Number(e.price.replace('$', ''))>= 5 && Number(e.price.replace('$', '')) <= 10);
+				orderPrice = gamesCopy.filter((e) => Number(e.price)>= 5 && Number(e.price <= 10));
 				break;
 			case "10a30":
-				orderPrice = gamesCopy.filter((e) => Number(e.price.replace('$', '')) >= 10 && Number(e.price.replace('$', '')) <= 30);
+				orderPrice = gamesCopy.filter((e) => Number(e.price) >= 10 && Number(e.price) <= 30);
 				break;
 			case "30a50":
-				orderPrice = gamesCopy.filter((e) => Number(e.price.replace('$', '')) >= 30 && Number(e.price.replace('$', '')) <= 50);
+				orderPrice = gamesCopy.filter((e) => Number(e.price) >= 30 && Number(e.price) <= 50);
 				break;
 			case "50":
-				orderPrice = gamesCopy.filter((e) => Number(e.price.replace('$', '')) >= 50);
+				orderPrice = gamesCopy.filter((e) => Number(e.price) >= 50);
 				break;
 			default:
 				break;
@@ -161,6 +162,16 @@ export const removeWishes = (name) => {
 	try {
 		return function (dispatch) {
 			dispatch(removeToWishes(name))
+		}
+	} catch (error) {
+		console.log(error)
+	}
+}
+
+export const cleanToFilter = (clean) => {
+	try {
+		return function (dispatch) {
+			dispatch(cleanFilter(clean))
 		}
 	} catch (error) {
 		console.log(error)
