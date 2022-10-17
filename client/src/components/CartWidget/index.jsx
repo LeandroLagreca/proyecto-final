@@ -17,7 +17,7 @@ import Swal from "sweetalert2";
 
 export default function CartWidget() {
 	const cartList = useSelector(state => state.user.cartList);
-  const user = useSelector((state) => state.user.role);
+  const user = useSelector((state) => state.user.status);
   const [open, setOpen] = useState(false);
   const [total, setTotal] = useState(0);
 

@@ -66,7 +66,7 @@ export default function LandingForm({ register, setRegister }) {
       password,
       admin: false,
     };
-    await axios.post("http://localhost:3000/register", newUserData);
+    // await axios.post("http://localhost:3000/register", newUserData);
     setRegister(false);
 
     const docuRef = doc(firestore, `usuarios/${user.uid}`);
