@@ -9,21 +9,45 @@ const buttonStyles = {
   backgroundColor: 'red'
 }
 
-export default function AddToWishBtn({ name, image, id, price, styles }) {
+export default function AddToWishBtn({ name, image, id, price, styles,  }) {
   const wishes = useSelector((state) => state.videogames.wishes);
+  const user = useSelector((state) => state.user.role);
   const [already, setAlreadyIs] = useState(false);
   const dispatch = useDispatch();
 
   const addToWishes = () => {
-    dispatch(
-      addWishes({
-        name,
-        image,
-        id,
-        price
+    if(user === "guest"){
+      Swal.fire({
+        toast: true,
+        icon: 'error',
+        title: 'You cannot add to the wish list if you are not registered',
+        animation: false,
+        position: 'bottom-right',
+        showConfirmButton: false,
+        timer: 3000,
       })
-      
-    );
+    }else{
+
+      dispatch(
+        addWishes({
+          name,
+          image,
+          id,
+          price
+        })
+        
+        );
+        Swal.fire({
+          toast: true,
+          icon: 'success',
+          title: 'Was added to the wish list',
+          animation: false,
+          position: 'bottom-right',
+          showConfirmButton: false,
+          timer: 3000,
+        })
+    }
+    
   };
 
   function handleDelete() {
@@ -41,15 +65,15 @@ export default function AddToWishBtn({ name, image, id, price, styles }) {
       {!already ? (
         <IconButton  sx={{...styles, color:"#FF0000"}} onClick={() => {
           addToWishes();
-          Swal.fire({
-            toast: true,
-            icon: 'success',
-            title: 'Was added to the wish list',
-            animation: false,
-            position: 'bottom-right',
-            showConfirmButton: false,
-            timer: 3000,
-          })
+          // Swal.fire({
+          //   toast: true,
+          //   icon: 'success',
+          //   title: 'Was added to the wish list',
+          //   animation: false,
+          //   position: 'bottom-right',
+          //   showConfirmButton: false,
+          //   timer: 3000,
+          // })
           
           }}>
         <FavoriteBorder />

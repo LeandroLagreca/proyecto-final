@@ -12,7 +12,8 @@ const buttonStyles = {
 
 export default function AddToCartButton({ id, price, name, picture, styles }) {
   const cartList = useSelector((state) => state.user.cartList);
-	const [ alreadyIs, setAlreadyIs ] = useState(false)
+  const user = useSelector((state) => state.user.role);
+  const [ alreadyIs, setAlreadyIs ] = useState(false)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,7 +30,28 @@ export default function AddToCartButton({ id, price, name, picture, styles }) {
       picture,
 	  cant: 1
     };
-    dispatch(addToCart(data));
+	if(user === "guest"){
+		Swal.fire({
+			toast: true,
+			icon: 'error',
+			title: 'You cannot add to the cart if you are not registered',
+			animation: false,
+			position: 'bottom-right',
+			showConfirmButton: false,
+			timer: 3000,
+		  })
+	}else{
+		dispatch(addToCart(data));
+		Swal.fire({
+			toast: true,
+			icon: 'success',
+			title: 'Was added to the cart ',
+			animation: false,
+			position: 'bottom-right',
+			showConfirmButton: false,
+			timer: 3000,
+		  })
+	}
   }
 
   function handleDelete() {
@@ -43,15 +65,7 @@ export default function AddToCartButton({ id, price, name, picture, styles }) {
 					? (
 						<IconButton sx={{...styles, color: "#32CD32"}} onClick={() => {
 							handleAdd();
-							Swal.fire({
-								toast: true,
-								icon: 'success',
-								title: 'Was added to the cart widget',
-								animation: false,
-								position: 'bottom-right',
-								showConfirmButton: false,
-								timer: 3000,
-							  })
+							
 							}}>
 						<AddShoppingCart/>
 						</IconButton>
@@ -62,7 +76,7 @@ export default function AddToCartButton({ id, price, name, picture, styles }) {
 							Swal.fire({
 								toast: true,
 								icon: 'error',
-								title: 'Was deleted to the cart widget',
+								title: 'Was deleted to the cart',
 								animation: false,
 								position: 'bottom-right',
 								showConfirmButton: false,
