@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from "axios";
@@ -8,8 +8,10 @@ import {
   FormControl,
   OutlinedInput,
   InputLabel,
+  FormHelperText ,
   InputAdornment,
 } from "@mui/material";
+import { Check, PriorityHigh } from '@mui/icons-material';
 import firebaseApp from "../../firebase/credenciales";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import {
@@ -19,6 +21,8 @@ import {
 } from "firebase/auth";
 import Swal from "sweetalert2";
 import { setSigned } from "../../redux/reducers/user";
+
+import validation from "./validations";
 
 const firestore = getFirestore(firebaseApp);
 const auth = getAuth(firebaseApp);
@@ -40,9 +44,15 @@ export default function LandingForm({ register, setRegister }) {
     email: "",
     password: "",
   });
+  const [errors, setErrors] = useState({})
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const check = validation(userInfo)
+    setErrors(check)
+  }, [userInfo])
 
   function handleChange(e) {
     const value = e.target.value;
@@ -124,6 +134,22 @@ export default function LandingForm({ register, setRegister }) {
           value={userInfo.email}
           type="email"
         />
+        {
+          register ? (
+            <>
+              <FormHelperText variant="outlined" >
+                {errors?.emailRequired ? <PriorityHigh color="warning" /> : <Check color="success" /> }
+                Es requerido
+              </FormHelperText>
+              <FormHelperText variant="outlined" >
+                {errors?.emailFormat ? <PriorityHigh color="warning" /> : <Check color="success" /> }
+                Debe tener formato de email
+              </FormHelperText>
+            </>
+          ) : (
+            <></>
+          )
+        }
       </FormControl>
       <FormControl>
         <InputLabel variant="outlined" htmlFor="password">
@@ -139,6 +165,23 @@ export default function LandingForm({ register, setRegister }) {
         >
           <InputAdornment position="right">Show</InputAdornment>
         </OutlinedInput>
+        {
+          register ? (
+            <>
+              <FormHelperText variant="outlined" >
+                {errors?.passRequired ? <PriorityHigh color="warning" /> : <Check color="success" /> }
+                Es requerido
+              </FormHelperText>
+              <FormHelperText variant="outlined" >
+                {errors?.passFormat ? <PriorityHigh color="warning" /> : <Check color="success" /> }
+                Debe tener entre 6 y 14 caracters, al menos un digito, una minuscula y una mayuscula
+              </FormHelperText>
+            </>
+          ) : (
+            <></>
+          )
+        }
+        
         <Button type="submit" sx={styles.button} variant="outlined">
           {register ? "registrate" : "iniciar sesion"}
         </Button>
