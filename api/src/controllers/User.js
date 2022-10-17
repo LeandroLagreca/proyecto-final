@@ -84,19 +84,18 @@ const UserUpdate = async (req, res) => {
 };
 
 
-const LoginPost = async (req, res) => {
-    try { 
-        const { password, mail, admin } = req.body
-        const newUser = await User.create({
-            admin,
-            password,
-            mail
-        })
-        res.status(200).json(newUser);
-
-    } catch (error) {
-        res.status(400).json({error: "User not create!"});
-    };
+const GetLogin= async (req, res) => {
+    const {email} = req.query;
+    const infoLogin = await getDbInfo();
+    try {
+                if (infoLogin.length === 0) {
+                    res.send("Email does not exist");
+                } else {
+                    res.status(200).json(infoLogin)
+    } }
+    catch (error) {
+        res.status(400).json({error: "Error Email"});
+    }
 };
 
 
@@ -106,5 +105,5 @@ module.exports={
     UserPost,
     UserEliminated,
     UserUpdate,
-    LoginPost
+    GetLogin
 }
