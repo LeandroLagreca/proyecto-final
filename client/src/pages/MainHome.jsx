@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { setLoading } from '../redux/reducers/videoGame';
 import { getGames } from '../redux/actions/videoGame';
 
+import { Social } from '../components';
+
 
 const MainHome = () => {
 	const dispatch = useDispatch();
@@ -17,7 +19,7 @@ const MainHome = () => {
 			<div>
 				<div>
 				</div>
-				
+				<Social />
 				<Filter />
 				<Games />
 				<About />
