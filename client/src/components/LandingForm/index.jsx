@@ -1,7 +1,15 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Box, Button, FormControl, Input, OutlinedInput, FilledInput, InputLabel, InputAdornment } from "@mui/material";
+import axios from "axios";
+import {
+  Box,
+  Button,
+  FormControl,
+  OutlinedInput,
+  InputLabel,
+  InputAdornment,
+} from "@mui/material";
 import firebaseApp from "../../firebase/credenciales";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import {
@@ -11,6 +19,7 @@ import {
 } from "firebase/auth";
 import { setRole } from "../../redux/reducers/user";
 import Swal from "sweetalert2";
+import { setSigned } from "../../redux/reducers/user";
 
 const firestore = getFirestore(firebaseApp);
 const auth = getAuth(firebaseApp);
@@ -47,14 +56,21 @@ export default function LandingForm({ register, setRegister }) {
   }
 
   async function registarUsuario(email, password) {
-    const infoUser = await createUserWithEmailAndPassword(
+    const { user } = await createUserWithEmailAndPassword(
       auth,
       email,
       password
-    ).then((usuarioFirebase) => {
-      return usuarioFirebase;
-    });
-    const docuRef = doc(firestore, `usuarios/${infoUser.user.uid}`);
+    );
+    const newUserData = {
+      id: user.uid,
+      email,
+      password,
+      admin: false,
+    };
+    // await axios.post("http://localhost:3000/register", newUserData);
+    setRegister(false);
+
+    const docuRef = doc(firestore, `usuarios/${user.uid}`);
     setDoc(docuRef, { correo: email });
   }
 
@@ -66,7 +82,6 @@ export default function LandingForm({ register, setRegister }) {
     if (register) {
       try {
         await registarUsuario(email, password);
-        setRegister(false);
       } catch (error) {
         Swal.fire({
           text:"Could not register correctly", 
@@ -75,10 +90,16 @@ export default function LandingForm({ register, setRegister }) {
       }
     } else {
       try {
-        const status = await signInWithEmailAndPassword(auth, email, password);
-        if (status) {
-          console.log(status.user);
-          dispatch(setRole("client"));
+        const { user } = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        if (user) {
+          console.log(user);
+          // aca disparo una accion que pida la info del usuario con la uid correspondiente
+          // y setee la info necesaria en redux
+          dispatch(setSigned());
           navigate("/home");
         }
       } catch (error) {
@@ -93,9 +114,11 @@ export default function LandingForm({ register, setRegister }) {
   return (
     <Box component={"form"} onSubmit={submitHandler} sx={styles.container}>
       <FormControl>
-        <InputLabel variant="outlined" htmlFor="email">E-mail</InputLabel>
+        <InputLabel variant="outlined" htmlFor="email">
+          E-mail
+        </InputLabel>
         <OutlinedInput
-          label='E-mail'
+          label="E-mail"
           onChange={handleChange}
           id="email"
           name="email"
@@ -104,14 +127,16 @@ export default function LandingForm({ register, setRegister }) {
         />
       </FormControl>
       <FormControl>
-        <InputLabel variant="outlined" htmlFor="password">Password</InputLabel>
+        <InputLabel variant="outlined" htmlFor="password">
+          Password
+        </InputLabel>
         <OutlinedInput
           onChange={handleChange}
           id="password"
           name="password"
           value={userInfo.password}
           type="password"
-          label='Password'
+          label="Password"
         >
           <InputAdornment position="right">Show</InputAdornment>
         </OutlinedInput>

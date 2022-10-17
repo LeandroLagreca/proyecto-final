@@ -5,7 +5,7 @@ import "./DisableElevation.css"
 
 export default function DisableElevation() {
   return (
-    <Link to = "/" className='decorationButton'>
+    <Link to = "/home" className='decorationButton'>
       <Button variant="contained" disableElevation>
       Regresar
       </Button>

@@ -18,7 +18,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function CartWidget() {
 	const cartList = useSelector(state => state.user.cartList);
-  const user = useSelector((state) => state.user.role);
+  const user = useSelector((state) => state.user.status);
   const [open, setOpen] = useState(false);
   const [total, setTotal] = useState(0);
   const navigate = useNavigate();

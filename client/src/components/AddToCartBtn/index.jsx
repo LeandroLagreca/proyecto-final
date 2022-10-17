@@ -12,7 +12,7 @@ const buttonStyles = {
 
 export default function AddToCartButton({ id, price, name, picture, styles }) {
   const cartList = useSelector((state) => state.user.cartList);
-  const user = useSelector((state) => state.user.role);
+  const user = useSelector((state) => state.user.status);
   const [ alreadyIs, setAlreadyIs ] = useState(false)
   const dispatch = useDispatch();
 
