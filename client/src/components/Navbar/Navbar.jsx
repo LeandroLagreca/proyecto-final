@@ -138,14 +138,14 @@ const Navbar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            HENRY GAMES
-          </Typography>
+
+		  <Link style={styles.link} to='/home'>
+              <Button
+                sx={{ my: 2, color: "white", display: "block", fontSize: 22 }}
+              >
+               HENRY GAMES
+              </Button>
+            </Link>
 
           <Searchbar setInput={setInput} input={input} />
 
