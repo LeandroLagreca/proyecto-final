@@ -47,7 +47,7 @@ const populateDb=async(req,res)=>{
     try {
     Videogame.bulkCreate(json)
     } catch (error) {
-        res.status(400).send({mgs:"acasapt"})
+        res.status(400).json(error)
     }
 }
 const findGame = async (req, res, name) => {

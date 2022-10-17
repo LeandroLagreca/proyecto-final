@@ -1331,124 +1331,9 @@
       "Adventure"
     ]
   },
-  {
-    "id": 257201,
-    "name": "Star Wars Jedi: Fallen Order",
-    "background_image": "https://media.rawg.io/media/games/559/559bc0768f656ad0c63c54b80a82d680.jpg",
-    "rating_api": 4.15,
-    "released": "2019-11-15",
-    "images": "https://media.rawg.io/media/games/559/559bc0768f656ad0c63c54b80a82d680.jpg,https://media.rawg.io/media/screenshots/1c0/1c0016ec0441e86648bd7f751c8e5adf.jpg,https://media.rawg.io/media/screenshots/4fd/4fd551e67bc9fd9eb4c855604838d10f.jpg,https://media.rawg.io/media/screenshots/dd6/dd69cc02ef3d56dabbe62f06ddea8569.jpg,https://media.rawg.io/media/screenshots/b2c/b2cdb1843349dd5db358a4b214a00f2c.jpg,https://media.rawg.io/media/screenshots/c60/c6065f618a7304016db7fa02d563084a_rSIdAmV.jpg,https://media.rawg.io/media/screenshots/99f/99f9710b7305817f44866b7a61b77dd0.jpg",
-    "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li>Requires a 64-bit processor and operating system<br></li><li><strong>OS:</strong> 64-bit Windows 7/8.1/10<br></li><li><strong>Processor:</strong> AMD FX-6100/Intel i3-3220 or Equivalent<br></li><li><strong>Memory:</strong> 8 GB RAM<br></li><li><strong>Graphics:</strong> AMD Radeon HD 7750/NVIDIA GeForce GTX 650 or Equivalent<br></li><li><strong>DirectX:</strong> Version 11<br></li><li><strong>Storage:</strong> 55 GB available space</li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li>Requires a 64-bit processor and operating system<br></li><li><strong>OS:</strong> 64-bit Windows 7/8.1/10<br></li><li><strong>Processor:</strong> AMD Ryzen 7 1700/Intel  i7-6700K or Equivalent<br></li><li><strong>Memory:</strong> 16 GB RAM<br></li><li><strong>Graphics:</strong> AMD RX Vega 56/ Nvidia GTX 1070 or Equivalent<br></li><li><strong>DirectX:</strong> Version 11<br></li><li><strong>Storage:</strong> 55 GB available space</li></ul>",
-    "genres": [
-      "Action",
-      "Adventure"
-    ]
-  },
-  {
-    "id": 13910,
-    "name": "XCOM: Enemy Unknown",
-    "background_image": "https://media.rawg.io/media/games/238/2383a172b4d50a7b44e07980eb7141ea.jpg",
-    "rating_api": 4.19,
-    "released": "2012-10-09",
-    "images": "https://media.rawg.io/media/games/238/2383a172b4d50a7b44e07980eb7141ea.jpg,https://media.rawg.io/media/screenshots/805/805471a778d484cdd5305b36f68ee1b6.jpg,https://media.rawg.io/media/screenshots/3da/3dab13378be0dc687857c1899c2db3bd.jpg,https://media.rawg.io/media/screenshots/1b9/1b9536d06fdc789caa3f839548178ba0.jpg,https://media.rawg.io/media/screenshots/bca/bca4db9d97ced7c3a42b2c7a90d4d28c.jpg,https://media.rawg.io/media/screenshots/5a4/5a43d75d6517163772f492e2a5b278d6.jpg,https://media.rawg.io/media/screenshots/77f/77feafcf416de96e61d7a6461b8b29f7.jpg",
-    "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong>Windows Vista<br>\t</li><li><strong>Processor:</strong>2 GHz Dual Core <br>\t</li><li><strong>Memory:</strong>2 GB RAM<br>\t</li><li><strong>Graphics:</strong>NVIDIA GeForce 8600 GT / ATI Radeon HD 2600 XT or greater <br>\t</li><li><strong>DirectX®:</strong>9.0<br>\t</li><li><strong>Hard Drive:</strong>20 GB HD space<br>\t</li><li><strong>Sound:</strong>DirectX Compatible<br>\t</li><li><strong>Other Requirements:</strong>Broadband Internet connection<br>\t</li><li><strong>Additional:</strong>Initial installation requires one-time internet connection for Steam authentication; software installations required (included with the game) include Steam Client, Visual C++ 2008 Redistributable, DirectX and Microsoft .NET 4.</li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong>Windows 7 <br>\t</li><li><strong>Processor:</strong>2 GHz Dual Core (Intel Core 2 Duo 2.4 GHz or Athlon X2 2.7 GHz)<br>\t</li><li><strong>Memory:</strong>4 GB RAM<br>\t</li><li><strong>Graphics:</strong>NVIDIA GeForce 9000 series / ATI Radeon HD 3000 series or greater<br>\t</li><li><strong>DirectX®:</strong>9.0<br>\t</li><li><strong>Hard Drive:</strong>20 GB HD space<br>\t</li><li><strong>Sound:</strong>DirectX Compatible<br>\t</li><li><strong>Other Requirements:</strong>Broadband Internet connection<br>\t</li><li><strong>Additional:</strong>Initial installation requires one-time internet connection for Steam authentication; software installations required (included with the game) include Steam Client, Visual C++ 2008 Redistributable, DirectX and Microsoft .NET 4.</li></ul>",
-    "genres": [
-      "Strategy"
-    ]
-  },
-  {
-    "id": 3604,
-    "name": "Metro: Last Light Redux",
-    "background_image": "https://media.rawg.io/media/games/7a4/7a45e4cdc5b07f316d49cf147b083b27.jpg",
-    "rating_api": 4.12,
-    "released": "2014-08-25",
-    "images": "https://media.rawg.io/media/games/7a4/7a45e4cdc5b07f316d49cf147b083b27.jpg,https://media.rawg.io/media/screenshots/111/11118bdcf7cd62d35f63826c79983e16.jpg,https://media.rawg.io/media/screenshots/11b/11b420a51d555aad055e37916b112fd1.jpg,https://media.rawg.io/media/screenshots/7ba/7ba241860b68b0a5fe0cda616bde2596.jpg,https://media.rawg.io/media/screenshots/9d3/9d3b567749527447580bcb9df1c894bb.jpg,https://media.rawg.io/media/screenshots/97d/97dd78e4e9051b1529313480789b63ab.jpg,https://media.rawg.io/media/screenshots/0d2/0d26738855784b7997b1569fa4979400.jpg",
-    "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows Vista, 7 or 8 (64-bit only)<br></li><li><strong>Processor:</strong> Dual Core CPU (2.2+ GHz Dual Core CPU or better)<br></li><li><strong>Memory:</strong> 2 GB RAM<br></li><li><strong>Graphics:</strong> DirectX 10, Shader Model 4 compliant graphics cards (GeForce 8800 GT 512 MB, GeForce GTS 250, etc)<br></li><li><strong>DirectX:</strong> Version 10<br></li><li><strong>Storage:</strong> 10 GB available space<br></li><li><strong>Additional Notes:</strong> 64-bit only</li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 7 or 8 (64-bit only)<br></li><li><strong>Processor:</strong> Any Quad Core or 3.0+ GHz Dual Core CPU<br></li><li><strong>Memory:</strong> 4 GB RAM<br></li><li><strong>Graphics:</strong> DirectX 11 compliant graphics card (GeForce GTX 480 and above)<br></li><li><strong>DirectX:</strong> Version 11<br></li><li><strong>Storage:</strong> 10 GB available space<br></li><li><strong>Additional Notes:</strong> (64-bit only)</li></ul>",
-    "genres": [
-      "Action",
-      "Shooter"
-    ]
-  },
-  {
-    "id": 46889,
-    "name": "Monster Hunter: World",
-    "background_image": "https://media.rawg.io/media/games/21c/21cc15d233117c6809ec86870559e105.jpg",
-    "rating_api": 4.02,
-    "released": "2018-01-26",
-    "images": "https://media.rawg.io/media/games/21c/21cc15d233117c6809ec86870559e105.jpg,https://media.rawg.io/media/screenshots/c1d/c1d2b3eae58a73518d20c040f783563f.jpg,https://media.rawg.io/media/screenshots/6af/6af12f47d129237cba6e9a533a55f6d7.jpg,https://media.rawg.io/media/screenshots/800/80059f527ef16e3cf804628968ece842.jpg,https://media.rawg.io/media/screenshots/c5f/c5f7d748c1a668c5a5789923aadbe60d.jpg,https://media.rawg.io/media/screenshots/c56/c56295d86f5b8b56bca3a6c6398a4c70.jpg,https://media.rawg.io/media/screenshots/d48/d4841fe62e5bf082eff19279f191a917.jpg",
-    "requirements": "Minimum:\r\n\r\nRequires a 64-bit processor and operating system\r\n\r\nOS: WINDOWS® 7, 8, 8.1, 10 (64-bit required)\r\n\r\nProcessor: Intel® Core™ i5-4460, 3.20GHz or AMD FX™-6300\r\n\r\nMemory: 8 GB RAM\r\n\r\nGraphics: NVIDIA® GeForce® GTX 760 or AMD Radeon™ R7 260x (VRAM 2GB)\r\n\r\nDirectX: Version 11\r\n\r\nNetwork: Broadband Internet connection\r\n\r\nStorage: 48 GB available space\r\n\r\nSound Card: DirectSound (DirectX® 9.0c)\r\n\r\nAdditional Notes: 1080p/30fps when graphics settings are set to \"Low\",Recommended:\r\n\r\nRequires a 64-bit processor and operating system\r\n\r\nOS: WINDOWS® 7, 8, 8.1, 10 (64-bit required)\r\n\r\nProcessor: Intel® Core™ i7 3770 3.4GHz or Intel® Core™ i3 8350 4GHz or AMD Ryzen™ 5 1500X\r\n\r\nMemory: 8 GB RAM\r\n\r\nGraphics: NVIDIA® GeForce® GTX 1060 (VRAM 3GB) or AMD Radeon™ RX 570 (VRAM 4GB)\r\n\r\nDirectX: Version 11\r\n\r\nNetwork: Broadband Internet connection\r\n\r\nStorage: 48 GB available space\r\n\r\nSound Card: DirectSound (DirectX® 9.0c or better)\r\n\r\nAdditional Notes: 1080p/30fps when graphics settings are set to \"High\"",
-    "genres": [
-      "Action",
-      "Adventure",
-      "RPG"
-    ]
-  },
-  {
-    "id": 10141,
-    "name": "NieR:Automata",
-    "background_image": "https://media.rawg.io/media/games/5a4/5a44112251d70a25291cc33757220fce.jpg",
-    "rating_api": 4.37,
-    "released": "2017-03-17",
-    "images": "https://media.rawg.io/media/games/5a4/5a44112251d70a25291cc33757220fce.jpg,https://media.rawg.io/media/screenshots/286/28651ead277f96a8b950ded95b617b25.jpg,https://media.rawg.io/media/screenshots/818/8186c49e4788cb1a9d346689afeff9e4.jpg,https://media.rawg.io/media/screenshots/974/9747126200ff91b7b9515c4484e562a5.jpg,https://media.rawg.io/media/screenshots/f49/f498382127612aaa8d834e3c3eb2be33.jpg,https://media.rawg.io/media/screenshots/667/667f82af0d448aaec6cc119eb7ab6909.jpg,https://media.rawg.io/media/screenshots/48f/48fdff19cfe1dc37d86a20af01cc4bb8.jpg",
-    "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 7 /8.1 /10 64bit<br></li><li><strong>Processor:</strong> Intel Core i3 2100 or AMD A8-6500<br></li><li><strong>Memory:</strong> 4 GB RAM<br></li><li><strong>Graphics:</strong> NVIDIA GeForce GTX 770 VRAM 2GB or AMD Radeon R9 270X VRAM 2GB<br></li><li><strong>DirectX:</strong> Version 11<br></li><li><strong>Network:</strong> Broadband Internet connection<br></li><li><strong>Storage:</strong> 50 GB available space<br></li><li><strong>Sound Card:</strong> DirectX® 11 supported<br></li><li><strong>Additional Notes:</strong> Mouse, keyboard and game pad (XInput only). Screen resolution: 1280x720. This product only supports MS-IME keyboard input. There is a possibility that other IME will not function correctly with it.</li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 8.1 /10 64bit<br></li><li><strong>Processor:</strong> Intel Core i5 4670 or AMD A10-7850K<br></li><li><strong>Memory:</strong> 8 GB RAM<br></li><li><strong>Graphics:</strong> NVIDIA GeForce GTX 980 VRAM 4GB or AMD Radeon R9 380X VRAM 4GB<br></li><li><strong>DirectX:</strong> Version 11<br></li><li><strong>Network:</strong> Broadband Internet connection<br></li><li><strong>Storage:</strong> 50 GB available space<br></li><li><strong>Sound Card:</strong> DirectX® 11 supported<br></li><li><strong>Additional Notes:</strong> Mouse, keyboard and game pad (XInput only). Screen resolution: 1920x1080. Depending on the monitor and PC graphics card environment and setup used, this title can expand its display resolution to 4K. However, please be aware that 4K resolutions are not officially supported. This product only supports MS-IME keyboard input. There is a possibility that other IME will not function correctly with it.</li></ul>",
-    "genres": [
-      "Action",
-      "RPG"
-    ]
-  },
-  {
-    "id": 5525,
-    "name": "Brutal Legend",
-    "background_image": "https://media.rawg.io/media/games/af7/af7a831001c5c32c46e950cc883b8cb7.jpg",
-    "rating_api": 3.65,
-    "released": "2009-10-12",
-    "images": "https://media.rawg.io/media/games/af7/af7a831001c5c32c46e950cc883b8cb7.jpg,https://media.rawg.io/media/screenshots/ded/ded6b47a8903f3ff9903f2068f132942.jpg,https://media.rawg.io/media/screenshots/252/252def39bf9e2630a2c7eb6a736171eb.jpg,https://media.rawg.io/media/screenshots/092/092467f790f3f594bb3f0886df02d9d0.jpg,https://media.rawg.io/media/screenshots/9bb/9bb08c6e8ae706f90c106c8a7de57644.jpg,https://media.rawg.io/media/screenshots/d29/d298235806cffe6393aadf37ef6c0632.jpg,https://media.rawg.io/media/screenshots/a30/a3059c047b76d09c8dfa19ce5ed0c8cf.jpg",
-    "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong>Windows XP SP3<br>\t</li><li><strong>Processor:</strong>Intel Core 2 Duo at 2.2 GHz, or AMD Athlon 64 at 2.2 GHz<br>\t</li><li><strong>Memory:</strong>1 GB RAM<br>\t</li><li><strong>Graphics:</strong>512 MB GeForce 220, Radeon 4550, Intel HD 3000 Graphics<br>\t</li><li><strong>DirectX®:</strong>9.0c<br>\t</li><li><strong>Hard Drive:</strong>8 GB HD space<br>\t</li><li><strong>Sound:</strong>DirectX Compatible Sound Card<br>\t</li><li><strong>Other Requirements:</strong>Broadband Internet connection</li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong>Windows 7<br>\t</li><li><strong>Processor:</strong>Intel i5 Duo at 2.5 GHz, or AMD FX 3.5 GHz<br>\t</li><li><strong>Memory:</strong>2 GB RAM<br>\t</li><li><strong>Graphics:</strong>512 MB GeForce 650, Radeon 7000<br>\t</li><li><strong>DirectX®:</strong>9.0c<br>\t</li><li><strong>Hard Drive:</strong>8 GB HD space<br>\t</li><li><strong>Sound:</strong>DirectX Compatible Sound Card<br>\t</li><li><strong>Other Requirements:</strong>Broadband Internet connection</li></ul>",
-    "genres": [
-      "Action",
-      "Strategy"
-    ]
-  },
-  {
-    "id": 19301,
-    "name": "Counter-Strike",
-    "background_image": "https://media.rawg.io/media/games/9c4/9c47f320eb73c9a02d462e12f6206b26.jpg",
-    "rating_api": 4.03,
-    "released": "2000-11-01",
-    "images": "https://media.rawg.io/media/games/9c4/9c47f320eb73c9a02d462e12f6206b26.jpg,https://media.rawg.io/media/screenshots/208/2087d6a9a20434bf4a28313b6ce09917.jpg,https://media.rawg.io/media/screenshots/58a/58a8a824744a5fe1c84e53ca9135f7ce.jpg,https://media.rawg.io/media/screenshots/8a8/8a8b23c4b62065c093f288e70ee9d9f2.jpg,https://media.rawg.io/media/screenshots/b3c/b3c5cf63e4558bb98b85eba830b90215.jpg,https://media.rawg.io/media/screenshots/a88/a8877e5cae44ef1ac8b36eeefce2ca34.jpg,https://media.rawg.io/media/screenshots/565/56570a92d4c85576f9ff1382c75c5ac4.jpg",
-    "requirements": "<p><strong>Minimum:</strong> 500 mhz processor, 96mb ram, 16mb video card, Windows XP, Mouse, Keyboard, Internet Connection<br /></p>\r\n\t\t\t<p><strong>Recommended:</strong> 800 mhz processor, 128mb ram, 32mb+ video card, Windows XP, Mouse, Keyboard, Internet Connection<br /></p>",
-    "genres": [
-      "Action",
-      "Shooter"
-    ]
-  },
-  {
-    "id": 18240,
-    "name": "Brothers: A Tale of Two Sons",
-    "background_image": "https://media.rawg.io/media/games/b6b/b6b20bfc4b34e312dbc8aac53c95a348.jpg",
-    "rating_api": 4.19,
-    "released": "2013-08-07",
-    "images": "https://media.rawg.io/media/games/b6b/b6b20bfc4b34e312dbc8aac53c95a348.jpg,https://media.rawg.io/media/screenshots/14d/14dcdb86ae346a69022ab5837016fdc1.jpg,https://media.rawg.io/media/screenshots/5e7/5e71a4ccee940eb51a6110535f79d4ed.jpg,https://media.rawg.io/media/screenshots/709/70954b4dac5e2a4966293ce0c7dbc6c4.jpg,https://media.rawg.io/media/screenshots/08f/08fd4301c46d14aed67c9d7f98b12ec0.jpg,https://media.rawg.io/media/screenshots/5bd/5bd04279767fc7febc37e460da236b28.jpg,https://media.rawg.io/media/screenshots/900/900738abfbca21ada3170e5f9dc7a333.jpg",
-    "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 7/8/10<br></li><li><strong>Processor:</strong> 2 Ghz Dual Core<br></li><li><strong>Memory:</strong> 2 GB RAM<br></li><li><strong>Graphics:</strong> Graphics card supporting DirectX 9.0c<br></li><li><strong>DirectX:</strong> Version 9.0c<br></li><li><strong>Storage:</strong> 150 MB available space<br></li><li><strong>Sound Card:</strong> Any</li></ul>",
-    "genres": [
-      "Action",
-      "Adventure",
-      "Indie"
-    ]
-  },
-  {
-    "id": 11142,
-    "name": "BioShock 2 Remastered",
-    "background_image": "https://media.rawg.io/media/games/7c4/7c448374df84b607f67ce9182a3a3ca7.jpg",
-    "rating_api": 4.01,
-    "released": "2016-09-15",
-    "images": "https://media.rawg.io/media/games/7c4/7c448374df84b607f67ce9182a3a3ca7.jpg,https://media.rawg.io/media/screenshots/f8f/f8f97169e49ff503f182cb480c75d377.jpg,https://media.rawg.io/media/screenshots/be7/be7ba98fad14386322335d9d87f4cf05.jpg,https://media.rawg.io/media/screenshots/d0e/d0e70feaab57195e8286f3501e95fc5e.jpg,https://media.rawg.io/media/screenshots/f6e/f6e3977b58906b54d43232262521e7c6.jpg,https://media.rawg.io/media/screenshots/932/932a57c6958406a255b36d90d7eb62cd.jpg,https://media.rawg.io/media/screenshots/dd5/dd5c9b494d356ecc6b06115e51bf95c4.jpg",
-    "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 7 Service Pack 1 64-bit. Platform Update for Windows 7 SP1 and Windows Server 2008 R2 SP1<br></li><li><strong>Processor:</strong> Intel E6750 Core 2 Duo 2.66 GHz / AMD Athlon X2 2.7 GHZ<br></li><li><strong>Memory:</strong> 4 GB RAM<br></li><li><strong>Graphics:</strong> 2GB AMD Radeon HD 7770 / 2GB NVIDIA GeForce GTX 670<br></li><li><strong>DirectX:</strong> Version 11<br></li><li><strong>Storage:</strong> 25 GB available space<br></li><li><strong>Sound Card:</strong> DirectX Compatible Sound Device<br></li><li><strong>Additional Notes:</strong> Software installations required including DirectX and Microsoft Visual C++ 2010 &amp; 2012 Redistributable Package. <i>Some system components such as mobile chipsets, integrated, and AGP graphics cards may be incompatible. Unlisted specifications may not be supported by publisher. </i></li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 7 Service Pack 1 64-bit. Platform Update for Windows 7 SP1 and Windows Server 2008 R2 SP1<br></li><li><strong>Processor:</strong> 3GHz Quad-Core<br></li><li><strong>Memory:</strong> 8 GB RAM<br></li><li><strong>Graphics:</strong> 2GB ATI Radeon HD 7970, 2GB NVIDIA GeForce GTX 770 or better<br></li><li><strong>DirectX:</strong> Version 11<br></li><li><strong>Storage:</strong> 25 GB available space<br></li><li><strong>Sound Card:</strong> DirectX Compatible Sound Device</li></ul>",
-    "genres": [
-      "Action",
-      "RPG"
-    ]
-  },
+ 
+  
+  
   {
     "id": 3603,
     "name": "Metro 2033 Redux",
@@ -1462,19 +1347,7 @@
       "Shooter"
     ]
   },
-  {
-    "id": 13535,
-    "name": "Left 4 Dead",
-    "background_image": "https://media.rawg.io/media/games/476/476178ef18ab0534771d099f51cdc694.jpg",
-    "rating_api": 4.1,
-    "released": "2008-11-17",
-    "images": "https://media.rawg.io/media/games/476/476178ef18ab0534771d099f51cdc694.jpg,https://media.rawg.io/media/screenshots/570/5706e81cef6e3974795d9d92ad503ce7.jpg,https://media.rawg.io/media/screenshots/e4f/e4fa138927a69d378f162801fee9245e.jpg,https://media.rawg.io/media/screenshots/44c/44c688a8122f4e31cf85c219ab790075.jpg,https://media.rawg.io/media/screenshots/4b3/4b347aa08324581b9be4333e4e0ea8a3.jpg,https://media.rawg.io/media/screenshots/27c/27cee268a53a710821a499044d929b87.jpg,https://media.rawg.io/media/screenshots/e50/e50c0f7e266bb87e8d7b29597923e717.jpg",
-    "requirements": "<strong>Minimum:</strong>                    <br>\t\t\t\t\t<ul class=\"bb_ul\"><li><strong>Supported OS:</strong> Windows® 7 32/64-bit / Vista 32/64 / XP                    <br>\t\t\t\t\t</li><li><strong>Processor:</strong> Pentium 4 3.0GHz                     <br>\t\t\t\t\t</li><li><strong>Memory:</strong> 1 GB                    <br>\t\t\t\t\t</li><li><strong>Graphics:</strong> 128 MB, Shader model 2.0, ATI 9600, NVidia 6600 or better                     <br>\t\t\t\t\t</li><li><strong>Hard Drive:</strong> At least 7.5 GB of free space                    <br>\t\t\t\t\t</li><li><strong>Sound Card:</strong> DirectX 9.0c compatible sound card                    </li></ul>,<strong>Recommended:</strong>                    <br>\t\t\t\t\t<ul class=\"bb_ul\"><li><strong>Supported OS:</strong> Windows® 7 32/64-bit / Vista 32/64 / XP                    <br>\t\t\t\t\t</li><li><strong>Processor:</strong> Intel core 2 duo 2.4GHz                    <br>\t\t\t\t\t</li><li><strong>Memory:</strong> 1 GB                     <br>\t\t\t\t\t</li><li><strong>Graphics:</strong> Shader model 3.0, NVidia 7600, ATI X1600 or better                     </li></ul>",
-    "genres": [
-      "Action",
-      "Shooter"
-    ]
-  },
+  
   {
     "id": 2743,
     "name": "Heavy Rain",
@@ -1543,19 +1416,7 @@
       "Shooter"
     ]
   },
-  {
-    "id": 4280,
-    "name": "Max Payne 3",
-    "background_image": "https://media.rawg.io/media/games/5bf/5bf88a28de96321c86561a65ee48e6c2.jpg",
-    "rating_api": 4.25,
-    "released": "2012-05-15",
-    "images": "https://media.rawg.io/media/games/5bf/5bf88a28de96321c86561a65ee48e6c2.jpg,https://media.rawg.io/media/screenshots/05b/05b7b6970c42861b24c97a829135f685.jpg,https://media.rawg.io/media/screenshots/770/7706c93f23fef77b8e500eb7ee06eee9.jpg,https://media.rawg.io/media/screenshots/898/89879b7064e612c95bf976d6abc2fa0c.jpg,https://media.rawg.io/media/screenshots/24f/24f3c80cfad97fe119a317dd7f1b3ffb.jpg,https://media.rawg.io/media/screenshots/961/96136b0c8c45e4a9df2d2482fb862a8e.jpg,https://media.rawg.io/media/screenshots/53a/53a90ec4b5ea59a217fd4cc075b877ad.jpg",
-    "requirements": "<ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 7 32/64 Service Pack 1, Windows Vista 32/64 Service Pack 2, Windows XP 32/64 Service Pack 3<br>\t</li><li><strong>Processor:</strong> Intel Dual Core 2.4 GHZ -  i7 3930K 6 Core  x 3.06 GHZ / AMD Dual Core 2.6 GHZ - FX8150 8 Core x 3.6 GHZ<br>\t</li><li><strong>Memory:</strong> 2GB - 16GB<br>\t</li><li><strong>Hard Disk Space:</strong> 35 Gigs<br>\t</li><li><strong>Video Card:</strong>  NVIDIA® 8600 GT 512MB VRAM – NVIDIA® GeForce® GTX 680 2GB VRAM / Radeon HD 3400 512MB VRAM - Radeon HD 7970 3GB VRAM<br>\t</li><li><strong>Sound Card:</strong> 100% Direct X 9.0 compatible – Direct X 9.0 compatible supporting Dolby Digital Live<br></li><li><strong>Additional:</strong>Please refer to your hardware manufacturer and <a href=\"https://steamcommunity.com/linkfilter/?url=http://support.rockstargames.com/home\" target=\"_blank\" rel=\"noopener\"  >http://support.rockstargames.com/home</a> for current compatibility information. Some system components such as mobile chipsets,                              <br>Integrated, and AGP graphics cards may be incompatible.  Unlisted specifications may not be supported by publisher.<br></li><li><strong>Other Requirements:</strong> Initial activation requires internet connection and a valid Rockstar Social Club account (13+ to register); Online play requires log-in to Rockstar Social Club (13+); software installation required including GameShield IronWrap; DirectX and Microsoft Visual C++ 2008 SP1 Redistributable Package (x86).</li></ul>",
-    "genres": [
-      "Action",
-      "Shooter"
-    ]
-  },
+  
   {
     "id": 28179,
     "name": "SEGA Mega Drive and Genesis Classics",
@@ -1717,19 +1578,7 @@
       "RPG"
     ]
   },
-  {
-    "id": 3603,
-    "name": "Metro 2033 Redux",
-    "background_image": "https://media.rawg.io/media/games/4fb/4fb548e4816c84d1d70f1a228fb167cc.jpg",
-    "rating_api": 4.09,
-    "released": "2014-08-25",
-    "images": "https://media.rawg.io/media/games/4fb/4fb548e4816c84d1d70f1a228fb167cc.jpg,https://media.rawg.io/media/screenshots/432/432cf94eb1f25d7415f05def5d18cedc.jpg,https://media.rawg.io/media/screenshots/82c/82cb9461b5ad0ebdb6edc4b3acdfb731.jpg,https://media.rawg.io/media/screenshots/b95/b957aad3c646822893fe084ae6bf7652.jpg,https://media.rawg.io/media/screenshots/8f5/8f5ebd97e68dd1e16d008c7be452afd7.jpg,https://media.rawg.io/media/screenshots/dd5/dd59314b82f1d7eb3631a6fa54af3072.jpg,https://media.rawg.io/media/screenshots/19b/19b46c6f0cb02c9e3791d15d8da4bbf1.jpg",
-    "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows Vista, 7 or 8 (64-bit only)<br></li><li><strong>Processor:</strong> Dual Core CPU (2.2+ GHz Dual Core CPU or better)<br></li><li><strong>Memory:</strong> 2 GB RAM<br></li><li><strong>Graphics:</strong> DirectX 10, Shader Model 4 compliant graphics cards (GeForce 8800 GT 512 MB, GeForce GTS 250, etc)<br></li><li><strong>DirectX:</strong> Version 10<br></li><li><strong>Storage:</strong> 10 GB available space<br></li><li><strong>Additional Notes:</strong> 64-bit only</li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 7 or 8 (64-bit only)<br></li><li><strong>Processor:</strong> Any Quad Core or 3.0+ GHz Dual Core CPU<br></li><li><strong>Memory:</strong> 4 GB RAM<br></li><li><strong>Graphics:</strong> DirectX 11 compliant graphics card (GeForce GTX 480 and above)<br></li><li><strong>DirectX:</strong> Version 11<br></li><li><strong>Storage:</strong> 10 GB available space<br></li><li><strong>Additional Notes:</strong> 64-bit only</li></ul>",
-    "genres": [
-      "Action",
-      "Shooter"
-    ]
-  },
+  
   {
     "id": 13535,
     "name": "Left 4 Dead",
@@ -1743,74 +1592,11 @@
       "Shooter"
     ]
   },
-  {
-    "id": 2743,
-    "name": "Heavy Rain",
-    "background_image": "https://media.rawg.io/media/games/0af/0af85e8edddfa55368e47c539914a220.jpg",
-    "rating_api": 4.09,
-    "released": "2010-02-23",
-    "images": "https://media.rawg.io/media/games/0af/0af85e8edddfa55368e47c539914a220.jpg,https://media.rawg.io/media/screenshots/2a0/2a0abc877b38468c38b12608e8f4e6e9.jpg,https://media.rawg.io/media/screenshots/1ce/1cea6b99424718659971772dcd34365c.jpg,https://media.rawg.io/media/screenshots/a5b/a5b869636cb34edcc92cacc598d1a6ef.jpg,https://media.rawg.io/media/screenshots/daa/daa642d6610d252281237fd7e769e598.jpg,https://media.rawg.io/media/screenshots/949/949962605a08b75f58a7b0f4fbe4511b.jpg,https://media.rawg.io/media/screenshots/1ea/1ea689dd2ef1cbef6d9bc04562e739e9.jpg",
-    "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li>Requires a 64-bit processor and operating system<br></li><li><strong>OS:</strong> Windows 7 or later (64 bit)<br></li><li><strong>Processor:</strong> Intel Core i5-4430 @ 3.0 GHz or AMD FX-6300 @ 3.5 GHz<br></li><li><strong>Memory:</strong> 4 GB RAM<br></li><li><strong>Graphics:</strong> Nvidia GeForce GTX 660 with 2GB VRAM or AMD Radeon HD 7870 with 2GB VRAM<br></li><li><strong>DirectX:</strong> Version 11<br></li><li><strong>Storage:</strong> 35 GB available space<br></li><li><strong>Additional Notes:</strong> 720p, 30 FPS</li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li>Requires a 64-bit processor and operating system<br></li><li><strong>OS:</strong> Windows 7 or later (64 bit)<br></li><li><strong>Processor:</strong> Intel Core i5-6600K @ 3.5GHz or AMD Ryzen 3 1300X @ 3.4GHz<br></li><li><strong>Memory:</strong> 8 GB RAM<br></li><li><strong>Graphics:</strong> Nvidia GeForce GTX 970 with 4GB VRAM or AMD Radeon R9 390 with 4GB VRAM<br></li><li><strong>DirectX:</strong> Version 11<br></li><li><strong>Storage:</strong> 35 GB available space<br></li><li><strong>Additional Notes:</strong> 1080p, 60 FPS</li></ul>",
-    "genres": [
-      "Action",
-      "Adventure"
-    ]
-  },
-  {
-    "id": 1416,
-    "name": "Mafia II",
-    "background_image": "https://media.rawg.io/media/games/9e5/9e5b274c7e3aa5e30beba31b834b0e7e.jpg",
-    "rating_api": 4.21,
-    "released": "2010-08-24",
-    "images": "https://media.rawg.io/media/games/9e5/9e5b274c7e3aa5e30beba31b834b0e7e.jpg,https://media.rawg.io/media/screenshots/fc7/fc7af04e8ec2245f6520eea80a07f27b.jpg,https://media.rawg.io/media/screenshots/609/609942d823b3f143bd740422e89bc957.jpg,https://media.rawg.io/media/screenshots/884/88470240b56fe7e5b26e90855be8549c.jpg,https://media.rawg.io/media/screenshots/c24/c24c38a52e37585e09e4d901f20e86dd.jpg,https://media.rawg.io/media/screenshots/fa0/fa0b8f4a7479123c33ed9928a82c49e7.jpg,https://media.rawg.io/media/screenshots/c9a/c9a3142299ef94565cfc72136ef58e4c.jpg",
-    "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Microsoft Windows XP (SP2 or later) / Windows Vista / Windows 7<br></li><li><strong>Processor:</strong> Pentium D 3Ghz or AMD Athlon 64 X2 3600+ (Dual core)  or higher<br></li><li><strong>RAM:</strong> 1.5 GB RAM<br></li><li><strong>Hard Disk Space:</strong> 8GB<br></li><li><strong>Video Card:</strong> nVidia GeForce 8600 / ATI HD2600 Pro or better<br></li><li><strong>Sound Card:</strong> 100% DirectX 9.0c compatible sound card<br></li><li><strong>Peripherals:</strong> Keyboard and mouse or Windows compatible gamepad<br></li><li><strong>Other Requirements:</strong> Initial installation requires one-time internet connection for Steam authentication; software installations required (included with the game)include nVidia PhysX_drivers 10.04.02_9.10.0522and nVidia GPU drivers 197.13 or latest, Steam Client and Microsoft DirectX.</li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Microsoft Windows XP (SP2 or later) / Windows Vista / Windows 7<br></li><li><strong>Processor:</strong> 2.4 GHz Quad Core processor<br></li><li><strong>RAM:</strong> 2GB<br></li><li><strong>Hard Disk Space:</strong> 10GB<br></li><li><strong>Video Card:</strong> nVidia GeForce 9800 GTX / ATI Radeon HD 3870 or better<br></li><li><strong>Sound Card:</strong> 100% DirectX 9.0c compatible sound card<br></li><li><strong>Peripherals:</strong> Keyboard and mouse or Windows compatible gamepad</li></ul>",
-    "genres": [
-      "Action",
-      "Adventure"
-    ]
-  },
-  {
-    "id": 326292,
-    "name": "Fall Guys: Ultimate Knockout",
-    "background_image": "https://media.rawg.io/media/games/5eb/5eb49eb2fa0738fdb5bacea557b1bc57.jpg",
-    "rating_api": 3.76,
-    "released": "2020-08-04",
-    "images": "https://media.rawg.io/media/games/5eb/5eb49eb2fa0738fdb5bacea557b1bc57.jpg,https://media.rawg.io/media/screenshots/1c5/1c5d40d58ac34b04576ffd7072989eea.jpg,https://media.rawg.io/media/screenshots/5a7/5a7accdc9cc61aa844b2d4f64f4c94b3.jpeg,https://media.rawg.io/media/screenshots/37c/37cecc1f17ad71b26fbbc5a651a4fe9b.jpg,https://media.rawg.io/media/screenshots/9c7/9c7a057ff1ce9122e66847b0eeedd20f.jpg,https://media.rawg.io/media/screenshots/af7/af7ccaa5f7c2826d9f41cd0fd5c16d4d.jpg,https://media.rawg.io/media/screenshots/4b1/4b118c6bc02c21ffcac1cb44717666a9.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "Sports",
-      "Casual",
-      "Massively Multiplayer",
-      "Indie"
-    ]
-  },
-  {
-    "id": 2361,
-    "name": "Psychonauts",
-    "background_image": "https://media.rawg.io/media/games/c89/c89ca70716080733d03724277df2c6c7.jpg",
-    "rating_api": 4.03,
-    "released": "2005-04-01",
-    "images": "https://media.rawg.io/media/games/c89/c89ca70716080733d03724277df2c6c7.jpg,https://media.rawg.io/media/screenshots/2de/2dea22a973d765a5383940307b368268.jpg,https://media.rawg.io/media/screenshots/310/3103cb1e58a5d6bba1c356d8d1570920.jpg,https://media.rawg.io/media/screenshots/9c0/9c03e9baa71db649d849660067d07979.jpg,https://media.rawg.io/media/screenshots/f9a/f9a391f3d4a496195a5cbce41421fb03.jpg,https://media.rawg.io/media/screenshots/897/897ad883ed085ec7269fb0d235e41625.jpg,https://media.rawg.io/media/screenshots/224/224f218780ffdeeb1cec7062b8c61b41.jpg",
-    "requirements": "<ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 98 SE/2000/XP<br>\t</li><li><strong>Processor:</strong> 1.0 GHz Pentium(R) III and AMD Athlon(tm)<br>\t</li><li><strong>Memory:</strong> 256 MB of RAM<br>\t</li><li><strong>Graphics:</strong> 64 MB GeForce (tm) 3 or higher or ATI(R) Radeon 8500 or higher (except GeForce 4 MX and Go series)<br>\t</li><li><strong>DirectX®:</strong> version 9.0 or higher (included with game)<br>\t</li><li><strong>Hard Drive:</strong> 3.75 GB minimum hard drive space<br>\t</li><li><strong>Sound:</strong> DirectX&amp;reg 9.0 or higher compatible sound card<br>\t</li><li><strong>Controls:</strong> Windows-compatible keyboard and mouse</li></ul>,<ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 2000/XP<br>\t</li><li><strong>Processor:</strong> 2.0 GHz Pentium(R) IV and AMD Athlon(tm)<br>\t</li><li><strong>Memory:</strong> 512 MB of RAM<br>\t</li><li><strong>Graphics:</strong> , 128 MB GeForce FX 5600 or higher or ATI(R) Radeon 9600 or higher<br>\t</li><li><strong>DirectX®:</strong> version 9.0 or higher (included with game)<br>\t</li><li><strong>Hard Drive:</strong> 6.0 GB minimum hard drive space<br>\t</li><li><strong>Sound:</strong> DirectX&amp;reg 9.0 or higher and Sound Blaster Audigy 2 series sound card<br>\t</li><li><strong>Controls:</strong> Game Pad (optional)</li></ul>",
-    "genres": [
-      "Action",
-      "Platformer"
-    ]
-  },
-  {
-    "id": 923,
-    "name": "Titanfall 2",
-    "background_image": "https://media.rawg.io/media/games/569/56978b5a77f13aa2ec5d09ec81d01cad.jpg",
-    "rating_api": 4.31,
-    "released": "2016-10-28",
-    "images": "https://media.rawg.io/media/games/569/56978b5a77f13aa2ec5d09ec81d01cad.jpg,https://media.rawg.io/media/screenshots/84e/84e29493c294e80fb0311c8381001f77.jpg,https://media.rawg.io/media/screenshots/6b5/6b5e173d4ed40f90aa40e685f11288ef.jpg,https://media.rawg.io/media/screenshots/9f4/9f44676b8807fd78f44711fa842ec685.jpg,https://media.rawg.io/media/screenshots/ac0/ac00a4d622919baafe096060e5c5f838.jpg,https://media.rawg.io/media/screenshots/3cf/3cf20e1cc6f9dfa47b44bd9398dc026f.jpg,https://media.rawg.io/media/screenshots/677/677d773bd606dd7a386bdd1930658ba7.jpg",
-    "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li>Requires a 64-bit processor and operating system<br></li><li><strong>OS:</strong> Win 7/8/8.1/10 64bit<br></li><li><strong>Processor:</strong> Intel Core i3-6300t or equivalent [4 or more hardware threads]<br></li><li><strong>Memory:</strong> 8 GB RAM<br></li><li><strong>Graphics:</strong> NVIDIA Geforce GTX 660 2GB or AMD Radeon HD 7850 2GB<br></li><li><strong>DirectX:</strong> Version 11<br></li><li><strong>Storage:</strong> 45 GB available space</li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li>Requires a 64-bit processor and operating system<br></li><li><strong>OS:</strong> Win 7/8/8.1/10 64bit<br></li><li><strong>Processor:</strong> Intel Core i5-6600 or equivalent<br></li><li><strong>Memory:</strong> 16 GB RAM<br></li><li><strong>Graphics:</strong> NVIDIA Geforce GTX 1060 6GB or AMD Radeon RX 480 8GB<br></li><li><strong>DirectX:</strong> Version 11<br></li><li><strong>Storage:</strong> 45 GB available space</li></ul>",
-    "genres": [
-      "Action",
-      "Shooter"
-    ]
-  },
+  
+  
+  
+  
+  
   {
     "id": 4280,
     "name": "Max Payne 3",
@@ -1824,49 +1610,9 @@
       "Shooter"
     ]
   },
-  {
-    "id": 28179,
-    "name": "SEGA Mega Drive and Genesis Classics",
-    "background_image": "https://media.rawg.io/media/games/0fd/0fd84d36596a83ef2e5a35f63a072218.jpg",
-    "rating_api": 3,
-    "released": "2010-06-01",
-    "images": "https://media.rawg.io/media/games/0fd/0fd84d36596a83ef2e5a35f63a072218.jpg,https://media.rawg.io/media/screenshots/a98/a98a26bc099f56ad0f89fa7f51b7e839.jpg,https://media.rawg.io/media/screenshots/8c5/8c5a93e3103406ad15f9030d3262d79b.jpg,https://media.rawg.io/media/screenshots/041/04196ceb413c23c824054897a2d9ce96.jpg,https://media.rawg.io/media/screenshots/018/018f00f6e05f18b901d4dec3e289f0f0.jpg,https://media.rawg.io/media/screenshots/f5e/f5e32500f6fb16aae8622f0beb115fe9.jpg,https://media.rawg.io/media/screenshots/052/05295a43cd5274c6e8b74752fd51dfcb.jpg",
-    "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows® XP or higher<br></li><li><strong>Graphics:</strong> 32MB or greater graphics card<br></li><li><strong>DirectX:</strong> Version 9.0<br></li><li><strong>Additional Notes:</strong> System specs for classic launcher.</li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows® 10 or higher<br></li><li><strong>Graphics:</strong> NVidia GeForce GTX 280 or ATI Radeon HD 6630 or equivalent DirectX® 9c or higher 1GB VRam / Intel i3-2100 or AMD Phenom II X4 940 or equivalent dual core CPU<br></li><li><strong>DirectX:</strong> Version 9.0c</li></ul>",
-    "genres": [
-      "Action",
-      "Adventure",
-      "RPG",
-      "Fighting",
-      "Platformer"
-    ]
-  },
-  {
-    "id": 480,
-    "name": "Resident Evil 7: Biohazard",
-    "background_image": "https://media.rawg.io/media/games/cee/cee577e2097a59b77193fe2bce94667d.jpg",
-    "rating_api": 4.33,
-    "released": "2017-01-23",
-    "images": "https://media.rawg.io/media/games/cee/cee577e2097a59b77193fe2bce94667d.jpg,https://media.rawg.io/media/screenshots/9c7/9c7016a1d1a8f66d67266e35452a3cf4.jpg,https://media.rawg.io/media/screenshots/315/3152c8a5165faaefc5429ab54399e3a6.jpg,https://media.rawg.io/media/screenshots/753/753c32daa8a2685f6aecc052e85197f7.jpg,https://media.rawg.io/media/screenshots/3f9/3f916c888d9e135adb456399550fd03e.jpg,https://media.rawg.io/media/screenshots/9bd/9bd7368147200c3e1e615950c4f3fc73.jpg,https://media.rawg.io/media/screenshots/804/804d33ab33db680543a6df814c15c8e3.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "Shooter",
-      "Adventure"
-    ]
-  },
-  {
-    "id": 17576,
-    "name": "Batman: Arkham City - Game of the Year Edition",
-    "background_image": "https://media.rawg.io/media/games/c50/c5085506fe4b5e20fc7aa5ace842c20b.jpg",
-    "rating_api": 4.38,
-    "released": "2012-09-07",
-    "images": "https://media.rawg.io/media/games/c50/c5085506fe4b5e20fc7aa5ace842c20b.jpg,https://media.rawg.io/media/screenshots/7f0/7f06dde491c2e2e7a89d9375f016e0b1.jpg,https://media.rawg.io/media/screenshots/00f/00f1b94e6bee4ca226902ec724ef6cb6.jpg,https://media.rawg.io/media/screenshots/794/79445f5a4e6f145be0a9e8bfb8fe5c03.jpg,https://media.rawg.io/media/screenshots/700/700c6a91d1ea98e7ca3f53e44d6000f0.jpg,https://media.rawg.io/media/screenshots/590/5908186c284c2d02700064a968546d64.jpg,https://media.rawg.io/media/screenshots/712/712aef3ca77ad875dbaf058d0e5949b4.jpg",
-    "requirements": "<ul class=\"bb_ul\"><li><strong>OS:</strong> Windows XP, Vista, 7<br>\t\t\t\t\t\t\t\t\t\t\t</li><li><strong>Processor:</strong> Intel Core 2 Duo 2.4 GHz or AMD Athlon X2 4800+<br>\t\t\t\t\t\t\t\t\t\t\t</li><li><strong>Memory:</strong> 2GB RAM<br>\t\t\t\t\t\t\t\t\t\t\t</li><li><strong>Hard Disk Space:</strong> 17 GB free hard drive space\t<br>\t\t\t\t\t\t\t\t\t\t\t</li><li><strong>Video Card:</strong> ATI 3850HD 512 MB or NVIDIA GeForce 8800 GT 512MB<br>\t\t\t\t\t\t\t\t\t\t\t</li><li><strong>DirectX®:</strong> 9.0c<br>\t\t\t\t\t\t\t\t\t\t\t</li></ul>",
-    "genres": [
-      "Action",
-      "Adventure"
-    ]
-  },
+  
+  
+  
   {
     "id": 2235,
     "name": "Batman: Arkham Origins",
