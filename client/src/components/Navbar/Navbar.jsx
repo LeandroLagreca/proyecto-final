@@ -33,12 +33,12 @@ const styles = {
 
 const Navbar = () => {
   const [input, setInput] = React.useState("");
-  const role = useSelector(state => state.user.role)
+  const role = useSelector(state => state.user.status)
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const { pathname } = useLocation()
 
-  if(pathname === '/landing') return <></>
+  if(pathname === '/') return <></>
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -152,7 +152,7 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 1 }} />
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Link style={styles.link} to='/'>
+            <Link style={styles.link} to='/home'>
               <Button sx={{ my: 2, color: "white", display: "block" }}>
                 Games
               </Button>

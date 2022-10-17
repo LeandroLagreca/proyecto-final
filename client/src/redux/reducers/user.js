@@ -3,16 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartList = localStorage.getItem('cartList') ? JSON.parse(localStorage.getItem('cartList')) : []
 
 const initialState = {
-	role: 'guest',
-	cartList 
+	status: 'guest',
+	cartList,
+	admin: false
 }
 
 const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-			setRole: (state, { payload }) => {
-				state.role = payload
+			setSigned: (state) => {
+				state.status = 'logged'
 			},
 			addToCart: (state, { payload }) => {
 				const alreadyIs = state.cartList.some(el => el.id === payload.id);
@@ -46,5 +47,5 @@ const userSlice = createSlice({
     }
 })
 
-export const { setRole, addToCart, deleteFromCart, addOne, removeOne } = userSlice.actions
+export const { setSigned, addToCart, deleteFromCart, addOne, removeOne } = userSlice.actions
 export default userSlice.reducer

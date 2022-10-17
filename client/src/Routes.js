@@ -1,6 +1,7 @@
-import React from 'react';
 import { Routes as Rutas, Route } from 'react-router-dom';
+
 import { useMediaQuery, useTheme } from '@mui/material';
+import useStatusChecker from './firebase/statusCheck'
 import { Detail, MainHome, Landing, AdminPanel, NotFound } from './pages';
 
 
@@ -13,6 +14,7 @@ import Wishes from './components/Wishes/AddtoWishes';
 
 const Routes = () => {
 	//solve conflictos
+	useStatusChecker()
 	const theme = useTheme();
 	const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 

@@ -13,12 +13,27 @@ import {
 import { ShoppingCart } from "@mui/icons-material";
 
 import { CartCard } from '../'
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export default function CartWidget() {
-	const cartList = useSelector(state => state.user.cartList)
+	const cartList = useSelector(state => state.user.cartList);
+  const user = useSelector((state) => state.user.status);
   const [open, setOpen] = useState(false);
   const [total, setTotal] = useState(0);
-
+  const navigate = useNavigate();
+  
+  
+  
+  const handleCheckout = () => {
+    if(user === "guest" ){
+      Swal.fire("you are not registered", "try registering", "error");
+    }else{
+      navigate("/cart");
+      
+    }
+  }
+  
   useEffect(() => {
     const newTotal = cartList.reduce((acc, el) => acc + el.price * el.cant, 0);
     setTotal(newTotal);
@@ -72,11 +87,15 @@ export default function CartWidget() {
         >
           <Typography variant="h5">Total: {total}</Typography>
 
-          <Link to="/cart">
-            <Button sx={{ width: 200 }} variant="contained">
+          
+            <Button sx={{ width: 200 }} variant="contained"
+              onClick={() => {
+                handleCheckout();
+              }}
+            >
               Checkout
             </Button>
-          </Link>
+          
         </Box>
       </Drawer>
     </>
