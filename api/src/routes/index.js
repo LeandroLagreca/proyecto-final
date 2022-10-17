@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { videogamePost, allDataVideogames, videogameByID, getGenres,updateVideogame } = require('../controllers/videogameControllers.js');
+const { videogamePost, videogameByID, getGenres,updateVideogame, getAllGames } = require('../controllers/videogameControllers.js');
 const axios = require('axios');
 const { allDataUser, UserByID, UserPost, UserEliminated, UserUpdate } = require('../controllers/User.js');
 const router = Router();
@@ -10,7 +10,7 @@ router.get("/videogames/:id", videogameByID)
 
 router.post("/videogames", videogamePost)
 
-router.get("/videogames", allDataVideogames)
+router.get("/videogames", getAllGames)
 
 router.put('/videogames/:id',updateVideogame)
 
