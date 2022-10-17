@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux'
 import firebaseApp from "../../firebase/credenciales";
 import { useState, useEffect } from "react";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
+import { setSigned } from "../../redux/reducers/user";
 
 import { Button } from "@mui/material";
 
@@ -16,6 +18,8 @@ const styles = {
 
 export default function SessionButton() {
   const [user, setUser] = useState(null);
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     onAuthStateChanged(auth, (usuarioFirebase) => {
@@ -36,7 +40,10 @@ export default function SessionButton() {
           </Button>
         </Link>
       ) : (
-        <Button variant="contained" onClick={() => signOut(auth)}>
+        <Button variant="contained" onClick={() => {
+          signOut(auth)
+          dispatch(setSigned())
+        }}>
           Log Out
         </Button>
       )}
