@@ -16,7 +16,7 @@ const Game = async () => {
             }
         })
 
-        if (!videogame.dataValues.name) {
+        if (!videogame) {
             videogame = await Videogame.create({
                 name: e.name,
                 background_image: e.background_image,
