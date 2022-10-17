@@ -4,7 +4,7 @@ const axios = require("axios");
 const { Videogame, Genre } = require("../db");
 const router = Router();
 const { API_KEY } = process.env;
-const json=require ("../harcode.json")
+const json = require ("../harcode.json")
 
 //Post
 
@@ -46,34 +46,18 @@ const videogamePost = async (req, res) => {
 };
 
 
-const populateDb=async(req,res)=>{
-    try {
-    Videogame.bulkCreate(json)
-    } catch (error) {
-        res.status(400).json(error)
-    }
-}
-
-
-const findGame = async (req, res, name) => {
-  try {
-    let found = await Videogame.findAll({ where: { name: name } });
-    if (found) {
-      return res.status(200).send(found);
-    } else {
-      return res
-        .status(404)
-        .send({ msg: "sorry, this game is not available now" });
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-
 const getGamesDb = async (req, res) => {
   try {
-    let games = await Videogame.findAll();
+    let games = await Videogame.findAll({
+      include: {
+        model: Genre,
+        attributes: ['name'],
+        through: {
+            attributes: [],
+        }
+      }
+    });
+
     return games;
   } catch (error) {
     console.log(error);
@@ -85,13 +69,19 @@ const getAllGames = async (req, res) => {
   let { name } = req.query;
   try {
     let games = await getGamesDb();
-    if (games.length === 0) {
-      await populateDb();
-      games = await getGamesDb();
-    }
     
     if (name) {
-      let found = await Videogame.findAll({ where: { name: name } });
+      let found = await Videogame.findAll({
+        where: {name: name},
+        include: {
+          model: Genre,
+          attributes: ['name'],
+          through: {
+              attributes: [],
+          }
+        }
+      });
+      
       if (found) {
         return res.status(200).json(found);
       } else {
@@ -113,10 +103,17 @@ const videogameByID = async (req, res) => {
 
   try {
     const videoGameDb = await Videogame.findOne({
-        where: {
-        id: id,
-        },
+        where: { id: id },
+        
+        include: {
+          model: Genre,
+          attributes: ['name'],
+          through: {
+              attributes: [],
+          }
+        }
     });
+
     res.json(videoGameDb);
 
   } catch (error) {
@@ -128,19 +125,10 @@ const videogameByID = async (req, res) => {
 const getGenres = async (req, res) => {
   try {
     const data = await Genre.findAll();
-    if (data.length === 0) {
-      const response = await axios.get(
-        `https://api.rawg.io/api/genres?key=${API_KEY}`
-      );
-      const { results } = response.data;
-      const data = results.map((genre) => ({ name: genre.name }));
-      await Genre.bulkCreate(data);
-      res.send(data);
-    } else {
-      res.send(data);
-    }
+    res.send(data);
+    
   } catch (error) {
-    res.status(400).send(error);
+    res.status(400).json(error);
   }
 };
 
