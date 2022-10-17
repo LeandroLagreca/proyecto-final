@@ -10,7 +10,7 @@ import { useState } from 'react';
 export default function SelectGenere() {
 	const dispatch = useDispatch();
 	const [genere, setGenere] = React.useState('');
-	const games = useSelector((state) => state.videogames.games);
+	const games = useSelector((state) => state.videogames.filterGames);
 	const page = useSelector(state => state.videogames.page)
 	const [currentPage, setCurrentPage] = useState(page)
 
