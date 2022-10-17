@@ -10,7 +10,7 @@ const initialState = {
 	details: {},
   	wishes: [],
 	page,
-	loading: false
+	loading: false,
 };
 
 
