@@ -17,6 +17,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { setRole } from "../../redux/reducers/user";
 import Swal from "sweetalert2";
 import { setSigned } from "../../redux/reducers/user";
 
