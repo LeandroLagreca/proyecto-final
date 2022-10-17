@@ -5,6 +5,10 @@ import SelectType from '../components/Filters/SelectType';
 import SelectGenere from '../components/Filters/SelectGenere';
 import { HomeContainer } from '../containers';
 import { Grid } from '@mui/material';
+import { getGames, cleanToFilter } from '../redux/actions/videoGame';
+import { useSelector, useDispatch } from 'react-redux';
+import DisableElevation from '../components/Filters/CleanButton';
+
 
 const Home = () => {
 	return (
@@ -24,6 +28,7 @@ const Home = () => {
 						<SelectGenere />
 					</Grid>
 				</Grid>
+				<DisableElevation/>
 			</div>
 		</HomeContainer>
 	);
