@@ -14,6 +14,7 @@ import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
+import DisableElevation from "../components/ErrorNotFound/DisableElevation";
 import Item from "../components/Items/Item";
 import "./Detail.css";
 import {
@@ -119,6 +120,7 @@ export default function Detail() {
 
   return (
     <Container>
+      <DisableElevation/>
       <Paper elevation={8} sx={{ padding: 2 }}>
         <Box display="flex" alignItems="flex-start" className="boxDivisor">
           <Box
