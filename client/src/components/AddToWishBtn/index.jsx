@@ -11,7 +11,7 @@ const buttonStyles = {
 
 export default function AddToWishBtn({ name, image, id, price, styles,  }) {
   const wishes = useSelector((state) => state.videogames.wishes);
-  const user = useSelector((state) => state.user.role);
+  const user = useSelector((state) => state.user.status);
   const [already, setAlreadyIs] = useState(false);
   const dispatch = useDispatch();
 
