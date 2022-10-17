@@ -4,6 +4,7 @@ import { IconButton } from "@mui/material";
 import { AddShoppingCart, RemoveShoppingCart } from "@mui/icons-material";
 
 import { addToCart, deleteFromCart } from "../../redux/reducers/user";
+import Swal from "sweetalert2";
 
 const buttonStyles = {
 	backgroundColor: 'rgba(196, 42, 8 , .6)'
@@ -40,13 +41,35 @@ export default function AddToCartButton({ id, price, name, picture, styles }) {
 			{
 				!alreadyIs 
 					? (
-						<IconButton sx={{...styles, color: "#32CD32"}} onClick={handleAdd}>
-							<AddShoppingCart/>
+						<IconButton sx={{...styles, color: "#32CD32"}} onClick={() => {
+							handleAdd();
+							Swal.fire({
+								toast: true,
+								icon: 'success',
+								title: 'Was added to the cart widget',
+								animation: false,
+								position: 'bottom-right',
+								showConfirmButton: false,
+								timer: 3000,
+							  })
+							}}>
+						<AddShoppingCart/>
 						</IconButton>
 					)
 					: (
-						<IconButton color='primary' sx={{...styles, color: "#32CD32"}} onClick={handleDelete}>
-							<RemoveShoppingCart />
+						<IconButton color='primary' sx={{...styles, color: "#32CD32"}} onClick={() => {
+							handleDelete();
+							Swal.fire({
+								toast: true,
+								icon: 'error',
+								title: 'Was deleted to the cart widget',
+								animation: false,
+								position: 'bottom-right',
+								showConfirmButton: false,
+								timer: 3000,
+							  })
+							}}>
+						<RemoveShoppingCart />
 						</IconButton>
 					)
 			}

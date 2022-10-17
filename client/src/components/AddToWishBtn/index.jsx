@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IconButton } from "@mui/material";
 import { FavoriteBorder, Favorite } from "@mui/icons-material";
 import { addWishes, removeWishes } from "../../redux/actions/videoGame";
+import Swal from "sweetalert2";
 
 const buttonStyles = {
   backgroundColor: 'red'
@@ -21,6 +22,7 @@ export default function AddToWishBtn({ name, image, id, price, styles }) {
         id,
         price
       })
+      
     );
   };
 
@@ -37,12 +39,35 @@ export default function AddToWishBtn({ name, image, id, price, styles }) {
   return (
     <>
       {!already ? (
-        <IconButton  sx={{...styles, color:"#FF0000"}} onClick={addToWishes}>
-          <FavoriteBorder />
+        <IconButton  sx={{...styles, color:"#FF0000"}} onClick={() => {
+          addToWishes();
+          Swal.fire({
+            toast: true,
+            icon: 'success',
+            title: 'Was added to the wish list',
+            animation: false,
+            position: 'bottom-right',
+            showConfirmButton: false,
+            timer: 3000,
+          })
+          
+          }}>
+        <FavoriteBorder />
         </IconButton>
       ) : (
-        <IconButton color='primary' sx={{...styles, color:"#FF0000"}} onClick={handleDelete}>
-            <Favorite />
+        <IconButton color='primary' sx={{...styles, color:"#FF0000"}} onClick={() => {
+          handleDelete();
+          Swal.fire({
+            toast: true,
+            icon: 'error',
+            title: 'Was deleted to the wish list',
+            animation: false,
+            position: 'bottom-right',
+            showConfirmButton: false,
+            timer: 3000,
+          })
+          }}>
+        <Favorite />
           
         </IconButton>
       )}
