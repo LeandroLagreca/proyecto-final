@@ -30,17 +30,7 @@ export default function AddToCartButton({ id, price, name, picture, styles }) {
       picture,
 	  cant: 1
     };
-	if(user === "guest"){
-		Swal.fire({
-			toast: true,
-			icon: 'error',
-			title: 'You cannot add to the cart if you are not registered',
-			animation: false,
-			position: 'bottom-right',
-			showConfirmButton: false,
-			timer: 3000,
-		  })
-	}else{
+	
 		dispatch(addToCart(data));
 		Swal.fire({
 			toast: true,
@@ -52,7 +42,7 @@ export default function AddToCartButton({ id, price, name, picture, styles }) {
 			timer: 3000,
 		  })
 	}
-  }
+  
 
   function handleDelete() {
     dispatch(deleteFromCart(id));
