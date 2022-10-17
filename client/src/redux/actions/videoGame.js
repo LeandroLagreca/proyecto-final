@@ -10,7 +10,8 @@ import {
 	filterBySearch,
 	addToWishes,
 	removeToWishes,
-	changePage
+	changePage,
+	cleanFilter
 
 } from '../reducers/videoGame';
 
@@ -161,6 +162,16 @@ export const removeWishes = (name) => {
 	try {
 		return function (dispatch) {
 			dispatch(removeToWishes(name))
+		}
+	} catch (error) {
+		console.log(error)
+	}
+}
+
+export const cleanToFilter = (clean) => {
+	try {
+		return function (dispatch) {
+			dispatch(cleanFilter(clean))
 		}
 	} catch (error) {
 		console.log(error)
