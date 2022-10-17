@@ -11,7 +11,7 @@ export default function SelectRating() {
 
 	const [rating, setRating] = React.useState('');
 	const page = useSelector(state => state.videogames.page)
-	const games = useSelector((state) => state.videogames.games);
+	const games = useSelector((state) => state.videogames.filterGames);
 	const [currentPage, setCurrentPage] = useState(page)
 
 	const handleRating = (event) => {
