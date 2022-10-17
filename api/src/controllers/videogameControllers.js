@@ -84,17 +84,23 @@ const getGamesDb = async (req, res) => {
 const getAllGames = async (req, res) => {
   let { name } = req.query;
   try {
+    let games = await getGamesDb();
+    if (games.length === 0) {
+      await populateDb();
+      games = await getGamesDb();
+    }
+    
     if (name) {
-      await findGame(name);
-    } else {
-      let games = await getGamesDb();
-      if (games.length === 0) {
-        await populateDb();
-        let games = await getGamesDb();
-        res.status(200).send(games);
+      let found = await Videogame.findAll({ where: { name: name } });
+      if (found) {
+        return res.status(200).json(found);
       } else {
-        res.status(200).send(games);
+        return res
+          .status(404)
+          .send({ msg: "sorry, this game is not available now" });
       }
+    } else {
+      res.status(200).json(games);
     }
   } catch (error) {
     res.status(400).send(error);
