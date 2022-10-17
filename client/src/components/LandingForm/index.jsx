@@ -181,10 +181,15 @@ export default function LandingForm({ register, setRegister }) {
             <></>
           )
         }
-        
-        <Button type="submit" sx={styles.button} variant="outlined">
-          {register ? "registrate" : "iniciar sesion"}
-        </Button>
+        {
+          register && Object.keys(errors).length ? (
+            <></>
+          ) : (
+            <Button type="submit" sx={styles.button} variant="outlined">
+              {register ? "registrate" : "iniciar sesion"}
+            </Button>
+          )
+        }
         <Link to="/home">
           <Button>invitado</Button>
         </Link>
