@@ -5,7 +5,7 @@ const { Videogame, Genre } = require("../db");
 const router = Router();
 const { API_KEY } = process.env;
 const json = require ("../harcode.json")
-//Precarga de juegos
+//Precarga de juegos a la db
 
 const Game = async () => {
 
