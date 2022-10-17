@@ -10,6 +10,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { setRole } from "../../redux/reducers/user";
+import Swal from "sweetalert2";
 
 const firestore = getFirestore(firebaseApp);
 const auth = getAuth(firebaseApp);
@@ -67,7 +68,10 @@ export default function LandingForm({ register, setRegister }) {
         await registarUsuario(email, password);
         setRegister(false);
       } catch (error) {
-        alert("No se pudo registrar correctamente");
+        Swal.fire({
+          text:"Could not register correctly", 
+          icon:"error"
+        });
       }
     } else {
       try {
@@ -78,7 +82,10 @@ export default function LandingForm({ register, setRegister }) {
           navigate("/home");
         }
       } catch (error) {
-        alert("Necesitas registrarte");
+        Swal.fire({
+          text:"You need to register", 
+          icon:"error"
+        });
       }
     }
   }

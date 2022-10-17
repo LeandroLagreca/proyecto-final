@@ -4,6 +4,7 @@ import { IconButton } from "@mui/material";
 import { AddShoppingCart, RemoveShoppingCart } from "@mui/icons-material";
 
 import { addToCart, deleteFromCart } from "../../redux/reducers/user";
+import Swal from "sweetalert2";
 
 const buttonStyles = {
 	backgroundColor: 'rgba(196, 42, 8 , .6)'
@@ -11,7 +12,8 @@ const buttonStyles = {
 
 export default function AddToCartButton({ id, price, name, picture, styles }) {
   const cartList = useSelector((state) => state.user.cartList);
-	const [ alreadyIs, setAlreadyIs ] = useState(false)
+  const user = useSelector((state) => state.user.role);
+  const [ alreadyIs, setAlreadyIs ] = useState(false)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,7 +30,28 @@ export default function AddToCartButton({ id, price, name, picture, styles }) {
       picture,
 	  cant: 1
     };
-    dispatch(addToCart(data));
+	if(user === "guest"){
+		Swal.fire({
+			toast: true,
+			icon: 'error',
+			title: 'You cannot add to the cart if you are not registered',
+			animation: false,
+			position: 'bottom-right',
+			showConfirmButton: false,
+			timer: 3000,
+		  })
+	}else{
+		dispatch(addToCart(data));
+		Swal.fire({
+			toast: true,
+			icon: 'success',
+			title: 'Was added to the cart ',
+			animation: false,
+			position: 'bottom-right',
+			showConfirmButton: false,
+			timer: 3000,
+		  })
+	}
   }
 
   function handleDelete() {
@@ -40,13 +63,27 @@ export default function AddToCartButton({ id, price, name, picture, styles }) {
 			{
 				!alreadyIs 
 					? (
-						<IconButton sx={{...styles, color: "#32CD32"}} onClick={handleAdd}>
-							<AddShoppingCart/>
+						<IconButton sx={{...styles, color: "#32CD32"}} onClick={() => {
+							handleAdd();
+							
+							}}>
+						<AddShoppingCart/>
 						</IconButton>
 					)
 					: (
-						<IconButton color='primary' sx={{...styles, color: "#32CD32"}} onClick={handleDelete}>
-							<RemoveShoppingCart />
+						<IconButton color='primary' sx={{...styles, color: "#32CD32"}} onClick={() => {
+							handleDelete();
+							Swal.fire({
+								toast: true,
+								icon: 'error',
+								title: 'Was deleted to the cart',
+								animation: false,
+								position: 'bottom-right',
+								showConfirmButton: false,
+								timer: 3000,
+							  })
+							}}>
+						<RemoveShoppingCart />
 						</IconButton>
 					)
 			}
