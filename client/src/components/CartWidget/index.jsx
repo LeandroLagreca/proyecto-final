@@ -1,26 +1,41 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   Box,
   Button,
   Drawer,
   List,
-  ListItem,
-  Avatar,
   Typography,
-  Divider
+  IconButton,
+  Badge
 } from "@mui/material";
-import { IconButton, Badge } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+
+import { CartCard } from '../'
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export default function CartWidget() {
-	const cartList = useSelector(state => state.user.cartList)
+	const cartList = useSelector(state => state.user.cartList);
+  const user = useSelector((state) => state.user.status);
   const [open, setOpen] = useState(false);
   const [total, setTotal] = useState(0);
-
+  const navigate = useNavigate();
+  
+  
+  
+  const handleCheckout = () => {
+    if(user === "guest" ){
+      Swal.fire("you are not registered", "try registering", "error");
+    }else{
+      navigate("/cart");
+      
+    }
+  }
+  
   useEffect(() => {
-    const newTotal = cartList.reduce((acc, el) => acc + el.price, 0);
+    const newTotal = cartList.reduce((acc, el) => acc + el.price * el.cant, 0);
     setTotal(newTotal);
   }, [cartList]);
 
@@ -52,21 +67,15 @@ export default function CartWidget() {
       >
         <List sx={{display: 'flex', flexDirection: 'column', gap: '3px', height: 500, overflowY: "scroll" }}>
           {cartList.map((el, i) => (
-              <ListItem key={i} alignItems="flex-start" sx={{display: 'flex', justifyContent: 'space-between', height: 'max-content', gap: 2}}>
-                <Avatar
-                  variant="square"
-                  src={el.picture}
-                  sx={{ width: 90, height: "auto" }}
-                  alt=""
-                />
-                <Box display={'flex'} flexDirection={'column'} justifyContent={'space-between'} width={'100%'} height={80}>
-                  <Box>
-                    <Typography variant="h6">{el.name}</Typography>
-                  </Box>
-                  <Typography textAlign={'end'}>${el.price || 0}</Typography>
-                <Divider />
-                </Box>
-              </ListItem>
+              <CartCard 
+                key={el.id}
+                id={el.id}
+                name={el.name}
+                picture={el.picture}
+                price={el.price}
+                cant={el.cant}
+                stock={el.stock}
+              />
           ))}
         </List>
         <Box
@@ -78,11 +87,15 @@ export default function CartWidget() {
         >
           <Typography variant="h5">Total: {total}</Typography>
 
-          <Link to="/cart">
-            <Button sx={{ width: 200 }} variant="contained">
+          
+            <Button sx={{ width: 200 }} variant="contained"
+              onClick={() => {
+                handleCheckout();
+              }}
+            >
               Checkout
             </Button>
-          </Link>
+          
         </Box>
       </Drawer>
     </>
