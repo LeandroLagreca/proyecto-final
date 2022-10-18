@@ -10,7 +10,7 @@ import { useState } from 'react';
 export default function SelectPrice() {
 	const dispatch = useDispatch();
 	// const filterGames = useSelector((state) => state.videogames.filterGames);
-	const games = useSelector((state) => state.videogames.games);
+	const games = useSelector((state) => state.videogames.filterGames);
 	const [price, setPrice] = React.useState('');
 	const page = useSelector(state => state.videogames.page)
 	const [currentPage, setCurrentPage] = useState(page)

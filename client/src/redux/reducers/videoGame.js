@@ -10,7 +10,7 @@ const initialState = {
 	details: {},
   	wishes: [],
 	page,
-	loading: false
+	loading: false,
 };
 
 
@@ -57,6 +57,9 @@ const videoGameSlice = createSlice({
 		},
 		setLoading: (state) => {
 			state.loading = true
+		},
+		cleanFilter: (state, { payload }) => {
+			state.games = payload
 		}
 	},
 });
@@ -72,7 +75,8 @@ export const {
   addToWishes, 
   removeToWishes,
   changePage,
-	setLoading
+	setLoading,
+	cleanFilter
 } = videoGameSlice.actions;
 
 export default videoGameSlice.reducer;
