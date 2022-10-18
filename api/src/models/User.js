@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      mail: {
+      email: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
@@ -31,6 +31,15 @@ module.exports = (sequelize) => {
       admin: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-      }
+      },
+      cart:{
+        type: DataTypes.ARRAY(DataTypes.JSON)
+      },
+      deseos:{
+        type: DataTypes.ARRAY(DataTypes.JSON)
+      },
+      biblioteca:{
+        type: DataTypes.ARRAY(DataTypes.JSON)
+      },
 
 })};
