@@ -1,19 +1,36 @@
+
 const { User } = require('../db');
 const { Router } = require("express");
 const router = Router();
+import {
+    createUserWithEmailAndPassword,
+} from "firebase/auth";
 
 
-const UserPost = async (req, res) => {
+const UserPost = async (req, res)=> {
+    try{
+    const { user } = await createUserWithEmailAndPassword({
+    auth,
+    email,
+    password,
+    id : user.uid,
+    admin: false,
+    });
+    res.status(200).json(user)
+/*  setRegister(false);
+    const docuRef = doc(firestore, `usuarios/${user.uid}`);
+    setDoc(docuRef, { correo: email }); */
+} catch (error){
+    res.status(400).json({error: "User not create!"});
+}
+}
+
+/*const UserPost = async (req, res) => {
     try { 
-        const { name, image, password, email, admin, cart, deseos, biblioteca } = req.body
+        const { email, admin, id } = req.body
         const newUser = await User.create({
-            name,
-            image,
-            cart,
-            deseos,
-            biblioteca,
-            admin,
-            password,
+            admin: false,
+            id,
             email
         })
         res.status(200).json(newUser);
@@ -22,7 +39,7 @@ const UserPost = async (req, res) => {
         res.status(400).json({error: "User not create!"});
     };
 };
-
+*/
 const getDbInfo = async () => {
     return await User.findAll();
 };
@@ -90,7 +107,7 @@ const UserUpdate = async (req, res) => {
 const PostLogin= async (req, res) => {
     const {email} = req.body;
     try {
-        let found = await User.findOne({ where: { email: email } });
+        let found = await User.findOne({ where: { email: email} });
             if (found) {
             return res.status(200).send(found);
             } else {

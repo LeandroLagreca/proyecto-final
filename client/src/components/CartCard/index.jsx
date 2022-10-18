@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
 import { deleteFromCart, addOne, removeOne } from "../../redux/reducers/user";
 import { ListItem, Avatar, Box, Typography, Divider, IconButton } from "@mui/material";
 import { Close, Add, Remove } from '@mui/icons-material';
@@ -24,7 +25,19 @@ export default function CartCard({ id, picture, name, price, cant, stock }) {
     const dispatch = useDispatch()
 
     function handleDelete() {
-        dispatch(deleteFromCart(id))
+      Swal.fire({
+        title: 'Estas seguro de borrar este producto?',
+        icon: 'info',
+        toast: true,
+        showCancelButton: true,
+        confirmButtonText: 'Si',
+        cancelButtonText: `Cancelar`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          dispatch(deleteFromCart(id))
+        }
+      })
+        
     }
 
     function handleAdd() {
