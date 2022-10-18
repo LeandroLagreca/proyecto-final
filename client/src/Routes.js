@@ -8,6 +8,7 @@ import { Detail, MainHome, Landing, AdminPanel, NotFound } from './pages';
 
 import { Navbar, Social, Footer  } from './components';
 import Wishes from './components/Wishes/AddtoWishes';
+import Purchases from './components/Purchases/Purchases';
 
 
 
@@ -28,6 +29,7 @@ const Routes = () => {
 				<Route path='/wishes' element={<Wishes/>} />
 				<Route path='/admin' element={<AdminPanel/>} />
 				<Route path = '*' element = {<NotFound/>}/>
+				<Route path='/purchases' element={<Purchases/>} />
 			</Rutas>
 			<Footer />
 		</>
