@@ -1,12 +1,10 @@
-import { Filter, About, Games } from '../sections';
+import { Home, About, Games, Filter  } from '../sections';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setLoading } from '../redux/reducers/videoGame';
 import { getGames } from '../redux/actions/videoGame';
 import Sidebar from '../components/Sidebar/Sidebar';
-
-import { Social } from '../components';
-
+// import { Filter } from '@mui/icons-material';
 
 const MainHome = () => {
 	const dispatch = useDispatch();
@@ -20,9 +18,9 @@ const MainHome = () => {
 			<div>
 				<div>
 				</div>
-				
 				<Sidebar/>
-				<Home />
+				<Filter/>
+				{/* <Home /> */}
 				<Games />
 				<About />
 			</div>
