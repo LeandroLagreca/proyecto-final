@@ -33,13 +33,13 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       cart:{
-        type: DataTypes.ARRAY,
+        type: DataTypes.ARRAY(DataTypes.JSON)
       },
       deseos:{
-        type: DataTypes.ARRAY,
+        type: DataTypes.ARRAY(DataTypes.JSON)
       },
       biblioteca:{
-        type: DataTypes.ARRAY,
+        type: DataTypes.ARRAY(DataTypes.JSON)
       },
 
 })};
