@@ -10,6 +10,7 @@ export { default as AddToWishes } from './AddToWishBtn';
 export { default as SessionButton } from './SessionButton';
 export { default as CartCard } from './CartCard';
 export { default as Filter } from './Filters/filtro';
+export { default as UserItem } from './UserItem';
 export { default as AddressForm } from './AddressForm/AddressForm';
 export { default as PaymentForm } from './PaymentForm/PaymentForm';
 export { default as Review } from './Review/Review';
