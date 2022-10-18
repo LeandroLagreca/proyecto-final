@@ -1,4 +1,4 @@
-import { About, Games, Filter  } from '../sections';
+import { About, Games, FilterSection  } from '../sections';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setLoading } from '../redux/reducers/videoGame';
@@ -20,7 +20,7 @@ const MainHome = () => {
 				</div>
 				<Social />
 				<Sidebar/>
-				<Filter/>
+				<FilterSection/>
 				<Games />
 				<About />
 			</div>

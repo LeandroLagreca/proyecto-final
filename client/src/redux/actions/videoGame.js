@@ -35,18 +35,6 @@ export const getDetails = (id) =>
     }
   };
 
-export const setFilterByType = (games, order) => (dispatch) => {
-  const gamesCopy = [...games];
-    if (order === "asc") {
-      gamesCopy.sort((a, b) => a.name.localeCompare(b.name));
-    }
-    if (order === "desc") {
-      gamesCopy.sort((a, b) => b.name.localeCompare(a.name));
-    }
-
-    dispatch(orderAlphabetically(gamesCopy));
-};
-
 export const setFilterBySearch = (games, input) => (dispatch) => {
   const gamesCopy = [...games];
   const gamesFilter = gamesCopy.filter((game) =>

@@ -1,19 +1,14 @@
-import { useEffect } from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import { useSelector, useDispatch } from 'react-redux';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { filterByRating, applyFilters } from '../../redux/reducers/videoGame';
+import { filterByRating } from '../../redux/reducers/videoGame';
 
 export default function SelectRating() {
 	const {rating} = useSelector(state => state.videogames.filters)
 	const dispatch = useDispatch();
 
-
-	useEffect(() => {
-		dispatch(applyFilters())
-	}, [dispatch, rating])
 	const handleRating = (event) => {
 		dispatch(filterByRating(event.target.value));
 	};

@@ -3,15 +3,11 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { useEffect } from 'react';
-import { filterByPrice, applyFilters } from '../../redux/reducers/videoGame';
+import { filterByPrice } from '../../redux/reducers/videoGame';
 
 export default function SelectPrice() {
 	const dispatch = useDispatch();
 	const { price } = useSelector(state => state.videogames.filters)
-	useEffect(() => {
-		dispatch(applyFilters())
-	}, [dispatch])
 
 	const handlePrice = (event) => {
 		dispatch(filterByPrice(event.target.value));

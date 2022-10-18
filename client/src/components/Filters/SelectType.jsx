@@ -1,36 +1,30 @@
-import * as React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import { setFilterByType } from '../../redux/actions/videoGame';
-import { useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import { orderAlphabetically } from "../../redux/reducers/videoGame";
+
 export default function SelectType() {
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const { sort } = useSelector((state) => state.videogames.filters);
+  
+  const handleType = (event) => {
+    dispatch(orderAlphabetically(event.target.value));
+  };
 
-	const games = useSelector((state) => state.videogames.filterGames);
-	const page = useSelector(state => state.videogames.page)
-	const [type, setType] = React.useState('');
-
-	// Se comento el dispatch para que no se rompa el codigo, se esta esperando que se cree este campo en la data de la API
-	const handleType = (event) => {
-		setType(event.target.value);
-		 dispatch(setFilterByType(games, event.target.value));
-	};
-
-	return (
-		<div>
-			<FormControl sx={{ m: 1, minWidth: 100 }}>
-				<InputLabel>A-Z</InputLabel>
-				<Select value={type} onChange={handleType} autoWidth label="Type">
-					<MenuItem value="none">
-						<em>None</em>
-					</MenuItem>
-					<MenuItem value="asc">A/z</MenuItem>
-					<MenuItem value="desc">Z/a</MenuItem>
-				</Select>
-			</FormControl>
-		</div>
-	);
+  return (
+    <div>
+      <FormControl sx={{ m: 1, minWidth: 100 }}>
+        <InputLabel>A-Z</InputLabel>
+        <Select value={sort} onChange={handleType} autoWidth label="Type">
+          <MenuItem value="none">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value="asc">A/z</MenuItem>
+          <MenuItem value="desc">Z/a</MenuItem>
+        </Select>
+      </FormControl>
+    </div>
+  );
 }

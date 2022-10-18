@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ratingFilter, priceFilter, genreFilter } from './utils'
+import { ratingFilter, priceFilter, genreFilter, sort } from './utils'
 
 const page = window.sessionStorage.getItem('page')
 	? JSON.parse(window.sessionStorage.getItem('page'))
@@ -45,6 +45,7 @@ const videoGameSlice = createSlice({
 			newFilter = ratingFilter(newFilter, state.filters.rating)
 			newFilter = priceFilter(newFilter, state.filters.price)
 			newFilter = genreFilter(newFilter, state.filters.genre)
+			newFilter = sort(newFilter, state.filters.sort)
 			state.filterGames = newFilter
 			const parseFilters = JSON.stringify(state.filters)
 			window.sessionStorage.setItem('filters', parseFilters)
@@ -70,7 +71,7 @@ const videoGameSlice = createSlice({
 		orderAlphabetically: (state, { payload }) => {
 			state.filters = {
 				...state.filters,
-				rating: payload
+				sort: payload
 			};
 		},
 		filterBySearch: (state, { payload }) => {

@@ -3,18 +3,11 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { useEffect } from 'react';
-import { filterByGenre, applyFilters } from '../../redux/reducers/videoGame';
+import { filterByGenre } from '../../redux/reducers/videoGame';
 
 export default function SelectGenere() {
 	const dispatch = useDispatch();
-	const filters = useSelector(state => state.videogames.filters)
-	const fliterGames = useSelector(state => state.videogames.fliterGames)
-
-	// Se comento el dispatch para que no se rompa el codigo, se esta esperando que se cree este campo en la data de la API
-	useEffect(() => {
-		dispatch(applyFilters())
-	}, [fliterGames, filters, dispatch])
+	const { genre } = useSelector(state => state.videogames.filters)
 	
 	const handleGenere = (event) => {
 		dispatch(filterByGenre(event.target.value))
@@ -24,7 +17,7 @@ export default function SelectGenere() {
 		<div>
 			<FormControl sx={{ m: 1, minWidth: 100 }}>
 				<InputLabel>Genere</InputLabel>
-				<Select value={filters.genre} onChange={handleGenere} autoWidth label="Genere">
+				<Select value={genre} onChange={handleGenere} autoWidth label="Genere">
 					<MenuItem value="none">
 						<em>None</em>
 					</MenuItem>

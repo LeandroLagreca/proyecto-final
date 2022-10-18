@@ -1,3 +1,14 @@
+export const sort = (games, sort) => {
+    if (sort === "asc") {
+      return games.sort((a, b) => a.name.localeCompare(b.name));
+    }
+    if (sort === "desc") {
+      return games.sort((a, b) => b.name.localeCompare(a.name));
+    }
+
+    return games
+};
+
 export const ratingFilter = (current, rating) => {
     let items = []
     switch (rating) {
