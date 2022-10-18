@@ -1,9 +1,30 @@
 const { User } = require('../db');
 const { Router } = require("express");
 const router = Router();
+import {
+    createUserWithEmailAndPassword,
+} from "firebase/auth";
 
 
-const UserPost = async (req, res) => {
+const UserPost = async (req, res)=> {
+    try{
+    const { user } = await createUserWithEmailAndPassword({
+    auth,
+    email,
+    password,
+    id : user.uid,
+    admin: false,
+    });
+    res.status(200).json(user)
+/*  setRegister(false);
+    const docuRef = doc(firestore, `usuarios/${user.uid}`);
+    setDoc(docuRef, { correo: email }); */
+} catch (error){
+    res.status(400).json({error: "User not create!"});
+}
+}
+
+/*const UserPost = async (req, res) => {
     try { 
         const { email, admin, id } = req.body
         const newUser = await User.create({
@@ -17,7 +38,7 @@ const UserPost = async (req, res) => {
         res.status(400).json({error: "User not create!"});
     };
 };
-
+*/
 const getDbInfo = async () => {
     return await User.findAll();
 };
