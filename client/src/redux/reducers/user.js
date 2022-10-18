@@ -5,7 +5,8 @@ const cartList = localStorage.getItem('cartList') ? JSON.parse(localStorage.getI
 const initialState = {
 	status: 'guest',
 	cartList,
-	admin: false
+	admin: false,
+	emailVerified: false
 }
 
 const userSlice = createSlice({
@@ -14,6 +15,14 @@ const userSlice = createSlice({
     reducers: {
 			setSigned: (state) => {
 				state.status = state.status === 'logged' ? 'guest' : 'logged'
+			},
+			setInfo: (state, { payload }) => {
+				state = {
+					...state,
+					admin: payload.admin,
+					cartList: new Set([...state.cartList, ...payload.cartList]),
+					emailVerified: payload.emailVerified
+				}
 			},
 			addToCart: (state, { payload }) => {
 				const alreadyIs = state.cartList.some(el => el.id === payload.id);
@@ -47,5 +56,5 @@ const userSlice = createSlice({
     }
 })
 
-export const { setSigned, addToCart, deleteFromCart, addOne, removeOne } = userSlice.actions
+export const { setSigned, addToCart, deleteFromCart, addOne, removeOne, setInfo } = userSlice.actions
 export default userSlice.reducer
