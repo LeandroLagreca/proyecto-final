@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const { videogamePost, videogameByID, getGenres,updateVideogame, getAllGames } = require('../controllers/videogameControllers.js');
 const axios = require('axios');
-const { allDataUser, UserByID, UserPost, UserEliminated, UserUpdate, LoginPost, GetLogin } = require('../controllers/User.js');
+const { allDataUser, UserByID, UserPost, UserEliminated, UserUpdate, PostLogin } = require('../controllers/User.js');
 const router = Router();
 
 // Configuración de rutas
@@ -28,7 +28,7 @@ router.put('/user/:id', UserUpdate);
 //sesion
 router.post('/register', UserPost);
 
-router.get('/login', GetLogin);
+router.post('/login', PostLogin);
 
 
 

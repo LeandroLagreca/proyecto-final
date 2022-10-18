@@ -31,6 +31,15 @@ module.exports = (sequelize) => {
       admin: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-      }
+      },
+      cart:{
+        type: DataTypes.ARRAY,
+      },
+      deseos:{
+        type: DataTypes.ARRAY,
+      },
+      biblioteca:{
+        type: DataTypes.ARRAY,
+      },
 
 })};
