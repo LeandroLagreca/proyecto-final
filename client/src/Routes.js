@@ -20,7 +20,8 @@ const Routes = () => {
 
 	return (
 		<>
-			<Navbar />
+			
+			{!isMobile ? <Social /> : null}
 			<Rutas>
 				<Route exact path="/" element={<Landing />} />
 				<Route exact path="/home" element={<MainHome />} />

@@ -35,15 +35,9 @@ const Games = () => {
  
   return (
     <div>
-      <Pagined
-        setPage={(num) => dispatch(changePage(num))}
-        setGamesPerPage={setGamesPerPage}
-        total={totalPages}
-        current={page}
-      />
       <Box sx={styles.container}>
         {currentGames?.map((e, index) => {
-
+          
           return (
             <Box key={index}>
               <ul
@@ -58,7 +52,7 @@ const Games = () => {
                 <li>
                   {
                     <Card
-                      background_image={e.background_image}
+                    background_image={e.background_image}
                       name={e.name}
                       id={e.id}
                       price={e.price}
@@ -71,6 +65,12 @@ const Games = () => {
           );
         })}
       </Box>
+        <Pagined
+          setPage={(num) => dispatch(changePage(num))}
+          setGamesPerPage={setGamesPerPage}
+          total={totalPages}
+          current={page}
+        />
     </div>
   );
 };
