@@ -13,7 +13,7 @@ const userSlice = createSlice({
     initialState,
     reducers: {
 			setSigned: (state) => {
-				state.status = 'logged'
+				state.status = state.status === 'logged' ? 'guest' : 'logged'
 			},
 			addToCart: (state, { payload }) => {
 				const alreadyIs = state.cartList.some(el => el.id === payload.id);

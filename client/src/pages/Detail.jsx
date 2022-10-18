@@ -33,6 +33,8 @@ export default function Detail() {
   const dispatch = useDispatch();
   let { id } = useParams();
 
+  const parse = require('html-react-parser');
+
   var imgCarousel = [];
   if (gameDetail.images) {
     var images = gameDetail.images;
@@ -145,7 +147,6 @@ export default function Detail() {
                 className="nombrePrecio"
                 sx={{ border: "1px dashed grey" }}
               >
-                <Box></Box>
                 {/* NOMBRE */}
                 <Typography
                   padding={1}
@@ -182,7 +183,7 @@ export default function Detail() {
               className="imagen"
               display="inline-block"
               sx={{ borderRadius: "4px" }}
-            >
+              >
               {/* CARRUSEL */}
               <Carousel className="carusel">
                 {imgCarousel.map((item) => (
@@ -192,12 +193,13 @@ export default function Detail() {
             </Box>
             <Box className="description" borderRadius={0.5} sx={{ padding: 1 }}>
               {/* DESCRIPCION */}
+
               <Typography
                 variant="body2"
                 textAlign="justify"
                 color="text.primary"
-              >
-                {gameDetail.description}
+                >
+                {parse(gameDetail.description)}
               </Typography>
             </Box>
           </Box>
@@ -222,7 +224,7 @@ export default function Detail() {
               variant="body2"
               color="text.primary"
             >
-              {gameDetail.requirements}
+              {parse(gameDetail.requirements)}
             </Typography>
           </Box>
         </Box>

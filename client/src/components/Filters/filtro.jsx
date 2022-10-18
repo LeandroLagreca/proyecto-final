@@ -3,16 +3,22 @@ import SelectPrice from './SelectPrice'
 import SelectRating from './SelectRating'
 import SelectType from './SelectType'
 import { useSelector, useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
-import { Grid, Box } from '@mui/material';
+import { applyFilters } from '../../redux/reducers/videoGame';
+import { useEffect } from 'react';
+import { Grid } from '@mui/material';
 
 
 
 export default function Filter() {
-	
+	const { filters } = useSelector(state => state.videogames)
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		dispatch(applyFilters())
+		console.log('aa')
+	}, [filters, dispatch])
 
 	return (
-		<Box>
 			<Grid container direction="row">
 				<Grid item xs>
 					<SelectRating />
@@ -27,6 +33,5 @@ export default function Filter() {
 					<SelectGenere />
 				</Grid>
 			</Grid>
-		</Box>
 	)
 }
