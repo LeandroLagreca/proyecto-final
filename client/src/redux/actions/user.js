@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setInfo } from "../reducers/user";
+import { setInfo, addToPurchases } from "../reducers/user";
 const API = "http://localhost:3001/";
 
 export const getUserInfo = (email) => {
@@ -12,3 +12,14 @@ export const getUserInfo = (email) => {
 		}
   };
 };
+
+export const addPurchases = (game) => {
+	try {
+		return function (dispatch) {
+			dispatch(addToPurchases(game))
+		}
+	} catch (error) {
+		console.log(error)
+	}
+}
+
