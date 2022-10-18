@@ -5,7 +5,7 @@ const router = Router();
 
 const UserPost = async (req, res) => {
     try { 
-        const { name, image, password, mail, admin, cart, deseos, biblioteca } = req.body
+        const { name, image, password, email, admin, cart, deseos, biblioteca } = req.body
         const newUser = await User.create({
             name,
             image,
@@ -14,7 +14,7 @@ const UserPost = async (req, res) => {
             biblioteca,
             admin,
             password,
-            mail
+            email
         })
         res.status(200).json(newUser);
 
@@ -70,9 +70,9 @@ const UserEliminated = async(req, res)=>{
 
 const UserUpdate = async (req, res) => {
     const { id } = req.params;
-    const { name, image, password, mail, admin } = req.body
+    const { name, image, password, email, admin } = req.body
     try {
-        let modifique = await User.update({ name, image, password, mail, admin, cart, deseos, biblioteca } ,
+        let modifique = await User.update({ name, image, password, email, admin, cart, deseos, biblioteca } ,
             {
                 where: {
                     id: id,
