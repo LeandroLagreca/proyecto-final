@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import {
   Drawer,
   List,
@@ -9,7 +10,7 @@ import {
   Divider,
 } from "@mui/material";
 
-import { People, Games } from "@mui/icons-material";
+import { People, Games, ConfirmationNumber } from "@mui/icons-material";
 
 export default function AdminNavBar() {
   return (
@@ -22,26 +23,38 @@ export default function AdminNavBar() {
       <List sx={{ paddingTop: 3 }}>
         <Divider />
         <ListItem>
-          <ListItemButton>
-            <ListItemIcon>
-              <People />
-            </ListItemIcon>
-            <ListItemText primary={"Usuarios"} />
-          </ListItemButton>
+          <Link to='/admin/users'>
+            <ListItemButton>
+              <ListItemIcon>
+                <People />
+              </ListItemIcon>
+              <ListItemText primary={"Usuarios"} />
+            </ListItemButton>
+          </Link>
         </ListItem>
         <Divider />
         <ListItem>
-          <ListItemButton>
-            <ListItemIcon>
-              <Games />
-            </ListItemIcon>
-            <ListItemText primary={"Videojuegos"} />
-          </ListItemButton>
+          <Link to='/admin/games'>
+            <ListItemButton>
+              <ListItemIcon>
+                <Games />
+              </ListItemIcon>
+              <ListItemText primary={"Games"} />
+            </ListItemButton>
+          </Link>
         </ListItem>
         <Divider />
-      </List>
-      <List>
-        <ListItem></ListItem>
+        <ListItem>
+          <Link to='/admin/orders'>
+            <ListItemButton>
+              <ListItemIcon>
+                <ConfirmationNumber />
+              </ListItemIcon>
+              <ListItemText primary={"Orders"} />
+            </ListItemButton>
+          </Link>
+        </ListItem>
+        <Divider />
       </List>
     </Drawer>
   );
