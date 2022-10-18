@@ -6,6 +6,7 @@ import { Detail, MainHome, Landing, AdminPanel, NotFound, Cart } from './pages';
 
 import { Footer } from './components';
 import Wishes from './components/Wishes/AddtoWishes';
+import Purchases from './components/Purchases/Purchases';
 
 
 
@@ -24,6 +25,7 @@ const Routes = () => {
 				<Route path='/admin/*' element={<AdminPanel/>} />
 				<Route path = '*' element = {<NotFound/>}/>
 				<Route path = '/cart' element = {<Cart/>}/>
+				<Route path = '/purchases' element = {<Purchases/>}/>
 			</Rutas>
 			<Footer />
 		</>
