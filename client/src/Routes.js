@@ -29,7 +29,6 @@ const Routes = () => {
 				<Route path='/wishes' element={<Wishes/>} />
 				<Route path='/admin' element={<AdminPanel/>} />
 				<Route path = '*' element = {<NotFound/>}/>
-				<Route path='/purchases' element={<Purchases/>} />
 			</Rutas>
 			<Footer />
 		</>
