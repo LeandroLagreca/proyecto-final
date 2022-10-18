@@ -1,7 +1,9 @@
 const { User } = require('../db');
 const { Router } = require("express");
 const router = Router();
+
 // const { createUserWithEmailAndPassword } = require("firebase/auth");
+
 
 
 const UserPost = async (req, res)=> {
