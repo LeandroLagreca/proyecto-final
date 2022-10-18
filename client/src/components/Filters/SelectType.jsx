@@ -12,14 +12,11 @@ export default function SelectType() {
 	const games = useSelector((state) => state.videogames.filterGames);
 	const page = useSelector(state => state.videogames.page)
 	const [type, setType] = React.useState('');
-	const [currentPage, setCurrentPage] = useState(page)
 
 	// Se comento el dispatch para que no se rompa el codigo, se esta esperando que se cree este campo en la data de la API
 	const handleType = (event) => {
 		setType(event.target.value);
-		console.log(event.target.value);
 		 dispatch(setFilterByType(games, event.target.value));
-		 setCurrentPage(1)
 	};
 
 	return (
