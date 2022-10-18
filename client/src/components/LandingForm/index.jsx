@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import axios from "axios";
+import axios from 'axios'
+import { getUserInfo } from "../../redux/actions/user";
 import {
   Box,
   Button,
@@ -12,21 +13,15 @@ import {
   InputAdornment,
 } from "@mui/material";
 import { Check, PriorityHigh } from '@mui/icons-material';
-import firebaseApp from "../../firebase/credenciales";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import {auth} from "../../firebase/credenciales";
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { setRole } from "../../redux/reducers/user";
 import Swal from "sweetalert2";
 import { setSigned } from "../../redux/reducers/user";
 
 import validation from "./validations";
-
-const firestore = getFirestore(firebaseApp);
-const auth = getAuth(firebaseApp);
 
 const styles = {
   container: {
@@ -73,15 +68,13 @@ export default function LandingForm({ register, setRegister }) {
     );
     const newUserData = {
       id: user.uid,
-      email,
+      email: user.email,
       password,
       admin: false,
+      emailVerified: user.emailVerified
     };
-    // await axios.post("http://localhost:3000/register", newUserData);
+    await axios.post("http://localhost:3000/register", newUserData);
     setRegister(false);
-
-    const docuRef = doc(firestore, `usuarios/${user.uid}`);
-    setDoc(docuRef, { correo: email });
   }
 
   async function submitHandler(e) {
@@ -94,7 +87,7 @@ export default function LandingForm({ register, setRegister }) {
         await registarUsuario(email, password);
       } catch (error) {
         Swal.fire({
-          text:"Could not register correctly", 
+          text:"Email already in use", 
           icon:"error"
         });
       }
@@ -106,9 +99,7 @@ export default function LandingForm({ register, setRegister }) {
           password
         );
         if (user) {
-          console.log(user);
-          // aca disparo una accion que pida la info del usuario con la uid correspondiente
-          // y setee la info necesaria en redux
+          dispatch(getUserInfo(user.email))
           dispatch(setSigned());
           navigate("/home");
         }
@@ -164,7 +155,7 @@ export default function LandingForm({ register, setRegister }) {
           type="password"
           label="Password"
         >
-          <InputAdornment position="right">Show</InputAdornment>
+          <InputAdornment position="end" >Show</InputAdornment>
         </OutlinedInput>
         {
           register ? (
