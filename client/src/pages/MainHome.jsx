@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setLoading } from '../redux/reducers/videoGame';
 import { getGames } from '../redux/actions/videoGame';
+import Sidebar from '../components/Sidebar/Sidebar';
 
 
 const MainHome = () => {
@@ -18,6 +19,7 @@ const MainHome = () => {
 				<div>
 				</div>
 				
+				<Sidebar/>
 				<Home />
 				<Games />
 				<About />
