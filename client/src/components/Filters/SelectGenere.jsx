@@ -1,31 +1,23 @@
-import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { setFilterByGenere,  } from '../../redux/actions/videoGame';
-import { useState } from 'react';
+import { filterByGenre } from '../../redux/reducers/videoGame';
 
 export default function SelectGenere() {
 	const dispatch = useDispatch();
-	const [genere, setGenere] = React.useState('');
-	const games = useSelector((state) => state.videogames.filterGames);
-	const page = useSelector(state => state.videogames.page)
-	const [currentPage, setCurrentPage] = useState(page)
-
-	// Se comento el dispatch para que no se rompa el codigo, se esta esperando que se cree este campo en la data de la API
+	const { genre } = useSelector(state => state.videogames.filters)
+	
 	const handleGenere = (event) => {
-		setGenere(event.target.value);
-		dispatch(setFilterByGenere(games, event.target.value))
-		setCurrentPage(1)
+		dispatch(filterByGenre(event.target.value))
 	};
 
 	return (
 		<div>
 			<FormControl sx={{ m: 1, minWidth: 100 }}>
 				<InputLabel>Genere</InputLabel>
-				<Select value={genere} onChange={handleGenere} autoWidth label="Genere">
+				<Select value={genre} onChange={handleGenere} autoWidth label="Genere">
 					<MenuItem value="none">
 						<em>None</em>
 					</MenuItem>
