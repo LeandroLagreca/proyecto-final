@@ -5,13 +5,16 @@ const router = Router();
 
 const UserPost = async (req, res) => {
     try { 
-        const { name, image, password, mail, admin } = req.body
+        const { name, image, password, email, admin, cart, deseos, biblioteca } = req.body
         const newUser = await User.create({
             name,
             image,
+            cart,
+            deseos,
+            biblioteca,
             admin,
             password,
-            mail
+            email
         })
         res.status(200).json(newUser);
 
@@ -67,9 +70,9 @@ const UserEliminated = async(req, res)=>{
 
 const UserUpdate = async (req, res) => {
     const { id } = req.params;
-    const { name, image, password, mail, admin } = req.body
+    const { name, image, password, email, admin } = req.body
     try {
-        let modifique = await User.update({ name, image, password, mail, admin } ,
+        let modifique = await User.update({ name, image, password, email, admin, cart, deseos, biblioteca } ,
             {
                 where: {
                     id: id,
@@ -84,7 +87,7 @@ const UserUpdate = async (req, res) => {
 };
 
 
-const GetLogin= async (req, res) => {
+const PostLogin= async (req, res) => {
     const {email} = req.body;
     try {
         let found = await User.findOne({ where: { email: email } });
@@ -107,5 +110,5 @@ module.exports={
     UserPost,
     UserEliminated,
     UserUpdate,
-    GetLogin
+    PostLogin
 }
