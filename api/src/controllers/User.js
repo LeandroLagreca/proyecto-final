@@ -5,15 +5,10 @@ const router = Router();
 
 const UserPost = async (req, res) => {
     try { 
-        const { name, image, password, email, admin, cart, deseos, biblioteca } = req.body
+        const { email, admin, id } = req.body
         const newUser = await User.create({
-            name,
-            image,
-            cart,
-            deseos,
-            biblioteca,
-            admin,
-            password,
+            admin: false,
+            id,
             email
         })
         res.status(200).json(newUser);
@@ -90,7 +85,7 @@ const UserUpdate = async (req, res) => {
 const PostLogin= async (req, res) => {
     const {email} = req.body;
     try {
-        let found = await User.findOne({ where: { email: email } });
+        let found = await User.findOne({ where: { email: email} });
             if (found) {
             return res.status(200).send(found);
             } else {
