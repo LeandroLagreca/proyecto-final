@@ -15,7 +15,6 @@ import {
 import { Check, PriorityHigh } from '@mui/icons-material';
 import {auth} from "../../firebase/credenciales";
 import {
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import Swal from "sweetalert2";
@@ -61,13 +60,7 @@ export default function LandingForm({ register, setRegister }) {
   }
 
   async function registarUsuario(email, password) {
-    const { user } = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
     const newUserData = {
-      id: user.uid,
       email,
       password
     };
