@@ -9,7 +9,6 @@ module.exports = (sequelize) => {
         allowNull: false,
         primaryKey: true,
         unique: true,
-        autoIncrement: true,
       },
       name: {
         type: DataTypes.STRING,
@@ -30,16 +29,20 @@ module.exports = (sequelize) => {
       },
       admin: {
         type: DataTypes.BOOLEAN,
+        defaultValue: false,
         allowNull: false,
       },
       cart:{
-        type: DataTypes.ARRAY(DataTypes.JSON)
+        type: DataTypes.ARRAY(DataTypes.JSON),
+        defaultValue: []
       },
       deseos:{
-        type: DataTypes.ARRAY(DataTypes.JSON)
+        type: DataTypes.ARRAY(DataTypes.JSON),
+        defaultValue: []
       },
       biblioteca:{
-        type: DataTypes.ARRAY(DataTypes.JSON)
+        type: DataTypes.ARRAY(DataTypes.JSON),
+        defaultValue: []
       },
 
 })};
