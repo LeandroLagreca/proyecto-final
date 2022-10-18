@@ -1,45 +1,35 @@
-
 const { User } = require('../db');
 const { Router } = require("express");
 const router = Router();
-import {
-    createUserWithEmailAndPassword,
-} from "firebase/auth";
+// const { createUserWithEmailAndPassword } = require("firebase/auth");
 
 
 const UserPost = async (req, res)=> {
+    function hashFunction(key) {
+        const splittedWord = key.toLowerCase().split("");
+        const codes = splittedWord.map((letter) => `${letter}${String(letter).charCodeAt(0)}`);
+        return codes.join("");
+    }
+
+    const { email, password } = req.body
     try{
-    const { user } = await createUserWithEmailAndPassword({
-    auth,
-    email,
-    password,
-    id : user.uid,
-    admin: false,
-    });
-    res.status(200).json(user)
-/*  setRegister(false);
-    const docuRef = doc(firestore, `usuarios/${user.uid}`);
-    setDoc(docuRef, { correo: email }); */
+    // const { user } = await createUserWithEmailAndPassword(
+    //     auth,
+    //     email,
+    //     password
+    //   );
+    await User.create({
+        id: 'asdasdas',
+        email,
+        name: email,
+        password: hashFunction(password)
+    })
+    res.status(201).send('Usuario creado correctamente')
 } catch (error){
     res.status(400).json({error: "User not create!"});
 }
 }
 
-/*const UserPost = async (req, res) => {
-    try { 
-        const { email, admin, id } = req.body
-        const newUser = await User.create({
-            admin: false,
-            id,
-            email
-        })
-        res.status(200).json(newUser);
-
-    } catch (error) {
-        res.status(400).json({error: "User not create!"});
-    };
-};
-*/
 const getDbInfo = async () => {
     return await User.findAll();
 };
