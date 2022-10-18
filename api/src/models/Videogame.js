@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-const { DataTypes, NOW } = require('sequelize');
-=======
 const { DataTypes, NOW } = require("sequelize");
->>>>>>> b5fb843e15c8e987a0b6ff04702a6774155581c8
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-<<<<<<< HEAD
-  sequelize.define('videogame', {
-=======
   sequelize.define("videogame", {
->>>>>>> b5fb843e15c8e987a0b6ff04702a6774155581c8
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
