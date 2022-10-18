@@ -14,7 +14,6 @@ const API = "http://localhost:3001/";
 
 export const getGames = (name) => {
   const queryName = name ? name : "";
-
   return async function (dispatch) {
     try {
       const request = await axios(API + `videogames?` + queryName);
