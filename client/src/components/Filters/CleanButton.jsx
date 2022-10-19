@@ -12,7 +12,7 @@ export default function DisableElevation() {
 		dispatch(getGames());
 	}
   return (
-      <Button onClick={e=>{handleClick(e)}} variant="contained" disableElevation>
+      <Button onClick={e=>{handleClick(e)}} variant="contained" disableElevation color={"secondary"}>
       Clean
       </Button>
   );
