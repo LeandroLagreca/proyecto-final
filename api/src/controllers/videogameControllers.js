@@ -1,11 +1,10 @@
-
 const { Router } = require("express");
 const axios = require("axios");
 const { Videogame, Genre } = require("../db");
 const router = Router();
 const { API_KEY } = process.env;
-const json = require ("../harcode.json")
-
+const json = require("../harcode.json");
+import { Op } from "sequelize";
 //Post
 
 const videogamePost = async (req, res) => {
@@ -21,6 +20,7 @@ const videogamePost = async (req, res) => {
       images,
       requirements,
       genres,
+      stock,
     } = req.body;
     const newVideogame = await Videogame.create({
       name,
@@ -32,6 +32,7 @@ const videogamePost = async (req, res) => {
       price,
       images,
       requirements,
+      stock,
     });
 
     let genresDb = await Genre.findAll({
@@ -45,17 +46,19 @@ const videogamePost = async (req, res) => {
   }
 };
 
-
 const getGamesDb = async (req, res) => {
   try {
     let games = await Videogame.findAll({
+      where: {
+        stock: { [Op.lt]: 0 },
+      },
       include: {
         model: Genre,
-        attributes: ['name'],
+        attributes: ["name"],
         through: {
-            attributes: [],
-        }
-      }
+          attributes: [],
+        },
+      },
     });
 
     return games;
@@ -64,24 +67,23 @@ const getGamesDb = async (req, res) => {
   }
 };
 
-
 const getAllGames = async (req, res) => {
   let { name } = req.query;
   try {
     let games = await getGamesDb();
-    
+
     if (name) {
       let found = await Videogame.findAll({
-        where: {name: name},
+        where: { name: name },
         include: {
           model: Genre,
-          attributes: ['name'],
+          attributes: ["name"],
           through: {
-              attributes: [],
-          }
-        }
+            attributes: [],
+          },
+        },
       });
-      
+
       if (found) {
         return res.status(200).json(found);
       } else {
@@ -97,41 +99,36 @@ const getAllGames = async (req, res) => {
   }
 };
 
-
 const videogameByID = async (req, res) => {
   const { id } = req.params;
 
   try {
     const videoGameDb = await Videogame.findOne({
-        where: { id: id },
-        
-        include: {
-          model: Genre,
-          attributes: ['name'],
-          through: {
-              attributes: [],
-          }
-        }
+      where: { id: id },
+
+      include: {
+        model: Genre,
+        attributes: ["name"],
+        through: {
+          attributes: [],
+        },
+      },
     });
 
     res.json(videoGameDb);
-
   } catch (error) {
     res.send(error);
   }
 };
 
-
 const getGenres = async (req, res) => {
   try {
     const data = await Genre.findAll();
     res.send(data);
-    
   } catch (error) {
     res.status(400).json(error);
   }
 };
-
 
 const updateVideogame = async (req, res) => {
   let { id } = req.params;
@@ -148,7 +145,6 @@ const updateVideogame = async (req, res) => {
   } = req.body;
 
   try {
-
     let find = await Videogame.findOne({ where: { id: id } });
     if (find) {
       await Videogame.update(
@@ -170,7 +166,6 @@ const updateVideogame = async (req, res) => {
       return res.send({ msg: "Updated successfully" });
     }
     res.send({ msg: "Videogame doesn't exist" });
-
   } catch (error) {
     res.status.send(error);
   }
