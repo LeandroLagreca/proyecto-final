@@ -5,21 +5,20 @@ const API = "http://localhost:3001/";
 export const getUserInfo = (email) => {
   return async function (dispatch) {
     try {
-			const user = await axios.get(API + 'login', {	email })
-			dispatch(setInfo(user))
+      const { data } = await axios.post(API + "login", { email });
+      dispatch(setInfo(data));
     } catch (error) {
-			return null
-		}
+      return null;
+    }
   };
 };
 
 export const addPurchases = (game) => {
-	try {
-		return function (dispatch) {
-			dispatch(addToPurchases(game))
-		}
-	} catch (error) {
-		console.log(error)
-	}
-}
-
+  return function (dispatch) {
+    try {
+      dispatch(addToPurchases(game));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
