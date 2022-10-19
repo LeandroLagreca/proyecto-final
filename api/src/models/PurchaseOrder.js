@@ -34,27 +34,13 @@ module.exports = (sequelize) => {
       unique: true,
       defaultValue: "GameScript@gmail.com",
     },
-    //datos cliente
-    clientname: {
-      type: DataTypes.STRING,
+    status: {
+      type: DataTypes.ENUM("received", "inprocess", "canceled", "finalized"),
       allowNull: false,
     },
-    clientcuit: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    //items
-    itemname: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    itemprice: {
+    totalprice: {
       type: DataTypes.FLOAT,
       allowNull: false,
     },
-    totalprice:{
-        type:DataTypes.FLOAT,
-        allowNull:false
-    }
   });
 };
