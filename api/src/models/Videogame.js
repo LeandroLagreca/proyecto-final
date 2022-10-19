@@ -43,5 +43,9 @@ module.exports = (sequelize) => {
     requirements: {
       type: DataTypes.TEXT,
     },
+    stock:{
+      type:DataTypes.INTEGER,
+      defaultValue:50
+    }
   });
 };
