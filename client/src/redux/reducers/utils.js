@@ -67,7 +67,11 @@ export const ratingFilter = (current, rating) => {
   export const genreFilter = (current, genre) => {
     let items = []
     if(genre !== 'none') {
-          items = current.filter((game) => game.genres.includes(genre));
+          items = current.filter(game => {
+            return game.genres.some(obj => {
+              return obj.name === genre
+            })
+          })
       } else {
           return current
       }

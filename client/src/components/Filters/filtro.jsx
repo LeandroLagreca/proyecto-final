@@ -15,7 +15,6 @@ export default function Filter() {
 
 	useEffect(() => {
 		dispatch(applyFilters())
-		console.log('aa')
 	}, [filters, dispatch])
 
 	return (
