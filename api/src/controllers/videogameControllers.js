@@ -4,7 +4,7 @@ const { Videogame, Genre } = require("../db");
 const router = Router();
 const { API_KEY } = process.env;
 const json = require("../harcode.json");
-import { Op } from "sequelize";
+const { Op } =require ("sequelize");
 //Post
 
 const videogamePost = async (req, res) => {
