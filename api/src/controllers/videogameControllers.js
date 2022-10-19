@@ -70,10 +70,10 @@ const getAllGames = async (req, res) => {
   try {
     let games = await getGamesDb();
     const page = []
+    while (games < 10) {
+        games.push(page)
+    }
 
-while (games < 10) {
-    games.push(page)
-}
     if (name) {
       let found = await Videogame.findAll({
         where: {name: name},
@@ -81,7 +81,7 @@ while (games < 10) {
           model: Genre,
           attributes: ['name'],
           through: {
-              attributes: [],
+            attributes: [],
           }
         }
       });
@@ -94,7 +94,7 @@ while (games < 10) {
           .send({ msg: "sorry, this game is not available now" });
       }
     } else {
-      res.status(200).json(games);
+      res.status(200).json(page);
     }
   } catch (error) {
     res.status(400).send(error);
