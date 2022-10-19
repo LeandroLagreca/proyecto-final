@@ -28,6 +28,7 @@ const Routes = ({setMode, mode}) => {
 				<Route path = '*' element = {<NotFound/>}/>
 				<Route path = '/cart' element = {<Cart/>}/>
 				<Route path = '/purchases' element = {<Purchases/>}/>
+				<Route path = '/colection'/>
 			</Rutas>
 			<Footer />
 		</>
