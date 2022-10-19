@@ -129,15 +129,17 @@ const Sidebar = () => {
         </DrawerHeader>
         <Divider />
         
-        <List>
-          <ListItem >
-            <ListItemButton>
-                <ListItemIcon > 
-                  <VideogameAssetIcon/>
-                </ListItemIcon>
-                <ListItemText primary={"My collection"}/>
-            </ListItemButton>
-          </ListItem>
+        <List sx={{textDecoration:"none"}}>
+          <Link to={"/colection"}>
+            <ListItem sx={{textDecoration:"none"}} >
+              <ListItemButton sx={{color: "black", textDecoration:"none"}}>
+                  <ListItemIcon > 
+                    <VideogameAssetIcon/>
+                  </ListItemIcon>
+                  <ListItemText primary={"My collection"} sx={{textDecoration:"none"}}/>
+              </ListItemButton>
+            </ListItem>
+          </Link>
         </List>
         <List sx={{textDecoration:"none"}}>
           <Link to={"/wishes"}>
