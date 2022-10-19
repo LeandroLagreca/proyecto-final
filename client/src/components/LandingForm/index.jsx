@@ -15,7 +15,6 @@ import {
 import { Check, PriorityHigh } from '@mui/icons-material';
 import {auth} from "../../firebase/credenciales";
 import {
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import Swal from "sweetalert2";
@@ -61,19 +60,11 @@ export default function LandingForm({ register, setRegister }) {
   }
 
   async function registarUsuario(email, password) {
-    const { user } = await createUserWithEmailAndPassword(
-      auth,
+    const newUserData = {
       email,
       password
-    );
-    const newUserData = {
-      id: user.uid,
-      email: user.email,
-      password,
-      admin: false,
-      emailVerified: user.emailVerified
     };
-    await axios.post("http://localhost:3000/register", newUserData);
+    await axios.post("http://localhost:3001/register", newUserData);
     setRegister(false);
   }
 

@@ -1,27 +1,33 @@
 const { User } = require('../db');
-const { Router } = require("express");
-const router = Router();
 
+const { createUserWithEmailAndPassword } = require("firebase/auth");
+const { auth } = require('../firebase/credenciales')
 
-const UserPost = async (req, res) => {
-    try { 
-        const { name, image, password, email, admin, cart, deseos, biblioteca } = req.body
-        const newUser = await User.create({
-            name,
-            image,
-            cart,
-            deseos,
-            biblioteca,
-            admin,
-            password,
-            email
-        })
-        res.status(200).json(newUser);
+const UserPost = async (req, res)=> {
+    function hashFunction(key) {
+        const splittedWord = key.toLowerCase().split("");
+        const codes = splittedWord.map((letter) => `${letter}${String(letter).charCodeAt(0)}`);
+        return codes.join("");
+    }
 
-    } catch (error) {
-        res.status(400).json({error: "User not create!"});
-    };
-};
+    const { email, password } = req.body
+    try{
+    const { user } = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+    await User.create({
+        id: user.uid,
+        email,
+        name: email,
+        password: hashFunction(password)
+    })
+    res.status(201).send('Usuario creado correctamente')
+} catch (error){
+    res.status(400).json({error: "User not create!"});
+}
+}
 
 const getDbInfo = async () => {
     return await User.findAll();
@@ -90,7 +96,7 @@ const UserUpdate = async (req, res) => {
 const PostLogin= async (req, res) => {
     const {email} = req.body;
     try {
-        let found = await User.findOne({ where: { email: email } });
+        let found = await User.findOne({ where: { email: email} });
             if (found) {
             return res.status(200).send(found);
             } else {

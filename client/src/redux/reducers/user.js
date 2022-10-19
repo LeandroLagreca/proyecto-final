@@ -6,7 +6,8 @@ const initialState = {
 	status: 'guest',
 	cartList,
 	admin: false,
-	emailVerified: false
+	emailVerified: false,
+	purchases: []
 }
 
 const userSlice = createSlice({
@@ -52,9 +53,12 @@ const userSlice = createSlice({
 				productRef.cant = newCant
 				const parseCart = JSON.stringify([...state.cartList])
 				localStorage.setItem('cartList', parseCart)
+			},
+			addToPurchases: (state, { payload }) => {
+				state.purchases =  [...state.purchases, payload]
 			}
     }
 })
 
-export const { setSigned, addToCart, deleteFromCart, addOne, removeOne, setInfo } = userSlice.actions
+export const { setSigned, addToCart, deleteFromCart, addOne, removeOne, setInfo, addToPurchases } = userSlice.actions
 export default userSlice.reducer

@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Box, Button, ButtonGroup, Divider, IconButton, Input, List, ListItem, Typography } from '@mui/material'
-import { Edit } from '@mui/icons-material';
+import { useEffect } from "react";
+import axios from 'axios'
+import { Divider, List, ListItem } from '@mui/material'
+
+
+import { UserItem } from "../components";
 
 const styles = {
 	item: {
@@ -13,82 +15,39 @@ const styles = {
 }
 
 export default function UsersList() {
-	// const users = useSelector(state => state.admin.user)
+	// const [ users, setUsers ] = useState([])
 	const users = [
 		{
+			id: 1,
 			username: 'Userjuju',
-			mail: 'ola2@gmail.com',
+			email: 'ola2@gmail.com',
 			admin: 'true'
 		},
 		{
+			id: 2,
 			username: 'asldkjasd',
-			mail: 'ola@gmail.com',
+			email: 'ola@gmail.com',
 			admin: 'false'
 		}
 	]
-  const dispatch = useDispatch();
 
-	// useEffect(() => {
-	// 	dispatch(getUsers())
-	// }, [dispatch])
+  
 
-	function UserItem({field, data}) {
-		const [ change, setChange ] = useState(false)
-
-		function handleChange() {
-			setChange(prev => !prev)
-		}
-
-		return (
-			<Box width={400}>
-				<Typography variant='h5'>
-					{field}:
-				</Typography>
-				<Box display={'flex'} justifyContent={'space-between'}>
-					{
-						!change
-							? (
-								<Typography variant='body1'>
-									{data}
-								</Typography>
-							)
-							: (
-								<Input type="text" placeholder={data} />
-							)
-					}
-					{
-						!change
-							? (
-								<IconButton onClick={handleChange}>
-									<Edit />
-								</IconButton>
-							)
-							:
-							<ButtonGroup>
-								<Button onClick={handleChange}>Cancelar</Button>
-								<Button>Guardar</Button>
-							</ButtonGroup>
-					}
-					
-				</Box>
-			</Box>
-		)
+	async function getUsers() {
+		const users = await axios.get('http://localhost:3001/user')
+		// setUsers(users)
 	}
+
+	useEffect(() => {
+		getUsers()
+	}, [])
 
   return <List>
 		{
 			users.map(user => (
 				<>
 					<ListItem sx={styles.item} >
-						<Box>
-							<UserItem field={'Username'} data={user.username} />
-						</Box>
-						<Box>
-							<UserItem field={'Email'} data={user.mail} />
-						</Box>
-						<Box>
-							<UserItem field={'Admin'} data={user.admin} />
-						</Box>
+						<UserItem username={user.username} email={user.email} admin={user.admin} id={user.id} />
 					</ListItem>
 					<Divider />
 				</>

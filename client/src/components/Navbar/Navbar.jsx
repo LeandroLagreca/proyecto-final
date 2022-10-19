@@ -169,6 +169,13 @@ const Navbar = () => {
                 Wish list
               </Button>
             </Link>
+            <Link style={styles.link} to='/purchases'>
+              <Button
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Purchases
+              </Button>
+            </Link>
           </Box>
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
