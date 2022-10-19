@@ -91,7 +91,7 @@ export default function LandingForm({ register, setRegister }) {
         );
         if (user) {
           dispatch(getUserInfo(user.email))
-          dispatch(setSigned());
+          dispatch(setSigned('logged'));
           navigate("/home");
         }
       } catch (error) {

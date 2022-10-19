@@ -15,7 +15,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import Navbar from '../Navbar/Navbar';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
@@ -23,8 +22,10 @@ import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import { Link } from 'react-router-dom';
 import Switch from '@mui/material/Switch';
-import ModeNightIcon from '@mui/icons-material/ModeNight';
 import Brightness5Icon from '@mui/icons-material/Brightness5';
+import {useContext} from 'react';
+import { ColorModeContext } from '../Theme/Theme';
+
 
 
 const drawerWidth = 240;
@@ -77,8 +78,11 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
 const Sidebar = () => {
-const theme = useTheme();
+  const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const {mode, toggleMode} = useContext(ColorModeContext)
+
+  console.log(mode);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -170,7 +174,7 @@ const theme = useTheme();
         <List >
           <ListItem sx={{display: "flex" ,justifyContent: "center", textAlign:"center"}} >
                 
-                  <Switch {...label} defaultChecked />
+                  <Switch onChange={toggleMode} color={"secondary"}/>
                 <ListItemIcon > 
                   <Brightness5Icon/>
                 </ListItemIcon>
