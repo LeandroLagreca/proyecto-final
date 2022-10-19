@@ -34,7 +34,7 @@ export default function Detail() {
   let { id } = useParams();
 
   const parse = require('html-react-parser');
-
+  
   var imgCarousel = [];
   if (gameDetail.images) {
     var images = gameDetail.images;
@@ -56,7 +56,7 @@ export default function Detail() {
     setValue(event.target.value);
     console.log(value);
   };
-
+  
   //Icons
   const handleImage = (event) => {
     //Handle para BOLD
@@ -111,15 +111,15 @@ export default function Detail() {
       console.log(value);
     }
   };
-
+  
   useEffect(() => {
     //UseEffect para traer los datos con la action x id
     dispatch(setLoading());
     dispatch(getDetails(id));
   }, [dispatch, id]);
-
+  
   if (loading) return <Loader />;
-
+  
   return (
     <Container>
       <DisableElevation/>
@@ -199,7 +199,8 @@ export default function Detail() {
                 textAlign="justify"
                 color="text.primary"
                 >
-                {parse(gameDetail.description)}
+
+               {gameDetail.description? parse(gameDetail.description) : null}
               </Typography>
             </Box>
           </Box>
@@ -224,7 +225,7 @@ export default function Detail() {
               variant="body2"
               color="text.primary"
             >
-              {parse(gameDetail.requirements)}
+              {gameDetail.requirements? parse(gameDetail.requirements) : null}
             </Typography>
           </Box>
         </Box>
