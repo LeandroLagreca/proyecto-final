@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import firebaseApp from "../../firebase/credenciales";
-import { useState, useEffect } from "react";
-import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signOut} from "firebase/auth";
 import { setSigned } from "../../redux/reducers/user";
 
 import { Button } from "@mui/material";
@@ -17,23 +16,12 @@ const styles = {
 };
 
 export default function SessionButton() {
-  const [user, setUser] = useState(null);
-
+  const sessionStatus = useSelector(state => state.user.status)
   const dispatch = useDispatch()
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (usuarioFirebase) => {
-      if (usuarioFirebase) {
-        setUser(usuarioFirebase);
-      } else {
-        setUser(null);
-      }
-    });
-  }, []);
 
   return (
     <>
-      {!user ? (
+      {sessionStatus !== 'logged' ? (
         <Link style={styles.link} to={"/"}>
           <Button variant="contained" color="info">
             Log In
@@ -43,7 +31,7 @@ export default function SessionButton() {
         <Button variant="contained" onClick={() => {
           signOut(auth)
           dispatch(setSigned())
-        }}>
+        }} color={"secondary"}>
           Log Out
         </Button>
       )}

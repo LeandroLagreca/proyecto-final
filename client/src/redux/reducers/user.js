@@ -14,8 +14,8 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-			setSigned: (state) => {
-				state.status = state.status === 'logged' ? 'guest' : 'logged'
+			setSigned: (state, { payload }) => {
+				state.status = payload
 			},
 			setInfo: (state, { payload }) => {
 				state = {

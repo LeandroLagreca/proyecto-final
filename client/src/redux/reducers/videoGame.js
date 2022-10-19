@@ -41,7 +41,9 @@ const videoGameSlice = createSlice({
 			state.loading = false
 		},
 		applyFilters: (state) => {
-			let newFilter = state.games
+			let newFilter = state.filterGames.length
+				? state.filterGames
+				: state.games
 			newFilter = ratingFilter(newFilter, state.filters.rating)
 			newFilter = priceFilter(newFilter, state.filters.price)
 			newFilter = genreFilter(newFilter, state.filters.genre)

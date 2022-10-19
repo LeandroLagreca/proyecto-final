@@ -4,6 +4,7 @@ import Carousel from "react-material-ui-carousel";
 import Item from "../../components/Items/Item";
 import { useSelector } from "react-redux";
 import "./Social.css";
+import { Link } from "react-router-dom";
 
 const Social = () => {
   const gameBanner = useSelector((state) => state.videogames.games);
@@ -13,7 +14,9 @@ const Social = () => {
       <Paper height={270} className="paperBanner" elevation={1}>
         <Carousel className="carusel" indicators={false} animation={"slide"} >
           {gameBanner.map((item) => (
-            <Item key={item.id} item={item.background_image} />
+            <Link to={`/detail/${item.id}`}>
+            <Item key={item.id} item={item.background_image} name={item.name}/>
+            </Link>
           ))}
         </Carousel>
       </Paper>

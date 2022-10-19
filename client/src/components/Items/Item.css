@@ -1,0 +1,19 @@
+.paperBanner{
+    position: relative;
+}
+
+.nameBanner{
+    position: absolute;
+    font-size: 3rem;
+    color: white;
+    left: 20px;
+    text-shadow: 0 0 8px;
+}
+
+.imagenBanner {
+    inset: 0px;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  object-position: top;
+}

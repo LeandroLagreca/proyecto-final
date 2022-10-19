@@ -6,7 +6,8 @@ import { getGames } from '../redux/actions/videoGame';
 import Sidebar from '../components/Sidebar/Sidebar';
 import { Social } from '../components';
 
-const MainHome = () => {
+
+const MainHome = ({setMode, mode}) => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(setLoading())
@@ -19,10 +20,11 @@ const MainHome = () => {
 				<div>
 				</div>
 				<Social />
-				<Sidebar/>
+				
 				<FilterSection/>
 				<Games />
 				<About />
+				
 			</div>
 		</>
 	);

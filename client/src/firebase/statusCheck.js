@@ -18,7 +18,7 @@ export default function useStatusChecker() {
   });
 
 	if(user) {
-		dispatch(setSigned())
+		dispatch(setSigned('logged'))
 	}
 
   return user
