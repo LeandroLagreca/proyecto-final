@@ -7,19 +7,21 @@ import { Detail, MainHome, Landing, AdminPanel, NotFound, Cart } from './pages';
 import { Footer } from './components';
 import Wishes from './components/Wishes/AddtoWishes';
 import Purchases from './components/Purchases/Purchases';
+import Sidebar from './components/Sidebar/Sidebar';
 
 
 
 
-const Routes = () => {
+const Routes = ({setMode, mode}) => {
 	//solve conflictos
 	useStatusChecker()
 
 	return (
 		<>
+				<Sidebar/>
 			<Rutas>
 				<Route exact path="/" element={<Landing />} />
-				<Route exact path="/home" element={<MainHome />} />
+				<Route exact path="/home" element={<MainHome  />} />
 				<Route path="/detail/:id" element={<Detail />} />
 				<Route path='/wishes' element={<Wishes/>} />
 				<Route path='/admin/*' element={<AdminPanel/>} />

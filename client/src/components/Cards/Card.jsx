@@ -63,7 +63,7 @@ export default function MainCard({ name, background_image, price, id }) {
         />
       </CardActions>
       <Link to={`/detail/${id}`}>
-        <Button variant="outlined" size="small" sx={{ width: "100%",}}>
+        <Button variant="outlined" size="small" sx={{ width: "100%",}} color={"secondary"} >
           Detail
         </Button>
       </Link>

@@ -31,7 +31,7 @@ export default function SessionButton() {
         <Button variant="contained" onClick={() => {
           signOut(auth)
           dispatch(setSigned())
-        }}>
+        }} color={"secondary"}>
           Log Out
         </Button>
       )}
