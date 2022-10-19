@@ -1,8 +1,8 @@
 const { User } = require('../db');
-
-const { createUserWithEmailAndPassword } = require("firebase/auth");
-const { auth } = require('../firebase/credenciales')
-
+const {firebaseApp}=require('../firebase copy/credenciales')
+const { createUserWithEmailAndPassword , getAuth} = require("firebase/auth");
+var { auth } = require('../firebase copy/credenciales');
+var auth = getAuth(firebaseApp);
 const UserPost = async (req, res)=> {
     function hashFunction(key) {
         const splittedWord = key.toLowerCase().split("");
