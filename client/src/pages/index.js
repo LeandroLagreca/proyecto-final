@@ -7,3 +7,4 @@ export { default as Users } from './Users';
 export { default as AdminOrders } from './AdminOrders';
 export { default as AdminGames } from './AdminGames';
 export { default as Cart } from './Cart';
+export { default as Discounts } from './Discounts';
