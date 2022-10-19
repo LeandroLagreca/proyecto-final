@@ -69,7 +69,11 @@ const getAllGames = async (req, res) => {
   let { name } = req.query;
   try {
     let games = await getGamesDb();
-    
+    const page = []
+
+while (games < 10) {
+    games.push(page)
+}
     if (name) {
       let found = await Videogame.findAll({
         where: {name: name},
