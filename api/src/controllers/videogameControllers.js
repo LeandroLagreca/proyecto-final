@@ -70,7 +70,7 @@ const getAllGames = async (req, res) => {
   try {
     let games = await getGamesDb();
     const page = []
-    while (games < 10) {
+    while (games.length < 10) {
         games.push(page)
     }
 
