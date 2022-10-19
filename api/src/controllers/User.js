@@ -1,10 +1,7 @@
 const { User } = require('../db');
-const { Router } = require("express");
-const router = Router();
 
-// const { createUserWithEmailAndPassword } = require("firebase/auth");
-
-
+const { createUserWithEmailAndPassword } = require("firebase/auth");
+const { auth } = require('../firebase/credenciales')
 
 const UserPost = async (req, res)=> {
     function hashFunction(key) {
@@ -15,13 +12,13 @@ const UserPost = async (req, res)=> {
 
     const { email, password } = req.body
     try{
-    // const { user } = await createUserWithEmailAndPassword(
-    //     auth,
-    //     email,
-    //     password
-    //   );
+    const { user } = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
     await User.create({
-        id: 'asdasdas',
+        id: user.uid,
         email,
         name: email,
         password: hashFunction(password)
