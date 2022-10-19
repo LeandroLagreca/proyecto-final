@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const{postComment}=require('../controllers/Comments')
+const{postComment,getUserComments,getGameComments}=require('../controllers/Comments')
 const { videogamePost, videogameByID, getGenres,updateVideogame, getAllGames } = require('../controllers/videogameControllers.js');
 const axios = require('axios');
 const { allDataUser, UserByID, UserPost, UserEliminated, UserUpdate, PostLogin } = require('../controllers/User.js');
@@ -7,6 +7,8 @@ const router = Router();
 
 // Configuración de rutas
 //Comment
+router.get("/user/comments",getUserComments)
+router.get("/videogames/comments",getGameComments)
 router.post("/comments",postComment)
 //Videogame
 router.get("/videogames/:id", videogameByID)
