@@ -22,7 +22,8 @@ const initialState = {
   	wishes: [],
 	page,
 	loading: false,
-	filters
+	filters,
+	comments: []
 };
 
 
@@ -99,6 +100,9 @@ const videoGameSlice = createSlice({
 		},
 		cleanFilter: (state, { payload }) => {
 			state.games = payload
+		},
+		getAllComments: (state, {payload}) => {
+			state.comments = payload
 		}
 	},
 });
@@ -117,7 +121,8 @@ export const {
   removeToWishes,
   changePage,
 	setLoading,
-	cleanFilter
+	cleanFilter,
+	getAllComments
 } = videoGameSlice.actions;
 
 export default videoGameSlice.reducer;
