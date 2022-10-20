@@ -1,11 +1,49 @@
-import * as React from 'react';
+import React from "react";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
-const PaymentForm = () =>{
+import { loadStripe } from '@stripe/stripe-js';
+import {
+  Elements,
+  CardElement,
+  useStripe,
+  useElements,
+} from '@stripe/react-stripe-js';
+
+import axios from 'axios';
+
+const PaymentForm = ({ setCardPay, cardPay }) => {
+
+  const cartList = useSelector(state => state.user.cartList);
+
+  // const [card, setCard] = useState({
+  //   cardNumber: '',
+  //   cardExpiry: '',
+  //   cardCvc: '',
+  //   cardName: '',
+  // });
+
+  const handleChange = (e) => {
+    setCardPay({
+      ...cardPay,
+      [e.target.name]: e.target.value,
+    });
+
+    console.log(cardPay);
+  }
+
+
+  useEffect(() => {
+    console.log(cartList);
+    console.log(cardPay);
+  }, [cartList]);
+
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -20,6 +58,9 @@ const PaymentForm = () =>{
             fullWidth
             autoComplete="cc-name"
             variant="standard"
+            name="cardName"
+            value={cardPay.cardName}
+            onChange={handleChange}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -30,6 +71,9 @@ const PaymentForm = () =>{
             fullWidth
             autoComplete="cc-number"
             variant="standard"
+            name="cardNumber"
+            value={cardPay.cardNumber}
+            onChange={handleChange}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -40,6 +84,9 @@ const PaymentForm = () =>{
             fullWidth
             autoComplete="cc-exp"
             variant="standard"
+            name="cardExpiry"
+            value={cardPay.cardExpiry}
+            onChange={handleChange}
           />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -51,6 +98,9 @@ const PaymentForm = () =>{
             fullWidth
             autoComplete="cc-csc"
             variant="standard"
+            name="cardCvc"
+            value={cardPay.cardCvc}
+            onChange={handleChange}
           />
         </Grid>
         <Grid item xs={12}>
