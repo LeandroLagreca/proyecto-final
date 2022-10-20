@@ -18,6 +18,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Navbar from '../Navbar/Navbar';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
+import PercentIcon from '@mui/icons-material/Percent';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import { Link } from 'react-router-dom';
@@ -149,6 +150,18 @@ const Sidebar = () => {
                   <FavoriteIcon/>
                 </ListItemIcon>
                 <ListItemText primary={"Wish List"} sx={{textDecoration:"none"}}/>
+              </ListItemButton>
+            </ListItem>
+          </Link>
+        </List>
+        <List sx={{textDecoration:"none"}}>
+          <Link to={"/discounts"}>
+            <ListItem sx={{textDecoration:"none"}} >
+              <ListItemButton sx={{color: "black", textDecoration:"none"}}>
+                <ListItemIcon > 
+                  <PercentIcon />
+                </ListItemIcon>
+                <ListItemText primary={"Discounts"} sx={{textDecoration:"none"}}/>
               </ListItemButton>
             </ListItem>
           </Link>

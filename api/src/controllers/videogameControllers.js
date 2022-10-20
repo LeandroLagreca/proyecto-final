@@ -139,6 +139,23 @@ const getGenres = async (req, res) => {
   }
 };
 
+const getDiscounts = async(req, res) => {
+  try {
+    const discounts = await Videogame.findAll({
+      where: {
+        "discount.status" : true
+      }
+    })
+
+    if(!discounts.length) {
+      return res.send("Don't exist any discount")
+    }
+    res.json(discounts)
+  } catch (error) {
+    res.status(404).send(error.message)
+  }
+}
+
 const updateVideogame = async (req, res) => {
   let { id } = req.params;
   let {
@@ -186,4 +203,5 @@ module.exports = {
   getGenres,
   updateVideogame,
   getAllGames,
+  getDiscounts
 };
