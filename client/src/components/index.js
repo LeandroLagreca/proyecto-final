@@ -1,3 +1,4 @@
+export { default as Card } from './Cards/Card';
 export { default as Social } from './Social/Social';
 export { default as Footer } from './Footer/Footer';
 export { default as Navbar } from './Navbar/Navbar';

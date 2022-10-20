@@ -3,6 +3,10 @@ const { postPayment } = require('../controllers/paymentController')
 const{ postComment, getUserComments, getGameComments }=require('../controllers/Comments')
 const { videogamePost, videogameByID, getGenres, updateVideogame, getAllGames } = require('../controllers/videogameControllers.js');
 const axios = require('axios');
+
+
+const { getAllOrders } = require('../controllers/Orders')
+
 const { allDataUser, UserByID, UserPost, UserEliminated, UserUpdate, PostLogin } = require('../controllers/User.js');
 const router = Router();
 
@@ -30,6 +34,8 @@ router.put('/videogames/:id',updateVideogame)
 
 router.get("/genres",getGenres)
 
+router.get("/discounts",getDiscounts)
+
 //User
 router.get("/user", allDataUser);
 
@@ -44,6 +50,7 @@ router.post('/register', UserPost);
 
 router.post('/login', PostLogin);
 
-
+//Orders
+router.get('/orders', getAllOrders)
 
 module.exports = router;
