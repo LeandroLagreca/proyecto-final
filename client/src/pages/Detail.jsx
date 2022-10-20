@@ -27,6 +27,7 @@ import {
   Paper,
   IconButton,
 } from "@mui/material";
+import Comments from "../sections/Comments"
 
 export default function Detail() {
   const { loading } = useSelector((state) => state.videogames);
@@ -269,10 +270,6 @@ export default function Detail() {
               }}
             >
               <Box className="iconsComment">
-                <IconButton onClick={handleImage}>
-                  <input type="file" hidden />
-                  <AddPhotoAlternateIcon opacity={30} />
-                </IconButton>|
                 <IconButton onClick={handleBold}>
                   <FormatBoldIcon />
                 </IconButton>
@@ -293,7 +290,7 @@ export default function Detail() {
           </Box>
         </Box>
         <Box>
-          COMMENTS HERE
+          <Comments/>
           {gameComment.id}
           {gameComment.text}
           {gameComment.rating_like}
