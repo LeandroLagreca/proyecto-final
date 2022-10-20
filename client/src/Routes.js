@@ -8,6 +8,7 @@ import { Footer } from './components';
 import Wishes from './components/Wishes/AddtoWishes';
 import Purchases from './components/Purchases/Purchases';
 import Sidebar from './components/Sidebar/Sidebar';
+import Collection from './components/Collection/Collection';
 
 
 
@@ -28,7 +29,7 @@ const Routes = ({setMode, mode}) => {
 				<Route path = '*' element = {<NotFound/>}/>
 				<Route path = '/cart' element = {<Cart/>}/>
 				<Route path = '/purchases' element = {<Purchases/>}/>
-				<Route path = '/colection'/>
+				<Route path = '/colection' element = {<Collection/>}/>
 			</Rutas>
 			<Footer />
 		</>
