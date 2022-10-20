@@ -1,31 +1,29 @@
 const { User } = require('../db');
-const { Router } = require("express");
-const router = Router();
-
-// const { createUserWithEmailAndPassword } = require("firebase/auth");
-
-
-
+const {userValidate} = require('../firebase/validationEmail');
+const {firebaseApp}=require('../firebase/credenciales')
+const { createUserWithEmailAndPassword , getAuth} = require("firebase/auth");
+var { auth } = require('../firebase/credenciales');
+var auth = getAuth(firebaseApp);
 const UserPost = async (req, res)=> {
     function hashFunction(key) {
         const splittedWord = key.toLowerCase().split("");
         const codes = splittedWord.map((letter) => `${letter}${String(letter).charCodeAt(0)}`);
         return codes.join("");
     }
-
     const { email, password } = req.body
     try{
-    // const { user } = await createUserWithEmailAndPassword(
-    //     auth,
-    //     email,
-    //     password
-    //   );
+    const { user } = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+    );
     await User.create({
-        id: 'asdasdas',
+        id: user.uid,
         email,
         name: email,
         password: hashFunction(password)
     })
+    await userValidate()
     res.status(201).send('Usuario creado correctamente')
 } catch (error){
     res.status(400).json({error: "User not create!"});

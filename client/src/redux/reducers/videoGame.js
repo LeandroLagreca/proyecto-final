@@ -17,11 +17,13 @@ const filters = window.sessionStorage.getItem('filters')
 const initialState = {
 	games: [],
 	filterGames: [],
+	discounts: [],
 	details: {},
   	wishes: [],
 	page,
 	loading: false,
-	filters
+	filters,
+	comments: []
 };
 
 
@@ -40,8 +42,13 @@ const videoGameSlice = createSlice({
 			state.details = payload;
 			state.loading = false
 		},
+		getAllDiscounts: (state, { payload }) => {
+			state.discounts = []
+		},
 		applyFilters: (state) => {
-			let newFilter = state.games
+			let newFilter = state.filterGames.length
+				? state.filterGames
+				: state.games
 			newFilter = ratingFilter(newFilter, state.filters.rating)
 			newFilter = priceFilter(newFilter, state.filters.price)
 			newFilter = genreFilter(newFilter, state.filters.genre)
@@ -93,6 +100,9 @@ const videoGameSlice = createSlice({
 		},
 		cleanFilter: (state, { payload }) => {
 			state.games = payload
+		},
+		getAllComments: (state, {payload}) => {
+			state.comments = payload
 		}
 	},
 });
@@ -100,6 +110,7 @@ const videoGameSlice = createSlice({
 export const {
 	getAllGames,
 	getGameById,
+	getAllDiscounts,
 	applyFilters,
 	filterByPrice,
 	filterByRating,
@@ -110,7 +121,8 @@ export const {
   removeToWishes,
   changePage,
 	setLoading,
-	cleanFilter
+	cleanFilter,
+	getAllComments
 } = videoGameSlice.actions;
 
 export default videoGameSlice.reducer;

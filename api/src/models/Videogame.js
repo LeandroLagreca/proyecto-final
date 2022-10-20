@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('videogame', {
     id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       autoIncrement: true,
       allowNull: false,
       primaryKey: true,
@@ -43,5 +43,17 @@ module.exports = (sequelize) => {
     requirements: {
       type: DataTypes.TEXT,
     },
+    stock:{
+      type:DataTypes.INTEGER,
+      defaultValue:50
+    },
+    discount: {
+      type: DataTypes.JSON,
+      defaultValue: {
+        status: false,
+        prevPrice: null,
+        currentPrice: null
+      }
+    }
   });
 };
