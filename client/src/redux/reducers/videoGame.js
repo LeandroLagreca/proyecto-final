@@ -17,6 +17,7 @@ const filters = window.sessionStorage.getItem('filters')
 const initialState = {
 	games: [],
 	filterGames: [],
+	discounts: [],
 	details: {},
   	wishes: [],
 	page,
@@ -40,6 +41,9 @@ const videoGameSlice = createSlice({
 		getGameById: (state, { payload }) => {
 			state.details = payload;
 			state.loading = false
+		},
+		getAllDiscounts: (state, { payload }) => {
+			state.discounts = []
 		},
 		applyFilters: (state) => {
 			let newFilter = state.filterGames.length
@@ -106,6 +110,7 @@ const videoGameSlice = createSlice({
 export const {
 	getAllGames,
 	getGameById,
+	getAllDiscounts,
 	applyFilters,
 	filterByPrice,
 	filterByRating,

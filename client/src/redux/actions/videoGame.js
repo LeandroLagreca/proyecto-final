@@ -3,7 +3,7 @@ import axios from "axios";
 import {
   getAllGames,
   getGameById,
-  orderAlphabetically,
+  getAllDiscounts,
   filterBySearch,
   addToWishes,
   removeToWishes,
@@ -33,6 +33,17 @@ export const getDetails = (id) =>
       return;
     }
   };
+
+export const getDiscounts = () => {
+  return async function(dispatch) {
+    try {
+      const { data } = await axios(API + `discounts`);
+      dispatch(getAllDiscounts(data))
+    } catch (error) {
+        return
+    }
+  }
+}
 
 export const setFilterBySearch = (games, input) => (dispatch) => {
   const gamesCopy = [...games];
