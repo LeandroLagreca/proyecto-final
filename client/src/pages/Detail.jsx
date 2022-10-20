@@ -5,6 +5,7 @@ import { AddToWishes, Loader } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../redux/reducers/videoGame";
 import { getDetails } from "../redux/actions/videoGame";
+import { getAllComments } from "../redux/reducers/videoGame";
 import Carousel from "react-material-ui-carousel";
 import LinkIcon from "@mui/icons-material/Link";
 import FormatBoldIcon from "@mui/icons-material/FormatBold";
@@ -30,6 +31,7 @@ import {
 export default function Detail() {
   const { loading } = useSelector((state) => state.videogames);
   const gameDetail = useSelector((state) => state.videogames.details);
+  const gameComment = useSelector((state) => state.videogames.comments )
   const dispatch = useDispatch();
   let { id } = useParams();
 
@@ -116,6 +118,7 @@ export default function Detail() {
     //UseEffect para traer los datos con la action x id
     dispatch(setLoading());
     dispatch(getDetails(id));
+    dispatch(getAllComments(id));
   }, [dispatch, id]);
   
   if (loading) return <Loader />;
@@ -288,6 +291,12 @@ export default function Detail() {
               </Box>
             </Box>
           </Box>
+        </Box>
+        <Box>
+          COMMENTS HERE
+          {gameComment.id}
+          {gameComment.text}
+          {gameComment.rating_like}
         </Box>
       </section>
     </Container>
