@@ -50,8 +50,7 @@ const Review = ({ cardPay }) => {
 	totalPrice = totalPrice.reduce((a, b) => a + b, 0);
 
 	useEffect(() => {
-		console.log(cardPay);
-	}, [cardPay]);
+	}, []);
 
 	return (
 		<React.Fragment>
@@ -79,7 +78,7 @@ const Review = ({ cardPay }) => {
 						Payment details
 					</Typography>
 					<Grid container>
-							<React.Fragment key={cardPay.cardName}>
+							{/* <React.Fragment key={cardPay.cardName}>
 								<Grid item xs={6}>
 									<Typography gutterBottom>Card Name: {cardPay.cardName}</Typography>
 								</Grid>
@@ -92,7 +91,7 @@ const Review = ({ cardPay }) => {
 								<Grid item xs={6}>
 									<Typography gutterBottom>Card Name: {cardPay.cardExpiry}</Typography>
 								</Grid>
-							</React.Fragment>
+							</React.Fragment> */}
 					</Grid>
 				</Grid>
 			</Grid>
