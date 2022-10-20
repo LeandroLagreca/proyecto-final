@@ -5,11 +5,15 @@ const morgan = require('morgan');
 const routes = require('./routes/index.js');
 
 require('./db.js');
+const cors = require('cors');
 
 const server = express();
 
 server.name = 'API';
 
+//Hecho por nosotros :S
+server.use(cors({ origin: 'http://localhost:3000' }));
+//aca termina jajas
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());

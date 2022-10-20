@@ -1,15 +1,24 @@
 const { Router } = require('express');
-const{postComment,getUserComments,getGameComments}=require('../controllers/Comments')
-const { videogamePost, videogameByID, getGenres,updateVideogame, getAllGames } = require('../controllers/videogameControllers.js');
+const { postPayment } = require('../controllers/paymentController')
+const{ postComment, getUserComments, getGameComments }=require('../controllers/Comments')
+const { videogamePost, videogameByID, getGenres, updateVideogame, getAllGames } = require('../controllers/videogameControllers.js');
 const axios = require('axios');
 const { allDataUser, UserByID, UserPost, UserEliminated, UserUpdate, PostLogin } = require('../controllers/User.js');
 const router = Router();
 
-// Configuración de rutas
+//Configuración de rutas
+
+//Payment
+router.post("/payment", postPayment)
+
+
 //Comment
 router.get("/user/comments",getUserComments)
+
 router.get("/videogames/comments",getGameComments)
+
 router.post("/comments",postComment)
+
 //Videogame
 router.get("/videogames/:id", videogameByID)
 
@@ -34,7 +43,6 @@ router.put('/user/:id', UserUpdate);
 router.post('/register', UserPost);
 
 router.post('/login', PostLogin);
-
 
 
 
