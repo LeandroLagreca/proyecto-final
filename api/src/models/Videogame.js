@@ -46,6 +46,14 @@ module.exports = (sequelize) => {
     stock:{
       type:DataTypes.INTEGER,
       defaultValue:50
+    },
+    discount: {
+      type: DataTypes.JSON,
+      defaultValue: {
+        status: false,
+        prevPrice: null,
+        currentPrice: null
+      }
     }
   });
 };
