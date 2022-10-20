@@ -5,15 +5,14 @@ import {
 
 const API = "http://localhost:3001/";
 
-
-
-export const getComments = () => {
-    try {
-        return function (dispatch) {
-            dispatch(getAllComments)
-        }
+export const getComments = (id) => {
+    const queryName = id ? id : "";
+    return async function (dispatch) {
+      try {
+        const { data } = await axios(API + `user/comments?` + queryName);
+        dispatch(getAllComments(data));
+      } catch (error) {
+        return;
+      }
     }
-    catch (error) {
-        console.log(error)
-    }
-}
+  };
