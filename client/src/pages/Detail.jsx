@@ -5,7 +5,6 @@ import { AddToWishes, Loader } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../redux/reducers/videoGame";
 import { getDetails } from "../redux/actions/videoGame";
-import { getAllComments } from "../redux/reducers/videoGame";
 import Carousel from "react-material-ui-carousel";
 import LinkIcon from "@mui/icons-material/Link";
 import FormatBoldIcon from "@mui/icons-material/FormatBold";
@@ -14,7 +13,6 @@ import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
-import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import DisableElevation from "../components/ErrorNotFound/DisableElevation";
 import Item from "../components/Items/Item";
 import "./Detail.css";
@@ -32,7 +30,6 @@ import Comments from "../sections/Comments"
 export default function Detail() {
   const { loading } = useSelector((state) => state.videogames);
   const gameDetail = useSelector((state) => state.videogames.details);
-  const gameComment = useSelector((state) => state.videogames.comments )
   const dispatch = useDispatch();
   let { id } = useParams();
 
@@ -61,9 +58,6 @@ export default function Detail() {
   };
   
   //Icons
-  const handleImage = (event) => {
-    //Handle para BOLD
-  };
   const handleBold = (event) => {
     //Handle para BOLD
     if (already.bold === true) {
@@ -119,7 +113,6 @@ export default function Detail() {
     //UseEffect para traer los datos con la action x id
     dispatch(setLoading());
     dispatch(getDetails(id));
-    dispatch(getAllComments(id));
   }, [dispatch, id]);
   
   if (loading) return <Loader />;
@@ -288,13 +281,11 @@ export default function Detail() {
               </Box>
             </Box>
           </Box>
+          <Box>
+            <Button component={"submit"} variant={"contained"}>Submit</Button>
+          </Box>
         </Box>
-        <Box>
           <Comments/>
-          {gameComment.id}
-          {gameComment.text}
-          {gameComment.rating_like}
-        </Box>
       </section>
     </Container>
   );
