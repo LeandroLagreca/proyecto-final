@@ -1,5 +1,6 @@
 import React from 'react';
 import { AddressForm, PaymentForm, Review } from '../components';
+import { useState, useEffect } from "react";
 import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -20,11 +21,11 @@ const steps = ['Shipping address', 'Payment details', 'Review your order'];
 function getStepContent(step) {
 	switch (step) {
 		case 0:
-			return <AddressForm />;
+			return '0';
 		case 1:
-			return <PaymentForm />;
+			return '1';
 		case 2:
-			return <Review />;
+			return '2';
 		default:
 			throw new Error('Unknown step');
 	}
@@ -35,6 +36,13 @@ const theme = createTheme();
 const Cart = () => {
 	const [activeStep, setActiveStep] = React.useState(0);
 
+	const [cardPay, setCardPay] = useState({
+		cardNumber: '',
+		cardExpiry: '',
+		cardCvc: '',
+		cardName: '',
+	});
+
 	const handleNext = () => {
 		setActiveStep(activeStep + 1);
 	};
@@ -42,24 +50,11 @@ const Cart = () => {
 	const handleBack = () => {
 		setActiveStep(activeStep - 1);
 	};
+
+
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
-			<AppBar
-				position="absolute"
-				color="default"
-				elevation={0}
-				sx={{
-					position: 'relative',
-					borderBottom: (t) => `1px solid ${t.palette.divider}`,
-				}}
-			>
-				<Toolbar>
-					<Typography variant="h6" color="inherit" noWrap>
-						HENRY GAMES
-					</Typography>
-				</Toolbar>
-			</AppBar>
 			<Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
 				<Paper
 					variant="outlined"
@@ -89,7 +84,9 @@ const Cart = () => {
 							</React.Fragment>
 						) : (
 							<React.Fragment>
-								{getStepContent(activeStep)}
+								{getStepContent(activeStep) === '0' ? <AddressForm /> :
+									getStepContent(activeStep) === '1' ? <PaymentForm setCardPay={setCardPay} cardPay={cardPay} />
+										: <Review cardPay={cardPay} />}
 								<Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
 									{activeStep !== 0 && (
 										<Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
