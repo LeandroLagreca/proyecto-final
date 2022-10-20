@@ -26,7 +26,7 @@ const postComment = async (req, res) => {
           .status(200)
           .send(` ${userName} your comment about ${gameName} was posted`);
       } else {
-        res.status(404).send("you need to be logged in");
+        res.status(404).send("we couldn't match your user id");
       }
     } else {
       res
