@@ -52,7 +52,7 @@ Genre.belongsToMany(Videogame, {through : 'VideogameGenre'});
 //Relaciones User
 User.belongsToMany(Comment, {through : 'UserComment'})
 User.belongsToMany(Videogame, {through : 'VideogameUser'});
-User.hasMany(PurchaseOrder,{through:'UserPurchaseOrder'})
+User.belongsToMany(PurchaseOrder,{through:'UserPurchaseOrder'})
 //Relaciones Comment
 Comment.hasOne(Videogame, {through : 'VideogameComment'})
 Comment.hasOne(User, {through : 'UserComment'})
