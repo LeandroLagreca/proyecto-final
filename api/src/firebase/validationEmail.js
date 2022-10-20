@@ -1,7 +1,7 @@
 const { isSignInWithEmailLink, signInWithEmailLink } =require ("firebase/auth");
 const { getAuth, sendSignInLinkToEmail } =require ("firebase/auth");
 const actionCodeSettings = {
-    url: 'https://http://localhost:3001/',
+    url: 'https://http://localhost:3000/',
     handleCodeInApp: true,
         dynamicLinkDomain: 'example.page.link'
     };
