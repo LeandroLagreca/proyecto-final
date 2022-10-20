@@ -52,13 +52,13 @@ Genre.belongsToMany(Videogame, {through : 'VideogameGenre'});
 //Relaciones User
 User.belongsToMany(Comment, {through : 'UserComment'})
 User.belongsToMany(Videogame, {through : 'VideogameUser'});
-User.belongsToMany(PurchaseOrder,{through:'UserPurchaseOrder'})
+User.hasMany(PurchaseOrder,{through:'UserPurchaseOrder'})
 //Relaciones Comment
 Comment.hasOne(Videogame, {through : 'VideogameComment'})
 Comment.hasOne(User, {through : 'UserComment'})
 //Relaciones
 PurchaseOrder.belongsToMany(Videogame,{through:'VideogamePurchaseOrder'})
-PurchaseOrder.hasOne(User,{through:'UserPurchaseOrder'})
+PurchaseOrder.belongsTo(User,{through:'UserPurchaseOrder'})
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize,   
