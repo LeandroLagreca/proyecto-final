@@ -11,6 +11,7 @@ export const sort = (games, sort) => {
 
 export const ratingFilter = (current, rating) => {
     let items = []
+   
     switch (rating) {
       case "1star":
         items = current.filter((e) => e.rating_api < 2);
@@ -35,27 +36,28 @@ export const ratingFilter = (current, rating) => {
 
   export const priceFilter = (current, price) => {
     let items = []
+    console.log(current)
     switch (price) {
-      case "5":
-        items = current.filter((e) => Number(e.price <= 5));
-        break;
-      case "5a10":
+      case 0:
+        items = current
+        return items;
+        
+      case 25:
         items = current.filter(
-          (e) => Number(e.price) >= 5 && Number(e.price <= 10)
+          (e) =>   Number(e.price) >= 15 && Number(e.price) <= 25
         );
         break;
-      case "10a30":
-        items = current.filter(
-          (e) => Number(e.price) >= 10 && Number(e.price) <= 30
+      case 50:
+        items = current.filter((e) =>  Number(e.price) >= 25 && Number(e.price) <= 50
         );
         break;
-      case "30a50":
-        items = current.filter(
-          (e) => Number(e.price) >= 30 && Number(e.price) <= 50
+      case 75:
+        items = current.filter((e) =>  Number(e.price) >= 50 && Number(e.price) <= 75
         );
-        break;
-      case "50":
-        items = current.filter((e) => Number(e.price) >= 50);
+      break;
+      case 100:
+        items = current.filter((e) =>  Number(e.price) >= 75 && Number(e.price) <= 100
+        );
         break;
       default:
         return current;
