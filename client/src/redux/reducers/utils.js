@@ -9,23 +9,35 @@ export const sort = (games, sort) => {
     return games
 };
 
+export const setFilterBySearch = (games, input) => {
+  if(input.length) {
+    console.log('buscxo')
+    const gamesFilter = games.filter((game) =>
+      game.name.toLowerCase().includes(input.toLowerCase())
+    );
+    return gamesFilter;
+  } else {
+    return games
+  }
+};
+
 export const ratingFilter = (current, rating) => {
     let items = []
    
     switch (rating) {
-      case "1star":
+      case "1":
         items = current.filter((e) => e.rating_api < 2);
         break;
-      case "2star":
+      case "2":
         items = current.filter((e) => e.rating_api >= 2 && e.rating_api < 3);
         break;
-      case "3star":
+      case "3":
         items = current.filter((e) => e.rating_api >= 3 && e.rating_api < 4);
         break;
-      case "4star":
+      case "4":
         items = current.filter((e) => e.rating_api >= 4 && e.rating_api < 5);
         break;
-      case "5star":
+      case "5":
         items = current.filter((e) => e.rating_api === 5);
         break;
       default:
@@ -44,7 +56,7 @@ export const ratingFilter = (current, rating) => {
         
       case 25:
         items = current.filter(
-          (e) =>   Number(e.price) >= 15 && Number(e.price) <= 25
+          (e) =>   Number(e.price) >= 0 && Number(e.price) <= 25
         );
         break;
       case 50:

@@ -10,8 +10,8 @@ import { useState } from 'react';
 export default function SelectPrice() {
 	const dispatch = useDispatch();
 	const { price } = useSelector(state => state.videogames.filters)
-	const [value, setValue] = useState(0);
-	console.log(value)
+	
+	
 
 	const mark = [
 		{
@@ -19,7 +19,7 @@ export default function SelectPrice() {
 			label: "$0"
 		},
 		{
-			value:5,
+			value:25,
 			label: "$25"
 		},
 		{
@@ -40,7 +40,7 @@ export default function SelectPrice() {
 	
 
 	const handlePrice = (event) => {
-		setValue(event.target.value)
+		
 		dispatch(filterByPrice(event.target.value));
 	};
 	function valuetext(value) {
@@ -62,14 +62,16 @@ export default function SelectPrice() {
 					<MenuItem value="50">Más de $50</MenuItem>
 				</Select> */}
 					<div style={{width: 200}} >
-
+					<label htmlFor="">Price </label>
 					<Slider
 																	
 						step={25}
 						min={0}
 						max={100}
 						onChange={handlePrice}
-						value={value}
+						value={price.toString()}
+						color={"secondary"}
+						marks={mark}
 						
 					/>
   					

@@ -18,7 +18,7 @@ const styles = {
     display: "flex",
     flexDirection: 'column',
     justifyContent: 'space-between',
-    maxWidth: 345,
+    width: 200,
     height: 300,
     position: "relative",
   },

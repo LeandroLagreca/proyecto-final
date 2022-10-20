@@ -3,7 +3,8 @@ import { InputBase, alpha } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled } from '@mui/material/styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilterBySearch } from '../../redux/actions/videoGame';
+import { filterBySearch } from '../../redux/reducers/videoGame';
+// import { setFilterBySearch } from '../../redux/actions/videoGame';
 
 const Search = styled('div')(({ theme }) => ({
 	position: 'relative',
@@ -51,8 +52,7 @@ const Searchbar = ({ setInput, input }) => {
 
 	const handleInputChange = (e) => {
 		setInput(e.target.value);
-		dispatch(setFilterBySearch(games, e.target.value));
-		console.log(e.target.value);
+		dispatch(filterBySearch(e.target.value));
 	};
 
 	return (
