@@ -282,7 +282,7 @@ export default function Detail() {
             </Box>
           </Box>
           <Box>
-            <Button component={"submit"} variant={"contained"}>Submit</Button>
+            <Button variant={"contained"}>Submit</Button>
           </Box>
         </Box>
           <Comments/>

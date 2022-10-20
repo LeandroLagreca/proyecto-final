@@ -3,16 +3,19 @@ import { Divider, Avatar, Grid, Paper, Rating, Typography } from "@mui/material"
 import { getComments } from "../redux/actions/comment";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "./Comments.css";
 
 const imgLink = "Url de imagen de usuario";
 
 export default function Comments() {
-  const gameComment = useSelector((state) => state.videogames.comments);
-  const dispatch = useDispatch();
+    const gameComment = useSelector((state) => state.videogames.comments);
+    const dispatch = useDispatch();
+    let { id } = useParams();
 
   useEffect(() => {
-    dispatch(getComments());
+    console.log(gameComment);
+    dispatch(getComments(id));
     console.log(gameComment);
   }, [dispatch]);
 
@@ -28,14 +31,14 @@ export default function Comments() {
           <Grid justifyContent="left" item xs zeroMinWidth>
             {/* Traer Nombre del usuario */}
             <h4 style={{ margin: 0, textAlign: "left" }}>{gameComment.name}</h4>
-            <Typography style={{ textAlign: "right" }} component="legend">Rating</Typography>
-            {gameComment.comments.map((e) => {
+            {gameComment.comments?<Typography style={{ textAlign: "right" }} component="legend">Rating</Typography> : null}
+            {gameComment.comments?.map((e) => {
               return (
             <Rating style={{ float: "right" }} name="read-only" value={e.rating_like} readOnly />
             );
         })}
             {/* Traer Texto o comment del usuario */}
-            {gameComment.comments.map((e) => {
+            {gameComment.comments?.map((e) => {
               return (
                 <p style={{ textAlign: "left" }}>
                   {e.text}
@@ -43,7 +46,7 @@ export default function Comments() {
               );
             })}
             {/* Traer cuando se hizo el comment */}
-            {gameComment.comments.map((e) => {
+            {gameComment.comments?.map((e) => {
               return (
                 <p style={{ textAlign: "left", color: "gray" }}>
                   posted {e.createdAt}

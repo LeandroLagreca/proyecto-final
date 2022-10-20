@@ -17,7 +17,7 @@ const postComment = async (req, res) => {
       let game = await Videogame.findOne({ where: { id: gameID } });
       let user = await User.findOne({ where: { id: userID } });
       
-      if (!game===null && user===null) {
+
         let gameName = await game.name;
         let userName = await user.name;
         await game.addComment(newComment);
@@ -26,9 +26,9 @@ const postComment = async (req, res) => {
         res
           .status(200)
           .send(` ${userName} your comment about ${gameName} was posted`);
-      } else {
+
         return res.status(404).send("we couldn't match your user id");
-      }
+      
     } else {
       res
         .status(400)

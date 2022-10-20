@@ -23,18 +23,7 @@ const initialState = {
 	page,
 	loading: false,
 	filters,
-	comments: {
-		"name": "gus@123.com",
-		"comments": [
-		  {
-			"text": "Que onda banda, pues estuvo ahi mas o menos el juego",
-			"rating_like": 5,
-			"rating_dislike": 0,
-			"createdAt": "2022-10-20T16:50:58.699Z",
-			"id": 2
-		  }
-		]
-	  }
+	comments: {}
 };
 
 
@@ -112,7 +101,8 @@ const videoGameSlice = createSlice({
 		cleanFilter: (state, { payload }) => {
 			state.games = payload
 		},
-		getAllComments: (state, {payload}) => {
+		getGameComments: (state, {payload}) => {
+			console.log(payload)
 			state.comments = payload
 		}
 	},
@@ -133,7 +123,7 @@ export const {
   changePage,
 	setLoading,
 	cleanFilter,
-	getAllComments
+	getGameComments
 } = videoGameSlice.actions;
 
 export default videoGameSlice.reducer;
