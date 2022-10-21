@@ -39,6 +39,7 @@ const UserPost = async (req, res)=> {
     });
     res.status(201).send('Usuario creado correctamente')
 } catch (error){
+    console.log(error)
     res.status(400).json({error: "User not create!"});
 }
 }
