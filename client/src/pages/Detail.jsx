@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { AddToWishes, Loader } from "../components";
@@ -13,7 +14,6 @@ import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
-import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import DisableElevation from "../components/ErrorNotFound/DisableElevation";
 import Item from "../components/Items/Item";
 import "./Detail.css";
@@ -26,6 +26,7 @@ import {
   Paper,
   IconButton,
 } from "@mui/material";
+import Comments from "../sections/Comments";
 
 export default function Detail() {
   const { loading } = useSelector((state) => state.videogames);
@@ -33,8 +34,8 @@ export default function Detail() {
   const dispatch = useDispatch();
   let { id } = useParams();
 
-  const parse = require('html-react-parser');
-  
+  const parse = require("html-react-parser"); //Parser de etiquetas a texto
+
   var imgCarousel = [];
   if (gameDetail.images) {
     var images = gameDetail.images;
@@ -42,7 +43,14 @@ export default function Detail() {
   }
 
   //Estado locad de Form de Reseñas
-  const [value, setValue] = React.useState(); //Estado local
+  const [value, setValue] = React.useState({
+    userID: "gM907azFcoOtt7qoWDMU0tQkDXm2",
+    gameID: id,
+    comment: {
+      text: "Comentario de Prueba",
+      rating_like: 5,
+    },
+  }); //Estado local para enviar Comment
   const [already, setAlready] = React.useState({
     bold: false,
     italic: false,
@@ -51,34 +59,47 @@ export default function Detail() {
     quote: false,
   });
 
-  const handleChange = (event) => {
+  const handleChange = (e) => {
     //Handle para Form
-    setValue(event.target.value);
+    setValue({
+      ...value,
+      comment: {
+        text: e.target.value,
+    },
+  });
     console.log(value);
   };
-  
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    await axios.post("http://localhost:3001/comments", value);
+    setValue({
+      userID: "",
+    gameID: id,
+    comment: {
+      text: "",
+      rating_like: 0,
+    }});
+    alert("comment create succesfully");
+  }
+
   //Icons
-  const handleImage = (event) => {
-    //Handle para BOLD
-  };
-  const handleBold = (event) => {
+  const handleBold = (e) => {
     //Handle para BOLD
     if (already.bold === true) {
       console.log("entre");
     } else {
-      setValue("<b>" + value + "</b>");
+      setValue({...value, comment: { text: `<b>${value.comment.text}</b>`}});
       setAlready({ ...already, bold: true });
     }
-    console.log(value, already);
   };
   const handleItalic = (event) => {
     //Handle para ITALIC
     if (already.italic === true) {
       console.log("entre");
     } else {
-      setValue("<i>" + value + "</i>");
+      setValue({...value, comment: { text: `<i>${value.comment.text}</i>`}});
       setAlready({ ...already, italic: true });
-      console.log(value);
     }
   };
   const handleUnderline = (event) => {
@@ -86,9 +107,8 @@ export default function Detail() {
     if (already.underline === true) {
       console.log("entre");
     } else {
-      setValue("<u>" + value + "</u>");
+      setValue({...value, comment: { text: `<u>${value.comment.text}</u>`}});
       setAlready({ ...already, underline: true });
-      console.log(value);
     }
   };
   const handleLink = (event) => {
@@ -96,9 +116,8 @@ export default function Detail() {
     if (already.link === true) {
       console.log("entre");
     } else {
-      setValue(`<a href="#">` + value);
+      setValue({...value, comment: { text: `<a href="#">${value.comment.text}`}});
       setAlready({ ...already, link: true });
-      console.log(value);
     }
   };
   const handleQuote = (event) => {
@@ -106,23 +125,23 @@ export default function Detail() {
     if (already.quote === true) {
       console.log("entre");
     } else {
-      setValue("<blockquote>" + value + "</blockquote>");
+      setValue({...value, comment: { text: `<blockquote>${value.comment.text}</blockquote>`}});
       setAlready({ ...already, quote: true });
       console.log(value);
     }
   };
-  
+
   useEffect(() => {
     //UseEffect para traer los datos con la action x id
     dispatch(setLoading());
     dispatch(getDetails(id));
   }, [dispatch, id]);
-  
+
   if (loading) return <Loader />;
-  
+
   return (
     <Container>
-      <DisableElevation/>
+      <DisableElevation />
       <Paper elevation={8} sx={{ padding: 2 }}>
         <Box display="flex" alignItems="flex-start" className="boxDivisor">
           <Box
@@ -183,7 +202,7 @@ export default function Detail() {
               className="imagen"
               display="inline-block"
               sx={{ borderRadius: "4px" }}
-              >
+            >
               {/* CARRUSEL */}
               <Carousel className="carusel">
                 {imgCarousel.map((item) => (
@@ -198,9 +217,8 @@ export default function Detail() {
                 variant="body2"
                 textAlign="justify"
                 color="text.primary"
-                >
-
-               {gameDetail.description? parse(gameDetail.description) : null}
+              >
+                {gameDetail.description ? parse(gameDetail.description) : null}
               </Typography>
             </Box>
           </Box>
@@ -225,7 +243,7 @@ export default function Detail() {
               variant="body2"
               color="text.primary"
             >
-              {gameDetail.requirements? parse(gameDetail.requirements) : null}
+              {gameDetail.requirements ? parse(gameDetail.requirements) : null}
             </Typography>
           </Box>
         </Box>
@@ -236,6 +254,7 @@ export default function Detail() {
           <Box>
             <AccountBoxIcon sx={{ fontSize: 50 }} />
           </Box>
+          <form onSubmit={handleSubmit}>
           <Box
             width={340}
             sx={{
@@ -248,10 +267,12 @@ export default function Detail() {
           >
             <TextField
               onChange={handleChange}
+              type="form"
               id="standard-multiline-static"
               fullWidth
               label="Reseñas"
-              value={value}
+              name="comment"
+              value={value.comment.text}
               multiline
               rows={4}
               placeholder="Agrega un comentario..."
@@ -266,10 +287,6 @@ export default function Detail() {
               }}
             >
               <Box className="iconsComment">
-                <IconButton onClick={handleImage}>
-                  <input type="file" hidden />
-                  <AddPhotoAlternateIcon opacity={30} />
-                </IconButton>|
                 <IconButton onClick={handleBold}>
                   <FormatBoldIcon />
                 </IconButton>
@@ -288,7 +305,12 @@ export default function Detail() {
               </Box>
             </Box>
           </Box>
+          <Box>
+            <Button type='submit'>Submit</Button>
+          </Box>
+          </form>
         </Box>
+        <Comments />
       </section>
     </Container>
   );

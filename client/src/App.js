@@ -8,9 +8,6 @@ import {ColorContextProvider} from './components/Theme/Theme';
 
 
 
-
-
-
 function App() {
 	
 	return (
