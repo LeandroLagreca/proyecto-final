@@ -5,6 +5,7 @@ import { setLoading } from '../redux/reducers/videoGame';
 import { getGames } from '../redux/actions/videoGame';
 import Sidebar from '../components/Sidebar/Sidebar';
 import { Social } from '../components';
+import { Box, Stack } from '@mui/material';
 
 
 const MainHome = ({setMode, mode}) => {
@@ -16,16 +17,14 @@ const MainHome = ({setMode, mode}) => {
 
 	return (
 		<>
-			<div>
-				<div>
-				</div>
+			<Box>
 				<Social />
-				
-				<FilterSection/>
-				<Games />
-				<About />
-				
-			</div>
+				<Stack direction={"row"}  >
+					<FilterSection />
+					<Games />
+				</Stack>
+				<About />	
+			</Box>
 		</>
 	);
 };

@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { filterByRating } from '../../redux/reducers/videoGame';
-import { Rating } from '@mui/material';
+import { Box, Rating } from '@mui/material';
 import { useState } from 'react';
 
 export default function SelectRating() {
@@ -32,12 +32,16 @@ export default function SelectRating() {
 					<MenuItem value="4star">4⭐⭐⭐⭐</MenuItem>
 					<MenuItem value="5star">5⭐⭐⭐⭐⭐</MenuItem>
 				</Select> */}
-				<label htmlFor="">Rating</label>
+				<Box >
+				<Box sx={{marginLeft:"35px", marginBottom:"10px"}}>
+					<label htmlFor="">Rating</label>
+				</Box>
 				<Rating
 					name="simple-controlled"
 					value={rating}
 					onChange={handleRating}
-				/>
+					/>
+				</Box>	
 			</FormControl>
 		</div>
 	);

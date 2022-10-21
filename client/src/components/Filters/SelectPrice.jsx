@@ -6,6 +6,7 @@ import Select from '@mui/material/Select';
 import { filterByPrice } from '../../redux/reducers/videoGame';
 import Slider from '@mui/material/Slider';
 import { useState } from 'react';
+import { Box } from '@mui/material';
 
 export default function SelectPrice() {
 	const dispatch = useDispatch();
@@ -61,8 +62,10 @@ export default function SelectPrice() {
 					<MenuItem value="30a50">$30 a $50</MenuItem>
 					<MenuItem value="50">Más de $50</MenuItem>
 				</Select> */}
-					<div style={{width: 200}} >
-					<label htmlFor="">Price </label>
+					<Box style={{width: 200}} >
+						<Box sx={{marginLeft:"85px", marginBottom:"10px"}}>
+							<label  >Price </label>
+						</Box>
 					<Slider
 																	
 						step={25}
@@ -76,7 +79,7 @@ export default function SelectPrice() {
 					/>
   					
 					
-					</div>
+					</Box>
 			</FormControl>
 		</div>
 	);
