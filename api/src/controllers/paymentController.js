@@ -1,7 +1,7 @@
 const express = require('express');
 const Stripe = require('stripe');
 const stripe = new Stripe(
-	'sk_test_51LufTBJFaEjO8LKN5DWshFaz1Eg7gfkp6hE6bJMkvlHB7m1OOqVUCQbLu5FVk6MaCFV1yLHQb9ruGXK6flrtfS2T00Av2FLP4C'
+	'sk_test_51Luf96F1iznuqvKCT7jC3DamwdNOL0Kh51ceHPU7K5woSIqxWDy6qtrTk7wYVHg4nIugjWSSdDmz42bVfyIbRQm9009iugAVv2'
 );
 
 

@@ -23,7 +23,7 @@ const initialState = {
 	page,
 	loading: false,
 	filters,
-	comments: []
+	comments: {}
 };
 
 
@@ -101,7 +101,8 @@ const videoGameSlice = createSlice({
 		cleanFilter: (state, { payload }) => {
 			state.games = payload
 		},
-		getAllComments: (state, {payload}) => {
+		getGameComments: (state, {payload}) => {
+			console.log(payload)
 			state.comments = payload
 		}
 	},
@@ -122,7 +123,7 @@ export const {
   changePage,
 	setLoading,
 	cleanFilter,
-	getAllComments
+	getGameComments
 } = videoGameSlice.actions;
 
 export default videoGameSlice.reducer;
