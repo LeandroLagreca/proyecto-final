@@ -22,21 +22,20 @@ export default function Comments() {
   return (
     <div style={{ padding: 0 }} className="Comments">
       <h1>Comments</h1>
+      {gameComment.comments?.map((c) =>{ 
+      return(
+
       <Paper style={{ padding: "40px 20px" }}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
             {/* Traer Imagen del usuario  // poner en alt nombreUsuario */}
-            <Avatar alt={gameComment.name} src={imgLink} />
+            <Avatar alt={c.name} src={imgLink} />
           </Grid>
           <Grid justifyContent="left" item xs zeroMinWidth>
             {/* Traer Nombre del usuario */}
-            <h4 style={{ margin: 0, textAlign: "left" }}>{gameComment.name}</h4>
-            {gameComment.comments?<Typography style={{ textAlign: "right" }} component="legend">Rating</Typography> : null}
-            {gameComment.comments?.map((e) => {
-              return (
-            <Rating style={{ float: "right" }} name="read-only" value={e.rating_like} readOnly />
-            );
-        })}
+            <h4 style={{ margin: 0, textAlign: "left" }}>{c.name}</h4>
+            <Typography style={{ textAlign: "right" }} component="legend">Rating</Typography>
+            <Rating style={{ float: "right" }} name="read-only" value={c.rating_like} readOnly />
             {/* Traer Texto o comment del usuario */}
             {gameComment.comments?.map((e) => {
               return (
@@ -79,7 +78,7 @@ export default function Comments() {
           </Grid>
         </Grid>
       </Paper>
-
+      )})}
       <Paper style={{ padding: "40px 20px", marginTop: 100 }}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
