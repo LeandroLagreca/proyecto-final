@@ -10,10 +10,9 @@ export const sort = (games, sort) => {
 };
 
 export const setFilterBySearch = (games, input) => {
-  if(input.length) {
-    console.log('buscxo')
+  if(!input?.length) {
     const gamesFilter = games.filter((game) =>
-      game.name.toLowerCase().includes(input.toLowerCase())
+      game.name.toLowerCase().includes(input?.toLowerCase())
     );
     return gamesFilter;
   } else {

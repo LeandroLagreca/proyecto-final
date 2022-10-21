@@ -10,11 +10,10 @@ import { useState } from 'react';
 export default function SelectRating() {
 	const {rating} = useSelector(state => state.videogames.filters)
 	const dispatch = useDispatch();
-	// const [value, setValue] = useState(0);
-	// console.log(value)
+	
 
 	const handleRating = (event) => {
-		// setValue(event.target.value)
+		
 		dispatch(filterByRating(event.target.value));
 	};
 	
@@ -22,16 +21,6 @@ export default function SelectRating() {
 		<div>
 			<FormControl sx={{ m: 1, minWidth: 100 }}>
 				
-				{/* <Select value={rating} onChange={handleRating} autoWidth label="Rating">
-					<MenuItem value="none">
-					<em>None</em>
-					</MenuItem>
-					<MenuItem value="1star">1⭐</MenuItem>
-					<MenuItem value="2star">2⭐⭐</MenuItem>
-					<MenuItem value="3star">3⭐⭐⭐</MenuItem>
-					<MenuItem value="4star">4⭐⭐⭐⭐</MenuItem>
-					<MenuItem value="5star">5⭐⭐⭐⭐⭐</MenuItem>
-				</Select> */}
 				<Box >
 				<Box sx={{marginLeft:"35px", marginBottom:"10px"}}>
 					<label htmlFor="">Rating</label>
