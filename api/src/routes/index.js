@@ -5,7 +5,7 @@ const { videogamePost, videogameByID, getGenres, updateVideogame, getAllGames, g
 const axios = require('axios');
 
 
-const { getAllOrders } = require('../controllers/Orders')
+const { getAllOrders,createOrder } = require('../controllers/Orders')
 
 const { allDataUser, UserByID, UserPost, UserEliminated, UserUpdate, PostLogin } = require('../controllers/User.js');
 const { upLoadDicountsBanner, getDiscountsBanner } = require('../controllers/Images')
@@ -53,6 +53,7 @@ router.post('/login', PostLogin);
 
 //Orders
 router.get('/orders', getAllOrders)
+router.post('/orders',createOrder)
 
 //Images
 router.post('/images/discounts', upLoadDicountsBanner)
