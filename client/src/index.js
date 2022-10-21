@@ -13,7 +13,7 @@ import {
 } from '@stripe/react-stripe-js';
 
 const stripePromise = loadStripe(
-	'pk_test_51Luf96F1iznuqvKCn3b3BzDIpjrpf84WaSgemO1meObzaZ4EW6xHONZKUbFGMpp10DMq95TyaSGOob5hVq5FJ8HH00yqQ8eCs4'
+	'pk_test_51LufTBJFaEjO8LKN7nRBtmqKYj68WceXrgvn25J1vq7CdkiP3W6fVrFWvFsQ1AnWgvUfqF9ZCSeP6vtFWNEHMAk000XeUTK9Fn'
 );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

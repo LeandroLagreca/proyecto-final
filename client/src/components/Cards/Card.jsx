@@ -1,7 +1,9 @@
 import React from "react";
 
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+
+import {Link } from "@mui/material";
 import {
   Card,
   CardActions,
@@ -62,7 +64,7 @@ export default function MainCard({ name, background_image, price, id }) {
           styles={{ position: "absolute", right: 0, top: 0}}
         />
       </CardActions>
-      <Link to={`/detail/${id}`}>
+      <Link href={`/detail/${id}`} underline='none'>
         <Button variant="outlined" size="small" sx={{ width: "100%",}} color={"secondary"} >
           Detail
         </Button>
