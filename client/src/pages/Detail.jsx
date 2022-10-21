@@ -25,8 +25,12 @@ import {
   TextField,
   Paper,
   IconButton,
+  Avatar,
+  Rating
 } from "@mui/material";
 import Comments from "../sections/Comments";
+
+const imgLink = "Url de imagen de usuario";
 
 export default function Detail() {
   const { loading } = useSelector((state) => state.videogames);
@@ -44,13 +48,13 @@ export default function Detail() {
 
   //Estado locad de Form de Reseñas
   const [value, setValue] = React.useState({
-    userID: "gM907azFcoOtt7qoWDMU0tQkDXm2",
+    userID: "KrV38o61PaSMrbM65rpjvcHu2jp1",
     gameID: id,
     comment: {
-      text: "Comentario de Prueba",
+      text: "",
       rating_like: 5,
     },
-  }); //Estado local para enviar Comment
+  }); //Estado local para enviar Comment con negritas y demas
   const [already, setAlready] = React.useState({
     bold: false,
     italic: false,
@@ -59,22 +63,30 @@ export default function Detail() {
     quote: false,
   });
 
+  //estado local para estrellas comment
+  const [estrella, setEstrella] = React.useState(3);
+
   const handleChange = (e) => {
     //Handle para Form
+    value.comment.text=e.target.value
     setValue({
-      ...value,
-      comment: {
-        text: e.target.value,
-    },
+      ...value
+    });
+  console.log(value)
+  };
+
+  const handleStar = (e) => {
+    //Handle para Rating del form
+    value.comment.rating_like=e.target.value
+    setValue({
+      ...value
   });
-    console.log(value);
   };
 
   async function handleSubmit(e) {
-    e.preventDefault()
     await axios.post("http://localhost:3001/comments", value);
     setValue({
-      userID: "",
+    userID: "",
     gameID: id,
     comment: {
       text: "",
@@ -251,12 +263,12 @@ export default function Detail() {
       {/* SECCION RESEÑAS */}
       <section>
         <Box className="newComment">
-          <Box>
-            <AccountBoxIcon sx={{ fontSize: 50 }} />
+          <Box className="formComment">
+            <Avatar alt={"H"} src={imgLink} />
           </Box>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="formComment">
           <Box
-            width={340}
+            width={580}
             sx={{
               bgcolor: "secondary.text",
               borderColor: "primary.main",
@@ -271,7 +283,7 @@ export default function Detail() {
               id="standard-multiline-static"
               fullWidth
               label="Reseñas"
-              name="comment"
+              name="text"
               value={value.comment.text}
               multiline
               rows={4}
@@ -281,34 +293,46 @@ export default function Detail() {
             <Box
               className="postActions"
               sx={{
-                bgcolor: "#90caf9",
+                bgcolor: "#c0c0c0",
                 borderColor: "secondary.main",
-                border: 1,
               }}
             >
               <Box className="iconsComment">
-                <IconButton onClick={handleBold}>
-                  <FormatBoldIcon />
+                <IconButton  onClick={handleBold}>
+                  <FormatBoldIcon className="iconitos"/>
                 </IconButton>
-                <IconButton onClick={handleItalic}>
-                  <FormatItalicIcon />
+                <IconButton  onClick={handleItalic}>
+                  <FormatItalicIcon className="iconitos"/>
                 </IconButton>
-                <IconButton onClick={handleUnderline}>
-                  <FormatUnderlinedIcon />
+                <IconButton  onClick={handleUnderline}>
+                  <FormatUnderlinedIcon className="iconitos" />
                 </IconButton>
-                <IconButton onClick={handleLink}>
-                  <LinkIcon />
+                <IconButton  onClick={handleLink}>
+                  <LinkIcon className="iconitos"/>
                 </IconButton>
                 <IconButton onClick={handleQuote}>
-                  <FormatQuoteIcon />
+                  <FormatQuoteIcon className="iconitos"/>
                 </IconButton>
               </Box>
             </Box>
           </Box>
-          <Box>
-            <Button type='submit'>Submit</Button>
+          <Box sx={{
+                paddingTop: 1,
+              }}>
+            <Button type='submit' variant="outlined">Submit</Button>
           </Box>
           </form>
+          <Box>
+          <Typography component="legend">Rating</Typography>
+      <Rating
+        name="rating_like"
+        value={estrella}
+        onClick={handleStar}
+        onChange={(event, newValue) => {
+          setEstrella(newValue);
+        }}
+      />
+          </Box>
         </Box>
         <Comments />
       </section>

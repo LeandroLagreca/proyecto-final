@@ -14,12 +14,9 @@ import {
 } from "@mui/material";
 import { Check, PriorityHigh } from '@mui/icons-material';
 import {auth} from "../../firebase/credenciales";
-import {
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import {signInWithEmailAndPassword} from "firebase/auth";
 import Swal from "sweetalert2";
 import { setSigned } from "../../redux/reducers/user";
-
 import validation from "./validations";
 
 const styles = {
@@ -72,7 +69,6 @@ export default function LandingForm({ register, setRegister }) {
     e.preventDefault();
     const email = userInfo.email;
     const password = userInfo.password;
-
     if (register) {
       try {
         await registarUsuario(email, password);
