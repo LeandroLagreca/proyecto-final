@@ -84,6 +84,7 @@ export default function Detail() {
   };
 
   async function handleSubmit(e) {
+    e.preventDefault();
     await axios.post("http://localhost:3001/comments", value);
     setValue({
     userID: "",
