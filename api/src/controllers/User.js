@@ -36,7 +36,7 @@ const UserPost = async (req, res)=> {
     .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-    }); 
+    });
     res.status(201).send('Usuario creado correctamente')
 } catch (error){
     res.status(400).json({error: "User not create!"});

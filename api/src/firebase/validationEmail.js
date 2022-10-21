@@ -27,8 +27,3 @@ signInWithEmailLink(auth, email, window.location.href)
         console.log(error)
     });
 }
-
-module.export = {
-    actionCodeSettings,
-    userValidate
-}
