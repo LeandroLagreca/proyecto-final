@@ -15,7 +15,7 @@ import {
 import { Check, PriorityHigh } from '@mui/icons-material';
 import {auth} from "../../firebase/credenciales";
 import {
-  signInWithEmailAndPassword,
+  signInWithEmailAndPassword, sendSignInLinkToEmail,
 } from "firebase/auth";
 import Swal from "sweetalert2";
 import { setSigned } from "../../redux/reducers/user";
@@ -72,10 +72,15 @@ export default function LandingForm({ register, setRegister }) {
     e.preventDefault();
     const email = userInfo.email;
     const password = userInfo.password;
-
     if (register) {
       try {
+        const actionCodeSettings = {
+          url: 'http://localhost:3000/',
+          handleCodeInApp: true,
+          };
+          
         await registarUsuario(email, password);
+        sendSignInLinkToEmail(auth, email, actionCodeSettings)
       } catch (error) {
         Swal.fire({
           text:"Email already in use", 

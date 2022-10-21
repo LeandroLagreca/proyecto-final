@@ -1,5 +1,4 @@
 const { User } = require('../db');
-const {userValidate} = require('../firebase/validationEmail');
 const {firebaseApp}=require('../firebase/credenciales')
 const { createUserWithEmailAndPassword , getAuth} = require("firebase/auth");
 var { auth } = require('../firebase/credenciales');
@@ -16,14 +15,13 @@ const UserPost = async (req, res)=> {
         auth,
         email,
         password
-    );
+    ) 
     await User.create({
         id: user.uid,
         email,
         name: email,
         password: hashFunction(password)
     })
-    await userValidate()
     res.status(201).send('Usuario creado correctamente')
 } catch (error){
     res.status(400).json({error: "User not create!"});
