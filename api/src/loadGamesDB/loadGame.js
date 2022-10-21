@@ -24,6 +24,7 @@ const Game = async () => {
                 description: e.description,
                 released: e.released,
                 price: e.price,
+                discount: e.discount,
                 images: e.images,
                 requirements: e.requirements,
             })
