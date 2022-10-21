@@ -19,7 +19,6 @@ import {
 } from "firebase/auth";
 import Swal from "sweetalert2";
 import { setSigned } from "../../redux/reducers/user";
-
 import validation from "./validations";
 
 const styles = {
