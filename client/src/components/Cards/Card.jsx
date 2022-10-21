@@ -66,7 +66,6 @@ export default function MainCard({ name, background_image, price, id }) {
 			</CardActions>
 			{/* <Link to={`/detail/${id}`}> */}
 			<Link component={Link} href={`/detail/${id}`} underline='none'>
-      {//refactor link by David}
 				<Button
 					variant="outlined"
 					size="small"
