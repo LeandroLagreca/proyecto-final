@@ -17,33 +17,7 @@ import {
 import axios from 'axios';
 const stripePromise = loadStripe("<your public key here>");
 
-const PaymentForm = ({ setCardPay, cardPay }) => {
-
-  // const cartList = useSelector(state => state.user.cartList);
-
-  // const [card, setCard] = useState({
-  //   cardNumber: '',
-  //   cardExpiry: '',
-  //   cardCvc: '',
-  //   cardName: '',
-  // });
-
-  // const handleChange = (e) => {
-  //   setCardPay({
-  //     ...cardPay,
-  //     [e.target.name]: e.target.value,
-  //   });
-
-  //   console.log(cardPay);
-  // }
-
-
-  // useEffect(() => {
-  //   console.log(cartList);
-  //   console.log(cardPay);
-  // }, [cartList]);
-
-
+const PaymentForm = () => {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -51,59 +25,16 @@ const PaymentForm = ({ setCardPay, cardPay }) => {
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
-          {/* <TextField
-            required
-            component={CardElement}
-            // id="cardName"
-            // label="Name on card"
-            fullWidth
-            // autoComplete="cc-name"
-            // variant="standard"
-            // name="cardName"
-            // value={cardPay.cardName}
-            // onChange={handleChange}
-          /> */}
-        </Grid>
-        {/* <Grid item xs={12} md={6}>
           <TextField
             required
-            id="cardNumber"
-            label="Card number"
-            fullWidth
-            autoComplete="cc-number"
+            // componet={CardElement}
+            id="cardName"
+            label="Name on card"
+            autoComplete="cc-name"
             variant="standard"
-            name="cardNumber"
-            value={cardPay.cardNumber}
-            onChange={handleChange}
+            name="cardName"
           />
         </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            required
-            id="expDate"
-            label="Expiry date"
-            fullWidth
-            autoComplete="cc-exp"
-            variant="standard"
-            name="cardExpiry"
-            value={cardPay.cardExpiry}
-            onChange={handleChange}
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            required
-            id="cvv"
-            label="CVV"
-            helperText="Last three digits on signature strip"
-            fullWidth
-            autoComplete="cc-csc"
-            variant="standard"
-            name="cardCvc"
-            value={cardPay.cardCvc}
-            onChange={handleChange}
-          />
-        </Grid> */}
         <Grid item xs={12}>
           <FormControlLabel
             control={<Checkbox color="secondary" name="saveCard" value="yes" />}
