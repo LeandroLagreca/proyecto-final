@@ -8,26 +8,27 @@ const postComment = async (req, res) => {
   let { text, rating_like, rating_dislike } = req.body.comment;
   try {
     if (text && text.length > 1) {
-      let newComment = await Comment.create({
-        text: text,
-        rating_dislike: rating_dislike,
-        rating_like: rating_like,
-      });
-
-      let game = await Videogame.findOne({ where: { id: gameID } });
-      let user = await User.findOne({ where: { id: userID } });
-      
-      if (!game===null && user===null) {
-        let gameName = await game.name;
-        let userName = await user.name;
-        await game.addComment(newComment);
-        await user.addComment(newComment);
-
-        res
-          .status(200)
-          .send(` ${userName} your comment about ${gameName} was posted`);
+      if (gameID && userID) {
+        let game = await Videogame.findOne({ where: { id: gameID } });
+        let user = await User.findOne({ where: { id: userID } });
+        if (game !== null && user !== null) {
+          let newComment = await Comment.create({
+            text: text,
+            rating_dislike: rating_dislike,
+            rating_like: rating_like,
+          });
+          let gameName = await game.name;
+          let userName = await user.name;
+          await game.addComment(newComment);
+          await user.addComment(newComment);
+          return res
+            .status(200)
+            .send(` ${userName} your comment about ${gameName} was posted`);
+        } else {
+          return res.status(404).send("we couldn't match your user id/game id");
+        }
       } else {
-        return res.status(404).send("we couldn't match your user id");
+        return res.status(404).send("gameID and userID are required");
       }
     } else {
       res
@@ -40,27 +41,31 @@ const postComment = async (req, res) => {
 };
 const getUserComments = async (req, res) => {
   let { userID } = req.query;
-  try {
-    let allComments = await User.findOne({
-      where: { id: userID },
-      attributes: ["name"],
-      include: {
-        model: Comment,
-        attributes: [
-          "text",
-          "rating_like",
-          "rating_dislike",
-          "createdAt",
-          "id",
-        ],
-        through: { attributes: [] },
-      },
-    });
 
-    if (allComments) {
-      res.status(200).send(allComments);
-    } else {
-      res.status(404).json({ error: "user not found" });
+  try {
+    if (userID) {
+      let allComments = await User.findOne({
+        where: { id: userID },
+        attributes: ["name"],
+        include: {
+          model: Comment,
+          attributes: [
+            "text",
+            "rating_like",
+            "rating_dislike",
+            "createdAt",
+            "id",
+          ],
+          through: { attributes: [] },
+        },
+      });
+      console.log(allComments);
+
+      if (allComments) {
+        res.status(200).send(allComments);
+      } else {
+        res.status(404).json({ error: "user not found" });
+      }
     }
   } catch (error) {
     console.log(error);
@@ -69,29 +74,31 @@ const getUserComments = async (req, res) => {
 const getGameComments = async (req, res) => {
   let { gameID } = req.query;
   try {
-    let allComments = await Videogame.findOne({
-      where: { id: gameID },
-      attributes: ["name"],
-      include: {
-        model: Comment,
-        attributes: [
-          "text",
-          "rating_like",
-          "rating_dislike",
-          "createdAt",
-          "id",
-        ],
-        through: { attributes: [] },
-      },
-    });
-    if(allComments){
-      res.status(200).send(allComments)
-    }
-    else{
-      res.status(404).json({error:"not found"})
+    if (gameID) {
+      let allComments = await Videogame.findOne({
+        where: { id: gameID },
+        attributes: ["name"],
+        include: {
+          model: Comment,
+          attributes: [
+            "text",
+            "rating_like",
+            "rating_dislike",
+            "createdAt",
+            "id",
+          ],
+          through: { attributes: [] },
+        },
+      });
+      
+      if (allComments.comments.length>0) {
+        res.status(200).send(allComments);
+      } else {
+        res.status(404).json({ msg: "There are no comments yet" });
+      }
     }
   } catch (error) {
     console.log(error);
   }
 };
-module.exports = { postComment, getUserComments,getGameComments };
+module.exports = { postComment, getUserComments, getGameComments };

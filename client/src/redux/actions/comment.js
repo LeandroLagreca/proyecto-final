@@ -1,18 +1,30 @@
 import axios from "axios";
 import {
-    getAllComments
+    getGameComments
 } from "../reducers/videoGame";
 
 const API = "http://localhost:3001/";
 
 export const getComments = (id) => {
-    const queryName = id ? id : "";
     return async function (dispatch) {
       try {
-        const { data } = await axios(API + `user/comments?` + queryName);
-        dispatch(getAllComments(data));
+        const { data } = await axios(API + `videogames/comments?gameID=` + id);
+        dispatch(getGameComments(data));
+        console.log(data)
       } catch (error) {
         return;
       }
     }
   };
+
+//   export const postComments = (comment) => {
+//     return async function (dispatch) {
+//       try {
+//         const { data } = await axios.post(API + `comments`);
+//         dispatch(getGameComments(data));
+//         console.log(data)
+//       } catch (error) {
+//         return;
+//       }
+//     }
+//   };
