@@ -34,12 +34,12 @@ const Games = () => {
   )
  
   return (
-    <div>
-      <Box sx={styles.container}>
+    <Box flex={4}>
+      <Box sx={styles.container}  >
         {currentGames?.map((e, index) => {
           
           return (
-            <Box key={index}>
+            <Box key={index} >
               <ul
                 style={{
                   display: "flex",
@@ -71,7 +71,7 @@ const Games = () => {
           total={totalPages}
           current={page}
         />
-    </div>
+    </Box>
   );
 };
 

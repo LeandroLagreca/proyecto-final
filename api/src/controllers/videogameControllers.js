@@ -4,7 +4,7 @@ const { Videogame, Genre } = require("../db");
 const router = Router();
 const { API_KEY } = process.env;
 const json = require("../harcode.json");
-const { Op } =require ("sequelize");
+const { Op, where } = require("sequelize");
 //Post
 
 const videogamePost = async (req, res) => {
@@ -68,41 +68,70 @@ const getGamesDb = async (req, res) => {
 };
 
 const getAllGames = async (req, res) => {
-  const {page = 0, size =10} = req.query;
-  let options={
-    limit: +size,
-    offset: (+page) * (+size)
-  }
-  const { count, rows} = await Videogame.findAndCountAll(options)
-  let { name } = req.query;
-  try {
-    let games = await getGamesDb()
-    if (name) {
-      let found = await Videogame.findAll({
-        where: { name: name },
-        include: {
-          model: Genre,
-          attributes: ["name"],
-          through: {
-            attributes: [],
-          },
-        },
+  const { filter } = req.query;
+  const { options } = req.query;
+  let { page = 1 } = req.query;
+  const { size = 10 } = req.query;
+  const order = options?.sort && [["name", req.query.sort.toUpperCase()]];
+  if (page < 1) page = 1;
 
-      });
-      if (found) {
-        return res.status(200).json(found);
-      } else {
-        return res
-          .status(404)
-          .send({ msg: "sorry, this game is not available now" });
-      }
-    } else {
+  const where = {};
+  const genreFilter = {};
+
+  if (filter?.name)
+    where.name = {
+      [Op.or]: {
+        [Op.startsWith]: filter.name,
+        [Op.substring]: filter.name,
+        [Op.iLike]: filter.name,
+      },
+    };
+
+  if (filter?.rating)
+    where.rating_api = {
+      [Op.between]: [Math.floor(filter.rating), Math.ceil(filter.rating) - 0.1],
+    };
+
+  if (filter?.price)
+    where.price = {
+      [Op.between]: [Math.floor(filter.price), Math.ceil(filter.price) - 0.1],
+    };
+
+  if (filter?.genre)
+    genreFilter.name = {
+      [Op.iLike]: filter.genre,
+    };
+
+  let config = {
+    limit: size,
+    offset: (+page - 1) * size,
+    include: {
+      model: Genre,
+      where: genreFilter,
+      through: {
+        attributes: [],
+      },
+      attributes: ["name"],
+    },
+    where,
+    order,
+  };
+  try {
+    const { count, rows } = await Videogame.findAndCountAll(config);
+    if(rows.length) {
       res.json({
-        status: 'success',
+        status: "success",
+        offset: page * size,
         total: count,
         games: rows,
-      })
+      });
+    } else {
+      let message;
+      if(filter?.name) message = 'No se encontro el juego buscado'
+      else message = 'No hay juegos disponibles'
+      res.status(404).send(message)
     }
+    
   } catch (error) {
     res.status(400).send(error);
   }
@@ -139,22 +168,22 @@ const getGenres = async (req, res) => {
   }
 };
 
-const getDiscounts = async(req, res) => {
+const getDiscounts = async (req, res) => {
   try {
     const discounts = await Videogame.findAll({
       where: {
-        "discount.status" : true
-      }
-    })
+        "discount.status": true,
+      },
+    });
 
-    if(!discounts.length) {
-      return res.send("Don't exist any discount")
+    if (!discounts.length) {
+      return res.send("Don't exist any discount");
     }
-    res.json(discounts)
+    res.json(discounts);
   } catch (error) {
-    res.status(404).send(error.message)
+    res.status(404).send(error.message);
   }
-}
+};
 
 const updateVideogame = async (req, res) => {
   let { id } = req.params;
@@ -203,5 +232,5 @@ module.exports = {
   getGenres,
   updateVideogame,
   getAllGames,
-  getDiscounts
+  getDiscounts,
 };

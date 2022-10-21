@@ -4,6 +4,7 @@ const cartList = localStorage.getItem('cartList') ? JSON.parse(localStorage.getI
 
 const initialState = {
 	status: 'guest',
+	id: null,
 	cartList,
 	admin: false,
 	emailVerified: false,

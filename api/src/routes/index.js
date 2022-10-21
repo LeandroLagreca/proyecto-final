@@ -8,6 +8,7 @@ const axios = require('axios');
 const { getAllOrders } = require('../controllers/Orders')
 
 const { allDataUser, UserByID, UserPost, UserEliminated, UserUpdate, PostLogin } = require('../controllers/User.js');
+const { upLoadDicountsBanner, getDiscountsBanner } = require('../controllers/Images')
 const router = Router();
 
 //Configuración de rutas
@@ -52,5 +53,9 @@ router.post('/login', PostLogin);
 
 //Orders
 router.get('/orders', getAllOrders)
+
+//Images
+router.post('/images/discounts', upLoadDicountsBanner)
+router.get('/images/discounts', getDiscountsBanner)
 
 module.exports = router;

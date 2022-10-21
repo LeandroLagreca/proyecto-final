@@ -5,7 +5,7 @@ import SelectType from './SelectType'
 import { useSelector, useDispatch } from 'react-redux';
 import { applyFilters } from '../../redux/reducers/videoGame';
 import { useEffect } from 'react';
-import { Grid } from '@mui/material';
+import { Box, Grid, List, ListItem, ListSubheader } from '@mui/material';
 
 
 
@@ -18,19 +18,32 @@ export default function Filter() {
 	}, [filters, dispatch])
 
 	return (
-			<Grid container direction="row">
-				<Grid item xs>
-					<SelectRating />
-				</Grid>
-				<Grid item xs>
-					<SelectPrice />
-				</Grid>
-				<Grid item xs>
-					<SelectType />
-				</Grid>
-				<Grid item xs>
-					<SelectGenere />
-				</Grid>
-			</Grid>
+				<Box sx={{display:"flex", textAling:"center"}}>
+
+					<List 
+					subheader={
+						<ListSubheader>
+						  Filters
+						</ListSubheader>
+					  }>
+						<ListItem sx={{marginLeft:"45px"}}>
+							<SelectRating />
+						</ListItem>
+						<ListItem>
+							<SelectPrice />
+						
+						</ListItem>
+						<ListItem sx={{marginLeft:"50px"}}>
+							<SelectType />
+							
+						</ListItem>
+						<ListItem sx={{marginLeft:"50px"}}>
+							<SelectGenere />
+							
+						</ListItem>
+					</List>
+				
+				</Box>
+			
 	)
 }

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ratingFilter, priceFilter, genreFilter, sort } from './utils'
+import { ratingFilter, priceFilter, genreFilter, sort, setFilterBySearch } from './utils'
 
 const page = window.sessionStorage.getItem('page')
 	? JSON.parse(window.sessionStorage.getItem('page'))
@@ -8,6 +8,7 @@ const page = window.sessionStorage.getItem('page')
 const filters = window.sessionStorage.getItem('filters')
 	? JSON.parse(window.sessionStorage.getItem('filters'))
 	: {
+		search: '',
 		rating: 'none',
 		price: 'none',
 		genre: 'none',
@@ -46,13 +47,13 @@ const videoGameSlice = createSlice({
 			state.discounts = []
 		},
 		applyFilters: (state) => {
-			let newFilter = state.filterGames.length
-				? state.filterGames
-				: state.games
+			let newFilter = state.games
+				
 			newFilter = ratingFilter(newFilter, state.filters.rating)
 			newFilter = priceFilter(newFilter, state.filters.price)
 			newFilter = genreFilter(newFilter, state.filters.genre)
 			newFilter = sort(newFilter, state.filters.sort)
+			newFilter = setFilterBySearch(newFilter, state.filters.search)
 			state.filterGames = newFilter
 			const parseFilters = JSON.stringify(state.filters)
 			window.sessionStorage.setItem('filters', parseFilters)
@@ -82,7 +83,13 @@ const videoGameSlice = createSlice({
 			};
 		},
 		filterBySearch: (state, { payload }) => {
-			state.filterGames = payload;
+			state.filters = {
+				search: payload,
+				rating: 0 ,
+				price: '0',
+				genre: 'none',
+				sort: 'none'
+			};
 		},
     	addToWishes: (state, { payload }) => {
 				state.wishes =  [...state.wishes, payload]
@@ -100,6 +107,12 @@ const videoGameSlice = createSlice({
 		},
 		cleanFilter: (state, { payload }) => {
 			state.games = payload
+			state.filters = {
+				rating: 0 ,
+				price: '0',
+				genre: 'none',
+				sort: 'none'
+			};
 		},
 		getGameComments: (state, {payload}) => {
 			console.log(payload)

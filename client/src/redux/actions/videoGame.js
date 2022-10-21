@@ -45,14 +45,6 @@ export const getDiscounts = () => {
   }
 }
 
-export const setFilterBySearch = (games, input) => (dispatch) => {
-  const gamesCopy = [...games];
-  const gamesFilter = gamesCopy.filter((game) =>
-    game.name.toLowerCase().includes(input.toLowerCase())
-  );
-  dispatch(filterBySearch(gamesFilter));
-};
-
 // export const filterBySearch = (games, input) => {};
 
 export const addWishes = (game) => {
