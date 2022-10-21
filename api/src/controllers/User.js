@@ -1,6 +1,9 @@
 const { User } = require('../db');
 const {firebaseApp}=require('../firebase/credenciales')
-const { createUserWithEmailAndPassword , getAuth, sendSignInLinkToEmail} = require("firebase/auth");
+const { createUserWithEmailAndPassword , getAuth, sendSignInLinkToEmail,
+    isSignInWithEmailLink,
+    signInWithEmailLink
+} = require("firebase/auth");
 
 const UserPost = async (req, res)=> {
     const auth = getAuth(firebaseApp);
@@ -27,6 +30,13 @@ const UserPost = async (req, res)=> {
         handleCodeInApp: true,
         };
     sendSignInLinkToEmail(auth, email, actionCodeSettings)
+    .then(() => {
+        window.localStorage.setItem('emailForSignIn', email);
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+    }); 
     res.status(201).send('Usuario creado correctamente')
 } catch (error){
     res.status(400).json({error: "User not create!"});
