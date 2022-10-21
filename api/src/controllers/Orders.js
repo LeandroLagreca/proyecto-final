@@ -1,5 +1,6 @@
 const { PurchaseOrder, User, Videogame } = require("../db");
 
+
 const createOrder = async (req, res) => {
   let { purchase } = req.body.games;
   const { userID, cuit, dni, address } = req.body.userData;
@@ -19,16 +20,21 @@ const createOrder = async (req, res) => {
         purchase.map(async (e) => {
           let gameData = await Videogame.findOne({
             where: { id: e.gameID },
-            attributes: ["name", "price"],
+            attributes: ["name", "price", "id"],
           });
 
           let amount = e.amount;
 
           let subtotal = gameData.dataValues.price * amount;
-          let gameinfo = { name: gameData.dataValues.name, subtotal };
+          let gameinfo = {
+            name: gameData.dataValues.name,
+            subtotal,
+            id: gameData.dataValues.id,
+          };
           return gameinfo;
         })
       );
+
       //get total price
       const getTotal = () => {
         let sum = 0;
@@ -40,8 +46,12 @@ const createOrder = async (req, res) => {
       let total = getTotal();
       //crear orden y asociarla
       let newPurchase = await PurchaseOrder.create({ totalprice: total });
-      let user=await User.findOne({where:{id:userID}})
-      user.addPurchaseOrder(newPurchase)
+      let user = await User.findOne({ where: { id: userID } });
+
+      user.addPurchaseOrder(newPurchase);
+      //relacionando con juegos
+    
+
       return res.status(200).send({ gamesData, total });
     } catch (error) {
       console.log(error);
