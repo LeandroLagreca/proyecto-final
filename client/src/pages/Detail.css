@@ -45,7 +45,8 @@
 .iconsComment{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
+  margin-left: 20px;
   opacity: 70%;
 }
 
@@ -53,6 +54,16 @@
   opacity: 160%;
 }
 
+.iconitos{
+  margin-left: 5px;
+margin-right: 5px;
+}
+
 section{
   margin-top: 10px;
+}
+
+.formComment{
+  padding-left: 16px;
+  padding-top: 16px;
 }
