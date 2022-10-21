@@ -23,7 +23,7 @@ const UserPost = async (req, res)=> {
         name: email,
         password: hashFunction(password)
     })
-    await userValidate()
+    //await userValidate()
     res.status(201).send('Usuario creado correctamente')
 } catch (error){
     res.status(400).json({error: "User not create!"});

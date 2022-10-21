@@ -32,10 +32,10 @@ module.exports = (sequelize) => {
     status: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: "received",
+      defaultValue: "created",
       validate: {
         customValidator: (value) => {
-          const enums = ["received", "inprocess", "canceled", "finalized"];
+          const enums = ["created", "inprocess", "canceled", "completed"];
           if (!enums.includes(value)) {
             throw new Error("not a valid option");
           }

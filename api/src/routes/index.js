@@ -5,7 +5,7 @@ const { videogamePost, videogameByID, getGenres,updateVideogame, getAllGames, ge
 const axios = require('axios');
 
 
-const { getAllOrders } = require('../controllers/Orders')
+const { getAllOrders,createOrder } = require('../controllers/Orders')
 
 const { allDataUser, UserByID, UserPost, UserEliminated, UserUpdate, PostLogin } = require('../controllers/User.js');
 const router = Router();
@@ -44,6 +44,6 @@ router.post('/login', PostLogin);
 
 //Orders
 router.get('/orders', getAllOrders)
-
+router.post('/orders',createOrder)
 
 module.exports = router;

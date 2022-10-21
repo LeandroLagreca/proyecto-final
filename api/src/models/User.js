@@ -15,6 +15,16 @@ module.exports = (sequelize) => {
         allowNull: false,
         unique: true,
       },
+      cuit:{
+        type:DataTypes.STRING,
+        
+      },
+      dni:{
+        type:DataTypes.STRING
+      },
+      address:{
+        type:DataTypes.STRING
+      },
       image: {
         type: DataTypes.STRING,
       },
@@ -45,5 +55,6 @@ module.exports = (sequelize) => {
         type: DataTypes.ARRAY(DataTypes.JSON),
         defaultValue: []
       },
+      
 
 })};
