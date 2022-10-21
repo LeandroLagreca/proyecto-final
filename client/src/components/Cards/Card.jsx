@@ -18,7 +18,7 @@ const styles = {
     display: "flex",
     flexDirection: 'column',
     justifyContent: 'space-between',
-    maxWidth: 345,
+    width: 200,
     height: 300,
     position: "relative",
   },
@@ -43,7 +43,7 @@ export default function MainCard({ name, background_image, price, id }) {
           {name}
         </Typography>
         <Typography variant="subtitle2" color="text.primary">
-          {price}
+          ${price}
         </Typography>
       </CardContent>
       <CardActions>
