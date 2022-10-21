@@ -40,7 +40,7 @@ const postComment = async (req, res) => {
   }
 };
 const getUserComments = async (req, res) => {
-  let { userID } = req.query;
+  let { userID } = req.body;
 
   try {
     if (userID) {
@@ -72,7 +72,7 @@ const getUserComments = async (req, res) => {
   }
 };
 const getGameComments = async (req, res) => {
-  let { gameID } = req.query;
+  let { gameID } = req.body;
   try {
     if (gameID) {
       let allComments = await Videogame.findOne({
