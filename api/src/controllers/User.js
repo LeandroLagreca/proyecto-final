@@ -1,10 +1,9 @@
 const { User } = require('../db');
 const {firebaseApp}=require('../firebase/credenciales')
-const { createUserWithEmailAndPassword , getAuth} = require("firebase/auth");
-var { auth } = require('../firebase/credenciales');
-var auth = getAuth(firebaseApp);
+const { createUserWithEmailAndPassword , getAuth, sendSignInLinkToEmail} = require("firebase/auth");
 
 const UserPost = async (req, res)=> {
+    const auth = getAuth(firebaseApp);
     function hashFunction(key) {
         const splittedWord = key.toLowerCase().split("");
         const codes = splittedWord.map((letter) => `${letter}${String(letter).charCodeAt(0)}`);
@@ -23,6 +22,11 @@ const UserPost = async (req, res)=> {
         name: email,
         password: hashFunction(password)
     })
+    const actionCodeSettings = {
+        url: 'http://localhost:3000/',
+        handleCodeInApp: true,
+        };
+    sendSignInLinkToEmail(auth, email, actionCodeSettings)
     res.status(201).send('Usuario creado correctamente')
 } catch (error){
     res.status(400).json({error: "User not create!"});
