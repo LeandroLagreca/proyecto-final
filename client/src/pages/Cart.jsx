@@ -3,18 +3,12 @@ import { AddressForm, Review } from '../components';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import CssBaseline from '@mui/material/CssBaseline';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Toolbar from '@mui/material/Toolbar';
 import Grid from '@mui/material/Grid';
 import { TextField } from '@mui/material';
 import Paper from '@mui/material/Paper';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -22,25 +16,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import Modal from '@mui/material/Modal';
 
-import { loadStripe } from '@stripe/stripe-js';
-import {
-	Elements,
-	CardElement,
-	useStripe,
-	useElements,
-} from '@stripe/react-stripe-js';
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 import axios from 'axios';
-
-const stripePromise = loadStripe(
-	'pk_test_51LufTBJFaEjO8LKN7nRBtmqKYj68WceXrgvn25J1vq7CdkiP3W6fVrFWvFsQ1AnWgvUfqF9ZCSeP6vtFWNEHMAk000XeUTK9Fn'
-);
-
-const steps = ['Payment order'];
-
-function getStepContent() {
-	return true;
-}
 
 const theme = createTheme();
 
@@ -48,7 +26,6 @@ const Cart = () => {
 	//Aplicando tecnologia de hook stripe hooks
 
 	const [open, setOpen] = React.useState(false);
-	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 	const stripe = useStripe();
 	const elements = useElements();
@@ -131,10 +108,6 @@ const Cart = () => {
 		zip: '',
 		country: '',
 	});
-
-	const handleBack = () => {
-		setActiveStep(activeStep - 1);
-	};
 
 	useEffect(() => {}, []);
 
