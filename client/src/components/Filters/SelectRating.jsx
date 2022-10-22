@@ -13,7 +13,7 @@ export default function SelectRating() {
 	
 
 	const handleRating = (event) => {
-		
+		console.log(event.target.value)
 		dispatch(filterByRating(event.target.value));
 	};
 	
