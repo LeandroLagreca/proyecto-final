@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Divider,
   Avatar,
   Grid,
   Paper,
@@ -12,7 +11,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./Comments.css";
-import { margin } from "@mui/system";
 const parse = require("html-react-parser");
 const imgLink = "Url de imagen de usuario";
 

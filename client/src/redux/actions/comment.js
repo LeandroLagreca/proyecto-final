@@ -16,15 +16,3 @@ export const getComments = (id) => {
       }
     }
   };
-
-//   export const postComments = (comment) => {
-//     return async function (dispatch) {
-//       try {
-//         const { data } = await axios.post(API + `comments`);
-//         dispatch(getGameComments(data));
-//         console.log(data)
-//       } catch (error) {
-//         return;
-//       }
-//     }
-//   };

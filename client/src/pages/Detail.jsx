@@ -9,7 +9,6 @@ import { getDetails } from "../redux/actions/videoGame";
 import Carousel from "react-material-ui-carousel";
 import LinkIcon from "@mui/icons-material/Link";
 import FormatBoldIcon from "@mui/icons-material/FormatBold";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
@@ -29,6 +28,7 @@ import {
   Rating
 } from "@mui/material";
 import Comments from "../sections/Comments";
+import { auth } from "../firebase/credenciales";
 
 const imgLink = "Url de imagen de usuario";
 
@@ -37,7 +37,9 @@ export default function Detail() {
   const gameDetail = useSelector((state) => state.videogames.details);
   const dispatch = useDispatch();
   let { id } = useParams();
-
+  
+  const userId = auth.lastNotifiedUid
+  console.log(userId)
   const parse = require("html-react-parser"); //Parser de etiquetas a texto
 
   var imgCarousel = [];
@@ -48,11 +50,11 @@ export default function Detail() {
 
   //Estado locad de Form de Reseñas
   const [value, setValue] = React.useState({
-    userID: "KrV38o61PaSMrbM65rpjvcHu2jp1",
+    userID: userId,
     gameID: id,
     comment: {
       text: "",
-      rating_like: 5,
+      rating_like: 3,
     },
   }); //Estado local para enviar Comment con negritas y demas
   const [already, setAlready] = React.useState({
@@ -70,7 +72,8 @@ export default function Detail() {
     //Handle para Form
     value.comment.text=e.target.value
     setValue({
-      ...value
+      ...value,
+      userID: auth.lastNotifiedUid
     });
   console.log(value)
   };
@@ -87,11 +90,11 @@ export default function Detail() {
     e.preventDefault();
     await axios.post("http://localhost:3001/comments", value);
     setValue({
-    userID: "",
+    userID: userId,
     gameID: id,
     comment: {
       text: "",
-      rating_like: 0,
+      rating_like: 3,
     }});
     alert("comment create succesfully");
   }

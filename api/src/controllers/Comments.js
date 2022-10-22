@@ -72,7 +72,7 @@ const getUserComments = async (req, res) => {
   }
 };
 const getGameComments = async (req, res) => {
-  let { gameID } = req.body;
+  let { gameID } = req.query;
   try {
     if (gameID) {
       let allComments = await Videogame.findOne({
