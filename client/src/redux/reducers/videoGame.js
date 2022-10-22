@@ -1,11 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-	ratingFilter,
-	priceFilter,
-	genreFilter,
-	sort,
-	setFilterBySearch,
-} from './utils';
 
 const page = window.sessionStorage.getItem('page')
 	? JSON.parse(window.sessionStorage.getItem('page'))
@@ -14,24 +7,23 @@ const page = window.sessionStorage.getItem('page')
 const filters = window.sessionStorage.getItem('filters')
 	? JSON.parse(window.sessionStorage.getItem('filters'))
 	: {
-			search: '',
-			rating: 'none',
-			price: 'none',
-			genre: 'none',
-			sort: 'none',
-	  };
+		search: '',
+		rating: '',
+		price: '',
+		genre: '',
+		sort: ''
+	};
 
 const initialState = {
 	games: [],
-	filterGames: [],
+	totalResults: 0,
 	discounts: [],
 	details: {},
 	wishes: [],
 	page,
 	loading: false,
 	filters,
-	comments: {},
-	rowVideoGames: 0,
+	comments: {}
 };
 
 const videoGameSlice = createSlice({
@@ -39,8 +31,8 @@ const videoGameSlice = createSlice({
 	initialState,
 	reducers: {
 		getAllGames: (state, { payload }) => {
-			state.games = payload;
-			state.filterGames = payload;
+			state.games = payload.games;
+			state.totalResults = payload.totalResults;
 			state.loading = false;
 		},
 		getGameById: (state, { payload }) => {
@@ -48,37 +40,28 @@ const videoGameSlice = createSlice({
 			state.loading = false;
 		},
 		getAllDiscounts: (state, { payload }) => {
-			state.discounts = [];
-		},
-		applyFilters: (state) => {
-			let newFilter = state.games;
-
-			newFilter = ratingFilter(newFilter, state.filters.rating);
-			newFilter = priceFilter(newFilter, state.filters.price);
-			newFilter = genreFilter(newFilter, state.filters.genre);
-			newFilter = sort(newFilter, state.filters.sort);
-			newFilter = setFilterBySearch(newFilter, state.filters.search);
-			state.filterGames = newFilter;
-			const parseFilters = JSON.stringify(state.filters);
-			window.sessionStorage.setItem('filters', parseFilters);
+			state.discounts = payload;
 		},
 		filterByPrice: (state, { payload }) => {
 			state.filters = {
 				...state.filters,
 				price: payload,
 			};
+			state.page = 1
 		},
 		filterByRating: (state, { payload }) => {
 			state.filters = {
 				...state.filters,
 				rating: payload,
 			};
+			state.page = 1
 		},
 		filterByGenre: (state, { payload }) => {
 			state.filters = {
 				...state.filters,
 				genre: payload,
 			};
+			state.page = 1
 		},
 		orderAlphabetically: (state, { payload }) => {
 			state.filters = {
@@ -89,11 +72,12 @@ const videoGameSlice = createSlice({
 		filterBySearch: (state, { payload }) => {
 			state.filters = {
 				search: payload,
-				rating: 0,
-				price: '0',
-				genre: 'none',
-				sort: 'none',
+				rating: '' ,
+				price: '',
+				genre: '',
+				sort: ''
 			};
+			state.page = 1
 		},
 		addToWishes: (state, { payload }) => {
 			state.wishes = [...state.wishes, payload];
@@ -103,27 +87,25 @@ const videoGameSlice = createSlice({
 		},
 		changePage: (state, { payload }) => {
 			state.page = payload;
-			const parsePage = JSON.stringify(state.page);
-			window.sessionStorage.setItem('page', parsePage);
 		},
 		setLoading: (state) => {
 			state.loading = true;
 		},
-		cleanFilter: (state, { payload }) => {
-			state.games = payload;
+		cleanFilter: (state) => {
 			state.filters = {
-				rating: 0,
-				price: '0',
-				genre: 'none',
-				sort: 'none',
+				search: '',
+				rating: '',
+				price: '',
+				genre: '',
+				sort: '',
 			};
+			state.page = 1
 		},
 		getGameComments: (state, { payload }) => {
 			console.log(payload);
 			state.comments = payload;
 		},
 		rowVideoGames: (state, { payload }) => {
-			console.log(payload);
 			state.rowVideoGames = payload;
 		},
 	},
@@ -133,7 +115,6 @@ export const {
 	getAllGames,
 	getGameById,
 	getAllDiscounts,
-	applyFilters,
 	filterByPrice,
 	filterByRating,
 	filterByGenre,
@@ -145,7 +126,6 @@ export const {
 	setLoading,
 	cleanFilter,
 	getGameComments,
-	rowVideoGames,
 } = videoGameSlice.actions;
 
 export default videoGameSlice.reducer;

@@ -4,43 +4,32 @@ import {
   getAllGames,
   getGameById,
   getAllDiscounts,
-  filterBySearch,
   addToWishes,
   removeToWishes,
   cleanFilter,
-  rowVideoGames,
 } from "../reducers/videoGame";
 
 const API = "http://localhost:3001/";
 
-
-export const getRowVideoGames = () => async (dispatch) => {
-  try {
-    const response = await axios.get(`${API}row-videogames`);
-    dispatch(rowVideoGames(response.data));
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-
-export const getGames = (name, page) => {
-  const queryPage = page ? page : "";
-  const queryName = name ? name : "";
+export const getGames = ({name, rating, price, genre} = '', sort, page) => {
+  const queries = `filter[name]=${name}&filter[rating]=${rating}&filter[price]=${price}&filter[genre]=${genre}&options[sort]=${sort}&options[page]=${page}`
   return async function (dispatch) {
     try {
-      if(queryPage === ""){
-        const { data } = await axios(API + `videogames?` + queryName);
-        dispatch(getAllGames(data.games));
-      }else {
-        const { data } = await axios(API + `videogames?page=` +queryPage);
-        dispatch(getAllGames(data.games));
-      }
+      const { data } = await axios(API + `videogames?${queries}`);
+      console.log(data)
+      dispatch(getAllGames({
+        games: data.games,
+        totalResults: data.total
+      }));
     } catch (error) {
-      return;
+      dispatch(getAllGames({
+        games: [],
+        totalResults: 0
+      }));
     }
   };
 };
+
 
 export const getDetails = (id) =>
   async function (dispatch) {

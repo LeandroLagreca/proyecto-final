@@ -18,7 +18,7 @@ export default function SelectGenere() {
 			<FormControl sx={{ m: 1, minWidth: 100 }}>
 				<InputLabel>Genere</InputLabel>
 				<Select value={genre} onChange={handleGenere} autoWidth label="Genere">
-					<MenuItem value="none">
+					<MenuItem value="">
 						<em>None</em>
 					</MenuItem>
 					<MenuItem value="Action">Action</MenuItem>

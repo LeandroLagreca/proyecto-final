@@ -18,7 +18,7 @@ export default function SelectType() {
       <FormControl sx={{ m: 1, minWidth: 100 }}>
         <InputLabel>A-Z</InputLabel>
         <Select value={sort} onChange={handleType} autoWidth label="Type">
-          <MenuItem value="none">
+          <MenuItem value="">
             <em>None</em>
           </MenuItem>
           <MenuItem value="asc">A/z</MenuItem>

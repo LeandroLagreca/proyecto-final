@@ -3,19 +3,33 @@ import SelectPrice from './SelectPrice'
 import SelectRating from './SelectRating'
 import SelectType from './SelectType'
 import { useSelector, useDispatch } from 'react-redux';
-import { applyFilters } from '../../redux/reducers/videoGame';
+import { setLoading } from '../../redux/reducers/videoGame';
 import { useEffect } from 'react';
-import { Box, Grid, List, ListItem, ListSubheader } from '@mui/material';
+import { getGames } from '../../redux/actions/videoGame';
+import { Box, List, ListItem, ListSubheader } from '@mui/material';
 
 
 
 export default function Filter() {
 	const { filters } = useSelector(state => state.videogames)
+	const { page } = useSelector(state => state.videogames)
 	const dispatch = useDispatch()
-
+	const { search, rating, price, genre, sort } = filters
+	
 	useEffect(() => {
-		dispatch(applyFilters())
-	}, [filters, dispatch])
+		const filter = {
+			name: search || '',
+			rating: rating || '',
+			price: price || '',
+			genre: genre || ''
+		}
+		dispatch(setLoading())
+		dispatch(getGames(filter, sort, page))
+		const parseFilter = JSON.stringify({...filter, sort});
+		const parsePage = JSON.stringify(page);
+		window.sessionStorage.setItem('filters', parseFilter);
+		window.sessionStorage.setItem('page', parsePage);
+	}, [page, sort, search, rating, price, genre, dispatch])
 
 	return (
 				<Box sx={{display:"flex", textAling:"center"}}>
