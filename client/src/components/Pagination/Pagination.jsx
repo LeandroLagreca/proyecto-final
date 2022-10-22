@@ -3,7 +3,7 @@ import { React } from 'react';
 
 const Paginated = ({ setGamesPerPage, setPage, total, current }) => {
 	const Paginated = (e, p) => {
-		setGamesPerPage(8);
+		setGamesPerPage(10);
 		setPage(p);
 	};
 
