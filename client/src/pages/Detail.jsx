@@ -286,12 +286,12 @@ export default function Detail() {
               type="form"
               id="standard-multiline-static"
               fullWidth
-              label="Reseñas"
+              label="Reviews"
               name="text"
               value={value.comment.text}
               multiline
               rows={4}
-              placeholder="Agrega un comentario..."
+              placeholder="Post a review..."
               variant="standard"
             />
             <Box

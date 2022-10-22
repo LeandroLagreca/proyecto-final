@@ -27,7 +27,7 @@ export default function Comments() {
 
   return (
     <div style={{ padding: 0 }} className="Comments">
-      <h1>Comments</h1>
+      <h1>Reviews</h1>
       {gameComment.comments?.map((c) => {
         return (
           <Paper elevation={4} style={{ padding: "40px 20px", margin: "20px"}}>
