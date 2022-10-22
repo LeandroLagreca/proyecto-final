@@ -4,7 +4,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./credenciales";
 
 import { setSigned } from '../redux/reducers/user'
-
+console.log(auth)
 export default function useStatusChecker() {
 	const [ user, setUser ] = useState()
 	const dispatch = useDispatch()

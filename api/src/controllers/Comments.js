@@ -5,7 +5,7 @@ const router = Router();
 const postComment = async (req, res) => {
   let { userID } = req.body;
   let { gameID } = req.body;
-  let { text, rating_like, rating_dislike } = req.body.comment;
+  let { text, rating_like, rating_dislike, userComment } = req.body.comment;
   try {
     if (text && text.length > 1) {
       if (gameID && userID) {
@@ -14,6 +14,7 @@ const postComment = async (req, res) => {
         if (game !== null && user !== null) {
           let newComment = await Comment.create({
             text: text,
+            userComment: userComment,
             rating_dislike: rating_dislike,
             rating_like: rating_like,
           });
@@ -51,6 +52,7 @@ const getUserComments = async (req, res) => {
           model: Comment,
           attributes: [
             "text",
+            "userComment",
             "rating_like",
             "rating_dislike",
             "createdAt",
@@ -83,6 +85,7 @@ const getGameComments = async (req, res) => {
           attributes: [
             "text",
             "rating_like",
+            "userComment",
             "rating_dislike",
             "createdAt",
             "id",

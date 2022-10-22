@@ -5,23 +5,28 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('comment', {
     id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        unique: true,
-        autoIncrement: true,
-      },
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      unique: true,
+      autoIncrement: true,
+    },
     text: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-      },
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    userComment: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
     rating_like: {
-        type: DataTypes.INTEGER,
-        defaultValue: 0,
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
     },
     rating_dislike: {
-        type: DataTypes.INTEGER,
-        defaultValue: 0,
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
     },
-    
-})};
+
+  })
+};
