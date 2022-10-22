@@ -14,11 +14,10 @@ import {
 } from "@mui/material";
 import { Check, PriorityHigh } from '@mui/icons-material';
 import {auth} from "../../firebase/credenciales";
-import {signInWithEmailAndPassword} from "firebase/auth";
+import {signInWithEmailAndPassword, sendPasswordResetEmail} from "firebase/auth";
 import Swal from "sweetalert2";
 import { setSigned } from "../../redux/reducers/user";
 import validation from "./validations";
-
 const styles = {
   container: {
     display: "flex",
@@ -64,7 +63,7 @@ export default function LandingForm({ register, setRegister }) {
     await axios.post("http://localhost:3001/register", newUserData);
     setRegister(false);
   }
-
+  
   async function submitHandler(e) {
     e.preventDefault();
     const email = userInfo.email;
@@ -98,7 +97,13 @@ export default function LandingForm({ register, setRegister }) {
       }
     }
   }
-
+async function handleReset(email){
+  const actionCodeSettings = {
+    url: 'http://localhost:3000/',
+    handleCodeInApp: true,
+  };
+sendPasswordResetEmail(auth, email = userInfo.email, actionCodeSettings)
+}
   return (
     <Box component={"form"} onSubmit={submitHandler} sx={styles.container}>
       <FormControl>
@@ -172,6 +177,7 @@ export default function LandingForm({ register, setRegister }) {
         <Link to="/home">
           <Button>invitado</Button>
         </Link>
+        <Button  onClick={handleReset}>Reset password</Button>
       </FormControl>
     </Box>
   );
