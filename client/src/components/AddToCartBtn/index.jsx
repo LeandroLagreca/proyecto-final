@@ -31,7 +31,6 @@ export default function AddToCartButton({
   }, [cartList, id]);
 
   function handleAdd() {
-    if (user !== "guest") {
       const data = {
         id,
         name,
@@ -51,17 +50,6 @@ export default function AddToCartButton({
         showConfirmButton: false,
         timer: 3000,
       });
-    } else {
-      Swal.fire({
-        toast: true,
-        icon: "error",
-        title: "You need to be logged",
-        animation: false,
-        position: "bottom-right",
-        showConfirmButton: false,
-        timer: 3000,
-      });
-    }
   }
 
   function handleDelete() {
@@ -75,6 +63,15 @@ export default function AddToCartButton({
       }).then((result) => {
         if (result.isConfirmed) {
           dispatch(deleteFromCart(id))
+          Swal.fire({
+            toast: true,
+            icon: "error",
+            title: "Was deleted to the cart",
+            animation: false,
+            position: "bottom-right",
+            showConfirmButton: false,
+            timer: 3000,
+          });
         }
       })
   }
@@ -98,15 +95,6 @@ export default function AddToCartButton({
           sx={{ ...styles, ...buttonStyles }}
           onClick={() => {
             handleDelete();
-            Swal.fire({
-              toast: true,
-              icon: "error",
-              title: "Was deleted to the cart",
-              animation: false,
-              position: "bottom-right",
-              showConfirmButton: false,
-              timer: 3000,
-            });
           }}
         >
           <RemoveShoppingCart />
