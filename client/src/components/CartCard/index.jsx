@@ -17,9 +17,6 @@ const styles = {
     position: 'absolute',
     top: 0,
     right: 0
-  },
-  alertContainer: {
-    zIndex: 2000
   }
 };
 
@@ -30,9 +27,6 @@ export default function CartCard({ id, picture, name, price, cant, stock }) {
     function handleDelete() {
       Swal.fire({
         title: 'Estas seguro de borrar este producto?',
-        customClass: {
-          container: styles.alertContainer
-        },
         icon: 'info',
         toast: true,
         showCancelButton: true,
