@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { IconButton } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import { FavoriteBorder, Favorite } from "@mui/icons-material";
 import { addWishes, removeWishes } from "../../redux/actions/videoGame";
 import Swal from "sweetalert2";
 
 const buttonStyles = {
-  backgroundColor: 'red'
+	bgcolor: 'primary.main',
+	color: 'white'
 }
 
-export default function AddToWishBtn({ name, image, id, price, styles,  }) {
+export default function AddToWishBtn({ name, image, id, price, styles, ...props}) {
   const wishes = useSelector((state) => state.videogames.wishes);
   const user = useSelector((state) => state.user.status);
   const [already, setAlreadyIs] = useState(false);
@@ -63,23 +64,13 @@ export default function AddToWishBtn({ name, image, id, price, styles,  }) {
   return (
     <>
       {!already ? (
-        <IconButton  sx={{...styles, color:"#FF0000"}} onClick={() => {
-          addToWishes();
-          // Swal.fire({
-          //   toast: true,
-          //   icon: 'success',
-          //   title: 'Was added to the wish list',
-          //   animation: false,
-          //   position: 'bottom-right',
-          //   showConfirmButton: false,
-          //   timer: 3000,
-          // })
-          
+        <Button {...props}  sx={{...styles, ...buttonStyles}} onClick={() => {
+          addToWishes();          
           }}>
         <FavoriteBorder />
-        </IconButton>
+        </Button>
       ) : (
-        <IconButton color='primary' sx={{...styles, color:"#FF0000"}} onClick={() => {
+        <Button {...props} sx={{...styles, ...buttonStyles}} onClick={() => {
           handleDelete();
           Swal.fire({
             toast: true,
@@ -93,7 +84,7 @@ export default function AddToWishBtn({ name, image, id, price, styles,  }) {
           }}>
         <Favorite />
           
-        </IconButton>
+        </Button>
       )}
     </>
   );

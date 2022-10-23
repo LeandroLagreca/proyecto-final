@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { AddToWishes, Loader } from "../components";
+import { AddToWishes, Loader, AddToCartButton } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../redux/reducers/videoGame";
 import { getDetails } from "../redux/actions/videoGame";
@@ -204,9 +204,13 @@ export default function Detail() {
                 </Typography>
               </Box>
               <Box display="flex" sx={{ border: "" }}>
-                <Button variant="contained">
-                  <AddShoppingCartIcon />{" "}
-                </Button>
+                <AddToCartButton
+                  id={id}
+                  name={gameDetail.name}
+                  picture={gameDetail.background_image}
+                  price={gameDetail.price}
+                  variant='contained'
+                />
               </Box>
               {/* ADDWISHES_ICON */}
               <Box>
@@ -215,6 +219,7 @@ export default function Detail() {
                   name={gameDetail.name}
                   image={gameDetail.background_image}
                   price={gameDetail.price}
+                  variant='contained'
                 />
               </Box>
             </Box>
