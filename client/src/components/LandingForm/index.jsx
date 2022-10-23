@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import { Check, PriorityHigh } from '@mui/icons-material';
 import {auth} from "../../firebase/credenciales";
-import {signInWithEmailAndPassword, sendPasswordResetEmail} from "firebase/auth";
+import {signInWithEmailAndPassword, sendPasswordResetEmail, signInWithRedirect , GoogleAuthProvider} from "firebase/auth";
 import Swal from "sweetalert2";
 import { setSigned } from "../../redux/reducers/user";
 import validation from "./validations";
@@ -104,6 +104,10 @@ async function handleReset(email){
   };
 sendPasswordResetEmail(auth, email = userInfo.email, actionCodeSettings)
 }
+async function handleGoogle(){
+const provider =  new GoogleAuthProvider();
+signInWithRedirect(auth, provider)
+}
   return (
     <Box component={"form"} onSubmit={submitHandler} sx={styles.container}>
       <FormControl>
@@ -178,6 +182,7 @@ sendPasswordResetEmail(auth, email = userInfo.email, actionCodeSettings)
           <Button>invitado</Button>
         </Link>
         <Button  onClick={handleReset}>Reset password</Button>
+        <Button  onClick={handleGoogle}>Inicia con Google</Button>
       </FormControl>
     </Box>
   );
