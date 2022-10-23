@@ -1,7 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400&display=swap');
+
+*{
+	padding: 0;
+	margin: 0;
+}
+
 body{
 	text-align: center;
 	justify-content: center;
+	overflow-x: hidden;
+}
+
+.swal2-container{
+	z-index: 2000;
 }
 
 *::-webkit-scrollbar {
