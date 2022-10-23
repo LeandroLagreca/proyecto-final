@@ -1,82 +1,117 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { IconButton } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import { AddShoppingCart, RemoveShoppingCart } from "@mui/icons-material";
 
 import { addToCart, deleteFromCart } from "../../redux/reducers/user";
 import Swal from "sweetalert2";
 
 const buttonStyles = {
-	backgroundColor: 'rgba(196, 42, 8 , .6)'
-  }
+  bgcolor: "primary.main",
+  color: "white",
+};
 
-export default function AddToCartButton({ id, price, name, picture, styles }) {
+export default function AddToCartButton({
+  id,
+  price,
+  name,
+  picture,
+  styles,
+  ...props
+}) {
   const cartList = useSelector((state) => state.user.cartList);
   const user = useSelector((state) => state.user.status);
-  const [ alreadyIs, setAlreadyIs ] = useState(false)
+  const [alreadyIs, setAlreadyIs] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-		const find = cartList.some(el => el.id === id);
-		if(find) setAlreadyIs(true)
-		else setAlreadyIs(false)
-	}, [cartList, id]);
+    const find = cartList.some((el) => el.id === id);
+    if (find) setAlreadyIs(true);
+    else setAlreadyIs(false);
+  }, [cartList, id]);
 
   function handleAdd() {
-    const data = {
-      id,
-      name,
-      price,
-      picture,
-	  cant: 1
-    };
-	
-		dispatch(addToCart(data));
-		Swal.fire({
-			toast: true,
-			icon: 'success',
-			title: 'Was added to the cart ',
-			animation: false,
-			position: 'bottom-right',
-			showConfirmButton: false,
-			timer: 3000,
-		  })
-	}
-  
+    if (user !== "guest") {
+      const data = {
+        id,
+        name,
+        price,
+        picture,
+        cant: 1,
+      };
+
+      dispatch(addToCart(data));
+
+      Swal.fire({
+        toast: true,
+        icon: "success",
+        title: "Was added to the cart ",
+        animation: false,
+        position: "bottom-right",
+        showConfirmButton: false,
+        timer: 3000,
+      });
+    } else {
+      Swal.fire({
+        toast: true,
+        icon: "error",
+        title: "You need to be logged",
+        animation: false,
+        position: "bottom-right",
+        showConfirmButton: false,
+        timer: 3000,
+      });
+    }
+  }
 
   function handleDelete() {
-    dispatch(deleteFromCart(id));
+	Swal.fire({
+        title: 'Estas seguro de borrar este producto?',
+        icon: 'info',
+        toast: true,
+        showCancelButton: true,
+        confirmButtonText: 'Si',
+        cancelButtonText: `Cancelar`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          dispatch(deleteFromCart(id))
+        }
+      })
   }
 
   return (
-		<>
-			{
-				!alreadyIs 
-					? (
-						<IconButton sx={{...styles, color: "#32CD32"}} onClick={() => {
-							handleAdd();
-							
-							}}>
-						<AddShoppingCart/>
-						</IconButton>
-					)
-					: (
-						<IconButton color='primary' sx={{...styles, color: "#32CD32"}} onClick={() => {
-							handleDelete();
-							Swal.fire({
-								toast: true,
-								icon: 'error',
-								title: 'Was deleted to the cart',
-								animation: false,
-								position: 'bottom-right',
-								showConfirmButton: false,
-								timer: 3000,
-							  })
-							}}>
-						<RemoveShoppingCart />
-						</IconButton>
-					)
-			}
-		</>
-	);
+    <>
+      {!alreadyIs ? (
+        <Button
+          {...props}
+          sx={{ ...styles, ...buttonStyles }}
+          onClick={() => {
+            handleAdd();
+          }}
+        >
+          <AddShoppingCart />
+        </Button>
+      ) : (
+        <Button
+          {...props}
+          color="primary"
+          sx={{ ...styles, ...buttonStyles }}
+          onClick={() => {
+            handleDelete();
+            Swal.fire({
+              toast: true,
+              icon: "error",
+              title: "Was deleted to the cart",
+              animation: false,
+              position: "bottom-right",
+              showConfirmButton: false,
+              timer: 3000,
+            });
+          }}
+        >
+          <RemoveShoppingCart />
+        </Button>
+      )}
+    </>
+  );
 }
