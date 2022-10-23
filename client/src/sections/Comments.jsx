@@ -20,9 +20,7 @@ export default function Comments() {
   let { id } = useParams();
 
   useEffect(() => {
-    console.log(gameComment);
     dispatch(getComments(id));
-    console.log(gameComment);
   }, []);
 
   return (
@@ -34,12 +32,12 @@ export default function Comments() {
             <Grid container wrap="nowrap" spacing={2}>
               <Grid item>
                 {/* Traer Imagen del usuario  // poner en alt nombreUsuario */}
-                <Avatar alt={gameComment.name} src={imgLink} />
+                <Avatar alt={c.userComment} src={imgLink} />
               </Grid>
               <Grid justifyContent="left" item xs zeroMinWidth>
                 {/* Traer Nombre del usuario */}
                 <h4 style={{ margin: 0, textAlign: "left" }}>
-                  {gameComment.name}
+                 {c.userComment}
                 </h4>
                 <Typography style={{ textAlign: "right" }} component="legend">
                   Rating

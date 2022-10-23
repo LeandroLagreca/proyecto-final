@@ -37,9 +37,13 @@ export default function Detail() {
   const gameDetail = useSelector((state) => state.videogames.details);
   const dispatch = useDispatch();
   let { id } = useParams();
-  
-  const userId = auth.lastNotifiedUid
-  console.log(userId)
+
+  var userId = ""
+  var userName = ""
+  if(auth.currentUser !== null){ 
+  userId = auth.lastNotifiedUid
+  userName = auth.currentUser.email
+ }
   const parse = require("html-react-parser"); //Parser de etiquetas a texto
 
   var imgCarousel = [];
@@ -54,6 +58,7 @@ export default function Detail() {
     gameID: id,
     comment: {
       text: "",
+      userComment: "",
       rating_like: 3,
     },
   }); //Estado local para enviar Comment con negritas y demas
@@ -71,6 +76,7 @@ export default function Detail() {
   const handleChange = (e) => {
     //Handle para Form
     value.comment.text=e.target.value
+    value.comment.userComment=userName
     setValue({
       ...value,
       userID: auth.lastNotifiedUid
@@ -94,6 +100,7 @@ export default function Detail() {
     gameID: id,
     comment: {
       text: "",
+      userComment: "",
       rating_like: 3,
     }});
     alert("comment create succesfully");
