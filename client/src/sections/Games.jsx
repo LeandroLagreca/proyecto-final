@@ -51,6 +51,7 @@ const Games = () => {
 											id={e.id}
 											price={e.price}
 											description={e.description}
+											discount={e.discount}
 										/>
 									}
 								</li>

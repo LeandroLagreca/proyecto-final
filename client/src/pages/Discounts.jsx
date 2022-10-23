@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { DiscountsContainer } from "../containers";
 
@@ -53,6 +53,7 @@ export default function Discounts() {
   const [banner, setBanner] = useState(null);
   const [inputValue, setInputValue] = useState(null);
 
+  const dispatch = useDispatch()
   const navigate = useNavigate();
 
   async function loadBanner() {
@@ -62,10 +63,9 @@ export default function Discounts() {
   }
 
   useEffect(() => {
-    navigate('/home')
-    getDiscounts();
+    !discounts.length && navigate('/home')
     loadBanner()
-  }, [navigate]);
+  }, [navigate, discounts.length, dispatch]);
 
   function handleInput(e) {
     setInputValue(e.target.files[0]);
@@ -115,7 +115,13 @@ export default function Discounts() {
       </div>
       <Box sx={styles.container}>
         {discounts.map((game) => (
-          <Card name={game.name} background_image={game.background_image} />
+          <Card 
+            id={game.id}
+            name={game.name} 
+            background_image={game.background_image}
+            price={game.price}
+            discount={game.discount}
+          />
         ))}
       </Box>
     </DiscountsContainer>
