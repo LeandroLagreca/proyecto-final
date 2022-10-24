@@ -12,19 +12,20 @@ const UserPost = async (req, res)=> {
         const codes = splittedWord.map((letter) => `${letter}${String(letter).charCodeAt(0)}`);
         return codes.join("");
     }
-    const { email, password } = req.body
+    const { email, password, prevCart } = req.body
     try{
     const { user } = await createUserWithEmailAndPassword(
         auth,
         email,
         password
     ) 
-    await User.create({
+    const newUser = await User.create({
         id: user.uid,
         email,
         name: email,
         password: hashFunction(password)
     })
+    await newUser.update({cart: prevCart})
     const actionCodeSettings = {
         url: 'http://localhost:3000/',
         handleCodeInApp: true,
@@ -91,16 +92,16 @@ const UserEliminated = async(req, res)=>{
 
 const UserUpdate = async (req, res) => {
     const { id } = req.params;
-    const { name, image, password, email, admin } = req.body
+    const props = {...req.body}
     try {
-        let modifique = await User.update({ name, image, password, email, admin, cart, deseos, biblioteca } ,
+        let modifique = await User.update(props ,
             {
                 where: {
                     id: id,
                 }
             })
         
-    res.status(200).json({msg: `User ${name} update successfully`})
+    res.status(200).json({msg: `User ${modifique.name} update successfully`})
     }
     catch (error) { 
         res.status(400).json({error: "Error update User"});
