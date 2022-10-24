@@ -39,7 +39,7 @@ const userSlice = createSlice({
 				}
 			},
 			deleteFromCart: (state, { payload }) => {
-				state.cartList = state.cartList.filter(prod => prod.id !== payload)
+				state.cartList = state.cartList.filter(prod => Number(prod.id) !== Number(payload))
 				const parseCart = JSON.stringify(state.cartList.filter(prod => prod.id !== payload ))
 				localStorage.setItem('cartList', parseCart)
 			},
