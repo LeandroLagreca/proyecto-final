@@ -1,5 +1,5 @@
 const { PurchaseOrder, User, Videogame } = require("../db");
-
+const { Op } = require("sequelize");
 
 const createOrder = async (req, res) => {
   let { purchase } = req.body.games;
@@ -7,7 +7,7 @@ const createOrder = async (req, res) => {
   if (userID && purchase && cuit && dni && address) {
     try {
       //update user data
-      let updateUserData = await User.update(
+      let updatedUserData = await User.update(
         {
           cuit: cuit,
           dni: dni,
@@ -45,14 +45,29 @@ const createOrder = async (req, res) => {
       };
       let total = getTotal();
       //crear orden y asociarla
-      let newPurchase = await PurchaseOrder.create({ totalprice: total });
       let user = await User.findOne({ where: { id: userID } });
-
-      user.addPurchaseOrder(newPurchase);
-      //relacionando con juegos
-    
-
-      return res.status(200).send({ gamesData, total });
+      if (user!==null){
+        let newPurchase = await PurchaseOrder.create({ totalprice: total,userid:userID });
+        user.addPurchaseOrder(newPurchase);
+      
+        
+        let gameIDS = gamesData.map((e) => {
+          return e.id;
+        });
+  
+        const games = await Videogame.findAll({
+          where: { id: { [Op.or]: [gameIDS] } },
+        });
+        let promiseAssociation=games.map(async(game)=>{
+        return await game.addPurchaseOrder(newPurchase)
+        })
+        const resolvedPromise=await Promise.all(promiseAssociation)
+       
+        return res.status(200).send({ gamesData, total });
+      }
+     else{
+      return res.status(404).send({msg:"thats not a valid userid"})
+     }
     } catch (error) {
       console.log(error);
     }
