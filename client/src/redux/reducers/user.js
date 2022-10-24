@@ -10,7 +10,7 @@ const initialState = {
 	emailVerified: false,
 	purchases: [],
 	collection: [],
-	info: []
+	comments: []
 }
 
 const userSlice = createSlice({
@@ -63,11 +63,11 @@ const userSlice = createSlice({
 			addToCollection: (state, { payload }) => {
 				state.collection =  [...state.collection, payload]
 			},
-			getAllUserInfo: (state, {payload}) => {
-				state.info = payload
+			getAllUserComments: (state, {payload}) => {
+				state.comments = payload
 			}
     }
 })
 
-export const { setSigned, addToCart, deleteFromCart, addOne, removeOne, setInfo, addToPurchases, addToCollection, getAllUserInfo } = userSlice.actions
+export const { setSigned, addToCart, deleteFromCart, addOne, removeOne, setInfo, addToPurchases, addToCollection, getAllUserComments } = userSlice.actions
 export default userSlice.reducer
