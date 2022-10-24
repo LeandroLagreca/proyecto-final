@@ -21,7 +21,8 @@ import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 import PercentIcon from '@mui/icons-material/Percent';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import { Link } from '@mui/material';
 import Switch from '@mui/material/Switch';
 import Brightness5Icon from '@mui/icons-material/Brightness5';
 import {useContext} from 'react';
@@ -131,7 +132,7 @@ const Sidebar = () => {
         <Divider />
         
         <List sx={{textDecoration:"none"}}>
-          <Link to={"/colection"}>
+          <Link component={RouterLink} to={"/colection"} underline='none' >
             <ListItem sx={{textDecoration:"none"}} >
               <ListItemButton sx={{color: "black", textDecoration:"none"}}>
                   <ListItemIcon > 
@@ -143,7 +144,7 @@ const Sidebar = () => {
           </Link>
         </List>
         <List sx={{textDecoration:"none"}}>
-          <Link to={"/wishes"}>
+          <Link component={RouterLink} to={"/wishes"} underline='none' >
             <ListItem sx={{textDecoration:"none"}} >
               <ListItemButton sx={{color: "black", textDecoration:"none"}}>
                 <ListItemIcon > 
@@ -155,7 +156,7 @@ const Sidebar = () => {
           </Link>
         </List>
         <List sx={{textDecoration:"none"}}>
-          <Link to={"/discounts"}>
+          <Link component={RouterLink} to={"/discounts"} underline='none' >
             <ListItem sx={{textDecoration:"none"}} >
               <ListItemButton sx={{color: "black", textDecoration:"none"}}>
                 <ListItemIcon > 
