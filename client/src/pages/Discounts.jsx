@@ -48,9 +48,9 @@ const styles = {
 
 export default function Discounts() {
   const { discounts } = useSelector((state) => state.videogames);
-  // const { admin } = useSelector(state => state.user)
-  const admin = true;
-  const [banner, setBanner] = useState(null);
+  const { admin } = useSelector(state => state.user)
+  // const admin = true;
+  const [banner, setBanner] = useState('https://png.pngtree.com/png-vector/20190627/ourlarge/pngtree-special-offer-banner-png-image_1517551.jpg');
   const [inputValue, setInputValue] = useState(null);
 
   const dispatch = useDispatch()
