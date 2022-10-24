@@ -8,7 +8,7 @@ const Paginated = ({ setGamesPerPage, setPage, total, current }) => {
 	};
 
 	return (
-		<div style={{ textAling: 'center', justifyContent: 'center' }}>
+		<div style={{ textAling: 'center', justifyContent: 'center', paddingTop: 40 }}>
 			<Pagination
 				style={{
 					display: 'flex',

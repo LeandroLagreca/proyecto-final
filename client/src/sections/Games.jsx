@@ -13,7 +13,8 @@ const styles = {
 		display: 'grid',
 		gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
 		justifyItems: 'center',
-		paddingX: 10,
+		rowGap: 5,
+		paddingX: 30,
 	},
 };
 

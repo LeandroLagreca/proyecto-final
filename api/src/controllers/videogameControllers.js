@@ -117,9 +117,7 @@ const getAllGames = async (req, res) => {
     };
 
   let config = {
-    limit: 10,
-    offset: (Number(page) - 1) * 10,
-    subQuery: false,
+    distinct: true,
     include: {
       model: Genre,
       where: genreFilter,
@@ -130,14 +128,19 @@ const getAllGames = async (req, res) => {
     },
     where,
     order,
+    offset: (Number(page) - 1) * 10,
+    limit: 10
   };
   try {
     const { count, rows } = await Videogame.findAndCountAll(config);
     if (rows.length) {
+      // const position = (Number(page) - 1) * 10
+      // const results = rows.slice(position, position + 10)
       res.json({
         status: "success",
         offset: (page - 1) * 10,
         total: count,
+        results: rows.length,
         games: rows,
       });
     } else {
@@ -187,10 +190,9 @@ const getDiscounts = async (req, res) => {
   try {
     const discounts = await Videogame.findAll({
       where: {
-        "discount.status": true,
+        "discount.status": true
       },
     });
-
     if (!discounts.length) {
       return res.send("Don't exist any discount");
     }
