@@ -19,7 +19,6 @@ const initialState = {
 	totalResults: 0,
 	discounts: [],
 	details: {},
-	wishes: [],
 	page,
 	loading: false,
 	filters,
@@ -79,12 +78,6 @@ const videoGameSlice = createSlice({
 			};
 			state.page = 1
 		},
-		addToWishes: (state, { payload }) => {
-			state.wishes = [...state.wishes, payload];
-		},
-		removeToWishes: (state, { payload }) => {
-			state.wishes = state.wishes.filter((e) => e.name !== payload);
-		},
 		changePage: (state, { payload }) => {
 			state.page = payload;
 		},
@@ -120,8 +113,6 @@ export const {
 	filterByGenre,
 	orderAlphabetically,
 	filterBySearch,
-	addToWishes,
-	removeToWishes,
 	changePage,
 	setLoading,
 	cleanFilter,
