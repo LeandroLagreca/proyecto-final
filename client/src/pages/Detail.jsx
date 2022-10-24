@@ -6,6 +6,7 @@ import { AddToWishes, Loader, AddToCartButton } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../redux/reducers/videoGame";
 import { getDetails } from "../redux/actions/videoGame";
+import {getUserComments} from "../redux/actions/user"
 import Carousel from "react-material-ui-carousel";
 import LinkIcon from "@mui/icons-material/Link";
 import FormatBoldIcon from "@mui/icons-material/FormatBold";
@@ -35,6 +36,7 @@ const imgLink = "Url de imagen de usuario";
 export default function Detail() {
   const { loading } = useSelector((state) => state.videogames);
   const gameDetail = useSelector((state) => state.videogames.details);
+  const userComment = useSelector ((state) => state.user.comments)
   const dispatch = useDispatch();
   let { id } = useParams();
 
@@ -51,6 +53,8 @@ export default function Detail() {
     var images = gameDetail.images;
     imgCarousel = images.split(",");
   }
+
+  console.log(userComment)
 
   //Estado locad de Form de Reseñas
   const [value, setValue] = React.useState({
@@ -81,6 +85,7 @@ export default function Detail() {
       ...value,
       userID: auth.lastNotifiedUid
     });
+    dispatch(getUserComments(userId))
   console.log(value)
   };
 
@@ -158,6 +163,7 @@ export default function Detail() {
     //UseEffect para traer los datos con la action x id
     dispatch(setLoading());
     dispatch(getDetails(id));
+    dispatch(getUserComments(userId))
   }, [dispatch, id]);
 
   if (loading) return <Loader />;

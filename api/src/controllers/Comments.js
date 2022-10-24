@@ -41,7 +41,7 @@ const postComment = async (req, res) => {
   }
 };
 const getUserComments = async (req, res) => {
-  let { userID } = req.body;
+  let { userID } = req.query;
 
   try {
     if (userID) {

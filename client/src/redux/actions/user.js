@@ -1,5 +1,5 @@
 import axios from "axios";
-import { setInfo, addToPurchases, addToCollection, getAllUserInfo } from "../reducers/user";
+import { setInfo, addToPurchases, addToCollection, getAllUserComments } from "../reducers/user";
 const API = "http://localhost:3001/";
 
 export const getUserInfo = (email) => {
@@ -33,11 +33,11 @@ export const addCollection = (game) => {
   };
 };
 
-export const getAllUserInfor = () => {
+export const getUserComments = (ID) => {
   return async function (dispatch) {
     try {
-      const { data } = await axios.get(API + "user")
-      dispatch(getAllUserInfo(data))
+      const { data } = await axios.get(API + "user/comments?userID=" + ID)
+      dispatch(getAllUserComments(data))
     } catch (error) {
       return null
     }
