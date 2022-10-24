@@ -56,7 +56,7 @@ export default function MainCard({ name, background_image, price, id, discount }
           {name}
         </Typography>
         {
-          !discount.status ? (
+          !discount?.status ? (
             <Typography  variant="subtitle2" color="text.primary">
               ${price}
             </Typography>
