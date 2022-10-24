@@ -9,16 +9,16 @@ export const sort = (games, sort) => {
     return games
 };
 
-export const setFilterBySearch = (games, input) => {
-  if(!input?.length) {
-    const gamesFilter = games.filter((game) =>
-      game.name.toLowerCase().includes(input?.toLowerCase())
-    );
-    return gamesFilter;
-  } else {
-    return games
-  }
-};
+// export const setFilterBySearch = (games, input) => {
+//   if(!input?.length) {
+//     const gamesFilter = games.filter((game) =>
+//       game.name.toLowerCase().includes(input?.toLowerCase())
+//     );
+//     return gamesFilter;
+//   } else {
+//     return games
+//   }
+// };
 
 export const ratingFilter = (current, rating) => {
     let items = []

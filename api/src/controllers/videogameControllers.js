@@ -90,7 +90,7 @@ const getAllGames = async (req, res) => {
 
   if (name)
     where.name = {
-      [Op.iLike]: `${name}%`,
+      [Op.iLike]: `%${name}%`,
     };
 
   if (rating) {
