@@ -46,51 +46,121 @@ const createOrder = async (req, res) => {
       let total = getTotal();
       //crear orden y asociarla
       let user = await User.findOne({ where: { id: userID } });
-      if (user!==null){
-        let newPurchase = await PurchaseOrder.create({ totalprice: total,userid:userID });
+      if (user !== null) {
+        let newPurchase = await PurchaseOrder.create({
+          totalprice: total,
+          userid: userID,
+        });
         user.addPurchaseOrder(newPurchase);
-      
-        
+
         let gameIDS = gamesData.map((e) => {
           return e.id;
         });
-  
+
         const games = await Videogame.findAll({
           where: { id: { [Op.or]: [gameIDS] } },
         });
-        let promiseAssociation=games.map(async(game)=>{
-        return await game.addPurchaseOrder(newPurchase)
-        })
-        const resolvedPromise=await Promise.all(promiseAssociation)
-       
+        let promiseAssociation = games.map(async (game) => {
+          return await game.addPurchaseOrder(newPurchase);
+        });
+        const resolvedPromise = await Promise.all(promiseAssociation);
+
         return res.status(200).send({ gamesData, total });
+      } else {
+        return res.status(404).send({ msg: "thats not a valid userid" });
       }
-     else{
-      return res.status(404).send({msg:"thats not a valid userid"})
-     }
     } catch (error) {
+      res.send({msg:error})
       console.log(error);
     }
   } else {
     res
       .status(400)
-      .json({ error: "the userID and gameID are required by body" });
+      .json({ error: "expects userData{userID, cuit, dni, address} and games{purchase:[{gameID,amount}]} required by body" });
   }
 };
 
+const getUserOrders = async (req, res) => {
+  let { id } = req.params;
+  if (id) {
+    try {
+      let found = await User.findOne({
+        where: { id: id },
+        attributes: ["name", "address"],
+        include: [
+          {
+            model: PurchaseOrder,
+            attributes: ["id", "status", "totalprice", "createdAt"],
+            through: { attributes: [] },
+          },
+        ],
+      });
+      if (found === null) {
+        res.status(404).send("we couldn't match that userID");
+      } else {
+        res.send(found);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    return res.status(404).send({ msg: "an userID is required by body" });
+  }
+};
 const getAllOrders = async (req, res) => {
+  const { filter = "" } = req.query;
+  const { date, status } = filter;
+  const where = {};
+
+  if (status) {
+    where.status = status;
+  }
+
+  const config = {
+    distinct: true,
+    include: [
+      {
+        model: Videogame,
+        attributes: ["name", "price"]
+      },
+      {
+        model: User,
+        attributes: ["name", "id", "email", 'admin']
+      }
+    ],
+    where
+  };
+
   try {
-    const orders = await PurchaseOrder.findAll();
+    const orders = await PurchaseOrder.findAll(config);
     if (!orders.length) {
-      return res.status(404).send("Dont exist any order yet");
+      return res.status(404).send("Couldn't find any order");
     }
     res.json(orders);
   } catch (error) {
+    console.log(error)
     res.status(400).json({ error: error.message });
   }
 };
-
+const ChangeStatePurchaseOrder = async (req, res) => {
+  let { status } = req.body;
+  let {id}=req.params;
+  if (status && id) {
+    try {
+      let finalState = await PurchaseOrder.update(
+        { status },
+        { where: { id: id } }
+      );
+      res.status(200).send({msg:"up to date"})
+    } catch (error) {
+      res.status(404).send({msg:error})
+      
+    }
+  }
+};
 module.exports = {
   getAllOrders,
   createOrder,
+  getUserOrders,
+  ChangeStatePurchaseOrder
 };

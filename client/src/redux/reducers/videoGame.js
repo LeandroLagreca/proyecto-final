@@ -96,6 +96,7 @@ const videoGameSlice = createSlice({
 		},
 		getGameComments: (state, { payload }) => {
 			// console.log(payload);
+
 			state.comments = payload;
 		},
 		rowVideoGames: (state, { payload }) => {
