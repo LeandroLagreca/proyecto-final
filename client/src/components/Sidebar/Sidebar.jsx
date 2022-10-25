@@ -190,7 +190,7 @@ const Sidebar = () => {
         <List >
           <ListItem sx={{display: "flex" ,justifyContent: "center", textAlign:"center"}} >
                 
-                  <Switch onChange={toggleMode} color={"secondary"}/>
+                  <Switch checked={mode === 'dark'} onChange={toggleMode} color={"secondary"}/>
                 <ListItemIcon > 
                   <Brightness5Icon/>
                 </ListItemIcon>
