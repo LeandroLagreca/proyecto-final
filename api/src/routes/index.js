@@ -81,7 +81,7 @@ router.post("/login", PostLogin);
 
 //Orders
 router.get("/orders", getAllOrders);
-router.get("/orders/user", getUserOrders);
+router.get("/orders/user/:id", getUserOrders);
 router.post("/orders", createOrder);
 router.put("/orders/:id",ChangeStatePurchaseOrder)
 //Images

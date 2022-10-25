@@ -70,21 +70,22 @@ const createOrder = async (req, res) => {
         return res.status(404).send({ msg: "thats not a valid userid" });
       }
     } catch (error) {
+      res.send({msg:error})
       console.log(error);
     }
   } else {
     res
       .status(400)
-      .json({ error: "the userID and gameID are required by body" });
+      .json({ error: "expects userData{userID, cuit, dni, address} and games{purchase:[{gameID,amount}]} required by body" });
   }
 };
 
 const getUserOrders = async (req, res) => {
-  let { userID } = req.body;
-  if (userID) {
+  let { id } = req.params;
+  if (id) {
     try {
       let found = await User.findOne({
-        where: { id: userID },
+        where: { id: id },
         attributes: ["name", "address"],
         include: [
           {
