@@ -9,28 +9,29 @@ const {
   signInWithEmailLink,
 } = require("firebase/auth");
 
-const UserPost = async (req, res) => {
-  const auth = getAuth(firebaseApp);
-  function hashFunction(key) {
-    const splittedWord = key.toLowerCase().split("");
-    const codes = splittedWord.map(
-      (letter) => `${letter}${String(letter).charCodeAt(0)}`
-    );
-    return codes.join("");
-  }
-  const { email, password } = req.body;
-  try {
+
+const UserPost = async (req, res)=> {
+    const auth = getAuth(firebaseApp);
+    function hashFunction(key) {
+        const splittedWord = key.toLowerCase().split("");
+        const codes = splittedWord.map((letter) => `${letter}${String(letter).charCodeAt(0)}`);
+        return codes.join("");
+    }
+    const { email, password, prevCart } = req.body
+    try{
     const { user } = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-    await User.create({
-      id: user.uid,
-      email,
-      name: email,
-      password: hashFunction(password),
-    });
+        auth,
+        email,
+        password
+    ) 
+    const newUser = await User.create({
+        id: user.uid,
+        email,
+        available,
+        name: email,
+        password: hashFunction(password)
+    })
+    await newUser.update({cart: prevCart})
     const actionCodeSettings = {
       url: "http://localhost:3000/",
       handleCodeInApp: true,
@@ -42,13 +43,14 @@ const UserPost = async (req, res) => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-      });
-    res.status(201).send("Usuario creado correctamente");
-  } catch (error) {
-    console.log(error);
-    res.status(400).json({ error: "User not create!" });
-  }
-};
+
+    });
+    res.status(201).json({msg: "User create!"})
+} catch {
+    res.status(400).json({msg: "User not create!"});
+}
+}
+
 
 const getDbInfo = async () => {
   return await User.findAll();
@@ -104,31 +106,28 @@ const allDataUser = async (req, res) => {
   }
 };
 
-//arreglar esta ruta
-const UserEliminated = async (req, res) => {
-  const { id } = req.params;
-  const searchId = await User.findByPk(id);
-  if (!searchId) res.status(400).json({ msg: "Not User" });
-  try {
-    await searchId.Destroy();
-    res.status(200).json({ msg: `The User ${id} has been removed` });
-  } catch (error) {
-    res.status(400).json({ error: "Error eliminated User" });
-  }
-};
+
 
 const UserUpdate = async (req, res) => {
-  const { id } = req.params;
-  const { name, image, password, email, admin } = req.body;
-  try {
-    let modifique = await User.update(
-      { name, image, password, email, admin, cart, deseos, biblioteca },
-      {
-        where: {
-          id: id,
-        },
-      }
-    );
+    const { id } = req.params;
+    const props = {...req.body}
+    try {
+        let modifique = await User.update(props ,
+
+            {
+                where: {
+                    id: id,
+                }
+            })
+        
+    res.status(200).json({msg: `User ${modifique.name} update successfully`})
+    }
+    catch (error) { 
+        res.status(400).json({error: "Error update User"});
+    }
+};
+
+
 
     res.status(200).json({ msg: `User ${name} update successfully` });
   } catch (error) {
@@ -150,6 +149,7 @@ const PostLogin = async (req, res) => {
   }
 };
 
+
 module.exports = {
   allDataUser,
   UserByID,
@@ -159,3 +159,4 @@ module.exports = {
   PostLogin,
   UserByName
 };
+

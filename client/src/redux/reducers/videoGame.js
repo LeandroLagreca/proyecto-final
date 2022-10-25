@@ -7,7 +7,7 @@ const page = window.sessionStorage.getItem('page')
 const filters = window.sessionStorage.getItem('filters')
 	? JSON.parse(window.sessionStorage.getItem('filters'))
 	: {
-		search: '',
+		name: '',
 		rating: '',
 		price: '',
 		genre: '',
@@ -19,7 +19,6 @@ const initialState = {
 	totalResults: 0,
 	discounts: [],
 	details: {},
-	wishes: [],
 	page,
 	loading: false,
 	filters,
@@ -71,19 +70,13 @@ const videoGameSlice = createSlice({
 		},
 		filterBySearch: (state, { payload }) => {
 			state.filters = {
-				search: payload,
+				name: payload,
 				rating: '' ,
 				price: '',
 				genre: '',
 				sort: ''
 			};
 			state.page = 1
-		},
-		addToWishes: (state, { payload }) => {
-			state.wishes = [...state.wishes, payload];
-		},
-		removeToWishes: (state, { payload }) => {
-			state.wishes = state.wishes.filter((e) => e.name !== payload);
 		},
 		changePage: (state, { payload }) => {
 			state.page = payload;
@@ -93,7 +86,7 @@ const videoGameSlice = createSlice({
 		},
 		cleanFilter: (state) => {
 			state.filters = {
-				search: '',
+				name: '',
 				rating: '',
 				price: '',
 				genre: '',
@@ -102,7 +95,6 @@ const videoGameSlice = createSlice({
 			state.page = 1
 		},
 		getGameComments: (state, { payload }) => {
-			console.log(payload);
 			state.comments = payload;
 		},
 		rowVideoGames: (state, { payload }) => {
@@ -120,8 +112,6 @@ export const {
 	filterByGenre,
 	orderAlphabetically,
 	filterBySearch,
-	addToWishes,
-	removeToWishes,
 	changePage,
 	setLoading,
 	cleanFilter,

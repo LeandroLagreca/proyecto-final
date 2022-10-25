@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from "react-redux";
+import logo from "../../assets/logoGameScript.png"
+import "./estilos.css"
 
 import {
   AppBar,
@@ -141,9 +143,9 @@ const Navbar = () => {
 
 		  <Link style={styles.link} to='/home'>
               <Button
-                sx={{ my: 2, color: "white", display: "block", fontSize: 22 }}
+                sx={{ my: 2, color: "white", display: "block", fontSize: 18 }}
               >
-               HENRY GAMES
+               <img className="logo" src={logo}/>
               </Button>
             </Link>
 
@@ -153,25 +155,25 @@ const Navbar = () => {
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Link style={styles.link} to='/home'>
-              <Button sx={{ my: 2, color: "white", display: "block" }}>
+              <Button sx={{ my: 2, color: "white", display: "block", fontSize: 12 }}>
                 Games
               </Button>
             </Link>
             <Link style={styles.link}>
-              <Button sx={{ my: 2, color: "white", display: "block" }}>
+              <Button sx={{ my: 2, color: "white", display: "block", fontSize: 12 }}>
                 About
               </Button>
             </Link>
             <Link style={styles.link} to='/wishes'>
               <Button
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "white", display: "block", fontSize: 12 }}
               >
                 Wish list
               </Button>
             </Link>
             <Link style={styles.link} to='/purchases'>
               <Button
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{ my: 2, color: "white", display: "block", fontSize: 12 }}
               >
                 Purchases
               </Button>
