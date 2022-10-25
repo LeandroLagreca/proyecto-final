@@ -26,7 +26,7 @@ export default function CartCard({ id, picture, name, price, cant, stock }) {
 
     function handleDelete() {
       Swal.fire({
-        title: 'Estas seguro de borrar este producto?',
+        title: '¿Estas seguro de borrar este producto?',
         icon: 'info',
         toast: true,
         showCancelButton: true,
