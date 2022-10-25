@@ -46,28 +46,29 @@ const createOrder = async (req, res) => {
       let total = getTotal();
       //crear orden y asociarla
       let user = await User.findOne({ where: { id: userID } });
-      if (user!==null){
-        let newPurchase = await PurchaseOrder.create({ totalprice: total,userid:userID });
+      if (user !== null) {
+        let newPurchase = await PurchaseOrder.create({
+          totalprice: total,
+          userid: userID,
+        });
         user.addPurchaseOrder(newPurchase);
-      
-        
+
         let gameIDS = gamesData.map((e) => {
           return e.id;
         });
-  
+
         const games = await Videogame.findAll({
           where: { id: { [Op.or]: [gameIDS] } },
         });
-        let promiseAssociation=games.map(async(game)=>{
-        return await game.addPurchaseOrder(newPurchase)
-        })
-        const resolvedPromise=await Promise.all(promiseAssociation)
-       
+        let promiseAssociation = games.map(async (game) => {
+          return await game.addPurchaseOrder(newPurchase);
+        });
+        const resolvedPromise = await Promise.all(promiseAssociation);
+
         return res.status(200).send({ gamesData, total });
+      } else {
+        return res.status(404).send({ msg: "thats not a valid userid" });
       }
-     else{
-      return res.status(404).send({msg:"thats not a valid userid"})
-     }
     } catch (error) {
       console.log(error);
     }
@@ -78,6 +79,31 @@ const createOrder = async (req, res) => {
   }
 };
 
+const getUserOrders = async (req, res) => {
+  let { userID } = req.body;
+  if (userID) {
+    try {
+      let found = await User.findOne({
+        where: { id: userID },
+        attributes: ["name", "address"],
+        include: [
+          {
+            model: PurchaseOrder,
+            attributes: ["id", "status", "totalprice", "createdAt"],
+            through: { attributes: [] },
+          },
+        ],
+      });
+      if (found === null) {
+        res.status(404).send("we couldn't match that userID");
+      } else {
+        res.send(found);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+};
 const getAllOrders = async (req, res) => {
   try {
     const orders = await PurchaseOrder.findAll();
@@ -93,4 +119,5 @@ const getAllOrders = async (req, res) => {
 module.exports = {
   getAllOrders,
   createOrder,
+  getUserOrders,
 };
