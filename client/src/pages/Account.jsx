@@ -13,6 +13,8 @@ import {
 
 import { Person, LocalMall, NotificationsActive } from '@mui/icons-material';
 
+//Maquetado by David
+
 const Account = () => {
 	return (
 		<Box sx={{ display: 'flex' }}>
