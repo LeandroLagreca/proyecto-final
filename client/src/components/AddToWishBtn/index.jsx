@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, IconButton } from "@mui/material";
+import { Button } from "@mui/material";
 import { FavoriteBorder, Favorite } from "@mui/icons-material";
-import { addWishes, removeWishes } from "../../redux/actions/videoGame";
+import { addNewWish, deleteWish } from "../../redux/actions/user";
 import Swal from "sweetalert2";
 
 const buttonStyles = {
@@ -11,7 +11,7 @@ const buttonStyles = {
 }
 
 export default function AddToWishBtn({ name, image, id, price, styles, ...props}) {
-  const wishes = useSelector((state) => state.videogames.wishes);
+  const {wishes} = useSelector((state) => state.user);
   const user = useSelector((state) => state.user.status);
   const [already, setAlreadyIs] = useState(false);
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ export default function AddToWishBtn({ name, image, id, price, styles, ...props}
     }else{
 
       dispatch(
-        addWishes({
+        addNewWish({
           name,
           image,
           id,
@@ -52,7 +52,7 @@ export default function AddToWishBtn({ name, image, id, price, styles, ...props}
   };
 
   function handleDelete() {
-    dispatch(removeWishes(name));
+    dispatch(deleteWish(id));
   }
 
   useEffect(() => {

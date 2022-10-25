@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from 'axios'
-import { getUserInfo } from "../../redux/actions/user";
 import {
   Box,
   Button,
@@ -16,7 +15,6 @@ import { Check, PriorityHigh } from '@mui/icons-material';
 import {auth} from "../../firebase/credenciales";
 import {signInWithEmailAndPassword, sendPasswordResetEmail, signInWithRedirect , GoogleAuthProvider} from "firebase/auth";
 import Swal from "sweetalert2";
-import { setSigned } from "../../redux/reducers/user";
 import validation from "./validations";
 const styles = {
   container: {
@@ -56,9 +54,14 @@ export default function LandingForm({ register, setRegister }) {
   }
 
   async function registarUsuario(email, password) {
+    const localCart = localStorage.getItem('cartList')
+    const prevCart = localCart 
+      ? JSON.parse(localCart)
+      : []
     const newUserData = {
       email,
-      password
+      password,
+      prevCart
     };
     await axios.post("http://localhost:3001/register", newUserData);
     setRegister(false);
@@ -85,8 +88,6 @@ export default function LandingForm({ register, setRegister }) {
           password
         );
         if (user) {
-          dispatch(getUserInfo(user.email))
-          dispatch(setSigned('logged'));
           navigate("/home");
         }
       } catch (error) {

@@ -36,6 +36,12 @@ module.exports = (sequelize) => {
     price: {
       type: DataTypes.STRING,
       defaultValue: null,
+      get() {
+        const value = this.getDataValue('price')
+        return this.discount.status 
+          ? this.discount.currentPrice
+          : value
+      }
     },
     images: {
       type: DataTypes.TEXT,

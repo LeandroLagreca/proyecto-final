@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
-import { deleteFromCart, addOne, removeOne } from "../../redux/reducers/user";
+import { deleteFromCart, addOneFn, removeOneFn } from "../../redux/actions/user";
 import { ListItem, Avatar, Box, Typography, Divider, IconButton } from "@mui/material";
 import { Close, Add, Remove } from '@mui/icons-material';
 
@@ -46,7 +46,7 @@ export default function CartCard({ id, picture, name, price, cant, stock }) {
             alert('No hay mas unidades de este juego')
         } else {
 					setNewCant(prev => ++prev)
-						dispatch(addOne(id))
+						dispatch(addOneFn(id))
         }
     }
 
@@ -55,7 +55,7 @@ export default function CartCard({ id, picture, name, price, cant, stock }) {
 				setNewCant(1)
 			} else {
 				setNewCant(prev => --prev)
-				dispatch(removeOne(id))
+				dispatch(removeOneFn(id))
 			}
         
     }

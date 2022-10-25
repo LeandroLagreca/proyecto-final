@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from "react-redux";
+import logo from "../../assets/logoGameScript.png"
+import "./estilos.css"
 
 import {
   AppBar,
@@ -143,7 +145,7 @@ const Navbar = () => {
               <Button
                 sx={{ my: 2, color: "white", display: "block", fontSize: 22 }}
               >
-               HENRY GAMES
+               <img className="logo" src={logo}/>
               </Button>
             </Link>
 

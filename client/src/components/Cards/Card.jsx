@@ -56,18 +56,18 @@ export default function MainCard({ name, background_image, price, id, discount }
           {name}
         </Typography>
         {
-          !discount.status ? (
+          !discount?.status ? (
             <Typography  variant="subtitle2" color="text.primary">
               ${price}
             </Typography>
           ) : (
             <Box display='flex'>
               <Typography sx={styles.discountPercent} variant="subtitle2" color="text.primary">
-                {`${Math.floor(100 - (discount.currentPrice * 100) / price)}%`}
+                {`${Math.floor(100 - (discount.currentPrice * 100) / discount.prevPrice)}%`}
               </Typography>
               <Box sx={{background: 'rgba(160, 149, 147, .3)', textAlign: 'center', paddingX: .8}}>
                 <Typography sx={{textDecoration: 'line-through', color: 'gray', fontSize: 12}} variant="subtitle2">
-                  ${price}
+                  ${discount.prevPrice}
                 </Typography>
                 <Typography sx={{color: 'green', fontSize: 15}} variant="subtitle2">
                   ${discount.currentPrice}
