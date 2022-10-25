@@ -6,7 +6,7 @@ import Card from '../Cards/Card';
 
 
 const Wishes = () => {
-    const wishes = useSelector((state) => state.videogames.wishes);
+    const {wishes} = useSelector((state) => state.user);
     
     return(
         <div>
