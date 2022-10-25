@@ -13,8 +13,10 @@ export default function Comments() {
 	const dispatch = useDispatch();
 	let { id } = useParams();
 
+
 	useEffect(() => {
 	}, [gameComment]);
+
 
 	return (
 		<div style={{ padding: 0 }} className="Comments">

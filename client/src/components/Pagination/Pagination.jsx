@@ -14,6 +14,7 @@ const Paginated = ({ setGamesPerPage, setPage, total, current }) => {
 					display: 'flex',
 					textAling: 'center',
 					justifyContent: 'center',
+					flexDirection: 'row'
 				}}
 				count={total}
 				variant="outlined"
