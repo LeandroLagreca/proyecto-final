@@ -45,6 +45,7 @@ const styles = {
 export default function AdminOrders() {
   // const [ orders, setOrders ] = useState([])
   const [filters, setFilters] = useState({
+    name: '',
     status: "",
     date: "",
   });
