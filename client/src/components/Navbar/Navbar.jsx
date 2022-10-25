@@ -39,6 +39,7 @@ const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const { pathname } = useLocation()
+  const idUser = useSelector(state => state.user.id)
 
   if(pathname === '/') return <></>
 
@@ -79,8 +80,7 @@ const Navbar = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose} component={Link} to={`/account/${idUser}`}>My account</MenuItem>
     </Menu>
   );
 
