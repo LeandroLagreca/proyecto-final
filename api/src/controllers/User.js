@@ -1,135 +1,161 @@
-const { User } = require('../db');
-const {firebaseApp}=require('../firebase/credenciales')
-const { createUserWithEmailAndPassword , getAuth, sendSignInLinkToEmail,
-    isSignInWithEmailLink,
-    signInWithEmailLink
+const { User } = require("../db");
+const { firebaseApp } = require("../firebase/credenciales");
+const { Op } = require("sequelize");
+const {
+  createUserWithEmailAndPassword,
+  getAuth,
+  sendSignInLinkToEmail,
+  isSignInWithEmailLink,
+  signInWithEmailLink,
 } = require("firebase/auth");
 
-const UserPost = async (req, res)=> {
-    const auth = getAuth(firebaseApp);
-    function hashFunction(key) {
-        const splittedWord = key.toLowerCase().split("");
-        const codes = splittedWord.map((letter) => `${letter}${String(letter).charCodeAt(0)}`);
-        return codes.join("");
-    }
-    const { email, password } = req.body
-    try{
+const UserPost = async (req, res) => {
+  const auth = getAuth(firebaseApp);
+  function hashFunction(key) {
+    const splittedWord = key.toLowerCase().split("");
+    const codes = splittedWord.map(
+      (letter) => `${letter}${String(letter).charCodeAt(0)}`
+    );
+    return codes.join("");
+  }
+  const { email, password } = req.body;
+  try {
     const { user } = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-    ) 
+      auth,
+      email,
+      password
+    );
     await User.create({
-        id: user.uid,
-        email,
-        name: email,
-        password: hashFunction(password)
-    })
+      id: user.uid,
+      email,
+      name: email,
+      password: hashFunction(password),
+    });
     const actionCodeSettings = {
-        url: 'http://localhost:3000/',
-        handleCodeInApp: true,
-        };
+      url: "http://localhost:3000/",
+      handleCodeInApp: true,
+    };
     sendSignInLinkToEmail(auth, email, actionCodeSettings)
-    .then(() => {
-        window.localStorage.setItem('emailForSignIn', email);
-    })
-    .catch((error) => {
+      .then(() => {
+        window.localStorage.setItem("emailForSignIn", email);
+      })
+      .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-    });
-    res.status(201).send('Usuario creado correctamente')
-} catch (error){
-    console.log(error)
-    res.status(400).json({error: "User not create!"});
-}
-}
+      });
+    res.status(201).send("Usuario creado correctamente");
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ error: "User not create!" });
+  }
+};
 
 const getDbInfo = async () => {
-    return await User.findAll();
+  return await User.findAll();
 };
 const getDbById = async (id) => {
-    return await User.findByPk(id);
+  return await User.findByPk(id);
 };
 
-const UserByID = async (req, res) => {
-    const { id } = req.params  
+const UserByName = async (req, res) => {
+  const { name } = req.body;
+  if (name) {
+    
     try {
-        let user = await getDbById(id);
-        return res.status(200).json(user)
-    } catch {
-        return res.status(400).send('User does not exist')
+        console.log(name)
+      let found = await User.findAll({
+        where: { name: { [Op.iLike]: `%${name}%` } },
+      });
+     
+      if (found) {
+        res.status(200).send(found);
+      } else {
+        res.status(404).send({ msg: "user not found" });
+      }
+    } catch (error) {
+      console.log(error);
     }
+  }
+  else{
+    return res.status(404).send({msg:"a name is required by body"})
+  }
 };
-
+const UserByID = async (req, res) => {
+  const { id } = req.params;
+  try {
+    let user = await getDbById(id);
+    return res.status(200).json(user);
+  } catch {
+    return res.status(400).send("User does not exist");
+  }
+};
 
 const allDataUser = async (req, res) => {
-    const {name} = req.query;
-    const info = await getDbInfo();
-    try {
-                if (info.length === 0) {
-                    res.send("User does not exist");
-                } else {
-                    res.status(200).json(info)
-    } }
-    catch (error) {
-        res.status(400).json({error: "Error User"});
+  const { name } = req.query;
+  const info = await getDbInfo();
+  try {
+    if (info.length === 0) {
+      res.send("User does not exist");
+    } else {
+      res.status(200).json(info);
     }
+  } catch (error) {
+    res.status(400).json({ error: "Error User" });
+  }
 };
 
 //arreglar esta ruta
-const UserEliminated = async(req, res)=>{
-    const { id } = req.params
-    const searchId = await User.findByPk(id)
-    if(!searchId) res.status(400).json({msg: "Not User"})
-    try {
-    await searchId.Destroy()
-        res.status(200).json({msg: `The User ${id} has been removed`})
-    } catch (error) {
-        res.status(400).json({error: "Error eliminated User"});
-    }
+const UserEliminated = async (req, res) => {
+  const { id } = req.params;
+  const searchId = await User.findByPk(id);
+  if (!searchId) res.status(400).json({ msg: "Not User" });
+  try {
+    await searchId.Destroy();
+    res.status(200).json({ msg: `The User ${id} has been removed` });
+  } catch (error) {
+    res.status(400).json({ error: "Error eliminated User" });
+  }
 };
 
 const UserUpdate = async (req, res) => {
-    const { id } = req.params;
-    const { name, image, password, email, admin } = req.body
-    try {
-        let modifique = await User.update({ name, image, password, email, admin, cart, deseos, biblioteca } ,
-            {
-                where: {
-                    id: id,
-                }
-            })
-        
-    res.status(200).json({msg: `User ${name} update successfully`})
-    }
-    catch (error) { 
-        res.status(400).json({error: "Error update User"});
-    }
+  const { id } = req.params;
+  const { name, image, password, email, admin } = req.body;
+  try {
+    let modifique = await User.update(
+      { name, image, password, email, admin, cart, deseos, biblioteca },
+      {
+        where: {
+          id: id,
+        },
+      }
+    );
+
+    res.status(200).json({ msg: `User ${name} update successfully` });
+  } catch (error) {
+    res.status(400).json({ error: "Error update User" });
+  }
 };
 
+const PostLogin = async (req, res) => {
+  const { email } = req.body;
+  try {
+    let found = await User.findOne({ where: { email: email } });
+    if (found) {
+      return res.status(200).send(found);
+    } else {
+      return res.status(404).send({ msg: "sorry, this email is not exist" });
+    }
+  } catch (error) {
+    res.status(400).send(error);
+  }
+};
 
-const PostLogin= async (req, res) => {
-    const {email} = req.body;
-    try {
-        let found = await User.findOne({ where: { email: email} });
-            if (found) {
-            return res.status(200).send(found);
-            } else {
-            return res
-                .status(404)
-                .send({ msg: "sorry, this email is not exist" });
-            }
-        } catch (error) {
-            res.status(400).send(error)
-        }
-        };
-
-
-module.exports={
-    allDataUser,
-    UserByID,
-    UserPost,
-    UserEliminated,
-    UserUpdate,
-    PostLogin
-}
+module.exports = {
+  allDataUser,
+  UserByID,
+  UserPost,
+  UserEliminated,
+  UserUpdate,
+  PostLogin,
+  UserByName
+};
