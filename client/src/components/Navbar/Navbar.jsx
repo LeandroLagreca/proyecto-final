@@ -143,9 +143,9 @@ const Navbar = () => {
 
 		  <Link style={styles.link} to='/home'>
               <Button
-                sx={{ my: 2, color: "white", display: "block", fontSize: 18 }}
+                sx={{ my: 2, color: "white", display: "block", fontSize: 24 }}
               >
-               <img className="logo" src={logo}/>
+               <img className="logo" src={logo} alt={"logo"}/>
               </Button>
             </Link>
 
