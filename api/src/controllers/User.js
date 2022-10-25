@@ -22,6 +22,7 @@ const UserPost = async (req, res)=> {
     await User.create({
         id: user.uid,
         email,
+        available,
         name: email,
         password: hashFunction(password)
     })
@@ -37,10 +38,9 @@ const UserPost = async (req, res)=> {
         const errorCode = error.code;
         const errorMessage = error.message;
     });
-    res.status(201).send('Usuario creado correctamente')
-} catch (error){
-    console.log(error)
-    res.status(400).json({error: "User not create!"});
+    res.status(201).json({msg: "User create!"})
+} catch {
+    res.status(400).json({msg: "User not create!"});
 }
 }
 
@@ -76,24 +76,12 @@ const allDataUser = async (req, res) => {
     }
 };
 
-//arreglar esta ruta
-const UserEliminated = async(req, res)=>{
-    const { id } = req.params
-    const searchId = await User.findByPk(id)
-    if(!searchId) res.status(400).json({msg: "Not User"})
-    try {
-    await searchId.Destroy()
-        res.status(200).json({msg: `The User ${id} has been removed`})
-    } catch (error) {
-        res.status(400).json({error: "Error eliminated User"});
-    }
-};
 
 const UserUpdate = async (req, res) => {
     const { id } = req.params;
-    const { name, image, password, email, admin } = req.body
+    const { name, image, password, email, admin, available } = req.body
     try {
-        let modifique = await User.update({ name, image, password, email, admin, cart, deseos, biblioteca } ,
+        let modifique = await User.update({ name, image, password, email, admin, cart, deseos, biblioteca, available } ,
             {
                 where: {
                     id: id,
@@ -129,7 +117,6 @@ module.exports={
     allDataUser,
     UserByID,
     UserPost,
-    UserEliminated,
     UserUpdate,
     PostLogin
 }
