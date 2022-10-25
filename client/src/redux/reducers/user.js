@@ -27,13 +27,15 @@ const userSlice = createSlice({
 		const {
 			id,
 			deseos,
-			cart
+			cart,
+      admin
 		} = payload
       return {
 		...state,
 		id,
 		wishes: deseos,
-		cartList: cart
+		cartList: cart,
+    admin
 	  }
     },
     updateCart: (state, { payload }) => {
