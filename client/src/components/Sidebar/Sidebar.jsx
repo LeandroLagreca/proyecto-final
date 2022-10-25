@@ -206,7 +206,7 @@ const Sidebar = () => {
         <Divider />
         
       </Drawer>
-      <Main open={open} className="algooo" sx={{padding:1}}>
+      <Main open={open} className="algooo" sx={{padding:0}}>
         <DrawerHeader />
       </Main>
     </Box>

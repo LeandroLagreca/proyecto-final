@@ -153,14 +153,14 @@ const Navbar = () => {
 
           <Box sx={{ flexGrow: 1 }} />
 
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ display: { xs: "none", md: "flex", height:50 } }}>
             <Link style={styles.link} to='/home'>
-              <Button sx={{ my: 2, color: "white", display: "block", fontSize: 12 }}>
+              <Button sx={{ my: 1, color: "white", display: "block", fontSize: 12 }}>
                 Games
               </Button>
             </Link>
             <Link style={styles.link}>
-              <Button sx={{ my: 2, color: "white", display: "block", fontSize: 12 }}>
+              <Button sx={{ my: 1, color: "white", display: "block", fontSize: 12 }}>
                 About
               </Button>
             </Link>
@@ -169,14 +169,14 @@ const Navbar = () => {
                 <>
                   <Link style={styles.link} to='/wishes'>
                       <Button
-                        sx={{ my: 2, color: "white", display: "block", fontSize: 12 }}
+                        sx={{ my: 1, color: "white", display: "block", fontSize: 12, minWidth: 80 }}
                       >
                       Wish list
                     </Button>
                   </Link>
                   <Link style={styles.link} to='/purchases'>
                     <Button
-                      sx={{ my: 2, color: "white", display: "block", fontSize: 12 }}
+                      sx={{ my: 1, color: "white", display: "block", fontSize: 12 }}
                     >
                       Purchases
                     </Button>
