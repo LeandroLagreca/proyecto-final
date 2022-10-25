@@ -1,22 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const cartList = window.localStorage.getItem('cartList')
 	? JSON.parse(window.localStorage.getItem('cartList'))
-	: []
+	: [];
 
 const initialState = {
-  status: "guest",
-  id: null,
-  cartList,
-  wishes: [],
-  admin: false,
-  emailVerified: false,
-  purchases: [],
-  collection: [],
-  comments: [],
+	status: 'guest',
+	id: null,
+	cartList,
+	wishes: [],
+	admin: false,
+	emailVerified: false,
+	purchases: [],
+	collection: [],
+	comments: [],
 };
 
 const userSlice = createSlice({
+
+
   name: "user",
   initialState,
   reducers: {
@@ -64,17 +66,18 @@ const userSlice = createSlice({
       state.comments = payload;
     },
   },
+
 });
 
 export const {
-  setSigned,
-  updateCart,
-  addOne,
-  removeOne,
-  updateWishes,
-  setInfo,
-  addToPurchases,
-  addToCollection,
-  getAllUserComments,
+	setSigned,
+	updateCart,
+	addOne,
+	removeOne,
+	updateWishes,
+	setInfo,
+	addToPurchases,
+	addToCollection,
+	getAllUserComments,
 } = userSlice.actions;
 export default userSlice.reducer;
