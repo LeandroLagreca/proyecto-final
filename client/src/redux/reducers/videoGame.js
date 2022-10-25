@@ -7,12 +7,12 @@ const page = window.sessionStorage.getItem('page')
 const filters = window.sessionStorage.getItem('filters')
 	? JSON.parse(window.sessionStorage.getItem('filters'))
 	: {
-		search: '',
-		rating: '',
-		price: '',
-		genre: '',
-		sort: ''
-	};
+			search: '',
+			rating: '',
+			price: '',
+			genre: '',
+			sort: '',
+	  };
 
 const initialState = {
 	games: [],
@@ -22,7 +22,7 @@ const initialState = {
 	page,
 	loading: false,
 	filters,
-	comments: {}
+	comments: {},
 };
 
 const videoGameSlice = createSlice({
@@ -46,21 +46,21 @@ const videoGameSlice = createSlice({
 				...state.filters,
 				price: payload,
 			};
-			state.page = 1
+			state.page = 1;
 		},
 		filterByRating: (state, { payload }) => {
 			state.filters = {
 				...state.filters,
 				rating: payload,
 			};
-			state.page = 1
+			state.page = 1;
 		},
 		filterByGenre: (state, { payload }) => {
 			state.filters = {
 				...state.filters,
 				genre: payload,
 			};
-			state.page = 1
+			state.page = 1;
 		},
 		orderAlphabetically: (state, { payload }) => {
 			state.filters = {
@@ -71,12 +71,12 @@ const videoGameSlice = createSlice({
 		filterBySearch: (state, { payload }) => {
 			state.filters = {
 				search: payload,
-				rating: '' ,
+				rating: '',
 				price: '',
 				genre: '',
-				sort: ''
+				sort: '',
 			};
-			state.page = 1
+			state.page = 1;
 		},
 		changePage: (state, { payload }) => {
 			state.page = payload;
@@ -92,14 +92,17 @@ const videoGameSlice = createSlice({
 				genre: '',
 				sort: '',
 			};
-			state.page = 1
+			state.page = 1;
 		},
 		getGameComments: (state, { payload }) => {
-			console.log(payload);
+			// console.log(payload);
 			state.comments = payload;
 		},
 		rowVideoGames: (state, { payload }) => {
 			state.rowVideoGames = payload;
+		},
+		setGameComments: (state, { payload }) => {
+			state.comments.comments = [...state.comments.comments, payload];
 		},
 	},
 });
@@ -117,6 +120,7 @@ export const {
 	setLoading,
 	cleanFilter,
 	getGameComments,
+	setGameComments,
 } = videoGameSlice.actions;
 
 export default videoGameSlice.reducer;

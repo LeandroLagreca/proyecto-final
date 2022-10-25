@@ -24,7 +24,7 @@ const postComment = async (req, res) => {
           await user.addComment(newComment);
           return res
             .status(200)
-            .send(` ${userName} your comment about ${gameName} was posted`);
+            .send(newComment);
         } else {
           return res.status(404).send("we couldn't match your user id/game id");
         }
@@ -88,6 +88,7 @@ const getGameComments = async (req, res) => {
             "userComment",
             "rating_dislike",
             "createdAt",
+            "updatedAt",
             "id",
           ],
           through: { attributes: [] },
@@ -97,7 +98,7 @@ const getGameComments = async (req, res) => {
       if (allComments.comments.length>0) {
         res.status(200).send(allComments);
       } else {
-        res.status(404).json({ msg: "There are no comments yet" });
+        res.status(200).json([]);
       }
     }
   } catch (error) {
