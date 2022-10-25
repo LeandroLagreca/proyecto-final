@@ -14,7 +14,7 @@ export default function Comments() {
 	let { id } = useParams();
 
 	useEffect(() => {
-	}, [gameComment.comments]);
+	}, [gameComment]);
 
 	return (
 		<div style={{ padding: 0 }} className="Comments">

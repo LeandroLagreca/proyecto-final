@@ -38,6 +38,8 @@ const imgLink = 'Url de imagen de usuario';
 export default function Detail() {
 	const { loading } = useSelector((state) => state.videogames);
 	const gameDetail = useSelector((state) => state.videogames.details);
+	const gameComment = useSelector((state) => state.videogames.comments);
+
 	// const userComment = useSelector((state) => state.user.comments);
 	const dispatch = useDispatch();
 	let { id } = useParams();
@@ -173,6 +175,9 @@ export default function Detail() {
 		dispatch(getComments(id));
 	}, [id, dispatch]);
 
+	useEffect(() => {
+		dispatch(getComments(id));
+	}, [gameComment]);
 
 	if (loading) return <Loader />;
 
