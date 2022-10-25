@@ -118,29 +118,24 @@ const getAllOrders = async (req, res) => {
     include: [
       {
         model: Videogame,
-        through: {
-          attributes: [],
-        },
-        attributes: ["name", "price", 'date'],
+        attributes: ["name", "price"]
       },
       {
         model: User,
-        through: {
-          attributes: [],
-        },
-        attributes: ["name", "id", "email", 'admin'],
+        attributes: ["name", "id", "email", 'admin']
       }
     ],
     where
   };
 
   try {
-    const orders = await PurchaseOrder.findAll({ where });
+    const orders = await PurchaseOrder.findAll(config);
     if (!orders.length) {
       return res.status(404).send("Couldn't find any order");
     }
     res.json(orders);
   } catch (error) {
+    console.log(error)
     res.status(400).json({ error: error.message });
   }
 };
