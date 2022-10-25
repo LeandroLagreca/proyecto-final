@@ -105,13 +105,37 @@ const getUserOrders = async (req, res) => {
   }
 };
 const getAllOrders = async (req, res) => {
+  const { filter = "" } = req.query;
+  const { date, status } = filter;
+  const where = {};
+
+  if (status) {
+    where.status = status;
+  }
+
+  const config = {
+    distinct: true,
+    include: [
+      {
+        model: Videogame,
+        attributes: ["name", "price"]
+      },
+      {
+        model: User,
+        attributes: ["name", "id", "email", 'admin']
+      }
+    ],
+    where
+  };
+
   try {
-    const orders = await PurchaseOrder.findAll();
+    const orders = await PurchaseOrder.findAll(config);
     if (!orders.length) {
-      return res.status(404).send("Dont exist any order yet");
+      return res.status(404).send("Couldn't find any order");
     }
     res.json(orders);
   } catch (error) {
+    console.log(error)
     res.status(400).json({ error: error.message });
   }
 };
