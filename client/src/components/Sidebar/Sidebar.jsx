@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux'
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -81,6 +82,7 @@ const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
 const Sidebar = () => {
   const theme = useTheme();
+  const { status } = useSelector(state => state.user)
   const [open, setOpen] = React.useState(false);
   const {mode, toggleMode} = useContext(ColorModeContext)
 
@@ -130,31 +132,36 @@ const Sidebar = () => {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        
-        <List sx={{textDecoration:"none"}}>
-          <Link component={RouterLink} to={"/colection"} underline='none' >
-            <ListItem sx={{textDecoration:"none"}} >
-              <ListItemButton sx={{color: "black", textDecoration:"none"}}>
-                  <ListItemIcon > 
-                    <VideogameAssetIcon/>
-                  </ListItemIcon>
-                  <ListItemText primary={"My collection"} sx={{textDecoration:"none"}}/>
-              </ListItemButton>
-            </ListItem>
-          </Link>
-        </List>
-        <List sx={{textDecoration:"none"}}>
-          <Link component={RouterLink} to={"/wishes"} underline='none' >
-            <ListItem sx={{textDecoration:"none"}} >
-              <ListItemButton sx={{color: "black", textDecoration:"none"}}>
-                <ListItemIcon > 
-                  <FavoriteIcon/>
-                </ListItemIcon>
-                <ListItemText primary={"Wish List"} sx={{textDecoration:"none"}}/>
-              </ListItemButton>
-            </ListItem>
-          </Link>
-        </List>
+        {
+              status !== 'guest' ? (
+                <>
+                  <List sx={{textDecoration:"none"}}>
+                    <Link component={RouterLink} to={"/colection"} underline='none' >
+                      <ListItem sx={{textDecoration:"none"}} >
+                        <ListItemButton sx={{color: "black", textDecoration:"none"}}>
+                            <ListItemIcon > 
+                              <VideogameAssetIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary={"My collection"} sx={{textDecoration:"none"}}/>
+                        </ListItemButton>
+                      </ListItem>
+                    </Link>
+                  </List>
+                  <List sx={{textDecoration:"none"}}>
+                    <Link component={RouterLink} to={"/wishes"} underline='none' >
+                      <ListItem sx={{textDecoration:"none"}} >
+                        <ListItemButton sx={{color: "black", textDecoration:"none"}}>
+                          <ListItemIcon > 
+                            <FavoriteIcon/>
+                          </ListItemIcon>
+                          <ListItemText primary={"Wish List"} sx={{textDecoration:"none"}}/>
+                        </ListItemButton>
+                      </ListItem>
+                    </Link>
+                  </List>
+                </>
+              ) : ''
+            }
         <List sx={{textDecoration:"none"}}>
           <Link component={RouterLink} to={"/discounts"} underline='none' >
             <ListItem sx={{textDecoration:"none"}} >

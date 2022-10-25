@@ -35,7 +35,7 @@ const styles = {
 
 const Navbar = () => {
   const [input, setInput] = React.useState("");
-  const role = useSelector(state => state.user.status)
+  const { status } = useSelector(state => state.user)
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const { pathname } = useLocation()
@@ -164,26 +164,32 @@ const Navbar = () => {
                 About
               </Button>
             </Link>
-            <Link style={styles.link} to='/wishes'>
-              <Button
-                sx={{ my: 2, color: "white", display: "block", fontSize: 12 }}
-              >
-                Wish list
-              </Button>
-            </Link>
-            <Link style={styles.link} to='/purchases'>
-              <Button
-                sx={{ my: 2, color: "white", display: "block", fontSize: 12 }}
-              >
-                Purchases
-              </Button>
-            </Link>
+            {
+              status !== 'guest' ? (
+                <>
+                  <Link style={styles.link} to='/wishes'>
+                      <Button
+                        sx={{ my: 2, color: "white", display: "block", fontSize: 12 }}
+                      >
+                      Wish list
+                    </Button>
+                  </Link>
+                  <Link style={styles.link} to='/purchases'>
+                    <Button
+                      sx={{ my: 2, color: "white", display: "block", fontSize: 12 }}
+                    >
+                      Purchases
+                    </Button>
+                  </Link>
+                </>
+              ) : ''
+            }
           </Box>
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <CartWidget />
             {
-              role !== 'guest' ? (
+              status !== 'guest' ? (
                 <IconButton
               size="large"
               edge="end"
