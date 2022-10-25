@@ -8,6 +8,7 @@ import {
   ListItemIcon,
   ListItemText,
   Divider,
+  Link as MuiLink,
 } from "@mui/material";
 
 import { People, Games, ConfirmationNumber } from "@mui/icons-material";
@@ -23,36 +24,36 @@ export default function AdminNavBar() {
       <List sx={{ paddingTop: 3 }}>
         <Divider />
         <ListItem>
-          <Link to='/admin/users'>
+          <MuiLink component={Link} to='/admin/users' underline="none">
             <ListItemButton>
               <ListItemIcon>
                 <People />
               </ListItemIcon>
               <ListItemText primary={"Usuarios"} />
             </ListItemButton>
-          </Link>
+          </MuiLink>
         </ListItem>
         <Divider />
         <ListItem>
-          <Link to='/admin/games'>
+          <MuiLink component={Link} to='/admin/games' underline="none">
             <ListItemButton>
               <ListItemIcon>
                 <Games />
               </ListItemIcon>
               <ListItemText primary={"Games"} />
             </ListItemButton>
-          </Link>
+          </MuiLink>
         </ListItem>
         <Divider />
         <ListItem>
-          <Link to='/admin/orders'>
+          <MuiLink component={Link} to='/admin/orders' underline="none">
             <ListItemButton>
               <ListItemIcon>
                 <ConfirmationNumber />
               </ListItemIcon>
               <ListItemText primary={"Orders"} />
             </ListItemButton>
-          </Link>
+          </MuiLink>
         </ListItem>
         <Divider />
       </List>
