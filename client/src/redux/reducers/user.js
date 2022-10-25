@@ -17,47 +17,56 @@ const initialState = {
 };
 
 const userSlice = createSlice({
-	name: 'user',
-	initialState,
-	reducers: {
-		setSigned: (state, { payload }) => {
-			state.status = payload;
-		},
-		setInfo: (state, { payload }) => {
-			const { id, deseos, cart } = payload;
-			return {
-				...state,
-				id,
-				wishes: deseos,
-				cartList: cart,
-			};
-		},
-		updateCart: (state, { payload }) => {
-			state.cartList = payload;
-		},
-		addOne: (state, { payload }) => {
-			const productRef = state.cartList.find((el) => el.id === payload);
-			const newCant = ++productRef.cant;
-			productRef.cant = newCant;
-		},
-		removeOne: (state, { payload }) => {
-			const productRef = state.cartList.find((el) => el.id === payload);
-			const newCant = --productRef.cant;
-			productRef.cant = newCant;
-		},
-		updateWishes: (state, { payload }) => {
-			state.wishes = payload;
-		},
-		addToPurchases: (state, { payload }) => {
-			state.purchases = [...state.purchases, payload];
-		},
-		addToCollection: (state, { payload }) => {
-			state.collection = [...state.collection, payload];
-		},
-		getAllUserComments: (state, { payload }) => {
-			state.comments = payload;
-		},
-	},
+
+
+  name: "user",
+  initialState,
+  reducers: {
+    setSigned: (state, { payload }) => {
+      state.status = payload;
+    },
+    setInfo: (state, { payload }) => {
+		const {
+			id,
+			deseos,
+			cart,
+      admin
+		} = payload
+      return {
+		...state,
+		id,
+		wishes: deseos,
+		cartList: cart,
+    admin
+	  }
+    },
+    updateCart: (state, { payload }) => {
+      state.cartList = payload
+    },
+    addOne: (state, { payload }) => {
+      const productRef = state.cartList.find((el) => el.id === payload);
+      const newCant = ++productRef.cant;
+      productRef.cant = newCant;
+    },
+    removeOne: (state, { payload }) => {
+      const productRef = state.cartList.find((el) => el.id === payload);
+      const newCant = --productRef.cant;
+      productRef.cant = newCant;
+    },
+    updateWishes: (state, { payload }) => {
+      state.wishes = payload;
+    },
+    addToPurchases: (state, { payload }) => {
+      state.purchases = [...state.purchases, payload];
+    },
+    addToCollection: (state, { payload }) => {
+      state.collection = [...state.collection, payload];
+    },
+    getAllUserComments: (state, { payload }) => {
+      state.comments = payload;
+    },
+  },
+
 });
 
 export const {

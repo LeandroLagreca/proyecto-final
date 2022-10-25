@@ -70,9 +70,8 @@ router.get("/user", allDataUser);
 
 router.get("/user/:id", UserByID);
 
-router.delete("/user/:id", UserEliminated);
-
 router.put("/user/:id", UserUpdate);
+
 
 //sesion
 router.post("/register", UserPost);

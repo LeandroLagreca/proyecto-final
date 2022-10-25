@@ -14,11 +14,11 @@ export default function Filter() {
 	const { filters } = useSelector(state => state.videogames)
 	const { page } = useSelector(state => state.videogames)
 	const dispatch = useDispatch()
-	const { search, rating, price, genre, sort } = filters
+	const { name, rating, price, genre, sort } = filters
 	
 	useEffect(() => {
 		const filter = {
-			name: search || '',
+			name: name || '',
 			rating: rating || '',
 			price: price || '',
 			genre: genre || ''
@@ -29,7 +29,7 @@ export default function Filter() {
 		const parsePage = JSON.stringify(page);
 		window.sessionStorage.setItem('filters', parseFilter);
 		window.sessionStorage.setItem('page', parsePage);
-	}, [page, sort, search, rating, price, genre, dispatch])
+	}, [page, sort, name, rating, price, genre, dispatch])
 
 	return (
 				<Box sx={{display:"flex", textAling:"center"}}>

@@ -7,12 +7,14 @@ const page = window.sessionStorage.getItem('page')
 const filters = window.sessionStorage.getItem('filters')
 	? JSON.parse(window.sessionStorage.getItem('filters'))
 	: {
-			search: '',
-			rating: '',
-			price: '',
-			genre: '',
-			sort: '',
-	  };
+
+		name: '',
+		rating: '',
+		price: '',
+		genre: '',
+		sort: ''
+	};
+
 
 const initialState = {
 	games: [],
@@ -70,8 +72,9 @@ const videoGameSlice = createSlice({
 		},
 		filterBySearch: (state, { payload }) => {
 			state.filters = {
-				search: payload,
-				rating: '',
+
+				name: payload,
+				rating: '' ,
 				price: '',
 				genre: '',
 				sort: '',
@@ -86,7 +89,7 @@ const videoGameSlice = createSlice({
 		},
 		cleanFilter: (state) => {
 			state.filters = {
-				search: '',
+				name: '',
 				rating: '',
 				price: '',
 				genre: '',
