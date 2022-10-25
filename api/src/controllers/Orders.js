@@ -102,6 +102,8 @@ const getUserOrders = async (req, res) => {
     } catch (error) {
       console.log(error);
     }
+  } else {
+    return res.status(404).send({ msg: "an userID is required by body" });
   }
 };
 const getAllOrders = async (req, res) => {
@@ -139,9 +141,25 @@ const getAllOrders = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-
+const ChangeStatePurchaseOrder = async (req, res) => {
+  let { status } = req.body;
+  let {id}=req.params;
+  if (status && id) {
+    try {
+      let finalState = await PurchaseOrder.update(
+        { status },
+        { where: { id: id } }
+      );
+      res.status(200).send({msg:"up to date"})
+    } catch (error) {
+      res.status(404).send({msg:error})
+      
+    }
+  }
+};
 module.exports = {
   getAllOrders,
   createOrder,
   getUserOrders,
+  ChangeStatePurchaseOrder
 };
