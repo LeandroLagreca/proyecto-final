@@ -5,27 +5,6 @@ import Swal from "sweetalert2";
 
 import { AdminOrdersContainer } from "../containers";
 
-const orders = [
-  {
-    id: "asdasdkuh3i3",
-    user: "user1pro",
-    date: "27/09/2022",
-    status: "finalizada",
-  },
-  {
-    id: "bvmp23958nb",
-    user: "userComprando",
-    date: "18/10/2022",
-    status: "recibida",
-  },
-  {
-    id: "afgh23ewe2fcv5n",
-    user: "userDeejemplogamer",
-    date: "17/10/2022",
-    status: "en proceso",
-  },
-];
-
 const styles = {
   card: {
     width: 275,
@@ -43,7 +22,7 @@ const styles = {
   },
 };
 export default function AdminOrders() {
-  // const [ orders, setOrders ] = useState([])
+  const [ orders, setOrders ] = useState([])
   const [filters, setFilters] = useState({
     name: '',
     status: "",
@@ -51,22 +30,20 @@ export default function AdminOrders() {
   });
   const [prevValue, setPrevValue] = useState("");
 
-  // async function getOrders() {
-  //    const queries = `filter[name]=&filter[status]=${filters.status}&filter[date]=`
-  //   const allOrders = await axios.get('http://localhost:3001/orders?' + queries)
-  //   setOrders(allOrders)
-  // }
 
-  // useEffect(() => {
-  //   getOrders()
-  // }, [])
+  useEffect(() => {
+    const queries = `filter[name]=&filter[status]=${filters.status}&filter[date]=`
+    axios.get('http://localhost:3001/orders?' + queries)
+    .then(data => setOrders(data))
+    .catch(() => setOrders([]))
+  }, [filters])
 
   function saveValue(e) {
     setPrevValue(e.target.value);
   }
 
   function changeStatus(id, e) {
-    // const value = e.target.value
+    const value = e.target.value
     Swal.fire({
       showCancelButton: true,
       showConfirmButton: true,
@@ -74,9 +51,9 @@ export default function AdminOrders() {
       confirmButtonText: "Si",
     }).then((result) => {
       if (result.isConfirmed) {
-        // axios.put('http://localhost:3001/orders/' + id, {
-        //   status: value
-        // } )
+        axios.put('http://localhost:3001/orders/' + id, {
+          status: value
+        } )
       } else if (result.isDismissed) {
         e.target.value = prevValue;
       }
@@ -99,10 +76,10 @@ export default function AdminOrders() {
               defaultValue={order.status}
               onChange={(e) => changeStatus(order.id, e)}
             >
-              <option value="recibida">Recibida</option>
-              <option value="en proceso">En proceso</option>
-              <option value="finalizada">Finalizada</option>
-              <option value="cancelada">Cancelada</option>
+              <option value="created">Creada</option>
+              <option value="inprocess">En proceso</option>
+              <option value="completed">Finalizada</option>
+              <option value="canceled">Cancelada</option>
             </select>
           </CardActions>
         </Card>
