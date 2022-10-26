@@ -66,7 +66,9 @@ router.get("/discounts", getDiscounts);
 
 //User
 router.get("/user", allDataUser);
-router.get("/searchUser",allDataUser)
+
+router.get("/searchUser",allDataUser);
+
 router.get("/user/:id", UserByID);
 
 router.put("/user/:id", UserUpdate);
