@@ -25,7 +25,6 @@ const {
 
 const {
   allDataUser,
-  
   UserByID,
   UserPost,
   UserUpdate,
