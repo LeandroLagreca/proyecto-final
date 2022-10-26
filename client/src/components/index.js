@@ -18,3 +18,4 @@ export { default as UserItem } from './UserItem';
 export { default as MyProfile } from './MyProfile/MyProfile';
 export { default as MyPurchases } from './MyPurchases/MyPurchases';
 export { default as MyNotifications } from './MyNotifications/MyNotifications';
+export { default as AccountNavBar } from './AccountNavBar/AccountNavBar';
