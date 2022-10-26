@@ -103,18 +103,6 @@ const allDataUser = async (req, res) => {
   }
 };
 
-//arreglar esta ruta
-const UserEliminated = async (req, res) => {
-  const { id } = req.params;
-  const searchId = await User.findByPk(id);
-  if (!searchId) res.status(400).json({ msg: "Not User" });
-  try {
-    await searchId.Destroy();
-    res.status(200).json({ msg: `The User ${id} has been removed` });
-  } catch (error) {
-    res.status(400).json({ error: "Error eliminated User" });
-  }
-};
 
 const UserUpdate = async (req, res) => {
   const { id } = req.params;
@@ -129,7 +117,12 @@ const UserUpdate = async (req, res) => {
         },
       }
     );
-
+    
+    res.status(200).json({ msg: `User ${modifique.name} update successfully` });
+  } catch (error) {
+    res.status(400).json({ error: "Error update User" });
+  }
+};
 
 const PostLogin= async (req, res) => {
     const {available} = req.body;
@@ -152,11 +145,10 @@ const PostLogin= async (req, res) => {
         };
 
     }
-module.exports={
+module.exports= {
     allDataUser,
     UserByID,
     UserPost,
     UserUpdate,
-    PostLogin
-}
-
+    PostLogin,
+};
