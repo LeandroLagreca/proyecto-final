@@ -37,9 +37,9 @@ const UserPost = async (req, res) => {
       handleCodeInApp: true,
     };
     sendSignInLinkToEmail(auth, email, actionCodeSettings)
-    if(isSignInWithEmailLink(auth, emailLink)) {
-        await signInWithEmailLink(auth, email , emailLink);
-    }
+   // if(isSignInWithEmailLink(auth, emailLink)) {
+    //    await signInWithEmailLink(auth, email , emailLink);
+    //}
 
         res.status(201).json({msg: "User create!"})
 
