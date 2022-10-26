@@ -96,14 +96,14 @@ export default function ComposedTextField() {
       my={2}
       component="form"
       sx={{
-        '& > :not(style)': { m: 1 },
+        '& > :not(style)': { m: 0 },
       }}
       noValidate
       autoComplete="off"
     >
     <Grid container direction="row" spacing={2}>
    
-            <Grid item xs={12} sm={12} md={6} lg={12} xl={6}>
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                 <Card>
                 <h1>Edit Game</h1>
                     <CardContent>   
