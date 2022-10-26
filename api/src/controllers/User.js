@@ -146,6 +146,7 @@ const PostLogin= async (req, res) => {
 module.exports= {
     allDataUser,
     UserByID,
+    UserByName,
     UserPost,
     UserUpdate,
     PostLogin,
