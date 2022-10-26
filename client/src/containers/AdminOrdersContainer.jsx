@@ -3,9 +3,10 @@ import { Container } from '@mui/material'
 
 const styles = {
     container: {
-        minHeight: '80vh',
+        minHeight: '100vh',
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))'
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        paddingTop: 2
     }
 }
 
