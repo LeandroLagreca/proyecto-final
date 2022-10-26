@@ -15,3 +15,7 @@ export { default as AddressForm } from './AddressForm/AddressForm';
 export { default as PaymentForm } from './PaymentForm/PaymentForm';
 export { default as Review } from './Review/Review';
 export { default as UserItem } from './UserItem';
+export { default as MyProfile } from './MyProfile/MyProfile';
+export { default as MyPurchases } from './MyPurchases/MyPurchases';
+export { default as MyNotifications } from './MyNotifications/MyNotifications';
+export { default as AccountNavBar } from './AccountNavBar/AccountNavBar';

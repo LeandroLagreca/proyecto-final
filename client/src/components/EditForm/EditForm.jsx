@@ -46,7 +46,7 @@ function validate(input){
 
 export default function ComposedTextField() {
   const dispatch = useDispatch()  
-  const generos = useSelector((state)=> state.genres)
+  const generos = useSelector((state)=> state.videogames.genres)
   const [errors,setErrors] = useState({})
   const [input, setInput] = useState({
   name:"",
@@ -96,14 +96,14 @@ export default function ComposedTextField() {
       my={2}
       component="form"
       sx={{
-        '& > :not(style)': { m: 1 },
+        '& > :not(style)': { m: 0 },
       }}
       noValidate
       autoComplete="off"
     >
     <Grid container direction="row" spacing={2}>
    
-            <Grid item xs={12} sm={12} md={6} lg={12} xl={6}>
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                 <Card>
                 <h1>Edit Game</h1>
                     <CardContent>   
@@ -202,8 +202,8 @@ export default function ComposedTextField() {
                             <InputLabel htmlFor="component-error">Genres</InputLabel>
                             <Select
                             id="component-error"
-                            name="requirements"
-                            value={input.genre}
+                            name="genres"
+                            value={input.genres}
                             onChange={handleChange}
                             aria-describedby="component-error-text"/>
                             <FormHelperText id="component-error-text">{errors.requirements}</FormHelperText>
