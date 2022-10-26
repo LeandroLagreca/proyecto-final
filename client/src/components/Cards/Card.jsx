@@ -95,7 +95,7 @@ export default function MainCard({ name, background_image, price, id, discount }
       </CardActions>
       <Link component={RouterLink} to={`/detail/${id}`} underline='none'>
         <Button variant="outlined" size="small" sx={{ width: "100%",}} color={"secondary"} >
-          Detail
+          <Typography color={"primary"} >Detail</Typography>
         </Button>
       </Link>
     </Card>

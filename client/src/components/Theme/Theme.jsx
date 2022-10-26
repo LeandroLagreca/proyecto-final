@@ -29,12 +29,13 @@ export const ColorContextProvider = ({children}) => {
 	const theme = createTheme({
 		palette: {
 			mode:mode,
+			
 			primary:{
-				main:"#171a21",
+				main:"#091d36",
 			
 			},
 			secondary:{
-				main: "#66c0f4"
+				main: "#5e83ba"
 			}
 		}
 	})
