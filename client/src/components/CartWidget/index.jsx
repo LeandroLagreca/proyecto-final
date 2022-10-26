@@ -109,7 +109,7 @@ export default function CartWidget() {
 					alignItems={'center'}
           justifyContent={"space-between"}
         >
-          <Typography variant="h5">Total: {total}</Typography>
+          <Typography variant="h5">Total: ${total}</Typography>
 
           
             <Button sx={{ width: 200 }} variant="contained"
