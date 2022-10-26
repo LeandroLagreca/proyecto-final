@@ -64,7 +64,7 @@ const UserByName = async (req, res) => {
     try {
       console.log(name);
       let found = await User.findAll({
-        where: { name: { [Op.iLike]: `%${name}%` } },
+        where: { name: { [Op.iLike]: `%${name}%` } }
       });
 
       if (found) {
