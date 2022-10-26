@@ -46,7 +46,7 @@ function validate(input){
 
 export default function ComposedTextField() {
   const dispatch = useDispatch()  
-  const generos = useSelector((state)=> state.genres)
+  const generos = useSelector((state)=> state.videogames.genres)
   const [errors,setErrors] = useState({})
   const [input, setInput] = useState({
   name:"",
@@ -202,8 +202,8 @@ export default function ComposedTextField() {
                             <InputLabel htmlFor="component-error">Genres</InputLabel>
                             <Select
                             id="component-error"
-                            name="requirements"
-                            value={input.genre}
+                            name="genres"
+                            value={input.genres}
                             onChange={handleChange}
                             aria-describedby="component-error-text"/>
                             <FormHelperText id="component-error-text">{errors.requirements}</FormHelperText>
