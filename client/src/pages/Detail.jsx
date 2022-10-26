@@ -2,7 +2,7 @@ import "./Detail.css";
 import Swal from "sweetalert2";
 import React from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { auth } from "../firebase/credenciales";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../redux/reducers/videoGame";
@@ -194,8 +194,7 @@ export default function Detail() {
   return (
     <Container>
       <Paper elevation={8} sx={{ padding: 2 }}>
-      <DisableElevation />
-		{/* Games > Detail > {gameDetail.name} */}
+      <Typography variant="caption" display="flex" mb={1}><Link className="redir" to={"/home"}>Games</Link> <Typography variant="caption" ml={1} color={"darkgray"}>> </Typography>    <Link className="redir" to={"/home"}> Detail </Link>  <Typography variant="caption" ml={1} mr={1} color={"darkgray"}>> </Typography>  <b>{gameDetail.name}</b> </Typography>
         <Box display="flex" alignItems="flex-start" className="boxDivisor">
           <Box
             className="containerNombreImagenDescription"
