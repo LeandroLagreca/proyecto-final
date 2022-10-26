@@ -14,7 +14,7 @@ const styles = {
 		gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
 		justifyItems: 'center',
 		rowGap: 5,
-		paddingX: 30,
+		paddingX: 5,
 	},
 };
 
@@ -30,7 +30,7 @@ const Games = () => {
 		return <h3>No hay resultados que coincidan con tu búsqueda.</h3>;
 
 	return (
-		<Box flex={4}>
+		<Box flex={6}>
 			<Box sx={styles.container}>
 				{games?.map((e, index) => {
 					return (

@@ -71,11 +71,13 @@ router.get("/user", allDataUser);
 
 router.get("/user/:id", UserByID);
 
-router.delete("/user/:id", UserEliminated);
-
 router.put("/user/:id", UserUpdate);
 
+<<<<<<< HEAD
 router.get("/searchUser", UserByName);
+=======
+
+>>>>>>> d6154bcea81fbd88f476bcf9d91a109b4aa8dfee
 //sesion
 router.post("/register", UserPost);
 

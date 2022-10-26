@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@mui/material";
 import { AddShoppingCart, RemoveShoppingCart } from "@mui/icons-material";
 
-import { addToCart, deleteFromCart } from "../../redux/reducers/user";
+import { addToCart, deleteFromCart } from "../../redux/actions/user";
 import Swal from "sweetalert2";
 
 const buttonStyles = {

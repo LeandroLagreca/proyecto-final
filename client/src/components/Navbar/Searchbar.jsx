@@ -48,7 +48,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Searchbar = ({ setInput, input }) => {
 	const dispatch = useDispatch();
-	const games = useSelector((state) => state.videogames.games);
+	const {name} = useSelector(state => state.videogames.filters)
 
 	const handleInputChange = (e) => {
 		setInput(e.target.value);
@@ -62,7 +62,7 @@ const Searchbar = ({ setInput, input }) => {
 					<SearchIcon />
 				</SearchIconWrapper>
 				<StyledInputBase
-					value={input}
+					value={name}
 					onChange={handleInputChange}
 					placeholder="Search…"
 					inputProps={{ 'aria-label': 'search' }}

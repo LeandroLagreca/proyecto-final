@@ -19,9 +19,16 @@ export default function Comments() {
   const dispatch = useDispatch();
   let { id } = useParams();
 
+  const [value, setValue] = React.useState({actualizado: true})
+
   useEffect(() => {
     dispatch(getComments(id));
   }, []);
+  
+  useEffect(() => {
+    
+  }, [gameComment]);
+
 
   return (
     <div style={{ padding: 0 }} className="Comments">
