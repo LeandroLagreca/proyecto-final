@@ -25,7 +25,7 @@ const {
 
 const {
   allDataUser,
-  UserByName,
+  
   UserByID,
   UserPost,
   UserUpdate,
@@ -67,7 +67,7 @@ router.get("/discounts", getDiscounts);
 
 //User
 router.get("/user", allDataUser);
-router.get("/searchUser",UserByName)
+router.get("/searchUser",allDataUser)
 router.get("/user/:id", UserByID);
 
 router.put("/user/:id", UserUpdate);
