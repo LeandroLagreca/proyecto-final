@@ -10,8 +10,17 @@ import {
   Divider,
   Link as MuiLink,
 } from "@mui/material";
-
+import {sendPasswordResetEmail} from 'firebase/auth';
+import {auth} from "../../firebase/credenciales";
 import { People, Games, ConfirmationNumber } from "@mui/icons-material";
+
+async function handleReset(email){
+  const actionCodeSettings = {
+    url: 'http://localhost:3000/',
+    handleCodeInApp: true,
+  };
+sendPasswordResetEmail(auth, email, actionCodeSettings)
+}
 
 export default function AdminNavBar() {
   return (
