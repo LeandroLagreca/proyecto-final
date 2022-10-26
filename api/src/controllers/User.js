@@ -26,6 +26,7 @@ const UserPost = async (req, res) => {
       password
     );
     const newUser = await User.create({
+
       id: user.uid,
       email,
       available,
@@ -38,18 +39,17 @@ const UserPost = async (req, res) => {
       handleCodeInApp: true,
     };
     sendSignInLinkToEmail(auth, email, actionCodeSettings)
-      .then(() => {
-        window.localStorage.setItem("emailForSignIn", email);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
-    res.status(201).json({ msg: "User create!" });
-  } catch {
-    res.status(400).json({ msg: "User not create!" });
-  }
-};
+   /* if(isSignInWithEmailLink(auth, emailLink)) {
+        await signInWithEmailLink(auth, email , emailLink);
+    }
+*/
+        res.status(201).json({msg: "User create!"})
+
+} catch {
+    res.status(400).json({msg: "User not create!"});
+}
+}
+
 
 const getDbInfo = async () => {
   return await User.findAll();
@@ -130,32 +130,33 @@ const UserUpdate = async (req, res) => {
       }
     );
 
-    res.status(200).json({ msg: `User ${modifique.name} update successfully` });
-  } catch (error) {
-    res.status(400).json({ error: "Error update User" });
-  }
-};
 
-const PostLogin = async (req, res) => {
-  const { email } = req.body;
-  try {
-    let found = await User.findOne({ where: { email: email } });
-    if (found) {
-      return res.status(200).send(found);
-    } else {
-      return res.status(404).send({ msg: "sorry, this email is not exist" });
+const PostLogin= async (req, res) => {
+    const {available} = req.body;
+    if(available === false){
+        res.status(400).send('User does not available')
+    }else{
+    const {email} = req.body;
+    try {
+        let found = await User.findOne({ where: { email: email} });
+            if (found) {
+            return res.status(200).send(found);
+            } else {
+            return res
+                .status(404)
+                .send({ msg: "sorry, this email is not exist" });
+            }
+        } catch (error) {
+            res.status(400).send(error)
+        }
+        };
+
     }
-  } catch (error) {
-    res.status(400).send(error);
-  }
-};
+module.exports={
+    allDataUser,
+    UserByID,
+    UserPost,
+    UserUpdate,
+    PostLogin
+}
 
-module.exports = {
-  allDataUser,
-  UserByID,
-  UserPost,
-  UserEliminated,
-  UserUpdate,
-  PostLogin,
-  UserByName,
-};
