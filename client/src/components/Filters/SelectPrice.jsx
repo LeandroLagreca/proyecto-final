@@ -72,7 +72,7 @@ export default function SelectPrice() {
 						min={0}
 						max={100}
 						onChange={handlePrice}
-						value={price}
+						value={parseInt(price)}
 						color={"secondary"}
 						marks={mark}
 						
