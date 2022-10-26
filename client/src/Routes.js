@@ -2,7 +2,7 @@ import { Routes as Rutas, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import useStatusChecker from './firebase/statusCheck'
 import { getDiscounts } from './redux/actions/videoGame';
-import { Detail, MainHome, Landing, AdminPanel, NotFound, Cart, Discounts } from './pages';
+import { Detail, MainHome, Landing, AdminPanel, NotFound, Cart, Discounts, Account } from './pages';
 
 
 
@@ -35,6 +35,7 @@ const Routes = ({setMode, mode}) => {
 				<Route path = '/discounts' element = {<Discounts/>}/>
 				<Route path = '*' element = {<NotFound/>}/>
 				<Route path = '/colection' element = {<Collection/>}/>
+				<Route path = '/account/:id' element = {<Account/>}/>
 			</Rutas>
 			<Footer />
 		</>
