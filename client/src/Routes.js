@@ -1,7 +1,5 @@
 import { Routes as Rutas, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import useStatusChecker from './firebase/statusCheck'
-import { getDiscounts } from './redux/actions/videoGame';
 import { Detail, MainHome, Landing, AdminPanel, NotFound, Cart, Discounts, Account } from './pages';
 
 
@@ -16,10 +14,7 @@ import Collection from './components/Collection/Collection';
 
 
 const Routes = ({setMode, mode}) => {
-	//solve conflictos
-	const dispatch = useDispatch()
 	useStatusChecker()
-	dispatch(getDiscounts());
 
 	return (
 		<>
