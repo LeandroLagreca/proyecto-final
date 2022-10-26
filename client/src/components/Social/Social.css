@@ -1,17 +1,28 @@
 .boxBanner {
-    height: 350px;
-    background: linear-gradient(rgb(19, 31, 67), rgb(61, 61, 205));
-    margin-bottom: 80px;
+	height: 400px;
+	/* background: linear-gradient(rgb(19, 31, 67), rgb(61, 61, 205)); */
+
+	background: rgb(59, 72, 106);
+	background: linear-gradient(
+		0deg,
+		rgba(59, 72, 106, 1) 25%,
+		rgba(23, 26, 33, 1) 86%
+	);
+	margin-bottom: 40px;
 }
 
 .paperBan {
-  width: 96%;
-  justify-self: center;
-  align-self: center;
-  display: inline-block;
-  height: 400px;
+	width: 96%;
+	justify-self: center;
+	align-self: center;
+	display: inline-block;
+	height: 400px;
+  border: 0ch;
+  padding: auto;
+  margin: auto;
+  bottom: unset;
 }
 
 .imgbanner {
-  width: 100%;
+	width: 100%;
 }

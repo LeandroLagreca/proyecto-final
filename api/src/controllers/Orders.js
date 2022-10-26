@@ -104,7 +104,7 @@ const getUserOrders = async (req, res) => {
       console.log(error);
     }
   } else {
-    return res.status(404).send({ msg: "an userID is required by body" });
+    return res.status(404).send({ msg: "an userID is required by params" });
   }
 };
 const getAllOrders = async (req, res) => {
