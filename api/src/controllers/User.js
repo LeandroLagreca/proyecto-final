@@ -26,10 +26,8 @@ const UserPost = async (req, res) => {
       password
     );
     const newUser = await User.create({
-
       id: user.uid,
       email,
-      available,
       name: email,
       password: hashFunction(password),
     });
@@ -39,10 +37,10 @@ const UserPost = async (req, res) => {
       handleCodeInApp: true,
     };
     sendSignInLinkToEmail(auth, email, actionCodeSettings)
-   /* if(isSignInWithEmailLink(auth, emailLink)) {
+    if(isSignInWithEmailLink(auth, emailLink)) {
         await signInWithEmailLink(auth, email , emailLink);
     }
-*/
+
         res.status(201).json({msg: "User create!"})
 
 } catch {
@@ -152,6 +150,7 @@ const PostLogin= async (req, res) => {
 module.exports= {
     allDataUser,
     UserByID,
+    UserByName,
     UserPost,
     UserUpdate,
     PostLogin,
