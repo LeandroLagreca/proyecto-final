@@ -37,22 +37,7 @@
       "RPG"
     ]
   },
-  {    "stock": 50,
-    "id": 4200,
-
-    "name": "Portal 2",
-    "background_image": "https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg",
-    "rating_api": 4.61,
-    "description": "<p>Portal 2 is a first-person puzzle game developed by Valve Corporation and released on April 19, 2011 on Steam, PS3 and Xbox 360. It was published by Valve Corporation in digital form and by Electronic Arts in physical form. </p>\n<p>Its plot directly follows the first game&#39;s, taking place in the Half-Life universe. You play as Chell, a test subject in a research facility formerly ran by the company Aperture Science, but taken over by an evil AI that turned upon its creators, GladOS. After defeating GladOS at the end of the first game but failing to escape the facility, Chell is woken up from a stasis chamber by an AI personality core, Wheatley, as the unkempt complex is falling apart. As the two attempt to navigate through the ruins and escape, they stumble upon GladOS, and accidentally re-activate her...</p>\n<p>Portal 2&#39;s core mechanics are very similar to the first game&#39;s ; the player must make their way through several test chambers which involve puzzles. For this purpose, they possess a Portal Gun, a weapon capable of creating teleportation portals on white surfaces. This seemingly simple mechanic and its subtleties coupled with the many different puzzle elements that can appear in puzzles allows the game to be easy to start playing, yet still feature profound gameplay. The sequel adds several new puzzle elements, such as gel that can render surfaces bouncy or allow you to accelerate when running on them.</p>\n<p>The game is often praised for its gameplay, its memorable dialogue and writing and its aesthetic. Both games in the series are responsible for inspiring most puzzle games succeeding them, particularly first-person puzzle games. The series, its characters and even its items such as the portal gun and the companion cube have become a cultural icon within gaming communities.</p>\n<p>Portal 2 also features a co-op mode where two players take on the roles of robots being led through tests by GladOS, as well as an in-depth level editor.</p>",
-    "price": "9.99",
-    "released": "2011-04-18",
-    "images": "https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg,https://media.rawg.io/media/screenshots/221/221a03c11e5ff9f765d62f60d4b4cbf5.jpg,https://media.rawg.io/media/screenshots/173/1737ff43c14f40294011a209b1012875.jpg,https://media.rawg.io/media/screenshots/b11/b11a2ae0664f0e8a1ef2346f99df26e1.jpg,https://media.rawg.io/media/screenshots/9b1/9b107a790909b31918ebe2f40547cc85.jpg,https://media.rawg.io/media/screenshots/d05/d058fc7f7fa6128916c311eb14267fed.jpg,https://media.rawg.io/media/screenshots/415/41543dcc12dffc8e97d85a56ad42cda8.jpg",
-    "requirements": null,
-    "genres": [
-      "Shooter",
-      "Puzzle"
-    ]
-  },
+ 
   {    "stock": 50,
     "id": 5286,
 
@@ -149,21 +134,7 @@
       "Shooter"
     ]
   },
-  {    "stock": 50,
-    "id": 3439,
-
-    "name": "Life is Strange",
-    "background_image": "https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg",
-    "rating_api": 4.11,
-    "description": "<p>Interactive storytelling and plot-heavy games gained popularity, and “Life is Strange” arrived as teen mystery adventure. The plot will go through the life of Maxine, a teenager in possession of curious power, allowing her to stop and rewind time, in order to manipulate her surroundings. Max, after the reunion with her friend Chloe, is on the path to uncovering the secrets of Arcadia Bay. Players will have to deal with puzzle solving through the fetch quests, in order to change the world around them. <br />\nThe game puts players in situations, where they’re forced to make a moral choice, going through the decision which may have short-term or long-term consequences. Every choice made by the player will trigger the butterfly effect, surrounding the first playthrough of the game with a lot of emotional struggle, thoughtfully crafted by the developers at Dontnod Entertainment. Life is Strange is third person adventure game, where players might seem just as an observer of the stories, unfolding in front of them.</p>",
-    "price": "6.99",
-    "released": "2015-01-29",
-    "images": "https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg,https://media.rawg.io/media/screenshots/edf/edfcbdf85f02f871263dabf1b4f0aa87.jpg,https://media.rawg.io/media/screenshots/4c6/4c6da2f36396d4ed51f82ba6159fa39b.jpg,https://media.rawg.io/media/screenshots/6aa/6aa56ef1485c8b287a913fa842883daa.jpg,https://media.rawg.io/media/screenshots/cb1/cb148b52fe857f5b0b83ae9c01f56d8e.jpg,https://media.rawg.io/media/screenshots/aea/aea38b33b90054f8fe4cc8bb05253b1d.jpg,https://media.rawg.io/media/screenshots/c1d/c1d6333b2da0f920e8de10c14d3c6093.jpg",
-    "requirements": null,
-    "genres": [
-      "Adventure"
-    ]
-  },
+ 
   {
     "id": 802,
     "stock": 50,
@@ -197,22 +168,7 @@
       "Adventure"
     ]
   },
-  {    "stock": 50,
-    "id": 13537
-    ,
-    "name": "Half-Life 2",
-    "background_image": "https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg",
-    "rating_api": 4.5,
-    "description": "<p>Gordon Freeman became the most popular nameless and voiceless protagonist in gaming history. He is painted as the most famous scientist and a hero within the world of Half-Life, and for a good reason. In the first game he saved the planet from alien invasion, this time, when the invasion is already begun, the world needs his help one more time. And you, as a player, will help this world to survive. This time Gordon arrives in City 17, ravaged and occupied by Combines, where he meets his old Black Mesa friends. <br />\nWhat is different, aside from the overall design quality, is the use of Valve’s Source engine that not only expands on the fluidity of character model animations and movement but allows players to interact with a myriad of objects with the advanced and realistic (to an extent) physics. Classic Headcrab Zombies are revamped and have new variants that provide players with different threats. For a story-driven FPS, Half-Life 2 is unique in its plot delivery, and making in-game mechanics feel natural, be it platforming or driving.</p>",
-    "price": "9.99",
-    "released": "2004-11-16",
-    "images": "https://media.rawg.io/media/games/b8c/b8c243eaa0fbac8115e0cdccac3f91dc.jpg,https://media.rawg.io/media/screenshots/8af/8af6188357426890cbc8c8a34d9e7b75.jpg,https://media.rawg.io/media/screenshots/3b5/3b542c954ba5bd2f32da067c8122cd80.jpg,https://media.rawg.io/media/screenshots/3d6/3d6066e45d259d2e83bf6767e6113d94.jpg,https://media.rawg.io/media/screenshots/e49/e49327df2404df6c5dafa8eac7990852.jpg,https://media.rawg.io/media/screenshots/5dd/5dd3e53131bbfe6278bd15b9abe261a0.jpg,https://media.rawg.io/media/screenshots/e99/e995e154d4f9e2df0367adea528a72c5.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "Shooter"
-    ]
-  },
+ 
   {    "stock": 50,
     "id": 4286,
 
@@ -279,24 +235,7 @@
       "RPG"
     ]
   },
-  {
-    "id": 32,
-    "stock": 50, 
-    "name": "Destiny 2",
-    "background_image": "https://media.rawg.io/media/games/34b/34b1f1850a1c06fd971bc6ab3ac0ce0e.jpg",
-    "rating_api": 3.56,
-    "released": "2017-09-06",
-    "description": "<p>Destiny 2 is an online multiplayer first-person shooter. You take on the role of a Guardian that needs to protect the last city on Earth from alien invaders. The game follows its predecessor, Destiny. The goal of the game is to return the Light that was stolen from the Guardians by the aliens.<br />\nDestiny 2 features two main activity types: player versus environment and player versus player. PvE is focused on exploration, story missions interaction with NPCs and side quests. PvP features 4v4 team matches in different modes. The game also allows taking part in group missions, such as three-player strikes and six-player raids.<br />\nDestiny 2 has a strong RPG aspect that includes character customization and development. There are three classes in the game - Warlock, Hunter, and Titan; they provide different playstyles depending on their specialization and unique abilities. To develop the character you can gain experience points completing the story and side missions.</p>",
-    "price": "38.15",
-    "images": "https://media.rawg.io/media/games/34b/34b1f1850a1c06fd971bc6ab3ac0ce0e.jpg,https://media.rawg.io/media/screenshots/818/818cc34134cb22fb18fda8edec7144a3.jpg,https://media.rawg.io/media/screenshots/003/003a559bc0b47a4e5f2928f18a8d9142.jpg,https://media.rawg.io/media/screenshots/75d/75d8fbb3254f5b06f1a3f9a026d9c122.jpg,https://media.rawg.io/media/screenshots/ca3/ca3bdc1a51fc90a96c860ab6db8a313c.jpg,https://media.rawg.io/media/screenshots/575/5751a70c954618a99ec574f32be7ad43.jpg,https://media.rawg.io/media/screenshots/2e7/2e7304d3b9e670f943d0bd1e4be090f0.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "Shooter",
-      "Adventure",
-      "Massively Multiplayer"
-    ]
-  },
+ 
   {    "stock": 50,
     "id": 11859
     ,
@@ -352,7 +291,7 @@
     "background_image": "https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg",
     "rating_api": 3.97,
     "description": "<p>Highly competitive soccer game with rocket-cars is the most comprehensive way to describe this game. Technically a sequel to Psyonix’ previous game - Supersonic Acrobatic Rocket-Powered Battle-Cars; Rocket League successfully became a standalone sensation, that can be enjoyed by anyone. Easy to learn, hard to master game mechanics are perfect for the tight controls. Players are invited to maneuver the different fields within several game modes, from arcade to ranked game either 1v1, or in 2v2 and 3v3 teams. Using boosters will not only speed up the car but will allow the car to propel itself into the air.<br />\nRocket League provides several levels of customization, where not only the color of your car can be adjusted, but the colors and form of the booster flame, different hats, and little flags. Or players can pick a completely different car. Collaboration with different franchises brought not only original transport but some famous cars, including Batmobile or Delorian from Back to the Future.</p>",
-    "price": null,
+   "price": "null",
     "released": "2015-07-07",
     "images": "https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg,https://media.rawg.io/media/screenshots/6a0/6a0745d9dcd0f7a368d372260baf91aa.jpg,https://media.rawg.io/media/screenshots/5ea/5ea8ab6a35f189489b2ec8713d4f1619.jpg,https://media.rawg.io/media/screenshots/508/5083fd170bf10606afd12afc7d17db04.jpg,https://media.rawg.io/media/screenshots/02d/02d36e8e01a9f1063c6431ce09324e24.jpg,https://media.rawg.io/media/screenshots/036/036ddade8156ac52ecf8de593123d12c.jpg,https://media.rawg.io/media/screenshots/861/8615727f6e52f1632ae38d71e9e4c800.jpg",
     "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 7 or Newer<br></li><li><strong>Processor:</strong> 2.4 GHz Dual core<br></li><li><strong>Memory:</strong> 2 GB RAM<br></li><li><strong>Graphics:</strong> NVIDIA GTX 260 or ATI 4850<br></li><li><strong>DirectX:</strong> Version 9.0c<br></li><li><strong>Network:</strong> Broadband Internet connection<br></li><li><strong>Storage:</strong> 7 GB available space</li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 7 or Newer<br></li><li><strong>Processor:</strong> 2.5+ GHz Quad core<br></li><li><strong>Memory:</strong> 4 GB RAM<br></li><li><strong>Graphics:</strong> NVIDIA GTX 660 or better, ATI 7950 or better<br></li><li><strong>DirectX:</strong> Version 9.0c<br></li><li><strong>Network:</strong> Broadband Internet connection<br></li><li><strong>Storage:</strong> 7 GB available space<br></li><li><strong>Additional Notes:</strong> Gamepad or Controller Recommended</li></ul>",
@@ -369,7 +308,7 @@
     "background_image": "https://media.rawg.io/media/games/83f/83f6f70a7c1b86cd2637b029d8b42caa.jpg",
     "rating_api": 3.05,
     "description": "<p>What used to be an unofficial modded map for the Warcraft 3, ended up being the most budgeted cybersport discipline, gathering millions of people to watch annual international championships.<br />\nMOBA genre started with the DOTA, Defense of the Ancients, which can be efficiently described as 5 vs 5 top-down action strategy game, during which players are tasked to destroy the enemy core while protecting their own.<br />\nPlayers can pick out of the roster of 112 heroes and battle on the single map while taking advantage of field vision, resources and item build that can either make heroes stronger or disable the enemy. DOTA 2 is still active, and receives updates weekly, reshaping metas and refreshing game balance, if by any chance some heroes became unreasonably strong. Each hero has not only a unique set of abilities but is fully customizable, through getting items for heroes after matches of through the trade. Not only heroes but terrain, couriers, that deliver items for you and even match announcers, that can be voiced by heroes, professional casters of just memorable characters from other forms of media.</p>",
-    "price": null,
+   "price": "null",
     "released": "2013-07-09",
     "images": "https://media.rawg.io/media/games/83f/83f6f70a7c1b86cd2637b029d8b42caa.jpg,https://media.rawg.io/media/screenshots/cef/cefd0f45c88be2d6e2ff7eed94c16cf3.jpg,https://media.rawg.io/media/screenshots/e2a/e2a1a6c8b07bcdb91d7c6050b16854c5.jpg,https://media.rawg.io/media/screenshots/55e/55e2c2ff16229eef87cfd8728ca537ac.jpg,https://media.rawg.io/media/screenshots/601/601ceb08d04da42f4de5d8b9016f31a6.jpg,https://media.rawg.io/media/screenshots/f02/f02a389dafd748b801cb4ff971a868af.jpg,https://media.rawg.io/media/screenshots/da6/da6e4cba4e5787674d0e6877d1fc426a.jpg",
     "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 7 or newer<br></li><li><strong>Processor:</strong> Dual core from Intel or AMD at 2.8 GHz<br></li><li><strong>Memory:</strong> 4 GB RAM<br></li><li><strong>Graphics:</strong> nVidia GeForce 8600/9600GT, ATI/AMD Radeon HD2600/3600<br></li><li><strong>DirectX:</strong> Version 9.0c<br></li><li><strong>Network:</strong> Broadband Internet connection<br></li><li><strong>Storage:</strong> 15 GB available space<br></li><li><strong>Sound Card:</strong> DirectX Compatible</li></ul>",
@@ -543,7 +482,7 @@
     ,
     "name": "Half-Life 2: Lost Coast",
     "description": "<p>Essentially a tech demo, “Half-Life 2: Lost Coast” sole purpose was to show off the new high-dynamic-range-rendering of the Source engine, it was a welcome addition to the franchise. It’s a free addition to the game that can be downloaded through Steam by the owners of Half-Life 2. Gordon Freeman founds himself near a group of decaying piers, fully armed and ready to explore the monastery above him, fighting through the Combine forces.<br />\nHigh-dynamic-range-rendering introduced realistic lighting effects to the game, emulating even camera’s overexposure to the bright light, which was eventually moved to the main game. Lost Coast story is conveyed without cutscenes, every part of the level is tailored specifically to demonstrate the changes, made by developers. Even though it was originally created for the Half-Life 2, it was removed from the main game, alongside some minor story details. It’s not a full standalone game and wasn’t intended as one.</p>",
-    "price": null,
+   "price": "null",
     "background_image": "https://media.rawg.io/media/games/b7b/b7b8381707152afc7d91f5d95de70e39.jpg",
     "rating_api": 3.45,
     "released": "2005-10-27",
@@ -560,7 +499,7 @@
     "background_image": "https://media.rawg.io/media/games/960/960b601d9541cec776c5fa42a00bf6c4.jpg",
     "rating_api": 4.51,
     "description": "<p>Grand Theft Auto - San Andreas is the seventh entry in the series in the GTA franchise, but only second big title after GTA - Vice City. Setting up in fictional state San Andreas, you follow the story of CJ, a member of one of the multiple gangs in the city. CJ&#39;s family is being attacked in drive shooting which resulted in the death of CJ&#39;s mother, so he returns to home from Liberty City. Meeting the rest of the family at his mom&#39;s funeral, he decides to rebuild the gang and gain control of the state.</p>\n<p>The game makes a brilliant connection with missions and open world actions that you are able to do around the cities. You can steal cars, buy guns, hunt for collectables and do some side quests, while different characters give you specific missions in order to push the plot forward. Streets are filled with people as well as plenty of vehicles to steal. Fictional brands of cars, tanks, bikes are available to be stolen from any place around the city. Armoury contains pistols, rifles, hand-machine guns or a rocket launcher as well as melee weapons giving player freedom in anything he&#39;s doing in GTA.</p>",
-    "price": null,
+   "price": "null",
     "released": "2004-10-26",
     "images": "https://media.rawg.io/media/games/960/960b601d9541cec776c5fa42a00bf6c4.jpg,https://media.rawg.io/media/screenshots/679/679c267107151f01696d3c8ea71ac650.jpg,https://media.rawg.io/media/screenshots/560/560610b498ef079e1f45ec83b039cbc7.jpg,https://media.rawg.io/media/screenshots/c8c/c8cf7ea395e6aa2e46abee36d9d2d699.jpg,https://media.rawg.io/media/screenshots/191/191445072d9e85b6ad7ffed5152fc17a.jpg,https://media.rawg.io/media/screenshots/bfe/bfe3c652960e2b6869c608a58d69d327.jpg,https://media.rawg.io/media/screenshots/436/436134f55bd10cfd7a6fd1ded7487355.jpg",
     "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Microsoft® Windows® 2000/XP<br></li><li><strong>Processor:</strong> 1Ghz Pentium III or AMD Athlon Processor<br></li><li><strong>Memory:</strong> 256MB of RAM<br></li><li><strong>Graphics:</strong> 64MB Video Card (Geforce 3 or better)<br></li><li><strong>Hard Drive:</strong> 3.6GB of free hard disk space (minimal install)<br></li><li><strong>Other Requirements:</strong> Software installations required including DirectX and Sony DADC SecuROM<br></li><li><strong>Partner Requirements:</strong> Please check the terms of service of this site before purchasing this software.</li></ul>,Recommended:<br><ul class=\"bb_ul\"><li><strong>Processor:</strong> Intel Pentium 4 or AMD Athlon XP Processor<br></li><li><strong>Memory:</strong> 384MB of RAM (the more the better!)<br></li><li><strong>Graphics:</strong> 128MB (or greater) Video Card (Geforce 6 Series Recommended)<br></li><li><strong>Hard Drive:</strong> 4.7GB of free hard disk space (full install)<br></li><li><strong>Sound Card:</strong> DirectX 9 compatible Sound Card (Sound Blaster Auidgy 2 Recommended)</li></ul>",
@@ -1035,7 +974,7 @@
     "background_image": "https://media.rawg.io/media/games/d0f/d0f91fe1d92332147e5db74e207cfc7a.jpg",
     "rating_api": 3.64,
     "description": "<p>Path of Exile is inspired by Diablo II and follows it basically in most of the aspects. Randomly filled pre-set of locations, heavy grind and a possibility of replaying most of the areas leaves us with only one possible outcome. </p>\n<p>Players wake up on grim shores of Wraeclast. Without any knowledge who we are or what have we done, players must start to explore an aggressive and cruel fantasy world of criminals, bandits and murderers. Discover the mystery of a long forgotten the Eternal Empire, and survive.</p>\n<p>Mechanics are pretty simple. Choose one of six different classes, gather gems for more skills to use and grind good and synergising equipment. Due to replaying, you can grind any needed equipment or resources to buy it from vendors. Infinite loop of gameplay will still be challenging. The cooperative mode allows beating the game with a party of friends up to six people at the same time.</p>",
-    "price": null,
+   "price": "null",
     "released": "2013-10-23",
     "images": "https://media.rawg.io/media/games/d0f/d0f91fe1d92332147e5db74e207cfc7a.jpg,https://media.rawg.io/media/screenshots/a5d/a5d0fcbe81728387c396d1643480c8b9.jpg,https://media.rawg.io/media/screenshots/756/7567039877f95cf47333503925c62aa2.jpg,https://media.rawg.io/media/screenshots/4db/4dbb68a20d12cc5667a88430b3e47bdf.jpg,https://media.rawg.io/media/screenshots/77a/77af4e7670499a9d637e4cb8a0312d09.jpg,https://media.rawg.io/media/screenshots/c95/c958615c946d6c865bf697afdf7cd995.jpg,https://media.rawg.io/media/screenshots/e87/e87093d3b9d8866c9b3d759ee5435f0c.jpg",
     "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows XP SP3/Vista/Windows 7/8<br></li><li><strong>Processor:</strong> x86-compatible 1.4GHz or faster processor<br></li><li><strong>Memory:</strong> 2 GB RAM<br></li><li><strong>Graphics:</strong> NVIDIA® GeForce® 7800 GT or ATI Radeon™ X1950 Pro or better<br></li><li><strong>DirectX:</strong> Version 9.0c<br></li><li><strong>Network:</strong> Broadband Internet connection<br></li><li><strong>Storage:</strong> 8 GB available space</li></ul>",
@@ -1203,7 +1142,7 @@
     "background_image": "https://media.rawg.io/media/games/13a/13a528ac9cf48bbb6be5d35fe029336d.jpg",
     "rating_api": 4.45,
     "description": "<p>Grand Theft Auto: Vice City is a third-person shooter with an open world. The game is set in a fictional city during the 1980’s and exhibits a unique design of locations, people, and objects, resembling the real world’s counterparts of Vice City, mainly Miami, FL. GTA: Vice City is a fourth game of the series, following Grand Theft Auto III.</p>\n<p>The main character is introduced as Tommy Vercetti, an Italian-American mobster who works for a wealthy crime family. Throughout the story, the player will observe as the protagonist rises the ranks, sometimes making decisions of questionable nobility or profit. Our goal as a player is to ensure that Vercetti becomes the boss of all of Vice City’s mafia, and various story characters will help us or prevent us from achieving this goal.</p>\n<p>The worlds of Grand Theft Auto series have long been worked upon and have been done in much detail, and Vice City is no different. The people on the sidewalks, the stylish cars and neon light clubs, the sky-high buildings and lively piers and beaches, everything will bring nostalgic feelings to those of players, whose eyes have seen the glory of this time. The gameplay, however, bears little difference from its predecessor, continuing the trend of big guns, explosions, and cop chases.</p>",
-    "price": null,
+   "price": "null",
     "released": "2002-10-27",
     "images": "https://media.rawg.io/media/games/13a/13a528ac9cf48bbb6be5d35fe029336d.jpg,https://media.rawg.io/media/screenshots/dfd/dfd73edec49df98ca9cd6736eeba1049.jpg,https://media.rawg.io/media/screenshots/41b/41bab662e69407ebdea4f9c2620ea964.jpg,https://media.rawg.io/media/screenshots/866/8669e298a904fce58ba84ab0a9205c01.jpg,https://media.rawg.io/media/screenshots/579/57946b3f520595bf96c77e9c36ea5a9a.jpg,https://media.rawg.io/media/screenshots/8d8/8d84dcd621ea9cc54ffec9ab6040f799.jpg,https://media.rawg.io/media/screenshots/bd2/bd2b4586b6acabf7ee39400d3ad5fa66.jpg",
     "requirements": "<strong>Minimum:</strong><br>\t\t\t\t\t<ul class=\"bb_ul\"><li><strong>OS:</strong> Microsoft® Windows® 2000/XP<br>\t\t\t\t\t</li><li><strong>Processor:</strong> 800 MHz Intel Pentium III or 800 MHz AMD Athlon or 1.2GHz Intel Celeron or 1.2 GHz AMD Duron processor<br>\t\t\t\t\t</li><li><strong>Memory:</strong> 128 MB of RAM<br>\t\t\t\t\t</li><li><strong>Graphics:</strong> 32 MB video card with DirectX 9.0 compatible drivers (&quot;GeForce&quot; or better)<br>\t\t\t\t\t</li><li><strong>DirectX Version:</strong> Microsoft DirectX® 9.0<br>\t\t\t\t\t</li><li><strong>Hard Drive:</strong> 915 MB of free hard disk space (+ 635 MB if video card does NOT support DirectX Texture Compression)<br>\t\t\t\t\t</li><li><strong>Sound Card:</strong> Sound Card with DirectX 9.0</li></ul><strong>Recommended:</strong><br>\t\t\t\t\t<ul class=\"bb_ul\"><li><strong>Processor:</strong> Intel Pentium IV or AMD Athlon XP processor 256(+) MB of RAM<br>\t\t\t\t\t</li><li><strong>Memory:</strong> 1.55 GB of free hard disk space(+ 635 MB if video card does NOT support DirectX Texture Compression)<br>\t\t\t\t\t</li><li><strong>Graphics:</strong> 64(+) MB video card with DirectX 9.0 compatible drivers (&quot;GeForce 3&quot; / &quot;Radeon 8500&quot; or better with DirectX Texture Compression support)</li></ul>",
@@ -1256,22 +1195,6 @@
     "released": "2016-10-27",
     "images": "https://media.rawg.io/media/games/62c/62c7c8b28a27b83680b22fb9d33fc619.jpg,https://media.rawg.io/media/screenshots/e38/e387d8f781c00520eccb5934b95f1720.jpg,https://media.rawg.io/media/screenshots/d48/d48ce46dd0dfd32c374c4e8c09dd370c.jpg,https://media.rawg.io/media/screenshots/8d4/8d4ad7d58d614d82e3933f69095e6b23.jpg,https://media.rawg.io/media/screenshots/dd3/dd340c1c2c146f41d48f505a58dada09.jpg,https://media.rawg.io/media/screenshots/ae1/ae167fabd67a73cac9ef8c99690572bf.jpg,https://media.rawg.io/media/screenshots/e8b/e8b57630f5924da6633a07777f1a8c7a.jpg",
     "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 7/8.1/10 (64-bit Version)<br></li><li><strong>Processor:</strong> Intel i5-750/AMD Phenom II X4-945<br></li><li><strong>Memory:</strong> 8 GB RAM<br></li><li><strong>Graphics:</strong> NVIDIA GTX 470 1GB /AMD HD 7870 2GB<br></li><li><strong>Storage:</strong> 12 GB available space</li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 7/8.1/10 (64-bit Version)<br></li><li><strong>Processor:</strong> Intel i5-2400/AMD FX-8320<br></li><li><strong>Memory:</strong> 8 GB RAM<br></li><li><strong>Graphics:</strong> NVIDIA GTX 780 3GB /AMD R9 290 4GB<br></li><li><strong>Storage:</strong> 12 GB available space</li></ul>",
-    "genres": [
-      "Action",
-      "RPG"
-    ]
-  },
-  {    "stock": 50,
-    "id": 3387,
-
-    "name": "Bloodborne",
-    "background_image": "https://media.rawg.io/media/games/214/214b29aeff13a0ae6a70fc4426e85991.jpg",
-    "rating_api": 4.4,
-    "description": "<p>Bloodborne is an action-RPG and another member of souls-like title series. The game has no predecessors or successors, making it the only entry with one add-on: “The Old Hunters.” The Bloodborne universe, however, also includes a comics and a board game.</p>\n<p>Generally resembling the Dark Souls series, Bloodborne, however, has some different mechanics and the pace of combat is increased thanks to the risk-rewarding battle system. Another difference is multiplayer, which comes in two kinds: you can summon other players into your game and fight bosses side by side or you can fight impostors, who are other players invading your playthrough.</p>\n<p>Throughout the game, you are forced to explore an enormous open world of Yharnam, which looks like alternate universe Lovecraft-inspired Victorian-era England, as The Hunter. You meet horrific bosses, explore vast areas, houses and open spaces while continually dodging, attacking and trying not to get killed by a massive number of hostile NPCs.</p>",
-    "price": "19.99",
-    "released": "2015-03-24",
-    "images": "https://media.rawg.io/media/games/214/214b29aeff13a0ae6a70fc4426e85991.jpg,https://media.rawg.io/media/screenshots/75a/75a67f69575ebfc412a70cdde7fb8923.jpg,https://media.rawg.io/media/screenshots/280/280b0e8492a247b718a3c14c41052a16.jpg,https://media.rawg.io/media/screenshots/d8e/d8e17e4899561a0a25e0728541b1cac9.jpg,https://media.rawg.io/media/screenshots/48c/48cfa5b44c1a6787971889bc7646ca47.jpg,https://media.rawg.io/media/screenshots/472/472f9b7dfb71ac5d6880e94dd1c1a77c.jpg,https://media.rawg.io/media/screenshots/c6d/c6de8c602de1cf1798353aa83a830948.jpg",
-    "requirements": null,
     "genres": [
       "Action",
       "RPG"
@@ -1359,22 +1282,6 @@
     ]
   },
   {    "stock": 50,
-    "id": 50738
-    ,
-    "name": "Death Stranding",
-    "background_image": "https://media.rawg.io/media/games/2ad/2ad87a4a69b1104f02435c14c5196095.jpg",
-    "rating_api": 4.35,
-    "description": "<p>Sam Bridges must brave a world utterly transformed by the Death Stranding. Carrying the stranded remnants of the future in his hands, Sam embarks on a journey to reunite the shattered world one step at a time. What is the mystery of the Death Stranding? What will Sam discover on the road ahead? A genre defining gameplay experience holds these answers and more.</p>\n<p>Experience a journey like nothing before it, from legendary game creator Hideo Kojima. Take control of working man Sam Bridges, as he braves a deadly and mysterious world where death’s tide lurks everywhere.</p>\n<p>Featuring an all-star cast, including Norman Reedus, Mads Mikkelsen, Lindsay Wagner, Léa Seydoux and Guillermo del Toro, Death Stranding is a unique and unforgettable game.</p>",
-    "price": "30.49",
-    "released": "2019-11-08",
-    "images": "https://media.rawg.io/media/games/2ad/2ad87a4a69b1104f02435c14c5196095.jpg,https://media.rawg.io/media/screenshots/9da/9da640f5aa62f6fc00a4d1d255460737.jpg,https://media.rawg.io/media/screenshots/3d2/3d2a4337cf7673b086a1623d9e5ed2f3.jpg,https://media.rawg.io/media/screenshots/5f3/5f3bc8289f9545db69a30fc414e94186.jpg,https://media.rawg.io/media/screenshots/2b7/2b731c32ebc308c30abe974cd1266648.jpg,https://media.rawg.io/media/screenshots/460/4606e5ba14266eb2292cea7444e4239b.jpg,https://media.rawg.io/media/screenshots/2f1/2f10403f41e636dac29d1af2c5c1b982.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "Adventure"
-    ]
-  },
-  {    "stock": 50,
     "id": 3017,
 
     "name": "Just Cause 3",
@@ -1406,22 +1313,7 @@
       "Fighting"
     ]
   },
-  {
-    "id": 864,
-    "stock": 50,
-    "name": "Dishonored 2",
-    "background_image": "https://media.rawg.io/media/games/f6b/f6bed028b02369d4cab548f4f9337e81.jpg",
-    "rating_api": 4.26,
-    "description": "<p>Dishonored 2 is an action-adventure game based on players’ stealth skill. The game is played from the first-person perspective and includes several RPG elements. It is a sequel to the original Dishonored game, so the story takes place in Dunwall and mostly in Karnaca 12 years after the ending of the previous part. To start the action, the player has to decide whether he wants to assume the role of deposed Empress Emily or the role of her father and the Royal Protector Corvo, the protagonist of the first Dishonored game. Both characters have their own bunch of special abilities so the choice will influence the way of returning to the throne. In the course of the game, both equipment and abilities can be upgraded. The storyline is divided into several main missions and includes various side quests that let protagonists get acquainted with the useful new skills. Although the gameplay is initially focused on the stealth, actually there is a multitude of ways to complete all the missions and to return the lost honor.</p>",
-    "price": "26.28",
-    "released": "2016-11-10",
-    "images": "https://media.rawg.io/media/games/f6b/f6bed028b02369d4cab548f4f9337e81.jpg,https://media.rawg.io/media/screenshots/236/2365eaea84505996adbe4aca614d0c4f.jpg,https://media.rawg.io/media/screenshots/85f/85f8c2dc0586003913c5924add0ca0b7.jpg,https://media.rawg.io/media/screenshots/597/59749ba429e176f45abee6ced14de963.jpg,https://media.rawg.io/media/screenshots/ce3/ce3f8d7fc8b1973ea41efa8f69ee8074.jpg,https://media.rawg.io/media/screenshots/cad/cad513106134c55e71ec4a62a217287f.jpg,https://media.rawg.io/media/screenshots/d94/d9402537f42b3a273468b72e662d13df.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "RPG"
-    ]
-  },
+  
   {
     "id": 613,
     "stock": 50,
@@ -1583,25 +1475,7 @@
       "Shooter"
     ]
   },
-  {
-    "stock": 50,
-    "id": 326292,
-    "name": "Fall Guys: Ultimate Knockout",
-    "background_image": "https://media.rawg.io/media/games/5eb/5eb49eb2fa0738fdb5bacea557b1bc57.jpg",
-    "rating_api": 3.76,
-    "description": "<p>Fall Guys: Ultimate Knockout flings hordes of contestants together online in a mad dash through round after round of escalating chaos until one victor remains! Battle bizarre obstacles, shove through unruly competitors, and overcome the unbending laws of physics to avoid both humiliation and elimination. Leave your dignity at the door and prepare for hilarious failure in your quest for the crown!<br />\nMassive Online Pandemonium: Dive into a series of ridiculous challenges and wild obstacle courses with 100 competitors online, all with the hopes of making the cut and advancing to the next round of mayhem.<br />\nCompetitive &amp; Cooperative: Shift between brutally competitive free-for-alls and cooperative challenges where only the winning team advance to the next round!<br />\nComically Physical: Watch in delight as your fellow competitors bend, bounce, and bash their way to hilarious, physics-based failure!<br />\nDelightfully Customizable: Fail in style with everything from fashionable pineapple couture to the latest in bunny hats available to customize your look in Fall Guys.</p>",
-    "price": null,
-    "released": "2020-08-04",
-    "images": "https://media.rawg.io/media/games/5eb/5eb49eb2fa0738fdb5bacea557b1bc57.jpg,https://media.rawg.io/media/screenshots/1c5/1c5d40d58ac34b04576ffd7072989eea.jpg,https://media.rawg.io/media/screenshots/5a7/5a7accdc9cc61aa844b2d4f64f4c94b3.jpeg,https://media.rawg.io/media/screenshots/37c/37cecc1f17ad71b26fbbc5a651a4fe9b.jpg,https://media.rawg.io/media/screenshots/9c7/9c7a057ff1ce9122e66847b0eeedd20f.jpg,https://media.rawg.io/media/screenshots/af7/af7ccaa5f7c2826d9f41cd0fd5c16d4d.jpg,https://media.rawg.io/media/screenshots/4b1/4b118c6bc02c21ffcac1cb44717666a9.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "Sports",
-      "Casual",
-      "Massively Multiplayer",
-      "Indie"
-    ]
-  },
+ 
   {
     "id": 923,
     "stock": 50,
@@ -1651,23 +1525,7 @@
       "Platformer"
     ]
   },
-  {
-    "id": 480,
-    "stock": 50,
-    "name": "Resident Evil 7: Biohazard",
-    "background_image": "https://media.rawg.io/media/games/cee/cee577e2097a59b77193fe2bce94667d.jpg",
-    "rating_api": 4.33,
-    "description": "<p>Resident Evil 7: Biohazard is the latest installment in the Resident Evil series. For 13 long years, Resident Evil series were rejecting the survival-horror aspect and atmosphere of first original games in the series mainly released in nineties on PlayStation one system. From the famous Resident Evil 4 until Resident Evil 6, the series went full-force into action genre leaving horror elements behind and hard-core fans disappointed. Finally, Capcom realized that Resident Evil needs a change and Resident Evil 7: Biohazard delivers those changes at its fullest. First of all, the camera angle changed from over the shoulder view into first-person mode. Another change is that survival-horror elements are back together with light puzzle solving, inventory management and maze-like mansion in which the main story of the game happens. The player controls Ethan Winters who is searching for his lost wife in a dark mansion filled with horrible creatures and insane family. <br />\nResident Evil 7: Biohazard can also be played with virtual reality setup and it’s known as one of the best games which supports VR.</p>",
-    "price": "8.99",
-    "released": "2017-01-23",
-    "images": "https://media.rawg.io/media/games/cee/cee577e2097a59b77193fe2bce94667d.jpg,https://media.rawg.io/media/screenshots/9c7/9c7016a1d1a8f66d67266e35452a3cf4.jpg,https://media.rawg.io/media/screenshots/315/3152c8a5165faaefc5429ab54399e3a6.jpg,https://media.rawg.io/media/screenshots/753/753c32daa8a2685f6aecc052e85197f7.jpg,https://media.rawg.io/media/screenshots/3f9/3f916c888d9e135adb456399550fd03e.jpg,https://media.rawg.io/media/screenshots/9bd/9bd7368147200c3e1e615950c4f3fc73.jpg,https://media.rawg.io/media/screenshots/804/804d33ab33db680543a6df814c15c8e3.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "Shooter",
-      "Adventure"
-    ]
-  },
+  
   {    "stock": 50,
     "id": 17576
     ,
@@ -1852,20 +1710,7 @@
       "Adventure"
     ]
   },
-  {    "stock": 50,
-    "id": 58654
-    ,
-    "name": "Hitman 2",
-    "background_image": "https://media.rawg.io/media/games/858/858c016de0cf7bc21a57dcc698a04a0c.jpg",
-    "rating_api": 4.04,
-    "released": "2018-11-13",
-    "images": "https://media.rawg.io/media/games/858/858c016de0cf7bc21a57dcc698a04a0c.jpg,https://media.rawg.io/media/screenshots/787/7872b36b20cef1baf445317f5d72716a.jpg,https://media.rawg.io/media/screenshots/b06/b06268c8a5b5948eb80916eb9feba028.jpg,https://media.rawg.io/media/screenshots/d70/d705d2dc0fc9f0a679c6fa17a0d1b99f.jpg,https://media.rawg.io/media/screenshots/16b/16b1268158bea29f5779f360ec60b0f1.jpg,https://media.rawg.io/media/screenshots/26c/26cde3952d7fb62b7d667accb71ade95.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "Shooter"
-    ]
-  },
+  
   {    "stock": 50,
     "id": 4003,
 
@@ -1894,20 +1739,6 @@
     ]
   },
   {    "stock": 50,
-    "id": 50734
-    ,
-    "name": "Sekiro: Shadows Die Twice",
-    "background_image": "https://media.rawg.io/media/games/67f/67f62d1f062a6164f57575e0604ee9f6.jpg",
-    "rating_api": 4.38,
-    "released": "2019-03-22",
-    "images": "https://media.rawg.io/media/games/67f/67f62d1f062a6164f57575e0604ee9f6.jpg,https://media.rawg.io/media/screenshots/198/198257c08163153e72a31bd61a6cd70b.jpg,https://media.rawg.io/media/screenshots/9b3/9b3add83516f3737b8054c7469be282a.jpg,https://media.rawg.io/media/screenshots/64d/64d71a80b0033e091b35c3948046605b.jpg,https://media.rawg.io/media/screenshots/8d7/8d77b08c45b3232961b443677fa06a5f.jpg,https://media.rawg.io/media/screenshots/a96/a96e960d87fc209488ef25da79b92a84.jpg,https://media.rawg.io/media/screenshots/8ed/8edc8d65ba1c1ab001a3fb1bd6fdeeb6.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "RPG"
-    ]
-  },
-  {    "stock": 50,
     "id": 15002
     ,
     "name": "The Stanley Parable",
@@ -1933,20 +1764,6 @@
     "genres": [
       "Action",
       "Shooter"
-    ]
-  },
-  {    "stock": 50,
-    "id": 28153
-    ,
-    "name": "Assassin's Creed Origins",
-    "background_image": "https://media.rawg.io/media/games/336/336c6bd63d83cf8e59937ab8895d1240.jpg",
-    "rating_api": 4.01,
-    "released": "2017-10-27",
-    "images": "https://media.rawg.io/media/games/336/336c6bd63d83cf8e59937ab8895d1240.jpg,https://media.rawg.io/media/screenshots/5c8/5c8c5889c81eb226b182e6df4018a29a.jpg,https://media.rawg.io/media/screenshots/0cf/0cf5ed35a3906f32967cb476c11c5d49.jpg,https://media.rawg.io/media/screenshots/313/3132876284966c4d055d752e7edc5509.jpg,https://media.rawg.io/media/screenshots/b3f/b3fe4ade2ed930cbd8253269ff38ba28.jpg,https://media.rawg.io/media/screenshots/2d7/2d7a5c1b08e5cc5bc7c371094376637c.jpg,https://media.rawg.io/media/screenshots/0a2/0a24d82ed3f2d35726d17e4c73593721.jpeg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "RPG"
     ]
   },
   {    "stock": 50,
@@ -1998,23 +1815,7 @@
       "Shooter"
     ]
   },
-  {    "stock": 50,
-    "id": 28154
-    ,
-    "name": "Cuphead",
-    "background_image": "https://media.rawg.io/media/games/226/2262cea0b385db6cf399f4be831603b0.jpg",
-    "rating_api": 4.39,
-    "description": "<p>Hand-drawn 2D platformer in the style of 30s cartoons. 2D Dark Souls as the fans refer to the difficulty of this one. It took developers 6 years to create and polish their magnum opus. Cuphead is a classic run and gun adventure that heavily emphasizes on boss battles.</p>\n<p>Play as Cuphead or his brother Mugman that signed a deal with the devil and know needs to bring the master souls of its debtors. Players can go through the campaign single-handedly or with a friend using built-in co-op capabilities. </p>\n<p>The backgrounds, characters and other miscellaneous staff were painstakingly created using the methods from the era it mimics; Every character and every scene were hand-drawn to mimic vintage American cartoons. Each note in the orchestral soundtrack was composed with unparalleled attention to detail. Cuphead is an addictive mix of bone-crushing difficulty, fun and audiovisual feast that instantly makes you crave for more.</p>",
-    "price": "19.99",
-    "released": "2017-09-29",
-    "images": "https://media.rawg.io/media/games/226/2262cea0b385db6cf399f4be831603b0.jpg,https://media.rawg.io/media/screenshots/f07/f07f356b4d50a0035efcb6abf3834e4e.jpg,https://media.rawg.io/media/screenshots/bf8/bf8dd4951e4dbd0c608881c367a60a24.jpg,https://media.rawg.io/media/screenshots/344/344d6cb35e3dbc0faba8659a5a78e67a.jpg,https://media.rawg.io/media/screenshots/ade/ade103b6a1ce035f5e7f25c65b6bbe42.jpg,https://media.rawg.io/media/screenshots/5c1/5c19e99a6d4a2fcd8037587ff1505b11.jpg,https://media.rawg.io/media/screenshots/dc5/dc5d251100154f7502b4b8510591cc5d.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "Indie",
-      "Platformer"
-    ]
-  },
+  
   {    "stock": 50,
     "id": 13305
     ,
@@ -2028,22 +1829,6 @@
     "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows Vista® (SP2) / Windows® 7 (SP1) / Windows® 8<br>\t</li><li><strong>Processor:</strong> 2.60 GHz Intel® Core™2 Duo E8200 or 2.60 GHz AMD Athlon™ II X4 620 <br>\t</li><li><strong>Memory:</strong> 2 GB<br>\t</li><li><strong>Graphics:</strong> 512 MB DirectX® 10—compliant with Shader Model 4.0 or higher (see supported list)*<br>\t</li><li><strong>DirectX®:</strong> 10<br>\t</li><li><strong>Hard Drive:</strong> 17 GB<br>\t</li><li><strong>Sound:</strong> DirectX 10—compliant (5.1 surround sound recommended)<br>\t</li><li><strong>Multiplayer:</strong> 256 kbps or faster broadband connection<br>\t</li><li><strong>Peripherals:</strong> Windows-compatible keyboard, mouse, optional controller (Xbox 360 Controller for Windows recommended)<br>*Supported Video Cards at Time of Release:<br><br>AMD Radeon™ HD 4850 / 5000 / 6000 / 7000 series<br><br>NVIDIA® GeForce® 8800 GT / 9 / 200 / 400 / 500 / 600 series<br><br>Laptop versions of these cards may work, but are not supported. These chipsets are the only ones that will run this game. For the most up-to-date minimum requirement listings, please visit the FAQ on our support website.<br><br>Requires a <a href=\"https://steamcommunity.com/linkfilter/?url=http://support.ubi.com\" target=\"_blank\" rel=\"noopener\"  >Uplay Account</a></li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows Vista® (SP2) / Windows® 7 (SP1) / Windows® 8<br>\t</li><li><strong>Processor:</strong> 2.66 GHz Intel® Core™2 Quad Q9400 or 3.00 GHz AMD Phenom™ II X4 940<br>\t</li><li><strong>Memory:</strong> 4 GB<br>\t</li><li><strong>Graphics:</strong> 1024 MB DirectX® 10—compliant with Shader Model 5.0 or higher (see supported list)*<br>\t</li><li><strong>DirectX®:</strong> 10 <br>\t</li><li><strong>Hard Drive:</strong> 17 GB<br>\t</li><li><strong>Sound:</strong> DirectX 10–compliant (5.1 surround sound recommended)<br>\t</li><li><strong>Multiplayer:</strong> 256 kbps or faster broadband connection<br>\t</li><li><strong>Peripherals:</strong> Windows-compatible keyboard, mouse, optional controller (Xbox 360 Controller for Windows recommended)<br>*Supported Video Cards at Time of Release:<br><br>AMD Radeon™ HD 4850 / 5000 / 6000 / 7000 series<br><br>NVIDIA® GeForce® 8800 GT / 9 / 200 / 400 / 500 / 600 series<br><br>Laptop versions of these cards may work, but are not supported. These chipsets are the only ones that will run this game. For the most up-to-date minimum requirement listings, please visit the FAQ on our support website.<br><br>Requires a <a href=\"https://steamcommunity.com/linkfilter/?url=http://support.ubi.com\" target=\"_blank\" rel=\"noopener\"  >Uplay Account</a></li></ul>",
     "genres": [
       "Action"
-    ]
-  },
-  {    "stock": 50,
-    "id": 4544,
-
-    "name": "Red Dead Redemption",
-    "background_image": "https://media.rawg.io/media/games/686/686909717c3aa01518bc42ae2bf4259e.jpg",
-    "rating_api": 4.42,
-    "description": "<p>Red Dead Redemption is a third-person open-world adventure game which implements the Wild West at its best: it is very much GTA-clone but in bizarre stylistics and the very beginning of the twentieth century. This is the second title of a franchise, being preceded by Red Dead Revolver and followed by Red Dead Redemption 2 coming out in late 2018. <br />\nWe play as John Marston who gradually takes down and take out criminals and those, who crosses his path. Among the combat mechanics, the most interesting one is &quot;Dead Eye&quot; — it allows one to point multiple targets out in slow motion and then shoot them simultaneously. <br />\nThe game features 16-players multiplayer and cooperative and also has zombie DLC — Undead Nightmare. Additional content adds two modes to the original game: undead overrun in which you have to survive an infinite amount of zombie waves, and Land Grab in which player has to defend the particular piece of land to gain control of it.</p>",
-    "price": "50.39",
-    "released": "2010-05-18",
-    "images": "https://media.rawg.io/media/games/686/686909717c3aa01518bc42ae2bf4259e.jpg,https://media.rawg.io/media/screenshots/cf4/cf4ff03cc16bf7ccff78c1fb38bcafc2.jpg,https://media.rawg.io/media/screenshots/304/304ad0c33748eff98812f057592741b6.jpg,https://media.rawg.io/media/screenshots/ef7/ef743c271d18cf643a47543bf73fcf78.jpg,https://media.rawg.io/media/screenshots/8f7/8f76b9883f00955461bb4f57cbf64914.jpg,https://media.rawg.io/media/screenshots/7aa/7aafdcf2cf8a9863673b767f368a3291.jpg,https://media.rawg.io/media/screenshots/495/495b5bc877060900fcad68d5c6fb19b2.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "Shooter"
     ]
   },
   {    "stock": 50,
@@ -2085,7 +1870,7 @@
     "background_image": "https://media.rawg.io/media/games/93e/93ee6101e1c943732f06080dddb0fe4c.jpg",
     "rating_api": 2.69,
     "description": "<p>Unturned is a low-poly survival game providing single or multiplayer experience. The main action takes place on 6 different maps (Prince Edward Island, Yukon, Washington, Germany and Russia) flooded with zombies. The story begins in the random location of the chosen map and lasts till the death. Playing for one of the few people not yet turned into a zombie, you should stay aware of various natural or unnatural dangers, gather required resources, and make your way through the tough survival. Survivors meet thirst, hunger, disease, injures, zombie bites, and other hostile players looking for safety. Since land, air and sea vehicles are available, players can choose the most suitable transport to explore the entire map. The gameplay stands for the wider opportunity of customization of pretty much everything in the in-game world, starting with simple object destruction and following to guns modification and shelters construction. In-app purchases do not actually affect the gameplay, but due to the cosmetic system, plenty of items (clothing and weapon skins) are purchasable or available in crates.</p>",
-    "price": null,
+   "price": "null",
     "released": "2014-07-07",
     "images": "https://media.rawg.io/media/games/93e/93ee6101e1c943732f06080dddb0fe4c.jpg,https://media.rawg.io/media/screenshots/9d4/9d47e01a1cf7bb9e1631209508871bad.jpg,https://media.rawg.io/media/screenshots/73d/73d4d368858bd642406b48b13f57b51b.jpg,https://media.rawg.io/media/screenshots/512/5125113bf634a7453a76fb3dd0a9caa8.jpg,https://media.rawg.io/media/screenshots/f67/f678bfbaf7fcc9c27e3db05ba1a64c24.jpg,https://media.rawg.io/media/screenshots/bcf/bcf6ea78a7101e7af450eea9ab5d35f8.jpg,https://media.rawg.io/media/screenshots/9f1/9f17aae472a62e2edec200a137ea09e5.jpg",
     "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 7 32-bit<br></li><li><strong>Processor:</strong> 2 GHz<br></li><li><strong>Memory:</strong> 4 GB RAM<br></li><li><strong>DirectX:</strong> Version 9.0c<br></li><li><strong>Storage:</strong> 4 GB available space</li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 10 64-bit<br></li><li><strong>Processor:</strong> 3 GHz<br></li><li><strong>Memory:</strong> 8 GB RAM<br></li><li><strong>DirectX:</strong> Version 11<br></li><li><strong>Network:</strong> Broadband Internet connection<br></li><li><strong>Storage:</strong> 6 GB available space</li></ul>",
@@ -2228,29 +2013,13 @@
     ]
   },
   {    "stock": 50,
-    "id": 28201
-    ,
-    "name": "Metro Exodus",
-    "background_image": "https://media.rawg.io/media/games/152/152e788b7504aa2753c86dae912fb34c.jpg",
-    "rating_api": 4.14,
-    "description": "<p>Metro Exodus is the third installment in the Metro series. It is based on the series of post-apocalyptic novels by Russian writer Dmitry Glukhovsky. The game is the sequel to Metro: Last Light and is set two years after its ending.</p>\n<h3>Plot</h3>\n<p>Exodus takes place in the year 2036 in post-apocalyptic Russia. According to the Metro universe backstory, in 2013 the planet was devastated by a total nuclear war. The atomic bombing left many parts of the Earth&#39;s surface uninhabitable due to high radiation rates, dangerous mutated monsters, and anomalies abound. The last remnants of humanity survive by hiding in the subway tunnels (hence the name of the series). The main protagonist is Artyom, a former dweller of Moscow Metro. Together with his wife Anna, he escaped the capital to search for survivors in the Russian Far East (thus making the “Redemption” ending of the Last Light the series&#39; canon). </p>\n<h3>Gameplay</h3>\n<p>The player controls Artyom from the first person view. Exodus introduces the sandbox open-world, although the game combines it with the traditional linear levels. Unlike in previous games, Exodus is set mostly outside the subway system. Thus, the game also introduces the weather, the day and night cycle and the change of seasons. The player explores the Russian wilderness during and after the nuclear winter and rides a steam locomotive named Aurora through Siberia.</p>",
-    "price": "8.99",
-    "released": "2019-02-13",
-    "images": "https://media.rawg.io/media/games/152/152e788b7504aa2753c86dae912fb34c.jpg,https://media.rawg.io/media/screenshots/90e/90ec2c2aadeb403083788066224fa9c7.jpg,https://media.rawg.io/media/screenshots/dba/dbae2235379fde39c2758004033d1b2a.jpg,https://media.rawg.io/media/screenshots/b37/b377f2607a8298a04e4be00db53f7ee9.jpg,https://media.rawg.io/media/screenshots/54c/54cce0b0341719481381ad57e47c2176.jpg,https://media.rawg.io/media/screenshots/e19/e199c2f6f5a3343ffb277724ed18d5a0.jpg,https://media.rawg.io/media/screenshots/220/220609ce00e2cd65af0adf2b78039522.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "Shooter"
-    ]
-  },
-  {    "stock": 50,
     "id": 3678,
 
     "name": "War Thunder",
     "background_image": "https://media.rawg.io/media/games/d07/d0790809a13027251b6d0f4dc7538c58.jpg",
     "rating_api": 3.22,
     "description": "<p>War Thunder is a free-to-play cross-platform vehicular combat MMO with more than 1000 playable aircraft, helicopters, tanks or ships sprawled over huge maps that feature real-life locations and battles that transpired over the course of 20th century, most notably during WWII. </p>\n<h3>Gameplay</h3>\n<p>Air and land warfare pits 2 sides against each other up to 32 players who must battle over points or achieving total elimination against enemy forces across huge maps. There are also PVE missions including dynamic historical campaigns and solo missions plus the custom events that add limitations or put certain victory conditions.</p>\n<h3>Changes</h3>\n<p>Back in 2013 War Thunder featured 50 vehicles from the German and Russian trees of air forces and a small selection of maps to choose from. Over the course of the open beta and up to the original release in December 2016, the developers have added over 800 land and air vehicles spawning from British, Japanese, American and other vehicle trees, expanded the map selection, upgraded the interface and tweaked out the graphics and sound for better optimization.</p>\n<h3>Recent updates</h3>\n<p>Now War Thunder also has naval battles and with the latest update added helicopters to the mix. All the while constantly maintaining the game’s balance, polishing the visuals and the impeccable sound design, fixing bugs and implementing new features.</p>",
-    "price": null,
+   "price": "null",
     "released": "2013-08-15",
     "images": "https://media.rawg.io/media/games/d07/d0790809a13027251b6d0f4dc7538c58.jpg,https://media.rawg.io/media/screenshots/7c7/7c7758e4b3683403ef125281787ee5c2.jpg,https://media.rawg.io/media/screenshots/0f9/0f9f9c1a1ae5d5cc9527d7ec01168fcc.jpg,https://media.rawg.io/media/screenshots/89e/89e8bf4807f88a40e930b755d01939cb.jpg,https://media.rawg.io/media/screenshots/334/334c86f83ca567ce7b5da169c013fa25.jpg,https://media.rawg.io/media/screenshots/b65/b6506bf5ae9aa6b73ff095cc4c01ec79.jpg,https://media.rawg.io/media/screenshots/f96/f96760353d0ff6ac946e470519d27efb.jpg",
     "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 7/Vista/8/10<br></li><li><strong>Processor:</strong> 2.2 GHz<br></li><li><strong>Memory:</strong> 4 GB RAM<br></li><li><strong>Graphics:</strong> Intel HD Graphics 4000 / AMD Radeon 46XX / NVIDIA GeForce GT 520<br></li><li><strong>DirectX:</strong> Version 9.0c<br></li><li><strong>Network:</strong> Broadband Internet connection<br></li><li><strong>Storage:</strong> 7 GB available space</li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows 7 64bit /Vista 64bit /8 64bit /10 64bit<br></li><li><strong>Processor:</strong> Intel Core i5<br></li><li><strong>Memory:</strong> 8 GB RAM<br></li><li><strong>Graphics:</strong> NVIDIA GeForce GTX 650 or higher, AMD Radeon series 77XX or higher<br></li><li><strong>DirectX:</strong> Version 9.0c<br></li><li><strong>Network:</strong> Broadband Internet connection<br></li><li><strong>Storage:</strong> 16 GB available space</li></ul>",
@@ -2311,23 +2080,6 @@
       "RPG",
       "Strategy",
       "Indie"
-    ]
-  },
-  {    "stock": 50,
-    "id": 28492
-    ,
-    "name": "Dead Island",
-    "background_image": "https://media.rawg.io/media/games/56e/56ed40948bebaf1968234aa6e3c74771.jpg",
-    "rating_api": 3.47,
-    "description": "<p>Dead Island is a zombie fighting game with the open world. Fictional island Banoi is filled with tourist. But suddenly, everyone disappears from every hotel room, and every corner of the island is filled with zombies. Four survivors - Sam, Xian, Logan and Purna must escape the hordes of zombies and try to find any survivors on the island and get out of this God forgotten place.</p>\n<p>The gameplay is based around experience. Killing zombies and completing quests will provide with EXP points which you can waste for new traits and perks for better and easier killing. Every character has his advantages with different types of weapon. For example, Purna is a former police officer, and she is quite familiar with firearms when Sam is very good with blunt weaponry. Having different styles of gameplay adds a very good variety to the gameplay, as you can play alone or with your friends. Quests will provide experience to every player on the map as you share it with your partner and you are free to do your quests as you want since the game has an open world system integrated into it.</p>",
-    "price": "14.99",
-    "released": "2011-09-06",
-    "images": "https://media.rawg.io/media/games/56e/56ed40948bebaf1968234aa6e3c74771.jpg,https://media.rawg.io/media/screenshots/486/486a42d5b4a456ff7043671ca0e1d146.jpg,https://media.rawg.io/media/screenshots/606/606d1f6b854b9edab64df1b43e456663.jpg,https://media.rawg.io/media/screenshots/c9d/c9dcf809a18c229c82676e8f2b81d35e.jpg,https://media.rawg.io/media/screenshots/4c1/4c15bc2a60c0ce4e90909390eb802410.jpg,https://media.rawg.io/media/screenshots/64d/64dce99763374e3ab406ff3f6217334f.jpg,https://media.rawg.io/media/screenshots/e52/e520fdc5065b6637cd4032e59e5678c3.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "Shooter",
-      "RPG"
     ]
   },
   {    "stock": 50,
@@ -2461,39 +2213,6 @@
       "Adventure"
     ]
   },
-  {
-    "id": 49,
-    "stock": 50, 
-    "name": "Persona 5",
-    "background_image": "https://media.rawg.io/media/games/3ea/3ea0e57ede873970c0f1130e30d88749.jpg",
-    "rating_api": 4.38,
-    "description": "<p>Persona series is a part of Japanese franchise Megami Tensei and is famous for its anime-like visual style. Persona 5 follows the unnamed main character, a high school student who was falsely accused of assault. He joins the Shujin Academy where he becomes the leading member of Phantom Thieves of Hearts. They are a gang of vigilantes who can to control their Personas and use them in a fight. The Personas are manifestations of people’s personalities that look like fictional characters. The Phantom Thieves accompany the main character in his battles as a party.<br />\nThe world of Persona consists of two parts. One is the modern Tokyo, in which the main characters live their daily teenagers’ lives. This is the place for most character interactions, including romancing. The other part is Metaverse, a parallel supernatural world that contains Palaces, which are manifestations of people’s malicious thoughts and desires. By day, the main character and his friends attend school and meet friends, and by night, they fight villains in the Metaverse to steal treasures from their Palaces. Battles are turn-based, and characters use a variety of weapons as well as their Personas that provide them with battle magic.</p>",
-    "price": "5.39",
-    "released": "2016-09-15",
-    "images": "https://media.rawg.io/media/games/3ea/3ea0e57ede873970c0f1130e30d88749.jpg,https://media.rawg.io/media/screenshots/d8a/d8a5609a55476906afa237d9890521ea.jpg,https://media.rawg.io/media/screenshots/693/693dc8a4fe928593d2830d4357893683.jpg,https://media.rawg.io/media/screenshots/6dc/6dc55ac06152af2b7101478f11b2ed3c.jpg,https://media.rawg.io/media/screenshots/707/7075e86af0f6a2953452073427f55f6a.jpg,https://media.rawg.io/media/screenshots/aa0/aa005bcc19a0c65b3c10466e4383ae12.jpg,https://media.rawg.io/media/screenshots/bb2/bb284b778955d9383cb9098dbc487971.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "Adventure",
-      "RPG"
-    ]
-  },
-  {    "stock": 50,
-    "id": 47137
-    ,
-    "name": "Fortnite Battle Royale",
-    "background_image": "https://media.rawg.io/media/games/dcb/dcbb67f371a9a28ea38ffd73ee0f53f3.jpg",
-    "rating_api": 3.16,
-    "description": "<p>Fortnite Battle Royale is the completely free 100-player PvP mode in Fortnite. One giant map. A battle bus. Fortnite building skills and destructible environments combined with intense PvP combat. The last one standing wins.  Download now for FREE and jump into the action.<br />\nThis download also gives you a path to purchase the Save the World co-op PvE campaign during Fortnite’s Early Access season, or instant access if you received a Friend invite.<br />\nOnline features require an account and are subject to terms of service and applicable privacy policy (playstationnetwork.com/terms-of-service &amp; playstationnetwork.com/privacy-policy).<br />\n1 player<br />\nNetwork Players 2-99<br />\n10GB minimum save size<br />\nDUALSHOCK®4<br />\nOnline Play (Required)<br />\nSoftware subject to license (us.playstation.com/softwarelicense). Online features require an account and are subject to terms of service and applicable privacy policy (playstationnetwork.com/terms-of-service &amp; playstationnetwork.com/privacy-policy).<br />\nFortnite © 2017, Epic Games, Inc. Epic Games, Fortnite, Unreal, Unreal Engine 4, UE4, and their respective logos are trademarks or registered trademarks of Epic Games, Inc. in the United States of America and elsewhere. All rights reserved. The rating icon is a registered trademark of the Entertainment Software Association. All other trademarks and trade names are the properties of their respective owners.</p>",
-    "price": null,
-    "released": "2017-09-26",
-    "images": "https://media.rawg.io/media/games/dcb/dcbb67f371a9a28ea38ffd73ee0f53f3.jpg,https://media.rawg.io/media/screenshots/c28/c286227823231c426a88aa873cf1b8d6.jpg,https://media.rawg.io/media/screenshots/0bf/0bf03856d787e721c6e16fb45531c6f1.jpg,https://media.rawg.io/media/screenshots/b85/b85077de89230bf2b3cdf2c41e77acdc.jpg,https://media.rawg.io/media/screenshots/d12/d1229ab5948538540d14a0370ab6e7c4.jpg,https://media.rawg.io/media/screenshots/7e1/7e19fc248d16d15376ee7550f515dea1.jpg,https://media.rawg.io/media/screenshots/7ac/7acd1c484070110647740d85ac164609.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "Shooter"
-    ]
-  },
   {    "stock": 50,
     "id": 3635,
 
@@ -2510,53 +2229,6 @@
       "RPG",
       "Indie",
       "Platformer"
-    ]
-  },
-  {    "stock": 50,
-    "id": 4491,
-
-    "name": "Shadow of the Colossus (2011)",
-    "background_image": "https://media.rawg.io/media/games/6ac/6ac602e70c837ababdf025e997391d9c.jpg",
-    "rating_api": 4.26,
-    "description": "<p>PlayStation 2 classic that never made it out of the Sony game system. An eerie and surreal tale about sacrifice and cruelty that the world contains. </p>\n<p>Play as Wander -- young warrior that roams vast and hollow game universe that’s surrounded by sharp cliffs and endless water. He is on the mission to kill 16 gargantuan colossi all scattered around the game world. </p>\n<p>Each colossus is a puzzle and can be killed only after solving it. At Wander’s disposal are his sword and bow that helps him climb the beasts. Each one requires the player to come up with a cunning strategy to topple each behemoth. The story is told in a very ascetic way and consists of only two in-game cutscenes. Nevertheless, it helps to build up the atmosphere mystery in the game epos. </p>\n<p>Developers are no strangers in the dark, atmospheric games such as this: they also behind critically acclaimed ICO that also had been published on PlayStation 2.</p>",
-    "price": "9.99",
-    "released": "2011-09-22",
-    "images": "https://media.rawg.io/media/games/6ac/6ac602e70c837ababdf025e997391d9c.jpg,https://media.rawg.io/media/screenshots/50f/50f2ad4f89a1a227130632e6bf484256.jpg,https://media.rawg.io/media/screenshots/b5c/b5c88e37efc2438c6a9d0c9e96e15b25.jpg,https://media.rawg.io/media/screenshots/d35/d3578202d67b21e4cd2cc2d594afd992.jpg,https://media.rawg.io/media/screenshots/c26/c26610ba76c79805267bf81307be6c2b.jpg,https://media.rawg.io/media/screenshots/fbf/fbff3fb9828c12c9213f9ac9777c33f4.jpg",
-    "requirements": null,
-    "genres": [
-      "Action"
-    ]
-  },
-  {    "stock": 50,
-    "id": 1758,
-
-    "name": "Valiant Hearts: The Great War",
-    "background_image": "https://media.rawg.io/media/games/39a/39a8aa7798b685f9625e857bc394259d.jpg",
-    "rating_api": 4.37,
-    "description": "<p>Valiant Hearts is a sidescroller adventure with a significant amount of attention paid to artwork and historical authenticity. While being not so demanding on a software side, it was released on the mobile platforms as well as on the big consoles. Such variety of platforms, however, limits the gameplay peculiarities that can be featured within a game. <br />\nThe player takes a role of one of four characters on the Belgian, American, French and German side of the Great War conflict — World War I. During the game they need to solve puzzles, watch animated cutscenes, fight enemies and do military races. <br />\nValiant Hearts is thus telling four stories simultaneously and ties them up in the end and throughout a fabula, while being historically correct when it is crucial. The game has received the Best Narrative awards and the Games for Change awards for such a plot-twists.</p>",
-    "price": "3.75",
-    "released": "2014-06-24",
-    "images": "https://media.rawg.io/media/games/39a/39a8aa7798b685f9625e857bc394259d.jpg,https://media.rawg.io/media/screenshots/1b3/1b3a6647d125f3341490246de3b1750e.jpg,https://media.rawg.io/media/screenshots/d45/d45b1d73b64b06f243fabe569dbf0373.jpg,https://media.rawg.io/media/screenshots/1d8/1d879a1e21271e448e21ccac14abb16b.jpg,https://media.rawg.io/media/screenshots/ff2/ff24c694fcf5c6bfb924a59546b4cebb.jpg,https://media.rawg.io/media/screenshots/022/0227a35a562068fef3af43fa1e05e9d5.jpg,https://media.rawg.io/media/screenshots/1be/1bef5c158eaa26247d45e50be9a00c50.jpg",
-    "requirements": null,
-    "genres": [
-      "Adventure",
-      "Puzzle"
-    ]
-  },
-  {    "stock": 50,
-    "id": 4347,
-
-    "name": "DiRT Showdown",
-    "background_image": "https://media.rawg.io/media/games/23d/23d78acedbb5f40c9fb64e73af5af65d.jpg",
-    "rating_api": 3.29,
-    "description": "<p>DiRT Showdown is not a traditional racing simulator of the DiRT series. The only similar thing that relates Showdown to the original games is a high level of graphics: developers added day/night time cycles and dynamic weather system, so the whole picture looks beautiful. This game offers an arcade physics that focus players on their positive emotions. Even the advanced damage system is only a cosmetic feature because damages don’t really affect car running performance. Everything in the game is made for the spectacle. The vehicle range was expanded: imaginary monsters specially prepared for the demolition were added to already existing licensed rally cars. Racing experience covers picturesque landscapes throughout America. All the events can be divided into four main classes (Racing, Demolition, Hoonigan, and Party) and then into numerous types. Gradual completion of the events gives money for buying new vehicles or upgrading existing ones and opens new perspectives for drivers. DiRT Showdown offers both single and multiplayer experience.</p>",
-    "price": "25.99",
-    "released": "2012-05-24",
-    "images": "https://media.rawg.io/media/games/23d/23d78acedbb5f40c9fb64e73af5af65d.jpg,https://media.rawg.io/media/screenshots/f9a/f9a7da41187b74268f8f3c165e9fbdd3.jpg,https://media.rawg.io/media/screenshots/82f/82ffbfb836fa21a1491d93a318566976.jpg,https://media.rawg.io/media/screenshots/31c/31c443e3bc7cf490fbbd681d94b4c0dc.jpg,https://media.rawg.io/media/screenshots/9ec/9ecb0090bc1ee248f2ac55192bfb3683.jpg,https://media.rawg.io/media/screenshots/839/8390366af357ab5ff113e40458447d5a.jpg,https://media.rawg.io/media/screenshots/266/26633aff63cc29ad2dd0b76e9b49897e.jpg",
-    "requirements": null,
-    "genres": [
-      "Racing",
-      "Arcade"
     ]
   },
   {    "stock": 50,
@@ -2608,20 +2280,6 @@
     ]
   },
   {    "stock": 50,
-    "id": 670682,
-    "name": "Counter-Strike: Condition Zero Deleted Scenes",
-    "background_image": "https://media.rawg.io/media/screenshots/9fd/9fd128fef547eb630182a1995b1edeb5.jpg",
-    "rating_api": 2.85,
-    "description": "<p>Counter-Strike: Condition Zero Deleted Scenes (CS:CZ DS) is a bonus game, originally developed by Ritual Entertainment, included with Counter-Strike: Condition Zero making up a series of eighteen unconnected single-player missions which were cut from the main game.</p>",
-    "price": null,
-    "released": "2004-03-23",
-    "images": "https://media.rawg.io/media/screenshots/9fd/9fd128fef547eb630182a1995b1edeb5.jpg,https://media.rawg.io/media/screenshots/37f/37f8eb30ea6da9bdb83538100cb7a6a1.jpg,https://media.rawg.io/media/screenshots/a4b/a4bd361e05b938c79f416b897b69bf29.jpg,https://media.rawg.io/media/screenshots/c4f/c4f925b83f21e98c0b571eb6d6373e49.jpg,https://media.rawg.io/media/screenshots/9fd/9fd128fef547eb630182a1995b1edeb5.jpg",
-    "requirements": null,
-    "genres": [
-      "Shooter"
-    ]
-  },
-  {    "stock": 50,
     "id": 19647
     ,
     "name": "Crysis 2 - Maximum Edition",
@@ -2646,7 +2304,7 @@
     "price": "3.74",
     "released": "2009-02-10",
     "images": "https://media.rawg.io/media/games/d1d/d1dd46e2ef7f8a1ee946d3ab779c3754.jpg,https://media.rawg.io/media/screenshots/48f/48f12aa64105d90fc99cbdc4cb592d50.jpg,https://media.rawg.io/media/screenshots/ad4/ad4bac3b4a283d8613b66521466a2c2d.jpg,https://media.rawg.io/media/screenshots/825/825bd37ac01937ebc3d95fa460b2373b.jpg,https://media.rawg.io/media/screenshots/d75/d752ca400770aa034c2102831b476407.jpg,https://media.rawg.io/media/screenshots/562/562b06e7e3e2e6c21d2976d8d52db91b.jpg,https://media.rawg.io/media/screenshots/e7a/e7acc83db0f68c75ecd375b7f85b310e.jpg",
-    "requirements": "Minimum                    <br>\t\t\t\t\t<ul class=\"bb_ul\"><li><strong>Operating System: </strong>Windows® XP SP2/Vista SP1                     <br>\t\t\t\t\t</li><li><strong>Processor: </strong> P4 2.8GHz (3.2GHz Vista)/Athlon® 64 3000+ (3200+ Vista)                    <br>\t\t\t\t\t</li><li><strong>Memory: </strong>1GB (1.5GB Vista)                    <br>\t\t\t\t\t</li><li><strong>Hard Disk Space: </strong>12GB Available Hard Disk Space                    <br>\t\t\t\t\t</li><li><strong>Video Card: </strong>Fully DX9-compliant graphics card with 256MB (SM 2.0b).  NVIDIA 6800 or ATI X700                    <br>\t\t\t\t\t</li><li><strong>DirectX® Version: </strong>9.0c                     <br>\t\t\t\t\t</li><li><strong>Sound: </strong>DX9.0c compliant                    <br>\t\t\t\t\t</li><li><strong>Internet Connection: </strong>Broadband                      </li></ul>,Recommended                    <br>\t\t\t\t\t<ul class=\"bb_ul\"><li><strong>Operating System: </strong>Windows® XP SP3/Vista SP1                     <br>\t\t\t\t\t</li><li><strong>Processor: </strong> Core 2 Duo 2.2GHz processor family/Athlon 64 X2 4400+ (required for MP host)                    <br>\t\t\t\t\t</li><li><strong>Memory: </strong>1.5GB                     <br>\t\t\t\t\t</li><li><strong>Hard Disk Space: </strong>12GB Available Hard Disk Space                    <br>\t\t\t\t\t</li><li><strong>Video Card: </strong>Fully DX9-compliant graphics card with 512MB (SM 3.0).  NVidia® 8600 GTS or ATI® HD 2900 XT                    <br>\t\t\t\t\t</li><li><strong>DirectX® Version: </strong>9.0c                     <br>\t\t\t\t\t</li><li><strong>Sound: </strong>DX9.0c compliant                    <br>\t\t\t\t\t</li><li><strong>Internet Connection: </strong>Broadband (768kbit/sec upstream required to host 16 players)                      </li></ul>",
+    "requirements": "Minimum <br>\t\t\t\t\t<ul class=\"bb_ul\"><li><strong>Operating System: </strong>Windows® XP SP2/Vista SP1                     <br>\t\t\t\t\t</li><li><strong>Processor: </strong> P4 2.8GHz (3.2GHz Vista)/Athlon® 64 3000+ (3200+ Vista)                    <br>\t\t\t\t\t</li><li><strong>Memory: </strong>1GB (1.5GB Vista)                    <br>\t\t\t\t\t</li><li><strong>Hard Disk Space: </strong>12GB Available Hard Disk Space                    <br>\t\t\t\t\t</li><li><strong>Video Card: </strong>Fully DX9-compliant graphics card with 256MB (SM 2.0b).  NVIDIA 6800 or ATI X700                    <br>\t\t\t\t\t</li><li><strong>DirectX® Version: </strong>9.0c                     <br>\t\t\t\t\t</li><li><strong>Sound: </strong>DX9.0c compliant                    <br>\t\t\t\t\t</li><li><strong>Internet Connection: </strong>Broadband                      </li></ul>,Recommended                    <br>\t\t\t\t\t<ul class=\"bb_ul\"><li><strong>Operating System: </strong>Windows® XP SP3/Vista SP1                     <br>\t\t\t\t\t</li><li><strong>Processor: </strong> Core 2 Duo 2.2GHz processor family/Athlon 64 X2 4400+ (required for MP host)                    <br>\t\t\t\t\t</li><li><strong>Memory: </strong>1.5GB                     <br>\t\t\t\t\t</li><li><strong>Hard Disk Space: </strong>12GB Available Hard Disk Space                    <br>\t\t\t\t\t</li><li><strong>Video Card: </strong>Fully DX9-compliant graphics card with 512MB (SM 3.0).  NVidia® 8600 GTS or ATI® HD 2900 XT                    <br>\t\t\t\t\t</li><li><strong>DirectX® Version: </strong>9.0c                     <br>\t\t\t\t\t</li><li><strong>Sound: </strong>DX9.0c compliant                    <br>\t\t\t\t\t</li><li><strong>Internet Connection: </strong>Broadband (768kbit/sec upstream required to host 16 players)                      </li></ul>",
     "genres": [
       "Action",
       "Shooter"
@@ -2702,22 +2360,6 @@
       "Adventure",
       "Indie",
       "Puzzle"
-    ]
-  },
-  {    "stock": 50,
-    "id": 5342,
-
-    "name": "Medal of Honor",
-    "background_image": "https://media.rawg.io/media/games/106/1069e754e7e6012b0cf42b4b04704792.jpg",
-    "rating_api": 3.24,
-    "description": "<p>Medal of Honor is a first-person action shooter providing both single and multiplayer experience. It is the thirteenth game in the Medal of Honor franchise, but in comparison to the previous ones, its plot is unique. The game is set in the historical period of the War in Afghanistan. The single campaign opens up in 2001 during the invasion of Afghanistan. The action gives an opportunity to participate in the military conflict for the U.S. Navy. In the course of the storyline, players alternate between the roles of a Navy SEAL operator codenamed Rabbit, Delta Force sniper Deuce, U.S. Army Ranger specialist Dante Adams, and AH-64 Apache gunner Hawk. The gameplay is based on typical military operations including the completion of in-game objectives (raiding enemies’ checkpoints and rescuing hostages). Medal of Honor multiplayer offers a choice of joining one of the conflict’s forces: the Coalition or the Opposing Forces. Each side has its own weapons, however, comparable in general stats. To start a match, the player should choose a class (Rifleman, Special Ops or Sniper). Classes’ equipment and skills can be upgraded with the experience points earned in combat.</p>",
-    "price": "19.99",
-    "released": "2010-10-12",
-    "images": "https://media.rawg.io/media/games/106/1069e754e7e6012b0cf42b4b04704792.jpg,https://media.rawg.io/media/screenshots/02f/02fab40528603a9766cc6a1f763af4ce.jpg,https://media.rawg.io/media/screenshots/97c/97c1c77ffdd09dc2fa295098a26acace.jpg,https://media.rawg.io/media/screenshots/56f/56f55f6dbd66b3d933f5769b91ed26cb.jpg,https://media.rawg.io/media/screenshots/e1c/e1c96c8811d2ddc7650657d6c1c05dc9.jpg,https://media.rawg.io/media/screenshots/800/8009b6082a481b77522d5d4b9283c17f.jpg,https://media.rawg.io/media/screenshots/0c5/0c51e72bd9c58d54d9a49759ab2e575e.jpg",
-    "requirements": null,
-    "genres": [
-      "Action",
-      "Shooter"
     ]
   },
   {
@@ -2841,7 +2483,7 @@
     "background_image": "https://media.rawg.io/media/games/35b/35b47c4d85cd6e08f3e2ca43ea5ce7bb.jpg",
     "rating_api": 3.23,
     "description": "<p>Brawlhalla is a free-to-play fighting game with platformer elements. You pick a character from 39 available heroes (this amount is increasing with new updates) and try to knock your opponent off the stage. The controls are simple to make the game easy to master. Every character has two weapons and also can use boosts that drop on the stage. They also have such characteristics as Strength, Dexterity, Defense, and Speed that determine their combat style and can be slightly modified. <br />\nBrawlhalla supports online and local multiplayer and cooperative along with multiple modes where you can test your skills and increase the rank. Except for 1v1 duels and different team matches, you can take part in huge arena battles with multiple opponents. Some stages consist of several platforms that can change their position during the fight. Moreover, Brawlhalla holds numerous competitions and tournaments all over the world with money prizes.</p>",
-    "price": null,
+    "price": "null",
     "released": "2014-04-30",
     "images": "https://media.rawg.io/media/games/35b/35b47c4d85cd6e08f3e2ca43ea5ce7bb.jpg,https://media.rawg.io/media/screenshots/68e/68e9226c1c45af8bab290580f7456be2.jpg,https://media.rawg.io/media/screenshots/440/4409227ccd02e3a1d4de7894d04ef62d.jpg,https://media.rawg.io/media/screenshots/df9/df9063e1a20d9ab1bd1e1deb693c17b6.jpg,https://media.rawg.io/media/screenshots/537/537f4a9f7cbc8be0e5e9a8943b09e124.jpg,https://media.rawg.io/media/screenshots/50d/50d0c17d79e3210c20a4c6cc16b49e31.jpg,https://media.rawg.io/media/screenshots/a8c/a8ca6fcb3c8df773c4cfd5101682edab.jpg",
     "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>Memory:</strong> 1 GB RAM<br></li><li><strong>Storage:</strong> 200 MB available space</li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>Memory:</strong> 2 GB RAM<br></li><li><strong>Network:</strong> Broadband Internet connection<br></li><li><strong>Storage:</strong> 200 MB available space</li></ul>",
@@ -3078,22 +2720,6 @@
         ]
     },
     {    "stock": 50,
-        "id": 28623
-        ,
-        "name": "Batman: Arkham City",
-        "background_image": "https://media.rawg.io/media/games/b5a/b5a1226bfd971284a735a4a0969086b3.jpg",
-        "rating_api": 4.43,
-        "description": "<p>The plot of Arkham City begins one and a half years after the events of Arkham Asylum. Quincy Sharp, former superintendent of the Arkham Psychiatric Hospital, became mayor of Gotham and created the prison &quot;Arkham City&quot;. Prisoners of Arkham City are not controlled by anyone in its borders, they are only forbidden from running away ...<br />\nThere are all the regular characters in the game - Joker, Two-Face, Catwoman, Ra&#39;s al Ghul, James Gordon and others. Each villain individually and all of them together give Batman difficult tasks that move the game forward.<br />\nArkham City has an open world. All gadgets from Arkham Asylum are available to the player from the very beginning. Many of them are improved, there are also new ones. The game has a &quot;Detective mode&quot; - the skeletons of enemies are highlighted, it is possible to conduct various examinations, for example, tracking the flight of a sniper&#39;s bullet. There is also access to a database that tracks villains in the city.<br />\nAt a certain point in the story, you can play as a Catwoman. She has an analogue of &quot;Detective Mode&quot; - &quot;Mode of the thief&quot;.<br />\nThe visual decision and soundtrack are very atmospheric, soft, but give a clear sense of gloom and horror, entirely in the spirit of the plot and characters.</p>",
-        "price": "15.99",
-        "released": "2011-10-18",
-        "images": "https://media.rawg.io/media/games/b5a/b5a1226bfd971284a735a4a0969086b3.jpg,https://media.rawg.io/media/screenshots/186/186256b37ba30738c118daefceba77e4.jpg,https://media.rawg.io/media/screenshots/55b/55ba4f622a1babc31b54489ea0144758.jpg,https://media.rawg.io/media/screenshots/bb5/bb5411aecf12acfd49faba2b6ce813a3.jpg,https://media.rawg.io/media/screenshots/395/39596a0aa8ff855314e1e7f5d989456f.jpg,https://media.rawg.io/media/screenshots/6b9/6b922232de644023769aa82cdff46fdf.jpg,https://media.rawg.io/media/screenshots/3a4/3a458afd3a2787ade55e6b3756e73751.jpg",
-        "requirements": null,
-        "genres": [
-            "Action",
-            "Adventure"
-        ]
-    },
-    {    "stock": 50,
         "id": 1358,
 
         "name": "Papers, Please",
@@ -3269,23 +2895,6 @@
         "requirements": "Minimum:OS:Windows XP/Vista/Windows 7/Windows 8 Processor:1.7+ GHz or better Memory:1+ gigs of RAM GB RAM Graphics:Radeon HD5450 or better; 256 MB or higher DirectX®:9.0c Hard Drive:500 MB HD space Sound:100% DirectX9.0c compatible sound card and drivers",
         "genres": [
             "Indie"
-        ]
-    },
-    {    "stock": 50,
-        "id": 56184
-        ,
-        "name": "Resident Evil 4 (2005)",
-        "background_image": "https://media.rawg.io/media/games/fee/fee0100afd87b52bfbd33e26689fa26c.jpg",
-        "rating_api": 4.4,
-        "description": "<p>Resident Evil 4 is a third-person shooter game developed by Capcom Production Studio 4 and published by Capcom. The sixth major installment in the Resident Evil series, it was originally released for the GameCube in 2005. Players control U.S. government special agent Leon S. Kennedy, who is sent on a mission to rescue the U.S. president&#39;s daughter Ashley Graham, who has been kidnapped by a cult. In a rural part of Europe, Leon fights hordes of villagers infected by a mind-controlling parasite, and reunites with the spy Ada Wong.<br />\nDevelopment began for PlayStation 2 in 1999. Four proposed versions were discarded; the first attempt was directed by Hideki Kamiya after producer Shinji Mikami. In a departure from the fixed camera angles and slower survival horror gameplay of previous instalments, the team focused on developing more dynamic shooting action.<br />\nResident Evil 4 was announced as a GameCube exclusive as part of the Capcom Five, but was ported to numerous formats, becoming a cross-platform hit, selling over 10 million copies across all platforms. It garnered acclaim for its narrative, gameplay, voice acting, and characters, and is often named one of the best video games, winning multiple Game of the Year awards in 2005. It influenced the evolution of the survival horror and third-person genres, popularizing the &quot;over-the-shoulder&quot; third-person view. Resident Evil 5 was released in 2009.</p>\n<h1>Gameplay</h1>\n<p>The player controls the protagonist, Leon S. Kennedy, from a third-person perspective. Departing significantly from the series&#39; previous games, the gameplay focuses on action and shootouts with fewer survival horror elements. The camera is placed behind Leon and zooms in for an over-the-shoulder view when aiming a weapon, or a first-person view when aiming with a sniper rifle. There is no crosshair for firearms; instead, every firearm has a laser sight. Unlike previous games where players can only shoot straight, up, or down, players have more options. For example, shots to the feet can cause enemies to stumble, and shots to the arms can make them drop their weapons. Players can also shoot down projectiles like thrown axes or scythes.<br />\nResident Evil 4 adds context-sensitive controls. Based on the situation, players can interact with the environment: kicking down a ladder, jumping out of a window, dodging an attack or executing a &quot;finishing move&quot; on weakened enemies. There are also quick time events, in which the player must press buttons indicated on-screen to execute actions such as dodging a falling boulder or wrestling an enemy to stay alive. These are often incorporated into the game&#39;s many boss fights, in which the player must avoid instant-kill attacks.<br />\nThe main enemies are violent villagers referred to as Los Ganados (&quot;The Cattle&quot; in Spanish). Los Ganados can dodge, wield melee and projectile weapons, and are capable of working collectively and communicating with each other.<br />\nThe inventory system features a grid system, represented by an attaché case, that has each item take up a certain number of spaces. The case can be upgraded several times, allowing for more space. Weapons, ammunition, and healing items are kept in the case, while key items and treasures are kept in a separate menu. Items may be bought from and sold to a merchant that appears in various locations. He sells first aid sprays, weapons, allows for weapons to be upgraded and buys various treasures that Leon finds. The various weapons each have their own advantages and disadvantages.<br />\nCapcom added content for the PlayStation 2 version, which was later incorporated into the PC and Wii releases. The largest addition is &quot;Separate Ways&quot;, a minigame which focuses on Ada Wong&#39;s involvement in Resident Evil 4 and her connection to the series&#39; villain Albert Wesker. &quot;Ada&#39;s Report&quot;, a five-part documentary, analyzes Ada&#39;s relationship with Wesker and his role in the plot. Other unlockable content in all versions includes the minigames &quot;The Mercenaries&quot; and &quot;Assignment Ada&quot; (using Ada to retrieve Las Plagas samples), new costumes for Leon and Ashley, new weapons, and a cutscene browser.</p>\n<h1>Plot</h1>\n<p>U.S. government agent Leon S. Kennedy (Paul Mercier) is on a mission to rescue Ashley Graham (Carolyn Lawrence), the U.S. President&#39;s daughter, who has been kidnapped by a mysterious cult. He travels to a nameless rural village in Spain, where he encounters a group of hostile villagers who pledge their lives to Los Illuminados, the cult that kidnapped Ashley. The villagers were once simple farmers until becoming infected by a mind-controlling parasite known as Las Plagas.<br />\nWhile in the village, Leon is captured by its chief, Bitores Mendez, and injected with Las Plagas. He finds himself held captive with Luis Sera (Rino Romano), a former Los Illuminados researcher. The two work together to escape, but soon go their separate ways. Leon finds out Ashley is being held in a church and rescues her. They both escape from the church after Osmund Saddler (Michael Gough), leader of Los Illuminados, reveals his plan to use the plaga they injected into Ashley to manipulate her into injecting the president of the United States with a &quot;sample&quot; once she returns home, allowing Saddler to begin his conquest of the world.<br />\nAfter killing Mendez, Leon and Ashley try to take refuge in a castle but are attacked by more Illuminados under the command of Ramon Salazar (Rene Mujica), another of Saddler&#39;s henchmen who owns the castle, and the two become separated by Salazar&#39;s traps. Meanwhile, Luis searches for pills that will slow Leon and Ashley&#39;s infection, as well as a sample of Las Plagas. He brings the two items to Leon but is killed by Saddler, who takes the sample, while the pills to suppress the infection remain in Leon&#39;s hands. While in the castle, Leon briefly encounters Ada Wong (Sally Cahill), a woman from his past who supports him during his mission. He battles his way through the castle before killing Salazar.<br />\nAfterward, Leon travels to a nearby island research facility, where he continues the search for Ashley. He discovers that one of his former training comrades, Jack Krauser (Jim Ward), who was believed to have been killed in a helicopter crash two years prior, is responsible for her kidnapping. Ada and Krauser are working with Albert Wesker (Richard Waugh), for whom both intend to secure a Plagas sample. Suspicious of the mercenary&#39;s intentions, Saddler orders Krauser to kill Leon, believing that no matter which one dies, he will benefit. After Krauser&#39;s fatal defeat, Leon rescues Ashley, and they remove the Plagas from their bodies using a specialized radiotherapeutic device. Leon confronts Saddler, and with Ada&#39;s help, manages to kill him. However, Ada takes the sample from Leon at gunpoint before escaping in a helicopter, leaving Leon and Ashley to escape via her jet-ski as the island explodes.</p>",
-        "price": "10.99",
-        "released": "2005-01-11",
-        "images": "https://media.rawg.io/media/games/fee/fee0100afd87b52bfbd33e26689fa26c.jpg,https://media.rawg.io/media/screenshots/d26/d26bbb090817a799df765d2fd4e90d33.jpg,https://media.rawg.io/media/screenshots/af5/af57e087289820d3d77fa5538b3a33d7.jpg,https://media.rawg.io/media/screenshots/83e/83e7f1f0b4c9b8666348d703f905bda8.jpg,https://media.rawg.io/media/screenshots/b11/b119cb469f2dac1a6cde79b6db6cd1a7.jpg,https://media.rawg.io/media/screenshots/258/2584d15b9bcff1c715deb8b51919672a.jpg,https://media.rawg.io/media/screenshots/adb/adbe6b1841ca2509fc9ac04e063d3a65.jpg",
-        "requirements": null,
-        "genres": [
-            "Action",
-            "Shooter",
-            "Adventure"
         ]
     },
     {    "stock": 50,
@@ -3512,23 +3121,6 @@
             ]
         },
         {    "stock": 50,
-            "id": 2553,
-
-            "name": "Ratchet & Clank (2016)",
-            "background_image": "https://media.rawg.io/media/games/d30/d30ef0c7dd4878161b1f781e297ae6a0.jpg",
-            "rating_api": 4.05,
-            "description": "<p>A game about the adventures of Cosmic fennec Ratchet and his friend and ally, the robot Clank, whom Ratchet carries behind him in his satchel.<br />\nRatchet wants to be a space ranger, and he gets a chance to show that he deserves it. The missions look very serious, Ratchet himself is very serious - but this is a game, and one of its main features is humour and an elegant parody.<br />\nThe game corresponds to the canon of the genre, but always offers something that makes every mission and every decision fresh. For example, a mission in which it is necessary to steal weapons technology from an enemy planet - to execute it, you need to knock out as many brains as possible from giant flying octopuses. Why? Because these brains can exchange the necessary technology from one local scientist, who needs brains for the experiments, but the boss does not give it to him.<br />\nThe gameplay consists of destroying enemies in a variety of unexpected ways, with weapons of fourteen kinds, and among them a shotgun that turns enemies into pixel pictures and then crushes them into pixels. There are a lot of such finds in the game. In addition to shooting, there are chases and other things. And besides weapons - a lot of useful original devices.</p>",
-            "price": "12.99",
-            "released": "2016-04-12",
-            "images": "https://media.rawg.io/media/games/d30/d30ef0c7dd4878161b1f781e297ae6a0.jpg,https://media.rawg.io/media/screenshots/6e8/6e874d1cdb288b6e13c345fa707933d8.jpg,https://media.rawg.io/media/screenshots/dcb/dcbc279b5a18bea8289b758f199c573e.jpg,https://media.rawg.io/media/screenshots/3f7/3f7a06aff876159988e1c83a7a266905.jpg,https://media.rawg.io/media/screenshots/96f/96f8af98ea6e43e436fd4fc2f7ebf88f.jpg,https://media.rawg.io/media/screenshots/f4f/f4fd4705e27a887150ef691269f65194.jpg,https://media.rawg.io/media/screenshots/25c/25c0c904bc88fbdfde7f06258c208a76.jpg",
-            "requirements": null,
-            "genres": [
-                "Action",
-                "Shooter",
-                "Adventure"
-            ]
-        },
-        {    "stock": 50,
             "id": 21924,
             "name": "Call of Duty: WWII",
             "background_image": "https://media.rawg.io/media/games/1e5/1e5e33b88be978f451196a751424a72e.jpg",
@@ -3541,22 +3133,6 @@
             "genres": [
                 "Action",
                 "Shooter"
-            ]
-        },
-        {    "stock": 50,
-            "id": 262382,
-            "name": "Disco Elysium",
-            "background_image": "https://media.rawg.io/media/games/840/8408ad3811289a6a5830cae60fb0b62a.jpg",
-            "rating_api": 4.45,
-            "description": "<p>Disco Elysium is a groundbreaking blend of hardboiled cop show and isometric RPG. Solve a massive, open ended case in a unique urban fantasy setting. Kick in doors, interrogate suspects, or just get lost exploring the gorgeously rendered city of Revachol and unraveling its mysteries. Tough choices need to be made. What kind of cop you are — is up to you.</p>\n<p>You play a disgraced lieutenant detective in Revachol West, a shore town where corruption’s out of control, murders go unsolved, and the kids just wanna dance. Kick in doors, interrogate suspects, or get lost exploring a gorgeously rendered city and unraveling its mysteries. All the while, tensions rise around you as Revachol threatens to explode.</p>\n<p>Disco Elysium’s completely original skill system makes your innermost feelings, doubts, and memories an integral part of every conversation. Level up your rational faculties, sharpen your wits, or give in to your basest instincts. What kind of cop you are is up to you.</p>",
-            "price": "39.99",
-            "released": "2019-10-14",
-            "images": "https://media.rawg.io/media/games/840/8408ad3811289a6a5830cae60fb0b62a.jpg,https://media.rawg.io/media/screenshots/6a0/6a0ec32ec86894561d88ede9f165a343.jpg,https://media.rawg.io/media/screenshots/f86/f867d4742a343639a29f82b71fcb6bb6.jpg,https://media.rawg.io/media/screenshots/1e0/1e0dbe1bf2bc3e65a4c9dcc259140a88.jpg,https://media.rawg.io/media/screenshots/972/972b2c15a9ae299546fad2b3c2fe6b7a.jpg,https://media.rawg.io/media/screenshots/9d4/9d4f4828438089af6d03992f5c0ae275.jpg,https://media.rawg.io/media/screenshots/c43/c434bb25b5a1f5c48eb5ee0b2b09b8dd.jpg",
-            "requirements": null,
-            "genres": [
-                "Adventure",
-                "RPG",
-                "Indie"
             ]
         },
         {    "stock": 50,
@@ -3587,22 +3163,6 @@
             "requirements": "\r\n\t\t\t<p><strong>Minimum:</strong> 500 mhz processor, 96mb ram, 16mb video card, Windows XP, Mouse, Keyboard, Internet Connection<br /></p>\r\n\t\t\t<p><strong>Recommended:</strong> 800 mhz processor, 128mb ram, 32mb+ video card, Windows XP, Mouse, Keyboard, Internet Connection<br /></p>\r\n\t\t\t",
             "genres": [
                 "Action"
-            ]
-        },
-        {
-            "id": 559,
-            "stock": 50,
-            "name": "Fallout Shelter",
-            "background_image": "https://media.rawg.io/media/games/a91/a911f0a91991469e398fa70091507a5b.jpg",
-            "rating_api": 3.44,
-            "description": "<p>The game is a simulation of managing a refuge. As an Overseer, you have to control the essential aspects of life in the Vault, especially: energy, food, water and the number of inhabitants. Your task is to develop and expand your shelter, as well as to fight enemies, to resist the attacks of raiders and other representatives of the Wasteland. </p>\n<p>To obtain resources, you need to assign people to the appropriate premises, properly distributing their skills between strength, perception, endurance, charisma, intelligence, agility and luck. Each character characteristic will affect how well he produces a particular type of resources and how high his chances to survive in the Wasteland. </p>\n<p>An essential aspect of the game is the correct use of resources and their balance. And with a deficit of one, there are difficulties. For example, the lack of electricity disrupts the premises, the lack of water leads to radiation exposure of residents, and food — to the loss of health. You also need to protect themselves from attacks by raiders, mutated rats,  ghouls and other creatures.</p>",
-            "price": null,
-            "released": "2015-06-15",
-            "images": "https://media.rawg.io/media/games/a91/a911f0a91991469e398fa70091507a5b.jpg,https://media.rawg.io/media/screenshots/06a/06a7f6095c54f3626b5346794e6cd049.jpg,https://media.rawg.io/media/screenshots/0c6/0c6ed1b4b8bdf0933f93708f9b47fed9.jpg,https://media.rawg.io/media/screenshots/b1d/b1d5f6c67477d8a31bf67b2d9de66e86.jpg,https://media.rawg.io/media/screenshots/c79/c79bc068b92314ff4e1e139e5667e070.jpg,https://media.rawg.io/media/screenshots/751/7516f82455a38cb292a781726784c562.jpg,https://media.rawg.io/media/screenshots/eae/eaedd89c469739cf930f53e136c53fb3.jpg",
-            "requirements": null,
-            "genres": [
-                "RPG",
-                "Simulation"
             ]
         },
         {    "stock": 50,
@@ -3684,20 +3244,6 @@
                 ]
             },
             {    "stock": 50,
-                "id": 3631,
-                "name": "INFAMOUS Second Son",
-                "background_image": "https://media.rawg.io/media/games/be2/be239d5eb4d0bf02bf722aff51e694ad.jpg",
-                "rating_api": 3.9,
-                "description": "<p>Action adventure game inFAMOUS: Second Son is a spin-off to the original inFAMOUS series. Players take control of Delsin Rowe from the third-person perspective in the open-world environment. The story takes place in Seattle 7 years after Cole McGrath’s sacrifice and the annihilation of The Beast (the ending of inFAMOUS 2). The protagonist is a 24-year-old local from the Akomish reservation. He has a Conduit’s superpower that gives him the control of different materials. Delsin also has an extraordinary parkour skill that allows him to climb vertical surfaces. Having supernatural power, Delsin is set up against mutant hunters from Department of Unified Protection (D.U.P.) As the story progresses, Delsin comes across new Conduits and acquire new special abilities spending Blast Shards scattered throughout the map of Seattle. While completing Delsin’s story players are able to choose whether they want to follow the good branch (healing civilians and stopping unnecessary violence) or the evil branch (murdering innocents and redundant enemies).</p>",
-                "price": "19.99",
-                "released": "2014-03-21",
-                "images": "https://media.rawg.io/media/games/be2/be239d5eb4d0bf02bf722aff51e694ad.jpg,https://media.rawg.io/media/screenshots/94f/94f8d6fccc12f0fa22a1cb921a819b8f.jpg,https://media.rawg.io/media/screenshots/9a5/9a50fdd6b3166f68552ed8b9e100f4ae.jpg,https://media.rawg.io/media/screenshots/80a/80a96961680c40240799e3613f83898c.jpg,https://media.rawg.io/media/screenshots/cf6/cf685d251487cffe79a686313aa686ef.jpg,https://media.rawg.io/media/screenshots/0c1/0c1aa7cfb8333e17401972dc2afa3601.jpg,https://media.rawg.io/media/screenshots/088/08892e59bf763e2afa5cb646b99a9a18.jpg",
-                "requirements": null,
-                "genres": [
-                    "Action"
-                ]
-            },
-            {    "stock": 50,
                 "id": 2733,
                 "name": "Broforce",
                 "background_image": "https://media.rawg.io/media/games/9cc/9cc11e2e81403186c7fa9c00c143d6e4.jpg",
@@ -3729,22 +3275,6 @@
                 ]
             },
             {    "stock": 50,
-                "id": 4440,
-
-                "name": "Deus Ex: Human Revolution",
-                "background_image": "https://media.rawg.io/media/games/81e/81e6c6819d4322caf375b6735c3043ec.jpg",
-                "rating_api": 4.36,
-                "description": "<p>Deus Ex: Human Revolution is the third entry in the franchise and takes part as a prequel to the original Deus Ex. To save his life, Adam Jensen, a former SWAT officer must fill his body with augmentations. Humanity has battled any threat to it and now live in a cyberpunk world of future. When a new form of augmentations must be revealed, Sarif Industries is attacked by the group called the Tyrants. When Adam tries to save the facility, group leader Namir heavily wounds Jensen and kills Megan Reed. David Sarif saves Adam&#39;s life, and he places augmentations in his body making him a supernatural human being, Jensen must investigate the problem of extremists in the modern world.</p>\n<p>One of the key features of the game is a flexible storyline. Based on your actions, the game will actually react to it by hiding some subplots or changing the main plot a little depending on your subject choices. The gameplay on its own is a stealth shooter with a big using implemented use of augmentations and experience system in order to level up your abilities.</p>",
-                "price": "9.99",
-                "released": "2011-08-22",
-                "images": "https://media.rawg.io/media/games/81e/81e6c6819d4322caf375b6735c3043ec.jpg,https://media.rawg.io/media/screenshots/85b/85bca895cfbcbb838dd7fa46b6403ad5.jpg,https://media.rawg.io/media/screenshots/e49/e49dc16359f69b8d0c68d799a87cce21.jpg,https://media.rawg.io/media/screenshots/d3c/d3c31b25f48a37c327973184e521ed0c.jpg,https://media.rawg.io/media/screenshots/12f/12fc059947ec1bcdb9b460541bccc837.jpg,https://media.rawg.io/media/screenshots/d4c/d4c305a429cac0d434fda1dd7ae04d23.jpg,https://media.rawg.io/media/screenshots/f8e/f8e1344c7090e04e59b6dd07b6efc1a4.jpg",
-                "requirements": null,
-                "genres": [
-                    "Action",
-                    "RPG"
-                ]
-            },
-            {    "stock": 50,
                 "id": 16113,
                 "name": "Sleeping Dogs",
                 "background_image": "https://media.rawg.io/media/games/3d9/3d9bac98d79bcd2d445f829e8d6be902.jpg",
@@ -3761,7 +3291,7 @@
             },
             {
                 "id": 624,
-    "stock": 50,
+                "stock": 50,
                 "name": "FTL: Faster Than Light",
                 "background_image": "https://media.rawg.io/media/games/5f4/5f4780690dbf04900cbac5f05b9305f3.jpg",
                 "rating_api": 4.26,
@@ -3822,21 +3352,6 @@
                 "genres": [
                     "Action",
                     "Adventure"
-                ]
-            },
-            {    "stock": 50,
-                "id": 58755
-                ,
-                "name": "Devil May Cry 5",
-                "background_image": "https://media.rawg.io/media/games/9fb/9fbf956a16249def7625ab5dc3d09515.jpg",
-                "rating_api": 4.23,
-                "description": "<p>Devil May Cry 5 is the sixth game in the Devil May Cry franchise and the fifth in its main series. </p>\n<h3>Plot</h3>\n<p>The game continues the plot of Devil May Cry 2. The demonic threat seems to have been forgotten, but the demons return, and there are new accidents around the world. Nero and Dante have parted ways, and Nero established his own agency. He also received a new robotic arm made by his engineer Nico. It replaces his Devil Bringer prosthetic that was stolen by a villain. At the beginning of the game, Nero rides his van to Red Grave City in which a demonic tree appeared. At the same time, Dante has a new client, a mysterious V, who hires him to investigate the demonic attacks.</p>\n<h3>Gameplay</h3>\n<p>As usual in the Devil May Cry series, the player controls his or her character from the third person view. The game features three playable characters. Dante and Nero make a return, and V is newly introduced. Each of the three characters has a unique fighting style. Nero&#39;s prosthetic hand allows him to use a variety of options, such as pulling his enemies closer. Nero also uses his legendary weapons, the gun called “Blue Rose” and the sword named “Red Queen”. Dante, as usual, fights with his swords Rebellion and Sparda, as well as a variety of new weapons, such as chainsaws and a motorcycle. V uses a walking cane as a weapon.</p>",
-                "price": "29.99",
-                "released": "2019-03-08",
-                "images": "https://media.rawg.io/media/games/9fb/9fbf956a16249def7625ab5dc3d09515.jpg,https://media.rawg.io/media/screenshots/a84/a84908d77af95c66f0339a0292f3e244.jpg,https://media.rawg.io/media/screenshots/746/74623d3cbdda59a34c9093481694ea90.jpg,https://media.rawg.io/media/screenshots/354/354552bd1f15d298827ebd3af009d6a1.jpg,https://media.rawg.io/media/screenshots/ce1/ce1a5f1b1f6bbfc1a33a5049a29e4062.jpg,https://media.rawg.io/media/screenshots/f0e/f0e102962496f74ce24caa0dd0d9e1de.jpg,https://media.rawg.io/media/screenshots/fd8/fd873c7b3a280783b61d7c8d44495363.jpg",
-                "requirements": null,
-                "genres": [
-                    "Action"
                 ]
             },
             {    "stock": 50,
@@ -3926,25 +3441,7 @@
                 ]
             },
             {    "stock": 50,
-                "id": 2623,
-
-                "name": "Resident Evil 6",
-                "background_image": "https://media.rawg.io/media/games/f6f/f6f39c5b56413f7f4513b25989a1b747.jpg",
-                "rating_api": 3.4,
-                "description": "<p>Bioterrorism ... Terrorists infect the US President with a vaccine that makes him an aggressive zombie. And one of the heroes of the game will have to kill him. Behind the terrorists, there is a mafia organisation that wants to hide the truth about the impossibility to control the biological weapons developed by it, which turns people into zombies. Bioterrorists opposed by a detachment of special forces - it serves two other characters.<br />\nThe action of the game periodically turns from a personal vendetta into a global catastrophe and back. One President-zombie is replaced by whole cities of infected. Zombies and mutants, bioterrorists, special forces and mercenaries - they all act constantly, fight and survive in open territories and secret bases.<br />\nIn total, you can play for seven characters, including a woman - the head of terrorists. Four story campaigns, after going through one line of the plot, you can choose another lens and see the events from a different perspective.<br />\nThere are many enemies, but ammunition drops out of them after death. The more dangerous is the enemy, the more ammo is dropped. In hand-to-hand combat, various combo attacks help. The complete passage of the game is described as approximately 25 hours of pure action.</p>",
-                "price": "6.74",
-                "released": "2012-10-02",
-                "images": "https://media.rawg.io/media/games/f6f/f6f39c5b56413f7f4513b25989a1b747.jpg,https://media.rawg.io/media/screenshots/fe3/fe360941c0dfeff5f463621821fded97.jpg,https://media.rawg.io/media/screenshots/5e4/5e40f084bff861a6a6ab4779aa31fab4.jpg,https://media.rawg.io/media/screenshots/071/071f2d49c10619f054864e84367e0151.jpg,https://media.rawg.io/media/screenshots/39d/39d6ef1c71bf4c24aaef1f85179cd7b4.jpg,https://media.rawg.io/media/screenshots/d79/d79911cbb34fda052f6cd7f8b537e325.jpg,https://media.rawg.io/media/screenshots/2ad/2ad5e9b4670d7da997ae9d98aa36f7d0.jpg",
-                "requirements": null,
-                "genres": [
-                    "Action",
-                    "Shooter",
-                    "Adventure"
-                ]
-            },
-            {    "stock": 50,
                 "id": 3408,
-
                 "name": "Hotline Miami 2: Wrong Number",
                 "background_image": "https://media.rawg.io/media/games/003/0031c0067559d41df19cf98ad87e02aa.jpg",
                 "rating_api": 4.26,

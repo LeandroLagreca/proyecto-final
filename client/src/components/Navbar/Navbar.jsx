@@ -1,8 +1,7 @@
 import * as React from "react";
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import logo from "../../assets/logoGameScript.png"
-import "./estilos.css"
+import logo from "../../assets/logoGameScript.png";
 
 import {
   AppBar,
@@ -14,7 +13,7 @@ import {
   MenuItem,
   Menu,
   Button,
-  Divider
+  Divider,
 } from "@mui/material";
 
 import {
@@ -28,20 +27,24 @@ import { CartWidget, SessionButton } from "../";
 import Searchbar from "./Searchbar";
 
 const styles = {
+  brand: {
+    width: 200,
+    height: 'auto'
+  },
   link: {
-    textDecoration: 'none'
-  }
-}
+    textDecoration: "none",
+  },
+};
 
 const Navbar = () => {
   const [input, setInput] = React.useState("");
-  const { status } = useSelector(state => state.user)
+  const { status } = useSelector((state) => state.user);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  const { pathname } = useLocation()
-  const idUser = useSelector(state => state.user.id)
+  const { pathname } = useLocation();
+  const idUser = useSelector((state) => state.user.id);
 
-  if(pathname === '/') return <></>
+  if (pathname === "/") return <></>;
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -80,7 +83,13 @@ const Navbar = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose} component={Link} to={`/account/${idUser}`}>My account</MenuItem>
+      <MenuItem
+        onClick={handleMenuClose}
+        component={Link}
+        to={`/account/${idUser}`}
+      >
+        My account
+      </MenuItem>
     </Menu>
   );
 
@@ -140,71 +149,86 @@ const Navbar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-
-		  <Link style={styles.link} to='/home'>
-              <Button
-                sx={{ my: 2, color: "white", display: "block", fontSize: 24 }}
-              >
-               <img className="logo" src={logo} alt={"logo"}/>
-              </Button>
-            </Link>
+          <Link className={styles.link} to="/home">
+            <img style={styles.brand} src={logo} alt={"logo"} />
+          </Link>
 
           <Searchbar setInput={setInput} input={input} />
 
           <Box sx={{ flexGrow: 1 }} />
 
-          <Box sx={{ display: { xs: "none", md: "flex", height:50 } }}>
-            <Link style={styles.link} to='/home'>
-              <Button sx={{ my: 1, color: "white", display: "block", fontSize: 12 }}>
+          <Box sx={{ display: { xs: "none", md: "flex", height: 50 } }}>
+            <Link style={styles.link} to="/home">
+              <Button
+                sx={{ my: 1, color: "white", display: "block", fontSize: 12 }}
+              >
                 Games
               </Button>
             </Link>
             <Link style={styles.link}>
-              <Button sx={{ my: 1, color: "white", display: "block", fontSize: 12 }}>
+              <Button
+                sx={{ my: 1, color: "white", display: "block", fontSize: 12 }}
+              >
                 About
               </Button>
             </Link>
-            {
-              status !== 'guest' ? (
-                <>
-                  <Link style={styles.link} to='/wishes'>
-                      <Button
-                        sx={{ my: 1, color: "white", display: "block", fontSize: 12, minWidth: 80 }}
-                      >
-                      Wish list
-                    </Button>
-                  </Link>
-                  <Link style={styles.link} to='/purchases'>
-                    <Button
-                      sx={{ my: 1, color: "white", display: "block", fontSize: 12 }}
-                    >
-                      Purchases
-                    </Button>
-                  </Link>
-                </>
-              ) : ''
-            }
+            {status !== "guest" ? (
+              <>
+                <Link style={styles.link} to="/wishes">
+                  <Button
+                    sx={{
+                      my: 1,
+                      color: "white",
+                      display: "block",
+                      fontSize: 12,
+                      minWidth: 80,
+                    }}
+                  >
+                    Wish list
+                  </Button>
+                </Link>
+                <Link style={styles.link} to="/purchases">
+                  <Button
+                    sx={{
+                      my: 1,
+                      color: "white",
+                      display: "block",
+                      fontSize: 12,
+                    }}
+                  >
+                    Purchases
+                  </Button>
+                </Link>
+              </>
+            ) : (
+              ""
+            )}
           </Box>
 
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <CartWidget />
-            {
-              status !== 'guest' ? (
-                <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-              ) : ''
-            }
+            {status !== "guest" ? (
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={handleProfileMenuOpen}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+            ) : (
+              ""
+            )}
           </Box>
-          <Divider orientation='vertical' variant='middle' flexItem sx={{marginX: 3, color: 'white'}} /> 
+          <Divider
+            orientation="vertical"
+            variant="middle"
+            flexItem
+            sx={{ marginX: 3, color: "white" }}
+          />
           <Box>
             <SessionButton />
           </Box>
@@ -224,7 +248,6 @@ const Navbar = () => {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
-
     </Box>
   );
 };

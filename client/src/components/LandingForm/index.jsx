@@ -10,6 +10,7 @@ import {
   InputLabel,
   FormHelperText ,
   InputAdornment,
+  Link as MuiLink,
 } from "@mui/material";
 import { Check, PriorityHigh } from '@mui/icons-material';
 import {auth} from "../../firebase/credenciales";
@@ -179,9 +180,9 @@ signInWithRedirect(auth, provider)
             </Button>
           )
         }
-        <Link to="/home">
+        <MuiLink component={Link} to="/home" underline="none">
           <Button>invitado</Button>
-        </Link>
+        </MuiLink>
         <Button  onClick={handleReset}>Reset password</Button>
         <Button  onClick={handleGoogle}>Inicia con Google</Button>
       </FormControl>
