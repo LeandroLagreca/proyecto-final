@@ -20,11 +20,12 @@ const {
   getAllOrders,
   createOrder,
   getUserOrders,
-  ChangeStatePurchaseOrder
+  ChangeStatePurchaseOrder,
 } = require("../controllers/Orders");
 
 const {
   allDataUser,
+  UserByName,
   UserByID,
   UserPost,
   UserEliminated,
@@ -67,11 +68,10 @@ router.get("/discounts", getDiscounts);
 
 //User
 router.get("/user", allDataUser);
-
+router.get("/searchUser",UserByName)
 router.get("/user/:id", UserByID);
 
 router.put("/user/:id", UserUpdate);
-
 
 //sesion
 router.post("/register", UserPost);
@@ -82,7 +82,7 @@ router.post("/login", PostLogin);
 router.get("/orders", getAllOrders);
 router.get("/orders/user/:id", getUserOrders);
 router.post("/orders", createOrder);
-router.put("/orders/:id",ChangeStatePurchaseOrder)
+router.put("/orders/:id", ChangeStatePurchaseOrder);
 //Images
 router.post("/images/discounts", upLoadDicountsBanner);
 router.get("/images/discounts", getDiscountsBanner);
