@@ -18,7 +18,6 @@ import FormatBoldIcon from "@mui/icons-material/FormatBold";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
-import DisableElevation from "../components/ErrorNotFound/DisableElevation";
 import {Button,Typography,Container,Box,TextField,Paper,IconButton,Avatar,Rating,} from "@mui/material";
 
 const imgLink = "Url de imagen de usuario"; //Imagen cuando se implemente el profile

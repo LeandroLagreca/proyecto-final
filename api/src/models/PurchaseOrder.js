@@ -41,6 +41,10 @@ module.exports = (sequelize) => {
         },
       },
     },
+    date: {
+      type: DataTypes.DATEONLY,
+      defaultValue: DataTypes.NOW,
+    },
     totalprice: {
       type: DataTypes.FLOAT,
       allowNull: false,
