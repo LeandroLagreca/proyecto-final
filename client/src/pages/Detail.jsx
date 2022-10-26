@@ -19,6 +19,7 @@ import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
 import {Button,Typography,Container,Box,TextField,Paper,IconButton,Avatar,Rating,} from "@mui/material";
+import FloatingActionButtons from "../components/EditForm/BotonEditar";
 
 const imgLink = "Url de imagen de usuario"; //Imagen cuando se implemente el profile
 
@@ -298,6 +299,7 @@ export default function Detail() {
               {gameDetail.requirements ? parse(gameDetail.requirements) : null}
             </Typography>
           </Box>
+          {user !== "guest" && <FloatingActionButtons/>}
         </Box>
       </Paper>
       {/*---------------- SECCION RESEÑAS ---------------------*/}
