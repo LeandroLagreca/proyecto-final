@@ -50,10 +50,6 @@ const UserPost = async (req, res) => {
 }
 }
 
-
-const getDbInfo = async () => {
-  return await User.findAll();
-};
 const getDbById = async (id) => {
   return await User.findByPk(id);
 };
@@ -90,9 +86,17 @@ const UserByID = async (req, res) => {
 };
 
 const allDataUser = async (req, res) => {
-  const { name } = req.query;
-  const info = await getDbInfo();
+  const { filter = '' } = req.query;
+  const { name } = filter
+  const where = {}
+  if(name){
+    where.name = {
+      [Op.iLike]: `%${name}%`
+    }
+  }
+
   try {
+    const info = await User.findAll({where});
     if (info.length === 0) {
       res.send("User does not exist");
     } else {
