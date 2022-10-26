@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Card, CardContent, CardActions } from "@mui/material";
+import { Card, CardContent, CardActions, FormControl, Select, MenuItem, InputLabel } from "@mui/material";
 import Swal from "sweetalert2";
 
 import { AdminOrdersContainer } from "../containers";
@@ -24,7 +24,7 @@ const styles = {
 export default function AdminOrders() {
   const [ orders, setOrders ] = useState([])
   const [filters, setFilters] = useState({
-    name: '',
+    name: "",
     status: "",
     date: "",
   });
@@ -60,8 +60,33 @@ export default function AdminOrders() {
     });
   }
 
+  function handleFilters(e) {
+    const value = e.target.value
+    const name = e.target.name
+      setFilters(prev => ({
+        ...prev,
+        [name] : value
+      }))
+  }
+
   return (
     <AdminOrdersContainer>
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel>Status</InputLabel>
+        <Select
+          value={filters.status}
+          onChange={handleFilters}
+          name="status"
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value='created'>Creada</MenuItem>
+          <MenuItem value='inprocess'>En proceso</MenuItem>
+          <MenuItem value='canceled'>Cancelada</MenuItem>
+          <MenuItem value='finalized'>Finalizada</MenuItem>
+        </Select>
+      </FormControl>
       {orders.map((order) => (
         <Card key={order.id} sx={styles.card}>
           <CardContent sx={styles.content}>
