@@ -22,34 +22,22 @@ const UserPost = async (req, res)=> {
     const newUser = await User.create({
         id: user.uid,
         email,
-        available,
         name: email,
-        password: hashFunction(password)
+        password: hashFunction(password),
     })
-    await newUser.update({cart: prevCart})
+    if(prevCart) await newUser.Update({cart: prevCart})
+    
     const actionCodeSettings = {
         url: 'http://localhost:3000/',
         handleCodeInApp: true,
         };
     sendSignInLinkToEmail(auth, email, actionCodeSettings)
-    .then(() => {
-        window.localStorage.setItem('emailForSignIn', email);
-    })
-    if (isSignInWithEmailLink(auth, window.location.href)) {
-        let email = window.localStorage.getItem('emailForSignIn');
-        if (!email) {
-            email = window.prompt('Please provide your email for confirmation');
-        }
-        signInWithEmailLink(auth, email, window.location.href)
-            .then((result) => {
-            window.localStorage.removeItem('emailForSignIn');
-            })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-    })
-}
-    res.status(201).json({msg: "User create!"})
+    if(isSignInWithEmailLink(auth, emailLink)) {
+        await signInWithEmailLink(auth, email , emailLink);
+    }
+
+        res.status(201).json({msg: "User create!"})
+
 } catch {
     res.status(400).json({msg: "User not create!"});
 }
