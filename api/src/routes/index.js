@@ -77,7 +77,7 @@ router.put("/user/:id", UserUpdate);
 router.get("/searchUser", UserByName);
 =======
 
->>>>>>> d6154bcea81fbd88f476bcf9d91a109b4aa8dfee
+>>>>>>>>> Temporary merge branch 2
 //sesion
 router.post("/register", UserPost);
 
