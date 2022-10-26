@@ -35,10 +35,20 @@ const UserPost = async (req, res)=> {
     .then(() => {
         window.localStorage.setItem('emailForSignIn', email);
     })
+    if (isSignInWithEmailLink(auth, window.location.href)) {
+        let email = window.localStorage.getItem('emailForSignIn');
+        if (!email) {
+            email = window.prompt('Please provide your email for confirmation');
+        }
+        signInWithEmailLink(auth, email, window.location.href)
+            .then((result) => {
+            window.localStorage.removeItem('emailForSignIn');
+            })
     .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-    });
+    })
+}
     res.status(201).json({msg: "User create!"})
 } catch {
     res.status(400).json({msg: "User not create!"});
@@ -99,6 +109,10 @@ const UserUpdate = async (req, res) => {
 
 
 const PostLogin= async (req, res) => {
+    const {available} = req.body;
+    if(available === false){
+        res.status(400).send('User does not available')
+    }else{
     const {email} = req.body;
     try {
         let found = await User.findOne({ where: { email: email} });
@@ -114,7 +128,7 @@ const PostLogin= async (req, res) => {
         }
         };
 
-
+    }
 module.exports={
     allDataUser,
     UserByID,

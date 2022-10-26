@@ -27,7 +27,6 @@ const {
   allDataUser,
   UserByID,
   UserPost,
-  UserEliminated,
   UserUpdate,
   PostLogin,
 } = require("../controllers/User.js");
