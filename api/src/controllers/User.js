@@ -117,10 +117,12 @@ const UserUpdate = async (req, res) => {
         },
       }
     );
-    } catch(error){ 
-        console.log(error)
-    }
-}
+    
+    res.status(200).json({ msg: `User ${modifique.name} update successfully` });
+  } catch (error) {
+    res.status(400).json({ error: "Error update User" });
+  }
+};
 
 const PostLogin= async (req, res) => {
     const {available} = req.body;
