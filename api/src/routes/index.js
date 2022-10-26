@@ -68,16 +68,11 @@ router.get("/discounts", getDiscounts);
 
 //User
 router.get("/user", allDataUser);
-
+router.get("/searchUser",UserByName)
 router.get("/user/:id", UserByID);
 
 router.put("/user/:id", UserUpdate);
 
-<<<<<<< HEAD
-router.get("/searchUser", UserByName);
-=======
-
->>>>>>>>> Temporary merge branch 2
 //sesion
 router.post("/register", UserPost);
 
