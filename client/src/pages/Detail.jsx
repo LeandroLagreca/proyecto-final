@@ -1,4 +1,5 @@
 import "./Detail.css";
+import Swal from "sweetalert2";
 import React from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -23,6 +24,7 @@ import {Button,Typography,Container,Box,TextField,Paper,IconButton,Avatar,Rating
 const imgLink = "Url de imagen de usuario"; //Imagen cuando se implemente el profile
 
 export default function Detail() {
+  const user = useSelector((state) => state.user.status);
   const { loading } = useSelector((state) => state.videogames);
   const gameDetail = useSelector((state) => state.videogames.details);
   const gameComment = useSelector((state) => state.videogames.comments);
@@ -63,6 +65,8 @@ export default function Detail() {
   //estado local para estrellas Rating
   const [estrella, setEstrella] = React.useState(3);
 
+  const [isLogued, setIsLogued] = React.useState(false);
+
   //HandleChange para Form
   const handleChange = (e) => {
     value.comment.text = e.target.value;
@@ -82,6 +86,10 @@ export default function Detail() {
   };
 //Handle SUBMIT dispacha accion para postear comentario
   async function handleSubmit(e) {
+	if(isLogued===false){
+		e.preventDefault();
+	}
+	else{
     e.preventDefault();
     dispatch(postComments(value));
     setValue({
@@ -93,8 +101,32 @@ export default function Detail() {
         rating_like: 3,
       },
     });
-    alert("comment create succesfully");
+    }	
   }
+
+  const addPostAlert = () => {
+    if(user === "guest"){
+		setIsLogued(false)
+      Swal.fire({
+        toast: true,
+        icon: 'error',
+        title: 'You cannot add post if you are not registered',
+        position: 'bottom-right',
+        showConfirmButton: false,
+        timer: 3000,
+      })
+    }else{
+		setIsLogued(true)
+        Swal.fire({
+          toast: true,
+          icon: 'success',
+          title: 'Your review has been posted',
+          position: 'bottom-right',
+          showConfirmButton: false,
+          timer: 3000,
+        })
+    }
+  };
 
   //{----------------------Icons de review--------------------}
   //Handle para BOLD
@@ -161,8 +193,9 @@ export default function Detail() {
 
   return (
     <Container>
-      <DisableElevation />
       <Paper elevation={8} sx={{ padding: 2 }}>
+      <DisableElevation />
+		{/* Games > Detail > {gameDetail.name} */}
         <Box display="flex" alignItems="flex-start" className="boxDivisor">
           <Box
             className="containerNombreImagenDescription"
@@ -330,7 +363,7 @@ export default function Detail() {
                 paddingTop: 1,
               }}
             >
-              <Button type="submit" variant="outlined">
+              <Button type="submit" sx={{marginLeft:5}} variant="outlined" onClick={addPostAlert}>
                 Submit
               </Button>
             </Box>
