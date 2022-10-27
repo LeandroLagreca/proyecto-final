@@ -1,9 +1,13 @@
 import React from 'react';
 
-import { AccountNavBar, Loader } from '../components';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { AdminContainer } from '../containers';
-import { MyProfile, MyPurchases, MyNotifications } from '../components';
+import {
+	MyProfile,
+	MyPurchases,
+	MyNotifications,
+	AccountNavBar,
+} from '../components';
 
 const paths = {
 	profile: '/profile',
