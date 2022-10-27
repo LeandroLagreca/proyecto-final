@@ -1,8 +1,6 @@
 import { Routes as Rutas, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import useStatusChecker from './firebase/statusCheck'
-import { getDiscounts } from './redux/actions/videoGame';
-import { Detail, MainHome, Landing, AdminPanel, NotFound, Cart, Discounts } from './pages';
+import { Detail, MainHome, Landing, AdminPanel, NotFound, Cart, Discounts, Account } from './pages';
 
 
 
@@ -16,11 +14,14 @@ import LandingPage from './components/Landing/LandingPage';
 
 
 
+<<<<<<< HEAD
 const Routes = () => {
 	//solve conflictos
 	const dispatch = useDispatch()
+=======
+const Routes = ({setMode, mode}) => {
+>>>>>>> 5835e6eea57744f7f3243e5ec89c07ded222dc11
 	useStatusChecker()
-	dispatch(getDiscounts());
 
 	return (
 		<>
@@ -36,7 +37,11 @@ const Routes = () => {
 				<Route path = '/discounts' element = {<Discounts/>}/>
 				<Route path = '*' element = {<NotFound/>}/>
 				<Route path = '/colection' element = {<Collection/>}/>
+<<<<<<< HEAD
 				<Route path = "/landing123" element = {<LandingPage/>} />
+=======
+				<Route path = '/account/:id' element = {<Account/>}/>
+>>>>>>> 5835e6eea57744f7f3243e5ec89c07ded222dc11
 			</Rutas>
 			<Footer />
 		</>

@@ -1,103 +1,145 @@
-import React from "react";
+import React from 'react';
 
+import { Link as RouterLink } from 'react-router-dom';
+import { useContext } from 'react';
+import { ColorModeContext } from '../Theme/Theme';
 
-import { Link as RouterLink } from "react-router-dom";
-
-import {Link } from "@mui/material";
+import { Link } from '@mui/material';
 import {
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Button,
-  Typography,
-  Box
-} from "@mui/material";
+	Card,
+	CardActions,
+	CardContent,
+	CardMedia,
+	Button,
+	Typography,
+	Box,
+} from '@mui/material';
 
-import { AddToCartButton, AddToWishes } from "../";
+import { AddToCartButton, AddToWishes } from '../';
 
 const styles = {
-  card: {
-    display: "flex",
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    width: 200,
-    height: 300,
-    position: "relative",
-    overflow: 'visible'
-  },
-  discountPercent: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    background: 'green',
-    color: 'white',
-    fontSize: 20,
-    paddingX: .8,
-  }
+	card: {
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'space-between',
+		width: 200,
+		height: 300,
+		position: 'relative',
+		overflow: 'visible',
+	},
+	discountPercent: {
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		background: 'green',
+		color: 'white',
+		fontSize: 20,
+		paddingX: 0.8,
+	},
 };
 
-export default function MainCard({ name, background_image, price, id, discount }) {
-  return (
-    <Card sx={styles.card}>
-      <CardMedia
-        component="img"
-        alt="gameCard"
-        height="150"
-        image={background_image}
-      />
-      <CardContent>
-        <Typography
-          gutterBottom
-          sx={{ fontWeight: 600 }}
-          variant="subtitle1"
-          component="div"
-        >
-          {name}
-        </Typography>
-        {
-          !discount?.status ? (
-            <Typography  variant="subtitle2" color="text.primary">
-              ${price}
-            </Typography>
-          ) : (
-            <Box display='flex'>
-              <Typography sx={styles.discountPercent} variant="subtitle2" color="text.primary">
-                {`${Math.floor(100 - (discount.currentPrice * 100) / discount.prevPrice)}%`}
-              </Typography>
-              <Box sx={{background: 'rgba(160, 149, 147, .3)', textAlign: 'center', paddingX: .8}}>
-                <Typography sx={{textDecoration: 'line-through', color: 'gray', fontSize: 12}} variant="subtitle2">
-                  ${discount.prevPrice}
-                </Typography>
-                <Typography sx={{color: 'green', fontSize: 15}} variant="subtitle2">
-                  ${discount.currentPrice}
-                </Typography>
-              </Box>
-            </Box>
-          )
-        }
-      </CardContent>
-      <CardActions>
-        <AddToWishes
-          id={id}
-          name={name}
-          image={background_image}
-          price={price}
-          styles={{ position: "absolute", left: 0, top: 0}}
-        />
-        <AddToCartButton
-          id={id}
-          name={name}
-          picture={background_image}
-          price={price}
-          styles={{ position: "absolute", right: 0, top: 0}}
-        />
-      </CardActions>
-      <Link component={RouterLink} to={`/detail/${id}`} underline='none'>
-        <Button variant="outlined" size="small" sx={{ width: "100%",}} color={"secondary"} >
-          Detail
-        </Button>
-      </Link>
-    </Card>
-  );
+export default function MainCard({
+	name,
+	background_image,
+	price,
+	id,
+	discount,
+}) {
+	const { mode, toggleMode } = useContext(ColorModeContext);
+	return (
+		<Card sx={styles.card}>
+			<CardMedia
+				component="img"
+				alt="gameCard"
+				height="150"
+				image={background_image}
+			/>
+			<CardContent>
+				<Typography
+					gutterBottom
+					sx={{ fontWeight: 600 }}
+					variant="subtitle1"
+					component="div"
+				>
+					{name}
+				</Typography>
+				{!discount?.status ? (
+					<Typography variant="subtitle2" color="text.primary">
+						${price}
+					</Typography>
+				) : (
+					<Box display="flex">
+						<Typography
+							sx={styles.discountPercent}
+							variant="subtitle2"
+							color="text.primary"
+						>
+							{`${Math.floor(
+								100 - (discount.currentPrice * 100) / discount.prevPrice
+							)}%`}
+						</Typography>
+						<Box
+							sx={{
+								background: 'rgba(160, 149, 147, .3)',
+								textAlign: 'center',
+								paddingX: 0.8,
+							}}
+						>
+							<Typography
+								sx={{
+									textDecoration: 'line-through',
+									color: 'gray',
+									fontSize: 12,
+								}}
+								variant="subtitle2"
+							>
+								${discount.prevPrice}
+							</Typography>
+							<Typography
+								sx={{ color: 'green', fontSize: 15 }}
+								variant="subtitle2"
+							>
+								${discount.currentPrice}
+							</Typography>
+						</Box>
+					</Box>
+				)}
+			</CardContent>
+			<CardActions>
+				<AddToWishes
+					id={id}
+					name={name}
+					image={background_image}
+					price={price}
+					styles={{ position: 'absolute', left: 0, top: 0 }}
+				/>
+				<AddToCartButton
+					id={id}
+					name={name}
+					picture={background_image}
+					price={price}
+					styles={{ position: 'absolute', right: 0, top: 0 }}
+				/>
+			</CardActions>
+			<Link component={RouterLink} to={`/detail/${id}`} underline="none">
+				<Button
+					variant="outlined"
+					size="small"
+					sx={[
+						mode === 'dark' ? { borderColor: 'white' } : { borderColor: 'primary' },
+						{ width: '100%' },
+					]}
+				>
+					<Typography
+						sx={[
+							mode === 'dark' ? { color: 'white' } : { color: 'primary' },
+							{ width: '100%' },
+						]}
+					>
+						Detail
+					</Typography>
+				</Button>
+			</Link>
+		</Card>
+	);
 }

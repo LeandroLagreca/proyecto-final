@@ -23,12 +23,12 @@ export default function SessionButton() {
     <>
       {sessionStatus !== 'logged' ? (
         <Link style={styles.link} to={"/"}>
-          <Button variant="contained" color="info">
+          <Button variant="contained" sx={{minWidth: 80}} size="small" color="info">
             Log In
           </Button>
         </Link>
       ) : (
-        <Button variant="contained" onClick={() => {
+        <Button size="small" variant="text" sx={{minWidth: 80}} onClick={() => {
           signOut(auth)
           dispatch(setSigned('guest'))
         }} color={"secondary"}>

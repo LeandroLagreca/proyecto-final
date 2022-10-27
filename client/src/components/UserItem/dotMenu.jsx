@@ -6,6 +6,8 @@ import {
 	Menu,
 } from "@mui/material";
 import { MoreVert, DeleteForever } from "@mui/icons-material";
+import { sendPasswordResetEmail } from "firebase/auth";
+import{auth} from '../../firebase/credenciales';
 
 export default function DotMenu({id}) {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -17,9 +19,12 @@ export default function DotMenu({id}) {
     setAnchorEl(null);
   };
 
-    function requestNewPassword() {
-		// axios.put("http://localhost:3001/user/");
-		alert('Cambiar pass')
+    function requestNewPassword(email) {
+      const actionCodeSettings = {
+        url: 'http://localhost:3000/user/',
+        handleCodeInApp: true,
+      };
+    sendPasswordResetEmail(auth, email, actionCodeSettings)
 	}
 
 	function requestNewEmail() {

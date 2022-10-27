@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios'
 import { useSelector, useDispatch } from 'react-redux';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -7,8 +9,14 @@ import { filterByGenre } from '../../redux/reducers/videoGame';
 
 export default function SelectGenere() {
 	const dispatch = useDispatch();
+	const [ options, setOptions ] = useState([])
 	const { genre } = useSelector(state => state.videogames.filters)
 	
+	useEffect(() => {
+		axios.get('http://localhost:3001/genres')
+		.then(response => setOptions(response.data))
+	}, [])
+
 	const handleGenere = (event) => {
 		dispatch(filterByGenre(event.target.value))
 	};
@@ -21,25 +29,11 @@ export default function SelectGenere() {
 					<MenuItem value="">
 						<em>None</em>
 					</MenuItem>
-					<MenuItem value="Action">Action</MenuItem>
-					<MenuItem value="Indie">Indie</MenuItem>
-					<MenuItem value="Adventure">Adventure</MenuItem>
-					<MenuItem value="RPG">RPG</MenuItem>
-					<MenuItem value="Strategy">Strategy</MenuItem>
-					<MenuItem value="Shooter">Shooter</MenuItem>
-					<MenuItem value="Casual">Casual</MenuItem>
-					<MenuItem value="Simulation">Simulation</MenuItem>
-					<MenuItem value="Puzzle">Puzzle</MenuItem>
-					<MenuItem value="Arcade">Arcade</MenuItem>
-					<MenuItem value="Platformer">Platformer</MenuItem>
-					<MenuItem value="Racing">Racing</MenuItem>
-					<MenuItem value="Massively Multiplayer">Massively Multiplayer</MenuItem>
-					<MenuItem value="Sports">Sports</MenuItem>
-					<MenuItem value="Fighting">Fighting</MenuItem>
-					<MenuItem value="Family">Family</MenuItem>
-					<MenuItem value="Board Games">Board Games</MenuItem>
-					<MenuItem value="Educational">Educational</MenuItem>
-					<MenuItem value="Card">Card</MenuItem>
+					{
+						options.map(el => (
+							<MenuItem key={el.id} value={el.name}>{el.name}</MenuItem>
+						))
+					}
 				</Select>
 			</FormControl>
 		</div>
