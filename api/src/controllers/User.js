@@ -32,15 +32,7 @@ const UserPost = async (req, res) => {
       password: hashFunction(password),
     });
     await newUser.update({ cart: prevCart });
-    const actionCodeSettings = {
-      url: "http://localhost:3000/",
-      handleCodeInApp: true,
-    };
-    sendSignInLinkToEmail(auth, email, actionCodeSettings)
-    if(isSignInWithEmailLink(auth, emailLink)) {
-        await signInWithEmailLink(auth, email , emailLink);
-    }
-
+    
         res.status(201).json({msg: "User create!"})
 
 } catch {
