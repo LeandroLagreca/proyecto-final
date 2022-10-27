@@ -5,8 +5,6 @@ const {
   createUserWithEmailAndPassword,
   getAuth,
   sendSignInLinkToEmail,
-  isSignInWithEmailLink,
-  signInWithEmailLink,
 } = require("firebase/auth");
 
 const UserPost = async (req, res) => {
@@ -37,12 +35,7 @@ const UserPost = async (req, res) => {
       handleCodeInApp: true,
     };
     sendSignInLinkToEmail(auth, email, actionCodeSettings)
-    if(isSignInWithEmailLink(auth, emailLink)) {
-        await signInWithEmailLink(auth, email , emailLink);
-    }
-
         res.status(201).json({msg: "User create!"})
-
 } catch {
     res.status(400).json({msg: "User not create!"});
 }
@@ -147,6 +140,25 @@ const PostLogin= async (req, res) => {
         };
 
     }
+/*
+    const OrdenXStock = 
+        action.payload === "min" ?
+        videogames.sort(function (a, b) {
+            if (a.stock > b.stock) return 1;
+            if (b.stock > a.stock) return -1;
+            return 0;
+        })
+        : videogames.sort(function (a, b) {
+            if (a.stock > b.stock) return -1;
+            if (b.stock > a.stock) return 1;
+            return 0;
+        
+        });
+            return {
+            ...state,
+            videogames: sortedByRating.map((e) => e),
+            };
+*/
 module.exports= {
     allDataUser,
     UserByID,

@@ -189,7 +189,7 @@ export default function Detail() {
 
   useEffect(() => {
     dispatch(getComments(id));
-  }, [gameComment]);
+  }, []);
 
   if (loading) return <Loader />;
 
@@ -267,6 +267,9 @@ export default function Detail() {
                   <Item key={item.id} item={item} />
                 ))}
               </Carousel>
+            </Box>
+            <Box>
+              {gameDetail.trailer}
             </Box>
             <Box className="description" borderRadius={0.5} sx={{ padding: 1 }}>
               <Typography

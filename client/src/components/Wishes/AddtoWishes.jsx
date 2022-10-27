@@ -7,6 +7,7 @@ import Card from "../Cards/Card";
 import { margin, padding } from "@mui/system";
 import { AddToCartButton, AddToWishes } from "../";
 import "./AddWishes.css";
+
 import Sidebar from "../Sidebar/Sidebar";
 import  Footer  from '../Footer/Footer';
 
@@ -81,7 +82,13 @@ const Wishes = () => {
                   />
                   </Button>
                   <AddToWishes
-                    className="meguta"
+                  style={{ 
+                    width: 10, 
+                    height: 40, 
+                    marginLeft: 10,  
+                    onMouseOver:"backgroundColor: red",
+                    borderRadius: 8 }
+                   }
                     id={e.id}
                     name={e.name}
                     image={e.background_image}
