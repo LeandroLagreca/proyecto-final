@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { DiscountsContainer } from "../containers";
 
 import { Container, Box, Input, Button } from "@mui/material";
-import { Card, Loader } from "../components";
+import { Card, Footer, Loader } from "../components";
+import Sidebar from "../components/Sidebar/Sidebar";
 
 const styles = {
   banner: {
@@ -86,6 +87,7 @@ export default function Discounts() {
 
   return (
     <DiscountsContainer>
+      <Sidebar></Sidebar>
       <div>
         <img
           className={styles.banner}
@@ -122,6 +124,7 @@ export default function Discounts() {
           />
         ))}
       </Box>
+      <Footer></Footer>
     </DiscountsContainer>
   );
 }
