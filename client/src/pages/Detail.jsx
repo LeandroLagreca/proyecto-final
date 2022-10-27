@@ -32,6 +32,7 @@ import {
 } from '@mui/material';
 import Comments from '../sections/Comments';
 import { auth } from '../firebase/credenciales';
+import { ColorModeContext } from '../components/Theme/Theme';
 
 const imgLink = 'Url de imagen de usuario';
 
@@ -257,13 +258,18 @@ export default function Detail() {
 								))}
 							</Carousel>
 						</Box>
-						<Box className="description" borderRadius={0.5} sx={{ padding: 1 }}>
+						<Box className="description" borderRadius={0.5} sx={{ padding: 1 }}
+						backgroundColor= {window.localStorage.getItem('themeMode') === "dark" ? "primary.main" : "white"} 
+						boxShadow={5}
+						
+						>
 							{/* DESCRIPCION */}
 
 							<Typography
 								variant="body2"
 								textAlign="justify"
-								color="text.primary"
+								color={window.localStorage.getItem('themeMode') === "dark" ? "white" : "primary.main"}
+								
 							>
 								{gameDetail.description ? parse(gameDetail.description) : null}
 							</Typography>
@@ -277,18 +283,21 @@ export default function Detail() {
 						{/* REQUERIMIENTOS */}
 						<Typography
 							borderRadius={0.5}
-							backgroundColor="primary.main"
+							backgroundColor= "primary.light"
 							variant="body1"
 							height={35}
 							color="white"
+							
+
 						>
 							Requeriments
 						</Typography>
 						<Typography
 							sx={{ borderRadius: 2 }}
-							backgroundColor="secondary.light"
+							backgroundColor= {window.localStorage.getItem('themeMode') === "dark" ? "primary.main" : "white"}
 							variant="body2"
-							color="text.primary"
+							color={window.localStorage.getItem('themeMode') === "dark" ? "white" : "primary.main"}
+							boxShadow={5}
 						>
 							{gameDetail.requirements ? parse(gameDetail.requirements) : null}
 						</Typography>

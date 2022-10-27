@@ -180,10 +180,10 @@ signInWithRedirect(auth, provider)
           )
         }
         <Link to="/home">
-          <Button>invitado</Button>
+          <Button color="secondary">invitado</Button>
         </Link>
-        <Button  onClick={handleReset}>Reset password</Button>
-        <Button  onClick={handleGoogle}>Inicia con Google</Button>
+        <Button color="secondary" onClick={handleReset}>Reset password</Button>
+        <Button color="secondary" onClick={handleGoogle}>Inicia con Google</Button>
       </FormControl>
     </Box>
   );

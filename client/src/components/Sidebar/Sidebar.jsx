@@ -138,7 +138,7 @@ const Sidebar = () => {
                   <List sx={{textDecoration:"none"}}>
                     <Link component={RouterLink} to={"/colection"} underline='none' >
                       <ListItem sx={{textDecoration:"none"}} >
-                        <ListItemButton sx={{color: "black", textDecoration:"none"}}>
+                        <ListItemButton sx={{color: mode === "dark" ? "white" : "dark", textDecoration:"none"}}>
                             <ListItemIcon > 
                               <VideogameAssetIcon/>
                             </ListItemIcon>
@@ -150,7 +150,7 @@ const Sidebar = () => {
                   <List sx={{textDecoration:"none"}}>
                     <Link component={RouterLink} to={"/wishes"} underline='none' >
                       <ListItem sx={{textDecoration:"none"}} >
-                        <ListItemButton sx={{color: "black", textDecoration:"none"}}>
+                        <ListItemButton sx={{color: mode === "dark" ? "white" : "dark", textDecoration:"none"}}>
                           <ListItemIcon > 
                             <FavoriteIcon/>
                           </ListItemIcon>
@@ -165,7 +165,7 @@ const Sidebar = () => {
         <List sx={{textDecoration:"none"}}>
           <Link component={RouterLink} to={"/discounts"} underline='none' >
             <ListItem sx={{textDecoration:"none"}} >
-              <ListItemButton sx={{color: "black", textDecoration:"none"}}>
+              <ListItemButton sx={{color: mode === "dark" ? "white" : "dark", textDecoration:"none"}}>
                 <ListItemIcon > 
                   <PercentIcon />
                 </ListItemIcon>

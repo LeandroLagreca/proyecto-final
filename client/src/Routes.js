@@ -11,11 +11,12 @@ import Wishes from './components/Wishes/AddtoWishes';
 import Purchases from './components/Purchases/Purchases';
 import Sidebar from './components/Sidebar/Sidebar';
 import Collection from './components/Collection/Collection';
+import LandingPage from './components/Landing/LandingPage';
 
 
 
 
-const Routes = ({setMode, mode}) => {
+const Routes = () => {
 	//solve conflictos
 	const dispatch = useDispatch()
 	useStatusChecker()
@@ -35,6 +36,7 @@ const Routes = ({setMode, mode}) => {
 				<Route path = '/discounts' element = {<Discounts/>}/>
 				<Route path = '*' element = {<NotFound/>}/>
 				<Route path = '/colection' element = {<Collection/>}/>
+				<Route path = "/landing123" element = {<LandingPage/>} />
 			</Rutas>
 			<Footer />
 		</>
