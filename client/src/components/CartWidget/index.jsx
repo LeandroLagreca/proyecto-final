@@ -39,11 +39,14 @@ export default function CartWidget() {
       if (e.price == null) {
         return 0;
       } else {
-        return parseFloat(e.price);
+        return {
+          cant: e.cant,
+          price: parseFloat(e.price)
+        } ;
       }
     });
   
-    totalPrice = totalPrice.reduce((a, b) => a + b, 0);
+    totalPrice = totalPrice.reduce((a, b) => a + b.price * b.cant, 0);
   
     if (Number.isInteger(totalPrice)) {
       totalPrice = totalPrice + '00';

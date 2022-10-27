@@ -28,6 +28,10 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: "GameScript@gmail.com",
     },
+    games: {
+      type: DataTypes.JSON,
+      allowNull: false
+    },
     status: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -40,10 +44,6 @@ module.exports = (sequelize) => {
           }
         },
       },
-    },
-    date: {
-      type: DataTypes.DATEONLY,
-      defaultValue: DataTypes.NOW,
     },
     totalprice: {
       type: DataTypes.FLOAT,
