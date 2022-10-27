@@ -30,6 +30,7 @@ const videogamePost = async (req, res) => {
       images,
       requirements,
       genres,
+      trailer,
       stock,
     } = req.body;
     const newVideogame = await Videogame.create({
@@ -41,6 +42,7 @@ const videogamePost = async (req, res) => {
       released,
       price,
       images,
+      trailer,
       requirements,
       stock,
     });
@@ -214,6 +216,7 @@ const updateVideogame = async (req, res) => {
     price,
     images,
     requirements,
+    trailer,
   } = req.body;
 
   try {
@@ -232,6 +235,7 @@ const updateVideogame = async (req, res) => {
           price: price ? price : find.price,
           images: images ? images : find.images,
           requirements: requirements ? requirements : find.requirements,
+          trailer: trailer ? trailer : find.trailer,
         },
         { where: { id: id } }
       );
