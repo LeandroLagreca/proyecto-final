@@ -17,6 +17,7 @@ import Purchases from './components/Purchases/Purchases';
 import Sidebar from './components/Sidebar/Sidebar';
 import Collection from './components/Collection/Collection';
 import LandingPage from './components/Landing/LandingPage';
+import Nosotros from './components/Nosotros/Nosotros'
 
 const Routes = ({ setMode, mode }) => {
 	useStatusChecker();
@@ -37,6 +38,7 @@ const Routes = ({ setMode, mode }) => {
 				<Route path="*" element={<NotFound />} />
 				<Route path="/colection" element={<Collection />} />
 				<Route path="/account/*" element={<Account />} />
+				<Route path = '/about' element = {<Nosotros/>}/>
 			</Rutas>
 			{/* <Footer /> */}
 		</>
