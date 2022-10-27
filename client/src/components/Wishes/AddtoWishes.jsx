@@ -7,12 +7,15 @@ import Card from "../Cards/Card";
 import { margin, padding } from "@mui/system";
 import { AddToCartButton, AddToWishes } from "../";
 import "./AddWishes.css";
+import Sidebar from "../Sidebar/Sidebar";
+import  Footer  from '../Footer/Footer';
 
 const Wishes = () => {
   const { wishes } = useSelector((state) => state.user);
 
   return (
     <div>
+      <Sidebar/>
       <Typography display="flex" mt={2} ml={2} mb={1} variant="h4">
         <b>Wish list</b>
       </Typography>
@@ -21,7 +24,7 @@ const Wishes = () => {
           Games
         </Link>{" "}
         <Typography variant="caption" ml={1} mr={1} color={"darkgray"}>
-          >{" "}
+          {" "}
         </Typography>{" "}
         <b>Wish List</b>{" "}
       </Typography>
@@ -90,6 +93,7 @@ const Wishes = () => {
           );
         })}
       </Box>
+      <Footer/>
     </div>
   );
 };

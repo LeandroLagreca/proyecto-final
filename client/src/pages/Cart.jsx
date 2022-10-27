@@ -1,5 +1,5 @@
 import React from 'react';
-import { AddressForm, Review } from '../components';
+import { AddressForm, Footer, Review } from '../components';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -19,6 +19,7 @@ import Modal from '@mui/material/Modal';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 import axios from 'axios';
+import Sidebar from '../components/Sidebar/Sidebar';
 
 const theme = createTheme();
 
@@ -116,6 +117,7 @@ const Cart = () => {
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
 			<Container maxWidth="sm" sx={{ mb: 4 }}>
+			<Sidebar></Sidebar>
 				<Paper
 					variant="outlined"
 					sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
@@ -189,6 +191,7 @@ const Cart = () => {
 						</React.Fragment>
 					</React.Fragment>
 				</Paper>
+			<Footer></Footer>
 			</Container>
 		</ThemeProvider>
 	);

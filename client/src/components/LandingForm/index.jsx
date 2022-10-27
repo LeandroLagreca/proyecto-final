@@ -175,38 +175,6 @@ export default function LandingForm({ register, setRegister }) {
         >
           <InputAdornment position="end">Show</InputAdornment>
         </OutlinedInput>
-<<<<<<< HEAD
-        {
-          register ? (
-            <>
-              <FormHelperText variant="outlined" >
-                {errors?.passRequired ? <PriorityHigh color="warning" /> : <Check color="success" /> }
-                Es requerido
-              </FormHelperText>
-              <FormHelperText variant="outlined" >
-                {errors?.passFormat ? <PriorityHigh color="warning" /> : <Check color="success" /> }
-                Debe tener entre 6 y 14 caracters, al menos un digito, una minuscula y una mayuscula
-              </FormHelperText>
-            </>
-          ) : (
-            <></>
-          )
-        }
-        {
-          register && Object.keys(errors).length ? (
-            <></>
-          ) : (
-            <Button type="submit" sx={styles.button} variant="outlined">
-              {register ? "registrate" : "iniciar sesion"}
-            </Button>
-          )
-        }
-        <Link to="/home">
-          <Button color="secondary">invitado</Button>
-        </Link>
-        <Button color="secondary" onClick={handleReset}>Reset password</Button>
-        <Button color="secondary" onClick={handleGoogle}>Inicia con Google</Button>
-=======
         {register ? (
           <>
             <FormHelperText variant="outlined">
@@ -242,7 +210,6 @@ export default function LandingForm({ register, setRegister }) {
         </MuiLink>
         <Button onClick={handleReset}>Reset password</Button>
         <Button onClick={handleGoogle}>Inicia con Google</Button>
->>>>>>> 5835e6eea57744f7f3243e5ec89c07ded222dc11
       </FormControl>
     </Box>
   );

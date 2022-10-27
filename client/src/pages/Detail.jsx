@@ -1,40 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import axios from 'axios';
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { AddToWishes, Loader, AddToCartButton } from '../components';
-import { useDispatch, useSelector } from 'react-redux';
-import { setLoading } from '../redux/reducers/videoGame';
-import { getDetails } from '../redux/actions/videoGame';
-import { getUserComments } from '../redux/actions/user';
-import Carousel from 'react-material-ui-carousel';
-import LinkIcon from '@mui/icons-material/Link';
-import FormatBoldIcon from '@mui/icons-material/FormatBold';
-import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
-import FormatItalicIcon from '@mui/icons-material/FormatItalic';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined';
-import DisableElevation from '../components/ErrorNotFound/DisableElevation';
-import { postComments } from '../redux/actions/comment';
-import Item from '../components/Items/Item';
-import { getComments } from '../redux/actions/comment';
-import './Detail.css';
-import {
-	Button,
-	Typography,
-	Container,
-	Box,
-	TextField,
-	Paper,
-	IconButton,
-	Avatar,
-	Rating,
-} from '@mui/material';
-import Comments from '../sections/Comments';
-import { auth } from '../firebase/credenciales';
-import { ColorModeContext } from '../components/Theme/Theme';
-=======
 import "./Detail.css";
 import Swal from "sweetalert2";
 import React from "react";
@@ -44,7 +7,7 @@ import { auth } from "../firebase/credenciales";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../redux/reducers/videoGame";
 import { getDetails } from "../redux/actions/videoGame";
-import { AddToWishes, Loader, AddToCartButton } from "../components";
+import { AddToWishes, Loader, AddToCartButton, Footer } from "../components";
 import Carousel from "react-material-ui-carousel";
 import Item from "../components/Items/Item";
 import Comments from "../sections/Comments";
@@ -57,7 +20,8 @@ import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
 import {Button,Typography,Container,Box,TextField,Paper,IconButton,Avatar,Rating,} from "@mui/material";
 import FloatingActionButtons from "../components/EditForm/BotonEditar";
->>>>>>> 5835e6eea57744f7f3243e5ec89c07ded222dc11
+import Sidebar from "../components/Sidebar/Sidebar";
+
 
 const imgLink = "Url de imagen de usuario"; //Imagen cuando se implemente el profile
 
@@ -227,216 +191,11 @@ export default function Detail() {
     dispatch(getComments(id));
   }, [gameComment]);
 
-<<<<<<< HEAD
-	return (
-		<Container>
-			<DisableElevation />
-			<Paper elevation={8} sx={{ padding: 2 }}>
-				<Box display="flex" alignItems="flex-start" className="boxDivisor">
-					<Box
-						className="containerNombreImagenDescription"
-						backgroundColor="secondary.light"
-						width={650}
-						borderRadius={3}
-						sx={{ border: 'grey' }}
-					>
-						<Box
-							display="flex"
-							backgroundColor="primary.main"
-							borderRadius={1}
-							sx={{
-								borderColor: '#42a5f5',
-								alignItems: 'center',
-								justifyContent: 'space-evenly',
-							}}
-						>
-							<Box
-								display="contents"
-								className="nombrePrecio"
-								sx={{ border: '1px dashed grey' }}
-							>
-								{/* NOMBRE */}
-								<Typography
-									padding={1}
-									variant="h5"
-									color={'white'}
-									component="div"
-								>
-									{gameDetail.name}
-								</Typography>
-								{/* PRECIO */}
-								<Typography variant="h6" color={'white'}>
-									${gameDetail.price}
-								</Typography>
-							</Box>
-							<Box display="flex" sx={{ border: '' }}>
-								<AddToCartButton
-									id={id}
-									name={gameDetail.name}
-									picture={gameDetail.background_image}
-									price={gameDetail.price}
-									variant="contained"
-								/>
-							</Box>
-							{/* ADDWISHES_ICON */}
-							<Box>
-								<AddToWishes
-									id={id}
-									name={gameDetail.name}
-									image={gameDetail.background_image}
-									price={gameDetail.price}
-									variant="contained"
-								/>
-							</Box>
-						</Box>
-						<Box
-							width={650}
-							height={300}
-							alignItems="center"
-							className="imagen"
-							display="inline-block"
-							sx={{ borderRadius: '4px' }}
-						>
-							{/* CARRUSEL */}
-							<Carousel className="carusel">
-								{imgCarousel.map((item) => (
-									<Item key={item.id} item={item} />
-								))}
-							</Carousel>
-						</Box>
-						<Box className="description" borderRadius={0.5} sx={{ padding: 1 }}
-						backgroundColor= {window.localStorage.getItem('themeMode') === "dark" ? "primary.main" : "white"} 
-						boxShadow={5}
-						
-						>
-							{/* DESCRIPCION */}
-
-							<Typography
-								variant="body2"
-								textAlign="justify"
-								color={window.localStorage.getItem('themeMode') === "dark" ? "white" : "primary.main"}
-								
-							>
-								{gameDetail.description ? parse(gameDetail.description) : null}
-							</Typography>
-						</Box>
-					</Box>
-					<Box
-						className="requeriments"
-						margin={1.5}
-						sx={{ borderRadius: 1, padding: 1 }}
-					>
-						{/* REQUERIMIENTOS */}
-						<Typography
-							borderRadius={0.5}
-							backgroundColor= "primary.light"
-							variant="body1"
-							height={35}
-							color="white"
-							
-
-						>
-							Requeriments
-						</Typography>
-						<Typography
-							sx={{ borderRadius: 2 }}
-							backgroundColor= {window.localStorage.getItem('themeMode') === "dark" ? "primary.main" : "white"}
-							variant="body2"
-							color={window.localStorage.getItem('themeMode') === "dark" ? "white" : "primary.main"}
-							boxShadow={5}
-						>
-							{gameDetail.requirements ? parse(gameDetail.requirements) : null}
-						</Typography>
-					</Box>
-				</Box>
-			</Paper>
-			{/* SECCION RESEÑAS */}
-			<section>
-				<Box className="newComment">
-					<Box className="formComment">
-						<Avatar alt={'H'} src={imgLink} />
-					</Box>
-					<form onSubmit={handleSubmit} className="formComment">
-						<Box
-							width={580}
-							sx={{
-								bgcolor: 'secondary.text',
-								borderColor: 'primary.main',
-								border: 1,
-								borderRadius: 1,
-								display: 'inline-block',
-							}}
-						>
-							<TextField
-								onChange={handleChange}
-								type="form"
-								id="standard-multiline-static"
-								fullWidth
-								label="Reviews"
-								name="text"
-								value={value.comment.text}
-								multiline
-								rows={4}
-								placeholder="Post a review..."
-								variant="standard"
-							/>
-							<Box
-								className="postActions"
-								sx={{
-									bgcolor: '#c0c0c0',
-									borderColor: 'secondary.main',
-								}}
-							>
-								<Box className="iconsComment">
-									<IconButton onClick={handleBold}>
-										<FormatBoldIcon className="iconitos" />
-									</IconButton>
-									<IconButton onClick={handleItalic}>
-										<FormatItalicIcon className="iconitos" />
-									</IconButton>
-									<IconButton onClick={handleUnderline}>
-										<FormatUnderlinedIcon className="iconitos" />
-									</IconButton>
-									<IconButton onClick={handleLink}>
-										<LinkIcon className="iconitos" />
-									</IconButton>
-									<IconButton onClick={handleQuote}>
-										<FormatQuoteIcon className="iconitos" />
-									</IconButton>
-								</Box>
-							</Box>
-						</Box>
-						<Box
-							sx={{
-								paddingTop: 1,
-							}}
-						>
-							<Button type="submit" variant="outlined">
-								Submit
-							</Button>
-						</Box>
-					</form>
-					<Box>
-						<Typography component="legend">Rating</Typography>
-						<Rating
-							name="rating_like"
-							value={estrella}
-							onClick={handleStar}
-							onChange={(event, newValue) => {
-								setEstrella(newValue);
-							}}
-						/>
-					</Box>
-				</Box>
-				<Comments />
-			</section>
-		</Container>
-	);
-=======
   if (loading) return <Loader />;
 
   return (
     <Container>
+      <Sidebar/>
       <Paper elevation={8} sx={{ padding: 2 }}>
       <Typography variant="caption" display="flex" mb={1}><Link className="redir" to={"/home"}>Games</Link> <Typography variant="caption" ml={1} color={"darkgray"}>> </Typography>    <Link className="redir" to={"/home"}> Detail </Link>  <Typography variant="caption" ml={1} mr={1} color={"darkgray"}>> </Typography>  <b>{gameDetail.name}</b> </Typography>
         <Box display="flex" alignItems="flex-start" className="boxDivisor">
@@ -626,7 +385,7 @@ export default function Detail() {
         </Box>
         <Comments />
       </section>
+      <Footer/>
     </Container>
   );
->>>>>>> 5835e6eea57744f7f3243e5ec89c07ded222dc11
 }
