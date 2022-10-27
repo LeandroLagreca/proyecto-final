@@ -31,7 +31,7 @@ const Routes = ({setMode, mode}) => {
 				<Route path = '/discounts' element = {<Discounts/>}/>
 				<Route path = '*' element = {<NotFound/>}/>
 				<Route path = '/colection' element = {<Collection/>}/>
-				<Route path = '/account/:id' element = {<Account/>}/>
+				<Route path = '/account/*' element = {<Account/>}/>
 			</Rutas>
 			{/* <Footer /> */}
 		</>
