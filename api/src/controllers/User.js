@@ -5,8 +5,6 @@ const {
   createUserWithEmailAndPassword,
   getAuth,
   sendSignInLinkToEmail,
-  isSignInWithEmailLink,
-  signInWithEmailLink,
 } = require("firebase/auth");
 
 const UserPost = async (req, res) => {
@@ -32,17 +30,14 @@ const UserPost = async (req, res) => {
       password: hashFunction(password),
     });
     await newUser.update({ cart: prevCart });
+
     const actionCodeSettings = {
-      url: "http://localhost:3000/",
-      handleCodeInApp: true,
+    url: "http://localhost:3000",
+    handleCodeInApp: true,
     };
-    sendSignInLinkToEmail(auth, email, actionCodeSettings)
-    if(isSignInWithEmailLink(auth, emailLink)) {
-        await signInWithEmailLink(auth, email , emailLink);
-    }
+    sendSignInLinkToEmail(auth, email, actionCodeSettings);
 
-        res.status(201).json({msg: "User create!"})
-
+    res.status(200).json({msg: "User create!"});
 } catch {
     res.status(400).json({msg: "User not create!"});
 }

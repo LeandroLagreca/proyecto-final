@@ -91,6 +91,10 @@ export default function LandingForm({ register, setRegister }) {
         if (user) {
           navigate("/home");
         }
+        if(user.emailVerified === false){
+          navigate("/")
+          return alert('valida tu email')
+        }
       } catch (error) {
         Swal.fire({
           text:"You need to register", 
