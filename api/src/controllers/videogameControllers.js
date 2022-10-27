@@ -72,9 +72,11 @@ const videogamePost = async (req, res) => {
       images,
       requirements,
       genres,
+      trailer,
       stock,
       newGenres,
     } = req.body;
+
     if (name) {
       const newVideogame = await Videogame.create({
         name,
@@ -88,6 +90,7 @@ const videogamePost = async (req, res) => {
         requirements,
         stock,
       });
+
 
       let genresDb = await Genre.findAll({
         where: { name: genres },
@@ -247,11 +250,11 @@ const getDiscounts = async (req, res) => {
       },
     });
     if (!discounts.length) {
-      return res.send("Don't exist any discount");
+      return res.status(404).send("Don't exist any discount");
     }
     res.json(discounts);
   } catch (error) {
-    res.status(404).send(error.message);
+    res.status(400).send(error.message);
   }
 };
 
@@ -267,6 +270,7 @@ const updateVideogame = async (req, res) => {
     price,
     images,
     requirements,
+    trailer,
   } = req.body;
 
   try {
@@ -285,6 +289,7 @@ const updateVideogame = async (req, res) => {
           price: price ? price : find.price,
           images: images ? images : find.images,
           requirements: requirements ? requirements : find.requirements,
+          trailer: trailer ? trailer : find.trailer,
         },
         { where: { id: id } }
       );

@@ -1,78 +1,29 @@
 import React from 'react';
-import {
-	Drawer,
-	List,
-	ListItem,
-	ListItemButton,
-	ListItemIcon,
-	ListItemText,
-	Divider,
-	Box,
-    Link
-} from '@mui/material';
 
-import { Person, LocalMall, NotificationsActive } from '@mui/icons-material';
+import { AccountNavBar, Footer, Loader } from '../components';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { AdminContainer } from '../containers';
+import { MyProfile, MyPurchases, MyNotifications } from '../components';
+import Sidebar from '../components/Sidebar/Sidebar';
 
-//Maquetado by David
+const paths = {
+	profile: '/profile',
+	purchases: '/purchases',
+	notifications: '/notifications',
+};
 
 const Account = () => {
 	return (
-		<Box sx={{ display: 'flex' }}>
-			<Drawer
-				variant="permanent"
-				open={true}
-				anchor="left"
-				PaperProps={{ sx: { marginTop: '103px' } }}
-				sx={{
-					width: 240,
-					flexShrink: 0,
-					[`& .MuiDrawer-paper`]: {
-						width: 240,
-						boxSizing: 'border-box',
-					},
-				}}
-			>
-				<Box sx={{ overflow: 'auto' }}>
-					<List sx={{ paddingTop: 3 }}>
-						<Divider />
-						<ListItem>
-							<Link href="/" underline='none'>
-								<ListItemButton>
-									<ListItemIcon>
-										<Person />
-									</ListItemIcon>
-									<ListItemText primary={'My Profile'} />
-								</ListItemButton>
-							</Link>
-						</ListItem>
-						<Divider />
-						<ListItem>
-							<Link href="/" underline='none'>
-								<ListItemButton>
-									<ListItemIcon>
-										<LocalMall />
-									</ListItemIcon>
-									<ListItemText primary={'My Purchased Games'} />
-								</ListItemButton>
-							</Link>
-						</ListItem>
-						<Divider />
-						<ListItem>
-							<Link href="/" underline='none'>
-								<ListItemButton>
-									<ListItemIcon>
-										<NotificationsActive />
-									</ListItemIcon>
-									<ListItemText primary={'My Notification'} />
-								</ListItemButton>
-							</Link>
-						</ListItem>
-						<Divider />
-					</List>
-				</Box>
-			</Drawer>
-			<Box>Box</Box>
-		</Box>
+		<AdminContainer>
+			<Sidebar></Sidebar>
+			<AccountNavBar />
+			<Routes>
+				<Route path={paths.profile} element={<MyProfile />} />
+				<Route path={paths.purchases} element={<MyPurchases />} />
+				<Route path={paths.notifications} element={<MyNotifications />} />
+			</Routes>
+			<Footer></Footer>
+		</AdminContainer>
 	);
 };
 

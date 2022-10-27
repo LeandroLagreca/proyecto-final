@@ -1,7 +1,5 @@
 import { Routes as Rutas, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import useStatusChecker from './firebase/statusCheck'
-import { getDiscounts } from './redux/actions/videoGame';
 import { Detail, MainHome, Landing, AdminPanel, NotFound, Cart, Discounts, Account } from './pages';
 
 
@@ -11,21 +9,19 @@ import Wishes from './components/Wishes/AddtoWishes';
 import Purchases from './components/Purchases/Purchases';
 import Sidebar from './components/Sidebar/Sidebar';
 import Collection from './components/Collection/Collection';
+import LandingPage from './components/Landing/LandingPage';
 
 
 
 
 const Routes = ({setMode, mode}) => {
-	//solve conflictos
-	const dispatch = useDispatch()
 	useStatusChecker()
-	dispatch(getDiscounts());
 
 	return (
 		<>
-				<Sidebar/>
+				{/* <Sidebar/> */}
 			<Rutas>
-				<Route exact path="/" element={<Landing />} />
+				<Route exact path="/" element={<LandingPage/>} />
 				<Route exact path="/home" element={<MainHome  />} />
 				<Route path="/detail/:id" element={<Detail />} />
 				<Route path='/wishes' element={<Wishes/>} />
@@ -35,9 +31,9 @@ const Routes = ({setMode, mode}) => {
 				<Route path = '/discounts' element = {<Discounts/>}/>
 				<Route path = '*' element = {<NotFound/>}/>
 				<Route path = '/colection' element = {<Collection/>}/>
-				<Route path = '/account/:id' element = {<Account/>}/>
+				<Route path = '/account/*' element = {<Account/>}/>
 			</Rutas>
-			<Footer />
+			{/* <Footer /> */}
 		</>
 	);
 };

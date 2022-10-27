@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { DiscountsContainer } from "../containers";
 
-import { getDiscounts } from "../redux/actions/videoGame";
-
-import { Card } from "../components";
 import { Container, Box, Input, Button } from "@mui/material";
+import { Card, Footer, Loader } from "../components";
+import Sidebar from "../components/Sidebar/Sidebar";
 
 const styles = {
   banner: {
@@ -47,25 +46,23 @@ const styles = {
 };
 
 export default function Discounts() {
-  const { discounts } = useSelector((state) => state.videogames);
+  const [ discounts, setDiscounts ] = useState([])
+  const [ loading, setLoading ] = useState(true)
   const { admin } = useSelector(state => state.user)
-  // const admin = true;
   const [banner, setBanner] = useState('https://png.pngtree.com/png-vector/20190627/ourlarge/pngtree-special-offer-banner-png-image_1517551.jpg');
   const [inputValue, setInputValue] = useState(null);
-
-  const dispatch = useDispatch()
   const navigate = useNavigate();
 
-  async function loadBanner() {
-      const url = "http://localhost:3001/images/discounts";
-      const { data } = await axios.get(url);
-    data && setBanner(data);
-  }
-
   useEffect(() => {
-    !discounts.length && navigate('/home')
-    loadBanner()
-  }, [navigate, discounts.length, dispatch]);
+    // axios("http://localhost:3001/images/discounts")
+    // .then(response => {
+    //   setBanner(response.data)
+    //   return axios("http://localhost:3001/discounts")
+    // })
+    axios("http://localhost:3001/discounts")
+    .then(response => setDiscounts(response.data))
+    .then(() => setLoading(false))
+  }, [navigate]);
 
   function handleInput(e) {
     setInputValue(e.target.files[0]);
@@ -86,8 +83,11 @@ export default function Discounts() {
     
   }
 
+  if(loading) return <Loader />
+
   return (
     <DiscountsContainer>
+      <Sidebar></Sidebar>
       <div>
         <img
           className={styles.banner}
@@ -124,6 +124,7 @@ export default function Discounts() {
           />
         ))}
       </Box>
+      <Footer></Footer>
     </DiscountsContainer>
   );
 }

@@ -1,0 +1,22 @@
+.landing{
+    align-content: flex-start;
+    align-items: center;
+    background-image: url("../../assets/landing\ logo\ elevado.png");
+    background-size: cover;
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    height: 100vh;
+    justify-content: space-around;
+    overflow: auto;
+    width: 100%;
+}
+.btnContainer{
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    margin-top: 250px;
+    margin-left: 250px;
+}
+
+

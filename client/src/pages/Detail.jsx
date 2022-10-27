@@ -7,7 +7,7 @@ import { auth } from "../firebase/credenciales";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../redux/reducers/videoGame";
 import { getDetails } from "../redux/actions/videoGame";
-import { AddToWishes, Loader, AddToCartButton } from "../components";
+import { AddToWishes, Loader, AddToCartButton, Footer } from "../components";
 import Carousel from "react-material-ui-carousel";
 import Item from "../components/Items/Item";
 import Comments from "../sections/Comments";
@@ -18,8 +18,10 @@ import FormatBoldIcon from "@mui/icons-material/FormatBold";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
-import DisableElevation from "../components/ErrorNotFound/DisableElevation";
 import {Button,Typography,Container,Box,TextField,Paper,IconButton,Avatar,Rating,} from "@mui/material";
+import FloatingActionButtons from "../components/EditForm/BotonEditar";
+import Sidebar from "../components/Sidebar/Sidebar";
+
 
 const imgLink = "Url de imagen de usuario"; //Imagen cuando se implemente el profile
 
@@ -187,12 +189,13 @@ export default function Detail() {
 
   useEffect(() => {
     dispatch(getComments(id));
-  }, [gameComment]);
+  }, []);
 
   if (loading) return <Loader />;
 
   return (
     <Container>
+      <Sidebar/>
       <Paper elevation={8} sx={{ padding: 2 }}>
       <Typography variant="caption" display="flex" mb={1}><Link className="redir" to={"/home"}>Games</Link> <Typography variant="caption" ml={1} color={"darkgray"}>> </Typography>    <Link className="redir" to={"/home"}> Detail </Link>  <Typography variant="caption" ml={1} mr={1} color={"darkgray"}>> </Typography>  <b>{gameDetail.name}</b> </Typography>
         <Box display="flex" alignItems="flex-start" className="boxDivisor">
@@ -265,6 +268,9 @@ export default function Detail() {
                 ))}
               </Carousel>
             </Box>
+            <Box>
+              {gameDetail.trailer}
+            </Box>
             <Box className="description" borderRadius={0.5} sx={{ padding: 1 }}>
               <Typography
                 variant="body2"
@@ -299,6 +305,7 @@ export default function Detail() {
               {gameDetail.requirements ? parse(gameDetail.requirements) : null}
             </Typography>
           </Box>
+          {user !== "guest" && <FloatingActionButtons/>}
         </Box>
       </Paper>
       {/*---------------- SECCION RESEÑAS ---------------------*/}
@@ -381,6 +388,7 @@ export default function Detail() {
         </Box>
         <Comments />
       </section>
+      <Footer/>
     </Container>
   );
 }

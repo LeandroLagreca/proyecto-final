@@ -5,6 +5,8 @@ import {
   getGameById,
   getAllDiscounts,
   cleanFilter,
+  getAllGenres,
+  postAllGames,
 } from "../reducers/videoGame";
 
 const API = "http://localhost:3001/";
@@ -62,3 +64,25 @@ export const cleanToFilter = (clean) => {
     }
   };
 };
+
+
+
+export const getGenres = () =>
+  async function (dispatch) {
+    try {
+      const request = await axios(API + "genres");
+      dispatch(getAllGenres(request.data));
+    } catch (error) {
+      return;
+    }
+  };
+
+  export const postGames = (payload) =>
+  async function (dispatch) {
+    try {
+      const response = await axios.post(API + "videogames", payload);
+      dispatch(postAllGames(response));
+    } catch (error) {
+      return;
+    }
+  };  
