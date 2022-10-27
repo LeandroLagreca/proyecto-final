@@ -26,23 +26,13 @@ const UserPost = async (req, res) => {
       password
     );
     const newUser = await User.create({
-
       id: user.uid,
       email,
-      available,
       name: email,
       password: hashFunction(password),
     });
     await newUser.update({ cart: prevCart });
-    const actionCodeSettings = {
-      url: "http://localhost:3000/",
-      handleCodeInApp: true,
-    };
-    sendSignInLinkToEmail(auth, email, actionCodeSettings)
-   /* if(isSignInWithEmailLink(auth, emailLink)) {
-        await signInWithEmailLink(auth, email , emailLink);
-    }
-*/
+    
         res.status(201).json({msg: "User create!"})
 
 } catch {
@@ -50,10 +40,6 @@ const UserPost = async (req, res) => {
 }
 }
 
-
-const getDbInfo = async () => {
-  return await User.findAll();
-};
 const getDbById = async (id) => {
   return await User.findByPk(id);
 };
@@ -90,9 +76,17 @@ const UserByID = async (req, res) => {
 };
 
 const allDataUser = async (req, res) => {
-  const { name } = req.query;
-  const info = await getDbInfo();
+  const { filter = '' } = req.query;
+  const { name } = filter
+  const where = {}
+  if(name){
+    where.name = {
+      [Op.iLike]: `%${name}%`
+    }
+  }
+
   try {
+    const info = await User.findAll({where});
     if (info.length === 0) {
       res.send("User does not exist");
     } else {
@@ -148,6 +142,7 @@ const PostLogin= async (req, res) => {
 module.exports= {
     allDataUser,
     UserByID,
+    UserByName,
     UserPost,
     UserUpdate,
     PostLogin,

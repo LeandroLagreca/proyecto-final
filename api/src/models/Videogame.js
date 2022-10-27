@@ -61,6 +61,9 @@ module.exports = (sequelize) => {
         prevPrice: null,
         currentPrice: null
       }
-    }
+    },
+    trailer: {
+      type: DataTypes.STRING
+    },
   });
 };

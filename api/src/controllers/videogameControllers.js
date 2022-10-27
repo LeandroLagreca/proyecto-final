@@ -247,11 +247,11 @@ const getDiscounts = async (req, res) => {
       },
     });
     if (!discounts.length) {
-      return res.send("Don't exist any discount");
+      return res.status(404).send("Don't exist any discount");
     }
     res.json(discounts);
   } catch (error) {
-    res.status(404).send(error.message);
+    res.status(400).send(error.message);
   }
 };
 

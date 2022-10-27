@@ -109,11 +109,17 @@ const getUserOrders = async (req, res) => {
 };
 const getAllOrders = async (req, res) => {
   const { filter = "" } = req.query;
-  const { date, status } = filter;
+  const { date, status, name } = filter;
   const where = {};
 
   if (status) {
     where.status = status;
+  }
+
+  if (name) {
+    where.name = {
+      [Op.iLike]: `%${name}%`
+    };
   }
 
   const config = {
