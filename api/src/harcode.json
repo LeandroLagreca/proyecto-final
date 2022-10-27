@@ -1182,7 +1182,8 @@
       "RPG"
     ]
   },
-  {    "stock": 50,
+  {   
+    "stock": 50,
     "id": 10243,
     "trailer": "",    
     "name": "Company of Heroes 2",

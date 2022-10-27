@@ -39,7 +39,7 @@ const UserPost = async (req, res) => {
 } catch {
     res.status(400).json({msg: "User not create!"});
 }
-}
+};
 
 const getDbById = async (id) => {
   return await User.findByPk(id);
@@ -141,6 +141,7 @@ const PostLogin= async (req, res) => {
 
     }
 /*
+     filtro para ordenar por stock el admin en front 
     const OrdenXStock = 
         action.payload === "min" ?
         videogames.sort(function (a, b) {
