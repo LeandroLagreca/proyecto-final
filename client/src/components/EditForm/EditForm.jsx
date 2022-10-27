@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Card, CardContent, Grid, TextField, FormLabel, Select } from "@mui/material";
+import { Box, Card, CardContent, Grid, TextField, FormLabel, Select, MenuItem } from "@mui/material";
 import Button from '@mui/material/Button';
 import FilledInput from '@mui/material/FilledInput';
 import FormControl from '@mui/material/FormControl';
@@ -9,6 +9,7 @@ import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { getGenres } from '../../redux/actions/videoGame';
 
 function validate(input){
     var errors = {}
@@ -54,7 +55,8 @@ export default function ComposedTextField() {
   background_image:"",
   price:0,
   requirements:"",
-  genres:[]
+  genres:[],
+  otro:""
   })  
 
 
@@ -69,6 +71,24 @@ export default function ComposedTextField() {
     }))
     console.log(input)     
   };
+
+  
+function handleSelect(e) {
+    setInput({
+        ...input,
+        genres:[...input.genres, e.target.value] //concatena las dietas al estado
+    }) 
+}
+
+
+function handleDelete(el){
+    setInput({
+        ...input,
+        diets: input.genres.filter(x=> x!== el)
+    })
+}
+
+
 
 //   function handleSubmit(e){
 //     e.preventDefault();
@@ -89,7 +109,9 @@ export default function ComposedTextField() {
 //     else alert ("Por favor, complete el formulario correctamente")
 // }
 
-
+useEffect(()=> {
+    dispatch(getGenres())
+     }, []);
 
   return (
     <Box
@@ -199,14 +221,22 @@ export default function ComposedTextField() {
                     <CardContent>   
 
                         <FormControl variant="standard" sx={{width:"25%"}}>
-                            <InputLabel htmlFor="component-error">Genres</InputLabel>
-                            <Select
-                            id="component-error"
+                            <InputLabel htmlFor="component-simple">Genres</InputLabel>
+                            <Select                           
+                            onChange={handleSelect}                        
                             name="genres"
                             value={input.genres}
-                            onChange={handleChange}
-                            aria-describedby="component-error-text"/>
-                            <FormHelperText id="component-error-text">{errors.requirements}</FormHelperText>
+                            aria-describedby="component-error-text"><MenuItem>Seleccione</MenuItem>
+                            {generos&&  generos.map(e=>(<MenuItem key={e.name} value={e.name}>{e.name}</MenuItem>))}
+                            <MenuItem value="otro">Otro</MenuItem>
+                            </Select>
+                            {input.genres.includes("otro")?<FormControl variant="standard">
+                            <InputLabel htmlFor="component-simple">Otro genero</InputLabel>
+                            <Input id="component-simple" name="otro" value={input.otro} onChange={handleChange} />
+                        </FormControl> :null}
+                        {/* {input.otro&& input.genres.replace("otro",input.otro)} */}
+                            {/* <FormHelperText id="component-error-text">{errors.requirements}</FormHelperText> */}
+                            {console.log(input)}
                         </FormControl>
                     </CardContent>
                     {Object.entries(errors).length===0 && input.name!==""?<CardContent>   
@@ -220,9 +250,22 @@ export default function ComposedTextField() {
                         <Button disabled>Save</Button>
                         </FormControl>
                     </CardContent>}
+
+                    <CardContent>   
+                        <FormControl>
+                        {input.genres.map(el=> 
+                        <div>
+                            <p>{el}</p> 
+                            <button onClick={handleDelete} >x</button>
+                        </div>
+                        )}
+
+                        </FormControl>
+                    </CardContent>
                 </Card>
             </Grid>
         </Grid>
     </Box> 
+    
   );
 }
