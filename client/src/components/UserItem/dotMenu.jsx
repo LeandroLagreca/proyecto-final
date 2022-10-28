@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import {useDispatch} from 'react-redux';
 import {
   IconButton,
 	MenuItem,
@@ -8,8 +8,11 @@ import {
 import { MoreVert, DeleteForever } from "@mui/icons-material";
 import { sendPasswordResetEmail } from "firebase/auth";
 import{auth} from '../../firebase/credenciales';
+import {OrderByStock} from '../../redux/reducers/videoGame';
 
 export default function DotMenu({id}) {
+  const dispatch = useDispatch();
+  const [/*order*/, setOrder]= useState('');
     const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -26,6 +29,11 @@ export default function DotMenu({id}) {
       };
     sendPasswordResetEmail(auth, email, actionCodeSettings)
 	}
+
+  const handleOrderStock =(e)=>{
+    dispatch(OrderByStock(e.target.value))
+    setOrder(e.target.value);
+}
 
 	function requestNewEmail() {
 		// axios.put("http://localhost:3001/user/");
@@ -68,6 +76,11 @@ export default function DotMenu({id}) {
                 Eliminar usuario
                 <DeleteForever />
 				</MenuItem>
+        <select onChange={e => handleOrderStock(e)}>
+                <option hidden>Stock</option>
+                <option value='min'>Min</option>
+                <option value='max'>Max</option>
+      </select>
       </Menu>
     </div>
   )

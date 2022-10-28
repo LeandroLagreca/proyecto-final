@@ -86,3 +86,10 @@ export const getGenres = () =>
       return;
     }
   };  
+export const Order_By_Stock = 'Order_By_Stock'
+  export function orderByStock(payload){
+    return{
+        type: Order_By_Stock,
+        payload
+}
+};
