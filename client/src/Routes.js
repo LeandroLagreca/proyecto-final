@@ -1,5 +1,8 @@
 import { Routes as Rutas, Route } from 'react-router-dom';
+
+
 import useStatusChecker from './firebase/statusCheck';
+
 import {
 	Detail,
 	MainHome,
@@ -20,6 +23,7 @@ import LandingPage from './components/Landing/LandingPage';
 import Nosotros from './components/Nosotros/Nosotros'
 
 const Routes = ({ setMode, mode }) => {
+
 	useStatusChecker();
 
 	return (
@@ -39,6 +43,7 @@ const Routes = ({ setMode, mode }) => {
 				<Route path="/colection" element={<Collection />} />
 				<Route path="/account/*" element={<Account />} />
 				<Route path = '/about' element = {<Nosotros/>}/>
+
 			</Rutas>
 			{/* <Footer /> */}
 		</>

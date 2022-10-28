@@ -1,10 +1,12 @@
 import React from 'react';
 
+
 import { AccountNavBar, Footer, Loader } from '../components';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { AdminContainer } from '../containers';
 import { MyProfile, MyPurchases, MyNotifications } from '../components';
 import Sidebar from '../components/Sidebar/Sidebar';
+
 
 const paths = {
 	profile: '/profile',

@@ -22,12 +22,15 @@ import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 import PercentIcon from '@mui/icons-material/Percent';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink  } from 'react-router-dom';
 import { Link } from '@mui/material';
 import Switch from '@mui/material/Switch';
 import Brightness5Icon from '@mui/icons-material/Brightness5';
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { ColorModeContext } from '../Theme/Theme';
+import { Link as scrollLink } from 'react-scroll';
+import "./Sidebar.css"
+
 
 const drawerWidth = 240;
 
@@ -83,6 +86,18 @@ const Sidebar = () => {
 	const { status } = useSelector((state) => state.user);
 	const [open, setOpen] = React.useState(false);
 	const { mode, toggleMode } = useContext(ColorModeContext);
+	// const contact = useRef()
+
+
+	const scrollToSection = (elementRef) => {
+		window.scrollTo({
+			top: elementRef.current.offsetTop,
+			behavior:'smooth'
+		})
+	}
+	
+
+
 
 	const handleDrawerOpen = () => {
 		setOpen(true);
@@ -140,8 +155,9 @@ const Sidebar = () => {
 								to={'/colection'}
 								underline="none"
 								sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}
+								className="navlink"
 							>
-								<ListItem>
+								<ListItem >
 									<ListItemButton>
 										<ListItemIcon>
 											<VideogameAssetIcon />
@@ -157,6 +173,7 @@ const Sidebar = () => {
 								to={'/wishes'}
 								underline="none"
 								sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}
+								className="navlink"
 							>
 								<ListItem>
 									<ListItemButton>
@@ -178,6 +195,7 @@ const Sidebar = () => {
 						to={'/discounts'}
 						underline="none"
 						sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}
+						className="navlink"
 					>
 						<ListItem>
 							<ListItemButton>
@@ -200,14 +218,16 @@ const Sidebar = () => {
 					</ListItem>
 				</List>
 				<List>
+					<Link component={"a"} underline="none" href="#contacto" spy={true} smooth={true} offset={50} duration={500} >
 					<ListItem>
-						<ListItemButton>
+						<ListItemButton >
 							<ListItemIcon>
 								<QuestionAnswerIcon />
 							</ListItemIcon>
 							<ListItemText primary={'Contact us'} />
 						</ListItemButton>
-					</ListItem>
+					</ListItem>	
+					</Link>
 				</List>
 				<List>
 					<ListItem
