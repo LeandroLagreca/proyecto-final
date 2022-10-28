@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Card, CardContent, Grid, TextField, FormLabel, Select } from "@mui/material";
+import { Box, Card, CardContent, Grid, TextField, FormLabel, Select, MenuItem } from "@mui/material";
 import Button from '@mui/material/Button';
 import FilledInput from '@mui/material/FilledInput';
 import FormControl from '@mui/material/FormControl';
@@ -9,6 +9,8 @@ import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { getGenres,postGames } from '../../redux/actions/videoGame';
+import {useParams} from "react-router-dom";
 
 function validate(input){
     var errors = {}
@@ -32,7 +34,13 @@ function validate(input){
         errors.price = "Es necesario un valor"
     }else{
         if(input.price < 1 || input.price > 100)
-        errors.price = "El precio debe ser entre 1 y 100"  
+        errors.price = "El precio debe ser entre 1$ y 100$"  
+    }
+    if(!input.rating){
+        errors.rating = "Es necesario un valor"
+    }else{
+        if(input.rating < 1 || input.rating > 5)
+        errors.rating = "El rating debe ser entre 1 y 5 estrellas"  
     }
     if (!input.requirements){
         errors.requirements = "Por favor detalle los pasos de su receta"
@@ -45,7 +53,9 @@ function validate(input){
     
 
 export default function ComposedTextField() {
-  const dispatch = useDispatch()  
+//   const {id}= useParams()
+//   console.log(id)
+  const dispatch = useDispatch()
   const generos = useSelector((state)=> state.videogames.genres)
   const [errors,setErrors] = useState({})
   const [input, setInput] = useState({
@@ -53,8 +63,10 @@ export default function ComposedTextField() {
   description:"",
   background_image:"",
   price:0,
+  rating:0,
   requirements:"",
-  genres:[]
+  genres:[],
+  otro:""
   })  
 
 
@@ -70,26 +82,46 @@ export default function ComposedTextField() {
     console.log(input)     
   };
 
-//   function handleSubmit(e){
-//     e.preventDefault();
-//     if(input.name && input.description&&input.background_image&&input.price&&input.requirements
-//         &&!errors.name&& !errors.description&&!errors.background_image&&!errors.price&&!errors.requirements&&input.genres.length !==0 &&input.genres.length<=3)
-
-//     {dispatch(postRecipes(input))
-//     alert("Receta creada con exito!")
-//     setInput({
-//         name:"",
-//         summary:"",
-//         image:"",
-//         healthScore:0,
-//         steps:"",
-//         diets:[]
-//     })
-//     history.push("/home")}
-//     else alert ("Por favor, complete el formulario correctamente")
-// }
+  
+function handleSelect(e) {
+    setInput({
+        ...input,
+        genres:[...input.genres, e.target.value] //concatena las dietas al estado
+    }) 
+}
 
 
+function handleDelete(el){
+    setInput({
+        ...input,
+        genres: input.genres.filter(x=> x!== el)
+    })
+}
+
+
+
+  function handleSubmit(e){
+    e.preventDefault();
+    if(input.name && input.description&&input.background_image&&input.price&&input.rating&&input.requirements
+        &&!errors.name&& !errors.description&&!errors.background_image&&!errors.price&&!errors.rating&&!errors.requirements&&input.genres.length !==0 &&input.genres.length<=3)
+
+    {dispatch(postGames(input))
+    alert("Juego creado con exito!")
+    setInput({
+        name:"",
+        description:"",
+        background_image:"",
+        price:0,
+        rating:0,
+        requirements:"",
+        genres:[]
+    })}
+    else alert ("Por favor, complete el formulario correctamente")
+}
+
+useEffect(()=> {
+    dispatch(getGenres())
+     }, []);
 
   return (
     <Box
@@ -179,6 +211,24 @@ export default function ComposedTextField() {
                     </CardContent>
 
                     <CardContent>   
+                        {!errors.rating? <FormControl variant="standard">
+                            <InputLabel htmlFor="component-simple">Rating</InputLabel>
+                            <Input id="component-simple" name="rating" value={input.rating} onChange={handleChange} />
+                        </FormControl>
+                            :
+                        <FormControl error variant="standard">
+                            <InputLabel htmlFor="component-error">Rating</InputLabel>
+                            <Input
+                            id="component-error"
+                            name="rating"
+                            value={input.rating}
+                            onChange={handleChange}
+                            aria-describedby="component-error-text"/>
+                            <FormHelperText id="component-error-text">{errors.rating}</FormHelperText>
+                        </FormControl>}
+                    </CardContent>
+
+                    <CardContent>   
                         {!errors.requirements? <FormControl variant="standard">
                             <InputLabel htmlFor="component-simple">Requirements</InputLabel>
                             <Input id="component-simple" name="requirements" value={input.requirements} onChange={handleChange} />
@@ -199,19 +249,33 @@ export default function ComposedTextField() {
                     <CardContent>   
 
                         <FormControl variant="standard" sx={{width:"25%"}}>
-                            <InputLabel htmlFor="component-error">Genres</InputLabel>
-                            <Select
-                            id="component-error"
+                            <InputLabel htmlFor="component-simple">Genres</InputLabel>
+                            <Select                           
+                            onChange={handleSelect}                        
                             name="genres"
                             value={input.genres}
-                            onChange={handleChange}
-                            aria-describedby="component-error-text"/>
-                            <FormHelperText id="component-error-text">{errors.requirements}</FormHelperText>
+                            aria-describedby="component-error-text"><MenuItem>Seleccione</MenuItem>
+                            {generos&& generos.map(e=>(<MenuItem key={e.name} value={e.name}>{e.name}</MenuItem>))}
+                            <MenuItem value="otro">Otro</MenuItem>
+                            </Select>
+                            {input.genres.includes("otro")?<FormControl variant="standard">
+                            <InputLabel htmlFor="component-simple">Otro genero</InputLabel>
+                            <Input id="component-simple" name="otro" value={input.otro} onChange={handleChange} />
+                        </FormControl> :null}
+                        {/* {input.otro&& input.genres.replace("otro",input.otro)} */}
+                            {/* <FormHelperText id="component-error-text">{errors.requirements}</FormHelperText> */}
+                            {console.log(input)}
+                            {/* {input.genres.map(el=> 
+                        <div>
+                            <p>{el}</p> 
+                            <button onClick={handleDelete} >x</button>
+                        </div>
+                        )} */}
                         </FormControl>
                     </CardContent>
                     {Object.entries(errors).length===0 && input.name!==""?<CardContent>   
                         <FormControl>
-                        <Button>Save</Button> 
+                        <Button type='submit' onClick={(e)=>handleSubmit(e)} >Save</Button> 
                         </FormControl>
                     </CardContent>
                     :
@@ -224,5 +288,6 @@ export default function ComposedTextField() {
             </Grid>
         </Grid>
     </Box> 
+    
   );
 }

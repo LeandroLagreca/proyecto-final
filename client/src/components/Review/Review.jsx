@@ -12,19 +12,20 @@ const Review = () => {
 		if (e.price == null) {
 			return 0;
 		} else {
-			return parseFloat(e.price);
+			return {
+				cant: e.cant,
+				price: parseFloat(e.price)
+			};
 		}
 	});
 
-	totalPrice = totalPrice.reduce((a, b) => a + b, 0);
+	totalPrice = totalPrice.reduce((a, b) => a + b.price * b.cant, 0);
 
 	if (Number.isInteger(totalPrice)) {
 		totalPrice = totalPrice + '00';
 		totalPrice = parseFloat(totalPrice);
-    console.log(totalPrice)
 	} else {
 		let splitedPrice = totalPrice.toFixed(2);
-    console.log(splitedPrice)
 		splitedPrice = splitedPrice.toString();
 		if (splitedPrice[4] === undefined) {
 			splitedPrice = splitedPrice + '0';

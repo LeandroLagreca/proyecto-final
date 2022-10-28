@@ -7,7 +7,7 @@ import { auth } from "../firebase/credenciales";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading } from "../redux/reducers/videoGame";
 import { getDetails } from "../redux/actions/videoGame";
-import { AddToWishes, Loader, AddToCartButton } from "../components";
+import { AddToWishes, Loader, AddToCartButton, Footer } from "../components";
 import Carousel from "react-material-ui-carousel";
 import Item from "../components/Items/Item";
 import Comments from "../sections/Comments";
@@ -20,6 +20,8 @@ import FormatItalicIcon from "@mui/icons-material/FormatItalic";
 import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
 import {Button,Typography,Container,Box,TextField,Paper,IconButton,Avatar,Rating,} from "@mui/material";
 import FloatingActionButtons from "../components/EditForm/BotonEditar";
+import Sidebar from "../components/Sidebar/Sidebar";
+
 
 const imgLink = "Url de imagen de usuario"; //Imagen cuando se implemente el profile
 
@@ -42,6 +44,7 @@ export default function Detail() {
   if (gameDetail.images) {
     var images = gameDetail.images;
     imgCarousel = images.split(",");
+    imgCarousel.push(gameDetail.trailer)
   }
 
   //Estado locad de Form de Reseñas
@@ -85,7 +88,7 @@ export default function Detail() {
     });
   };
 //Handle SUBMIT dispacha accion para postear comentario
-  async function handleSubmit(e) {
+  async function handleSubmit(e)  {
 	if(isLogued===false){
 		e.preventDefault();
 	}
@@ -100,7 +103,7 @@ export default function Detail() {
         userComment: "",
         rating_like: 3,
       },
-    });
+    })
     }	
   }
 
@@ -187,12 +190,13 @@ export default function Detail() {
 
   useEffect(() => {
     dispatch(getComments(id));
-  }, [gameComment]);
+  }, []);
 
   if (loading) return <Loader />;
 
   return (
     <Container>
+      <Sidebar/>
       <Paper elevation={8} sx={{ padding: 2 }}>
       <Typography variant="caption" display="flex" mb={1}><Link className="redir" to={"/home"}>Games</Link> <Typography variant="caption" ml={1} color={"darkgray"}>> </Typography>    <Link className="redir" to={"/home"}> Detail </Link>  <Typography variant="caption" ml={1} mr={1} color={"darkgray"}>> </Typography>  <b>{gameDetail.name}</b> </Typography>
         <Box display="flex" alignItems="flex-start" className="boxDivisor">
@@ -260,8 +264,8 @@ export default function Detail() {
             >
               {/* CARRUSEL */}
               <Carousel className="carusel">
-                {imgCarousel.map((item) => (
-                  <Item key={item.id} item={item} />
+                {imgCarousel.map((item, index) => (
+                  <Item key={index} item={item} />
                 ))}
               </Carousel>
             </Box>
@@ -270,6 +274,7 @@ export default function Detail() {
                 variant="body2"
                 textAlign="justify"
                 color="text.primary"
+                component={'span'}
               >
                 {gameDetail.description ? parse(gameDetail.description) : null} {/* DESCRIPCION */}
               </Typography>
@@ -292,6 +297,7 @@ export default function Detail() {
             </Typography>
             <Typography
               sx={{ borderRadius: 2 }}
+              component={'div'}
               backgroundColor="secondary.light"
               variant="body2"
               color="text.primary"
@@ -382,6 +388,7 @@ export default function Detail() {
         </Box>
         <Comments />
       </section>
+      <Footer/>
     </Container>
   );
 }

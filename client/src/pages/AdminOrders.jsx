@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Card, CardContent, CardActions, FormControl, Select, MenuItem, InputLabel, Input } from "@mui/material";
+import { Card, CardContent, CardActions, FormControl, Select, MenuItem, InputLabel, Input, Box } from "@mui/material";
 import Swal from "sweetalert2";
 
 import { AdminOrdersContainer } from "../containers";
@@ -36,12 +36,13 @@ export default function AdminOrders() {
     date: "",
   });
   const [prevValue, setPrevValue] = useState("");
-
+  console.log(orders)
 
   useEffect(() => {
+    console.log(filters)
     const queries = `filter[name]=${filters.name}&filter[status]=${filters.status}&filter[date]=`
     axios.get('http://localhost:3001/orders?' + queries)
-    .then(data => setOrders(data))
+    .then(response => setOrders(response.data))
     .catch(() => setOrders([]))
   }, [filters])
 
@@ -92,7 +93,7 @@ export default function AdminOrders() {
             <MenuItem value='created'>Creada</MenuItem>
             <MenuItem value='inprocess'>En proceso</MenuItem>
             <MenuItem value='canceled'>Cancelada</MenuItem>
-            <MenuItem value='finalized'>Finalizada</MenuItem>
+            <MenuItem value='completed'>Finalizada</MenuItem>
           </Select>
         </FormControl>
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
@@ -105,8 +106,17 @@ export default function AdminOrders() {
           <Card key={order.id} sx={styles.card}>
             <CardContent sx={styles.content}>
               <div>Id: {order.id}</div>
-              <div>User: {order.user}</div>
+              <div>User: {order.user.name}</div>
               <div>Fecha: {order.date}</div>
+              <div>Productos: {
+                  order.games.map(el => (
+                    <Box sx={{display: 'flex'}}>
+                      <div>Name: {el.name}</div>
+                      <div>Price: {el.price} x{el.cant}</div>
+                    </Box>
+                  ))
+                }</div>
+              <div>Total: {order.totalprice}</div>
               <div>Status: {order.status}</div>
             </CardContent>
             <CardActions>
