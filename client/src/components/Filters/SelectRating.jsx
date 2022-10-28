@@ -15,10 +15,8 @@ export default function SelectRating() {
 	return (
 		<div>
 			<FormControl sx={{ m: 1, minWidth: 100 }}>
-				<Box>
-					<Box sx={{ marginLeft: '35px', marginBottom: '10px' }}>
-						<label htmlFor="">Rating</label>
-					</Box>
+				<Box sx={{display: 'flex', flexDirection:'column', alignItems: 'center'}}>
+					<label htmlFor="">Rating</label>
 					<Rating
 						name="simple-controlled"
 						value={parseInt(rating)}
