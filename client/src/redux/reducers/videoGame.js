@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { orderByStock } from '../actions/videoGame';
 const page = window.sessionStorage.getItem('page')
 	? JSON.parse(window.sessionStorage.getItem('page'))
 	: 1;
@@ -115,25 +114,6 @@ const videoGameSlice = createSlice({
 		postAllGames: (state, { payload }) => {
 			state = payload
 		},
-		OrderByStock: (state, {payload})=> {
-        state.games === "min" 
-		?
-        state.games.sort(function (a, b) {
-            if (a.stock > b.stock) return 1;
-            if (b.stock > a.stock) return -1;
-            return 0;
-        })
-        : state.games.sort(function (a, b) {
-            if (a.stock > b.stock) return -1;
-            if (b.stock > a.stock) return 1;
-            return 0;
-        
-        });
-            return {
-            ...state,
-            games: orderByStock.map((e) => e),
-            }
-		}
 	},
 });
 
@@ -153,7 +133,6 @@ export const {
 	setGameComments,
 	getAllGenres,
 	postAllGames,
-	OrderByStock
 } = videoGameSlice.actions;
 
 export default videoGameSlice.reducer;
