@@ -5,7 +5,7 @@ import DisableElevation from "../components/Filters/CleanButton";
 
 const FilterSection = () => {
   return (
-    <Box >
+    <Box sx={{display:'flex', flexDirection: 'column', alignItems: 'center', paddingLeft: 6, fontSize: 24}} >
       <Filter />
       <DisableElevation />
     </Box>
