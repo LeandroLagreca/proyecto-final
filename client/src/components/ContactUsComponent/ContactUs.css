@@ -1,0 +1,18 @@
+.textarea{
+    background-color: transparent;
+    
+}
+
+.contactbtn{
+    width: 50%;
+    background-color: #5e83ba;
+    color: "#091d36";
+    margin-top: 20% ;
+}
+
+
+
+.contactbtn:hover{
+    background-color: "#091d36";
+    color: #5e83ba;
+}

@@ -9,6 +9,11 @@ body{
 	text-align: center;
 	justify-content: center;
 	overflow-x: hidden;
+
+}
+
+html{
+	scroll-behavior: smooth;
 }
 
 .swal2-container{
