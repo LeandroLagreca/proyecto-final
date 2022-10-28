@@ -49,16 +49,11 @@ export default function Discounts() {
   const [ discounts, setDiscounts ] = useState([])
   const [ loading, setLoading ] = useState(true)
   const { admin } = useSelector(state => state.user)
-  const [banner, setBanner] = useState('https://png.pngtree.com/png-vector/20190627/ourlarge/pngtree-special-offer-banner-png-image_1517551.jpg');
+  const [banner, setBanner] = useState('https://res.cloudinary.com/ds0b11qnv/image/upload/v1666927361/gamescript/discounts_banner.webp');
   const [inputValue, setInputValue] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // axios("http://localhost:3001/images/discounts")
-    // .then(response => {
-    //   setBanner(response.data)
-    //   return axios("http://localhost:3001/discounts")
-    // })
     axios("http://localhost:3001/discounts")
     .then(response => setDiscounts(response.data))
     .then(() => setLoading(false))
@@ -68,19 +63,13 @@ export default function Discounts() {
     setInputValue(e.target.files[0]);
   }
 
-  function handleUpload() {
+  async function handleUpload() {
     if (!inputValue) return alert("No se puede subir un archivo vacio");
-    let blob = new Blob([inputValue], { type: inputValue.type });
-    let reader = new FileReader();
-    reader.readAsDataURL(blob);
-    reader.onload = function () {
-      setBanner(reader.result);
-      const url = "http://localhost:3001/images/discounts";
-      axios.post(url, {image: reader.result});
-      setInputValue(null);
-    };
-
-    
+    const data = new FormData();
+    data.append('image', inputValue)
+    const url = "http://localhost:3001/images/discounts";
+    const image = await axios.post(url, data);
+    if(image) setBanner(image)
   }
 
   if(loading) return <Loader />
