@@ -32,11 +32,11 @@ export default function Filter() {
 	}, [page, sort, name, rating, price, genre, dispatch])
 
 	return (
-				<Box sx={{display:"flex", textAling:"center"}}>
+				<Box sx={{display:"flex", textAling:"center", alignItems: 'center'}}>
 
 					<List 
 					subheader={
-						<ListSubheader>
+						<ListSubheader sx={{fontSize: 50}} >
 						  Filters
 						</ListSubheader>
 					  }>
