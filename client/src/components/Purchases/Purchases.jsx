@@ -2,12 +2,15 @@ import { Box } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Card from '../Cards/Card';
+import Footer from '../Footer/Footer';
+import Sidebar from '../Sidebar/Sidebar';
 
 const Purchases = () => {
     const purchases = useSelector((state) => state.user.purchases);
     
     return(
         <div>
+            <Sidebar></Sidebar>
             <Box
             display= "flex"
             flexDirection={"row"}
@@ -32,6 +35,7 @@ const Purchases = () => {
                 })
                 }
             </Box>
+            <Footer></Footer>
         </div>
     )
 }
