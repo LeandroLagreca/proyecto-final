@@ -84,8 +84,6 @@ const Sidebar = () => {
 	const [open, setOpen] = React.useState(false);
 	const { mode, toggleMode } = useContext(ColorModeContext);
 
-	console.log(mode);
-
 	const handleDrawerOpen = () => {
 		setOpen(true);
 	};

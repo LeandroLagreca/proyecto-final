@@ -38,8 +38,8 @@ module.exports = (sequelize) => {
       defaultValue: null,
       get() {
         const value = this.getDataValue('price')
-        if(!value) return 0
-        return this.discount.status 
+        if(value === 'null') return 0
+        return this.discount?.status 
           ? this.discount.currentPrice
           : value
       }

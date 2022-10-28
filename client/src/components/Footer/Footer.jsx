@@ -32,6 +32,7 @@ const footers = [
 			{ item: 'PostgreSQL', url: 'https://www.postgresql.org/' },
 			{ item: 'Firebase', url: 'https://firebase.google.com/' },
 			{ item: 'Express', url: 'https://expressjs.com/' },
+			{ item: 'Sequelize', url: 'https://sequelize.org/' },
 		],
 	},
 	{
@@ -49,8 +50,16 @@ const footers = [
 				url: '#',
 				icon: <FacebookIcon sx={{ paddingRight: '10px' }} />,
 			},
-			{ item: 'INSTAGRAM', url: '#', icon: <InstagramIcon sx={{ paddingRight: '10px' }}/> },
-			{ item: 'TWITTER', url: '#', icon: <TwitterIcon sx={{ paddingRight: '10px' }}/> },
+			{
+				item: 'INSTAGRAM',
+				url: '#',
+				icon: <InstagramIcon sx={{ paddingRight: '10px' }} />,
+			},
+			{
+				item: 'TWITTER',
+				url: '#',
+				icon: <TwitterIcon sx={{ paddingRight: '10px' }} />,
+			},
 		],
 	},
 ];
