@@ -111,7 +111,10 @@ const videoGameSlice = createSlice({
 		},
 		getAllGenres: (state, { payload }) => {
 			state.genres = payload;
-		}
+		},
+		postAllGames: (state, { payload }) => {
+			state = payload
+		},
 	},
 });
 
@@ -130,6 +133,8 @@ export const {
 	getGameComments,
 	setGameComments,
 	getAllGenres,
+	postAllGames,
+	
 } = videoGameSlice.actions;
 
 export default videoGameSlice.reducer;

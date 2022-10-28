@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { AdminContainer } from '../containers'
 import { Users, AdminGames, AdminOrders } from './'
-import { AdminNavBar, Loader } from '../components'
+import { AdminNavBar, Footer, Loader } from '../components'
 import { useState } from 'react'
+import Sidebar from '../components/Sidebar/Sidebar'
 
 const paths = {
   admin: 'admin',
@@ -24,11 +25,13 @@ export default function AdminPanel() {
         !admin ? <></> : <AdminNavBar />
       } */}
       <AdminNavBar />
+      <Sidebar></Sidebar>
         <Routes>
           <Route path={paths.users} element={<Users />} />
           <Route path={paths.games} element={<AdminGames />} />
           <Route path={paths.orders} element={<AdminOrders />} />
         </Routes>
+        <Footer></Footer>
     </AdminContainer>
   )
 }

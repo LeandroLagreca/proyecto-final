@@ -9,7 +9,8 @@ import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getGenres } from '../../redux/actions/videoGame';
+import { getGenres,postGames } from '../../redux/actions/videoGame';
+import {useParams} from "react-router-dom";
 
 function validate(input){
     var errors = {}
@@ -46,7 +47,9 @@ function validate(input){
     
 
 export default function ComposedTextField() {
-  const dispatch = useDispatch()  
+//   const {id}= useParams()
+//   console.log(id)
+  const dispatch = useDispatch()
   const generos = useSelector((state)=> state.videogames.genres)
   const [errors,setErrors] = useState({})
   const [input, setInput] = useState({
@@ -84,30 +87,29 @@ function handleSelect(e) {
 function handleDelete(el){
     setInput({
         ...input,
-        diets: input.genres.filter(x=> x!== el)
+        genres: input.genres.filter(x=> x!== el)
     })
 }
 
 
 
-//   function handleSubmit(e){
-//     e.preventDefault();
-//     if(input.name && input.description&&input.background_image&&input.price&&input.requirements
-//         &&!errors.name&& !errors.description&&!errors.background_image&&!errors.price&&!errors.requirements&&input.genres.length !==0 &&input.genres.length<=3)
+  function handleSubmit(e){
+    e.preventDefault();
+    if(input.name && input.description&&input.background_image&&input.price&&input.requirements
+        &&!errors.name&& !errors.description&&!errors.background_image&&!errors.price&&!errors.requirements&&input.genres.length !==0 &&input.genres.length<=3)
 
-//     {dispatch(postRecipes(input))
-//     alert("Receta creada con exito!")
-//     setInput({
-//         name:"",
-//         summary:"",
-//         image:"",
-//         healthScore:0,
-//         steps:"",
-//         diets:[]
-//     })
-//     history.push("/home")}
-//     else alert ("Por favor, complete el formulario correctamente")
-// }
+    {dispatch(postGames(input))
+    alert("Juego creado con exito!")
+    setInput({
+        name:"",
+        description:"",
+        background_image:"",
+        price:0,
+        requirements:"",
+        genres:[]
+    })}
+    else alert ("Por favor, complete el formulario correctamente")
+}
 
 useEffect(()=> {
     dispatch(getGenres())
@@ -227,7 +229,7 @@ useEffect(()=> {
                             name="genres"
                             value={input.genres}
                             aria-describedby="component-error-text"><MenuItem>Seleccione</MenuItem>
-                            {generos&&  generos.map(e=>(<MenuItem key={e.name} value={e.name}>{e.name}</MenuItem>))}
+                            {generos&& generos.map(e=>(<MenuItem key={e.name} value={e.name}>{e.name}</MenuItem>))}
                             <MenuItem value="otro">Otro</MenuItem>
                             </Select>
                             {input.genres.includes("otro")?<FormControl variant="standard">
@@ -241,7 +243,7 @@ useEffect(()=> {
                     </CardContent>
                     {Object.entries(errors).length===0 && input.name!==""?<CardContent>   
                         <FormControl>
-                        <Button>Save</Button> 
+                        <Button type='submit' onSubmit={(e)=>handleSubmit(e)} >Save</Button> 
                         </FormControl>
                     </CardContent>
                     :

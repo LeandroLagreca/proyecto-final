@@ -72,9 +72,11 @@ const videogamePost = async (req, res) => {
       images,
       requirements,
       genres,
+      trailer,
       stock,
       newGenres,
     } = req.body;
+
     if (name) {
       const newVideogame = await Videogame.create({
         name,
@@ -88,6 +90,7 @@ const videogamePost = async (req, res) => {
         requirements,
         stock,
       });
+
 
       let genresDb = await Genre.findAll({
         where: { name: genres },
@@ -267,6 +270,7 @@ const updateVideogame = async (req, res) => {
     price,
     images,
     requirements,
+    trailer,
   } = req.body;
 
   try {
@@ -285,6 +289,7 @@ const updateVideogame = async (req, res) => {
           price: price ? price : find.price,
           images: images ? images : find.images,
           requirements: requirements ? requirements : find.requirements,
+          trailer: trailer ? trailer : find.trailer,
         },
         { where: { id: id } }
       );

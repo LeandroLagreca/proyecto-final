@@ -1,3 +1,7 @@
+ul {
+    list-style: none;
+}
+
 .imagenDetail {
 	inset: 0px;
 	width: 100%;
