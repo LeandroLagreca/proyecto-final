@@ -108,7 +108,7 @@ const videogamePost = async (req, res) => {
       res.status(404).send({ msg: "a name is required" });
     }
   } catch (error) {
-    res.send(error);
+    res.status(404).send(error);
   }
 };
 
