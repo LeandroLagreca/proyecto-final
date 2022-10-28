@@ -1,4 +1,4 @@
-const { PurchaseOrder, Videogame, User} = require("../db");
+const { PurchaseOrder, Videogame, User } = require("../db");
 const { Op } = require("sequelize");
 
 const createOrder = async (req, res) => {
@@ -36,22 +36,36 @@ const createOrder = async (req, res) => {
         cant: e.cant,
       };
     });
-
+    //restar stock
+    games.map(async (game) => {
+      await Videogame.findOne({ where: { id: game.id } }).then((Vgame) => {
+        if (Vgame.stock <= 0) {
+          return {
+            status: "failed",
+            message: "out of stock",
+          };
+        } else {
+          Vgame.decrement("stock", { by: game.cant });
+        }
+      });
+    });
+    //
     const findGames = await Videogame.findAll({
       where: { id: { [Op.or]: [...gameIDS] } },
     });
+
     //crear orden y asociarla
     let user = await User.findOne({ where: { id: userID } });
     if (user) {
       let newOrder = await PurchaseOrder.create({
         games: gameInfo,
         totalprice: totalPrice,
-        userId: userID
+        userId: userID,
       });
       await newOrder.addVideogames(findGames);
 
       const algo = await user.addPurchaseOrder(newOrder);
-      console.log(algo);
+      
       return res.status(201).json({
         msg: "Order created successfully",
         data: newOrder,
@@ -60,7 +74,7 @@ const createOrder = async (req, res) => {
       return res.status(404).send({ msg: "thats not a valid userid" });
     }
   } catch (error) {
-    res.status(400).send({ msg: error });
+    console.log(error);
   }
 };
 
@@ -108,12 +122,12 @@ const getAllOrders = async (req, res) => {
 
   try {
     const orders = await PurchaseOrder.findAll({
-      attributes: ['id', 'games', 'status', 'totalprice', 'date'],
+      attributes: ["id", "games", "status", "totalprice", "date"],
       where,
       include: {
         model: User,
-        attributes: ['name', 'email', 'id']
-      }
+        attributes: ["name", "email", "id"],
+      },
     });
     if (!orders.length) {
       return res.status(404).send("Couldn't find any order");
