@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { Container, FormControl } from '@mui/material';
 
 const MyProfile = () => {
-  return (
-    <div>MyProfile</div>
-  )
-}
+	return (
+		<Container>
+			<FormControl>
+        <h1>My Profile</h1>
+        
+      </FormControl>
+		</Container>
+	);
+};
 
-export default MyProfile
+export default MyProfile;

@@ -5,33 +5,24 @@ import { UsersContainer } from '../containers'
 import { UsersList } from '../sections'
 
 export default function Users() {
-  // const [ users, setUsers ] = useState([])
+  const [ users, setUsers ] = useState([])
   const [filters, setFilters] = useState({
     name: "",
     admin: "",
     date: "",
   });
 
-	const users = [
-		{
-			id: 1,
-			username: 'Userjuju',
-			email: 'ola2@gmail.com',
-			admin: 'true'
-		},
-		{
-			id: 2,
-			username: 'asldkjasd',
-			email: 'ola@gmail.com',
-			admin: 'false'
-		}
-	]
-
 	useEffect(() => {
     const queries = `filter[name]=${filters.name}`
 		axios.get('http://localhost:3001/user?' + queries)
-    // .then(response => setUsers(response.data))
-	}, [])
+    .then(response => {
+      if(Array.isArray(response.data)) {
+        setUsers(response.data)
+      } else {
+        setUsers([])
+      }
+    })
+	}, [filters])
 
   function handleFilters(e) {
     const value = e.target.value

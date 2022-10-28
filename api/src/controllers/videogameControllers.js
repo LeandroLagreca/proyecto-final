@@ -16,7 +16,49 @@ const getRowTableVideoGames = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+const addGenre = async (genres) => {
+  if (genres) {
+    try {
+      let currentGenres = await getGenres();
 
+      if (Array.isArray(genres)) {
+        let newGenres = genres.filter(
+          (eArr2) =>
+            !currentGenres.find((eArr1) => eArr2 == eArr1.dataValues.name)
+        );
+
+        if (newGenres.length > 0) {
+          let promisesDb = newGenres.map(async (e) => {
+            let newGenre = await Genre.create({ name: e });
+          });
+          let addedGenres = Promise.all(promisesDb);
+
+          let success = `new genres created in db`;
+
+          return success;
+        } else {
+          let failed = "those genres already exist";
+          return failed;
+        }
+      } else {
+        let found = currentGenres.find((e) => e.dataValues.name === genres);
+
+        if (found) {
+          let error = "that genre already exist";
+
+          return error;
+        } else {
+          let newGenre = await Genre.create({ name: genres });
+          return { msg: `${genres} was created successfully` };
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    res.status(404).send("a genre or arr of genres is required");
+  }
+};
 const videogamePost = async (req, res) => {
   try {
     const {
@@ -30,29 +72,43 @@ const videogamePost = async (req, res) => {
       images,
       requirements,
       genres,
+      trailer,
       stock,
+      newGenres,
     } = req.body;
-    const newVideogame = await Videogame.create({
-      name,
-      background_image,
-      rating_api,
-      rating_user,
-      description,
-      released,
-      price,
-      images,
-      requirements,
-      stock,
-    });
 
-    let genresDb = await Genre.findAll({
-      where: { name: genres },
-    });
-    newVideogame.addGenres(genresDb);
+    if (name) {
+      const newVideogame = await Videogame.create({
+        name,
+        background_image,
+        rating_api,
+        rating_user,
+        description,
+        released,
+        price,
+        images,
+        requirements,
+        stock,
+      });
 
-    res.status(200).json(newVideogame);
+
+      let genresDb = await Genre.findAll({
+        where: { name: genres },
+      });
+
+      newVideogame.addGenres(genresDb);
+
+      if (newGenres) {
+        let response = await addGenre(newGenres);
+        res.status(200).send({ msg: "game was created", newgenre: response });
+      } else {
+        res.status(200).json(newVideogame);
+      }
+    } else {
+      res.status(404).send({ msg: "a name is required" });
+    }
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.send(error);
   }
 };
 
@@ -104,9 +160,9 @@ const getAllGames = async (req, res) => {
 
   if (price) {
     where.price = Sequelize.where(
-      Sequelize.fn('TO_NUMBER', Sequelize.col("price"), '999,999.99'),
+      Sequelize.fn("TO_NUMBER", Sequelize.col("price"), "999,999.99"),
       {
-        [Op.lte]: Number(price)
+        [Op.lte]: Number(price),
       }
     );
   }
@@ -129,7 +185,7 @@ const getAllGames = async (req, res) => {
     where,
     order,
     offset: (Number(page) - 1) * 10,
-    limit: 10
+    limit: 10,
   };
   try {
     const { count, rows } = await Videogame.findAndCountAll(config);
@@ -150,7 +206,7 @@ const getAllGames = async (req, res) => {
       res.status(404).send(message);
     }
   } catch (error) {
-	console.log(error)
+    console.log(error);
     res.status(400).send(error);
   }
 };
@@ -177,12 +233,12 @@ const videogameByID = async (req, res) => {
   }
 };
 
-const getGenres = async (req, res) => {
+const getGenres = async () => {
   try {
     const data = await Genre.findAll();
-    res.send(data);
+    return data;
   } catch (error) {
-    res.status(400).json(error);
+    console.log(error);
   }
 };
 
@@ -190,7 +246,7 @@ const getDiscounts = async (req, res) => {
   try {
     const discounts = await Videogame.findAll({
       where: {
-        "discount.status": true
+        "discount.status": true,
       },
     });
     if (!discounts.length) {
@@ -214,6 +270,7 @@ const updateVideogame = async (req, res) => {
     price,
     images,
     requirements,
+    trailer,
   } = req.body;
 
   try {
@@ -232,6 +289,7 @@ const updateVideogame = async (req, res) => {
           price: price ? price : find.price,
           images: images ? images : find.images,
           requirements: requirements ? requirements : find.requirements,
+          trailer: trailer ? trailer : find.trailer,
         },
         { where: { id: id } }
       );

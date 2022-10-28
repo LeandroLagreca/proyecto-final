@@ -22,7 +22,7 @@ export default function SessionButton() {
   return (
     <>
       {sessionStatus !== 'logged' ? (
-        <Link style={styles.link} to={"/"}>
+        <Link style={styles.link} to={"/login"}>
           <Button variant="contained" sx={{minWidth: 80}} size="small" color="info">
             Log In
           </Button>

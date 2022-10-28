@@ -20,3 +20,8 @@
   overflow: hidden;
   object-position: top;
 }
+
+.frame {
+  width: 650px;
+  height: 400px;
+}

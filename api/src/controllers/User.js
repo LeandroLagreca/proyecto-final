@@ -5,8 +5,6 @@ const {
   createUserWithEmailAndPassword,
   getAuth,
   sendSignInLinkToEmail,
-  isSignInWithEmailLink,
-  signInWithEmailLink,
 } = require("firebase/auth");
 
 const UserPost = async (req, res) => {
@@ -32,13 +30,16 @@ const UserPost = async (req, res) => {
       password: hashFunction(password),
     });
     await newUser.update({ cart: prevCart });
-    
+    const actionCodeSettings = {
+      url: "http://localhost:3000/",
+      handleCodeInApp: true,
+    };
+    sendSignInLinkToEmail(auth, email, actionCodeSettings)
         res.status(201).json({msg: "User create!"})
-
 } catch {
     res.status(400).json({msg: "User not create!"});
 }
-}
+};
 
 const getDbById = async (id) => {
   return await User.findByPk(id);
@@ -139,6 +140,26 @@ const PostLogin= async (req, res) => {
         };
 
     }
+/*
+     filtro para ordenar por stock el admin en front 
+    const OrdenXStock = 
+        action.payload === "min" ?
+        videogames.sort(function (a, b) {
+            if (a.stock > b.stock) return 1;
+            if (b.stock > a.stock) return -1;
+            return 0;
+        })
+        : videogames.sort(function (a, b) {
+            if (a.stock > b.stock) return -1;
+            if (b.stock > a.stock) return 1;
+            return 0;
+        
+        });
+            return {
+            ...state,
+            videogames: sortedByRating.map((e) => e),
+            };
+*/
 module.exports= {
     allDataUser,
     UserByID,

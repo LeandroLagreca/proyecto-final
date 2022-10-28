@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import {
 	Drawer,
@@ -8,8 +9,7 @@ import {
 	ListItemIcon,
 	ListItemText,
 	Divider,
-	Box,
-	Link,
+	Link as MuiLink,
 } from '@mui/material';
 import { Person, LocalMall, NotificationsActive } from '@mui/icons-material';
 
@@ -26,36 +26,36 @@ const AccountNavBar = () => {
 			<List sx={{ paddingTop: 3 }}>
 				<Divider />
 				<ListItem>
-					<Link href="/account/:id/profile" underline="none">
+					<MuiLink component={Link} to="/account/profile" underline="none">
 						<ListItemButton>
 							<ListItemIcon>
 								<Person />
 							</ListItemIcon>
 							<ListItemText primary={'My Profile'} />
 						</ListItemButton>
-					</Link>
+					</MuiLink>
 				</ListItem>
 				<Divider />
 				<ListItem>
-					<Link href="/account/:id/purchases" underline="none">
+					<MuiLink component={Link} to="/account/purchases" underline="none">
 						<ListItemButton>
 							<ListItemIcon>
 								<LocalMall />
 							</ListItemIcon>
 							<ListItemText primary={'My Purchased Games'} />
 						</ListItemButton>
-					</Link>
+					</MuiLink>
 				</ListItem>
 				<Divider />
 				<ListItem>
-					<Link href="/account/:id/notifications" underline="none">
+					<MuiLink component={Link} to="/account/notifications" underline="none">
 						<ListItemButton>
 							<ListItemIcon>
 								<NotificationsActive />
 							</ListItemIcon>
 							<ListItemText primary={'My Notification'} />
 						</ListItemButton>
-					</Link>
+					</MuiLink>
 				</ListItem>
 				<Divider />
 			</List>
