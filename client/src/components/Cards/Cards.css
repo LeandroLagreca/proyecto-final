@@ -1,0 +1,17 @@
+.imgCard{
+    float: top;
+    -webkit-transition: margin 1s ease-out;
+    -moz-transition: margin 1s ease-out;
+    
+}
+.imgCard:hover {
+    margin-top: -20px;
+    transition: margin 1s ease-out;
+    transition: 0.5s;
+    color: rgb(10, 0, 201)
+}
+
+.imagenEnCard{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}

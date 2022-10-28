@@ -72,6 +72,26 @@ export const deleteFromCart = (gameId) => {
   }
 }
 
+export const clearCart = () => {
+  return async function(dispatch) {
+  const { status, id } = store.getState().user;
+    if (status === "guest") {
+      const parseCart = JSON.stringify([]);
+      localStorage.setItem("cartList", parseCart);
+      dispatch(updateCart([]))
+    } else {
+      try {
+        await axios.put(API + `user/${id}`, {
+          cart: [],
+        });
+        dispatch(updateCart([]));
+      } catch (error) {
+        return;
+      }
+    }
+  } 
+}
+
 export const addOneFn = (gameId) => {
   const { status, id, cartList } = store.getState().user;
   return async function(dispatch) {
