@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { deleteFromCart, addOneFn, removeOneFn } from "../../redux/actions/user";
 import { ListItem, Avatar, Box, Typography, Divider, IconButton } from "@mui/material";
 import { Close, Add, Remove } from '@mui/icons-material';
+import { Link } from "react-router-dom";
 
 const styles = {
   container: {
@@ -65,11 +66,13 @@ export default function CartCard({ id, picture, name, price, cant, stock }) {
         <IconButton sx={styles.close} onClick={handleDelete}>
             <Close />
         </IconButton>
+        <Link to={`/detail/${id}`} underline="none">
       <Avatar
         variant="square"
         src={picture}
-        sx={{ width: 90, height: "auto" }}
+        sx={{ width: 90, height: 85, borderRadius: 3 }}
       />
+      </Link>
       <Box
         display={"flex"}
         flexDirection={"column"}
@@ -83,7 +86,7 @@ export default function CartCard({ id, picture, name, price, cant, stock }) {
             <IconButton onClick={handleRemove}>
                 <Remove />
             </IconButton>
-            <Typography>Cant: {cant}</Typography>
+            <Typography>Amount: {cant}</Typography>
             <IconButton onClick={handleAdd}>
                 <Add />
             </IconButton>
