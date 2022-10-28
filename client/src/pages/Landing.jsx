@@ -14,7 +14,13 @@ export default function Landing() {
   });
 
   return (
-    <LandingContainer>
+    <LandingContainer sx={{
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      minHeight: "100vh",
+    }}>
       <LandingFormSection />
     </LandingContainer>
   );

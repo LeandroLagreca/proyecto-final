@@ -4,6 +4,7 @@ const {
   postComment,
   getUserComments,
   getGameComments,
+  updateComment,
 } = require("../controllers/Comments");
 const {
   videogamePost,
@@ -25,6 +26,7 @@ const {
 
 const {
   allDataUser,
+  UserByName,
   UserByID,
   UserPost,
   UserUpdate,
@@ -48,6 +50,8 @@ router.get("/videogames/comments", getGameComments);
 
 router.post("/comments", postComment);
 
+router.put("/comments", updateComment);
+
 //Videogame
 
 router.get("/row-videogames", getRowTableVideoGames);
@@ -67,11 +71,12 @@ router.get("/discounts", getDiscounts);
 //User
 router.get("/user", allDataUser);
 
-router.get("/searchUser",allDataUser);
+router.get("/searchUser",UserByName);
 
 router.get("/user/:id", UserByID);
 
 router.put("/user/:id", UserUpdate);
+
 
 //sesion
 router.post("/register", UserPost);

@@ -39,7 +39,7 @@ module.exports = (sequelize) => {
       get() {
         const value = this.getDataValue('price')
         if(!value) return 0
-        return this.discount.status 
+        return this.discount?.status 
           ? this.discount.currentPrice
           : value
       }
@@ -61,6 +61,9 @@ module.exports = (sequelize) => {
         prevPrice: null,
         currentPrice: null
       }
-    }
+    },
+    trailer: {
+      type: DataTypes.STRING
+    },
   });
 };

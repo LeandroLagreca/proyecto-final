@@ -1,7 +1,7 @@
 [
   {    "stock": 50,
     "id": 3498,
-
+    "trailer": "https://www.youtube.com/embed/QkkoHAzjnUs",
     "name": "Grand Theft Auto V",
     "description": "<p>Rockstar Games went bigger, since their previous installment of the series. You get the complicated and realistic world-building from Liberty City of GTA4 in the setting of lively and diverse Los Santos, from an old fan favorite GTA San Andreas. 561 different vehicles (including every transport you can operate) and the amount is rising with every update. <br />\nSimultaneous storytelling from three unique perspectives: <br />\nFollow Michael, ex-criminal living his life of leisure away from the past, Franklin, a kid that seeks the better future, and Trevor, the exact past Michael is trying to run away from. <br />\nGTA Online will provide a lot of additional challenge even for the experienced players, coming fresh from the story mode. Now you will have other players around that can help you just as likely as ruin your mission. Every GTA mechanic up to date can be experienced by players through the unique customizable character, and community content paired with the leveling system tends to keep everyone busy and engaged.</p>",
     "price": "12.89",
@@ -22,7 +22,7 @@
   },
   {    "stock": 50,
     "id": 3328,
-
+    "trailer": "https://www.youtube.com/embed/XHrskkHf958",
     "name": "The Witcher 3: Wild Hunt",
     "background_image": "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg",
     "rating_api": 4.67,
@@ -40,12 +40,12 @@
  
   {    "stock": 50,
     "id": 5286,
-
+    "trailer": "https://www.youtube.com/embed/6YWlWzs1Prs",
     "name": "Tomb Raider (2013)",
     "background_image": "https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg",
     "rating_api": 4.06,
     "description": "<p>A cinematic revival of the series in its action third person form, Tomb Rider follows Lara in her least experience period of life – her youth. Heavily influenced by Naughty Dog’s “Uncharted”, the game is a mix of everything, from stealth and survival to combat and QTE action scenes.<br />\nYoung Lara Croft arrives on the Yamatai, lost island near Japan, as the leader of the expedition in search of the Yamatai Kingdom, with a diverse team of specialists. But shipwreck postponed the successful arrival and seemingly forgotten island is heavily populated with hostile inhabitants, cultists of Solarii Brotherhood.<br />\nThe game will be graphic at times, especially after failed QTE’s during some of the survival scenes, but overall players will enjoy classic action adventure, reminiscent of the beginning of the series. This game is not a direct sequel or continuation of existing sub-series within the franchise, but a reboot, setting up Tomb Raider to represent modern gaming experience.<br />\nThe game has RPG elements and has a world, which you can explore during the story campaign and after the completion. As well as multiplayer mode, where 2 teams (4 scavengers and 4 survivors) are clashing in 3 game modes while using weapons and environments from the single-player campaign.</p>",
-    "price": "9",
+    "price": "9.99",
     "released": "2013-03-05",
     "images": "https://media.rawg.io/media/games/021/021c4e21a1824d2526f925eff6324653.jpg,https://media.rawg.io/media/screenshots/4f9/4f9d5efdecfb63cb99f1baa4c0ceb3bf.jpg,https://media.rawg.io/media/screenshots/80f/80f373082b2a74da3f9c3fe2b877dcd0.jpg,https://media.rawg.io/media/screenshots/a87/a8733e877f8fbe45e4a727c22a06aa2e.jpg,https://media.rawg.io/media/screenshots/3f9/3f91678c6805a76419fa4ea3a045a909.jpg,https://media.rawg.io/media/screenshots/417/4170bf07be43a8d8249193883f87f1c1.jpg,https://media.rawg.io/media/screenshots/2a4/2a4250f83ad9e959d8b4ca9376ae34ea.jpg",
     "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong>Windows XP / Windows Vista / Windows 7<br>\t</li><li><strong>Processor:</strong>1.8 GHz Processor<br>\t</li><li><strong>Memory:</strong>512 MB RAM<br>\t</li><li><strong>Graphics:</strong>3D graphics card compatible with DirectX 9<br>\t</li><li><strong>DirectX®:</strong>9.0<br>\t</li><li><strong>Hard Drive:</strong>2 GB HD space</li></ul>",
@@ -56,12 +56,12 @@
   },
   {    "stock": 50,
     "id": 4291,
-
+    "trailer": "https://www.youtube.com/embed/edYCtaNueQY",
     "name": "Counter-Strike: Global Offensive",
     "background_image": "https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg",
     "rating_api": 3.57,
     "description": "<p>Counter-Strike is a multiplayer phenomenon in its simplicity. No complicated narratives to explain the source of the conflict, no futuristic and alien threats, but counter-terrorists against terrorists. Arena shooter at its core, CS:GO provides you with various methods of disposing enemies and reliant on cooperation within the team. During the round of the classical clash mode, you will gradually receive currency to purchase different equipment. Each player can carry a primary weapon, secondary pistol, knife and a set of grenades, which all can change the battle if wielded by the skilled player. <br />\nObjectives are clear and vary from map to map, from game mode to game mode. Stop the terrorists from planting explosives, stop the counter-terrorist from retrieving the hostages, kill everyone who isn’t you and just perform the best with.<br />\nCS:GO is one of the major cybersport discipline, which makes playing it more exciting to some players. Aside from purchasing the game, CS:GO is infamous for its loot case system, that requires players to purchase keys, in order to open said cases. Customization items consist of weapon skins, weapon stickers, and sprays that do not affect gameplay and have purely visual value to the player.</p>",
-    "price": "19",
+    "price": "19.99",
     "released": "2012-08-21",
     "images": "https://media.rawg.io/media/games/736/73619bd336c894d6941d926bfd563946.jpg,https://media.rawg.io/media/screenshots/ff1/ff16661bb15f7969b44f6c4118870e44.jpg,https://media.rawg.io/media/screenshots/41b/41bb769d247412eac3336dec934aed72.jpg,https://media.rawg.io/media/screenshots/754/754545acdbf71f56e8902a07c7d20696.jpg,https://media.rawg.io/media/screenshots/fd8/fd873cab4c66db0b8e85d8a66e940074.jpg,https://media.rawg.io/media/screenshots/7db/7db2954f7908b6749c36a5f3c9052f65.jpg,https://media.rawg.io/media/screenshots/337/337a3e98b5933f456a2b37b59fab5f39.jpg",
     "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows® 7/Vista/XP<br></li><li><strong>Processor:</strong> Intel® Core™ 2 Duo E6600 or AMD Phenom™ X3 8750 processor or better<br></li><li><strong>Memory:</strong> 2 GB RAM<br></li><li><strong>Graphics:</strong> Video card must be 256 MB or more and should be a DirectX 9-compatible with support for Pixel Shader 3.0<br></li><li><strong>DirectX:</strong> Version 9.0c<br></li><li><strong>Storage:</strong> 15 GB available space</li></ul>",
@@ -72,7 +72,7 @@
   },
   {    "stock": 50,
     "id": 5679,
-
+    "trailer": "https://www.youtube.com/embed/JSRtYpNRoN0",
     "name": "The Elder Scrolls V: Skyrim",
     "background_image": "https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg",
     "rating_api": 4.42,
@@ -87,8 +87,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 12020
-    ,
+    "id": 12020,
+    "trailer": "https://www.youtube.com/embed/OqUUfwSN-MY",    
     "name": "Left 4 Dead 2",
     "background_image": "https://media.rawg.io/media/games/d58/d588947d4286e7b5e0e12e1bea7d9844.jpg",
     "rating_api": 4.08,
@@ -103,8 +103,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 13536
-    ,
+    "id": 13536,
+    "trailer": "https://www.youtube.com/embed/zQhCTRHYBZQ",    
     "name": "Portal",
     "background_image": "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
     "rating_api": 4.51,
@@ -120,7 +120,7 @@
   },
   {    "stock": 50,
     "id": 4062,
-
+    "trailer": "https://www.youtube.com/embed/EsJ55BzIvkE",
     "name": "BioShock Infinite",
     "background_image": "https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg",
     "rating_api": 4.39,
@@ -137,7 +137,8 @@
  
   {
     "id": 802,
-    "stock": 50,
+     "trailer": "https://www.youtube.com/embed/qbXagBKE",   
+     "stock": 50,
     "name": "Borderlands 2",
     "background_image": "https://media.rawg.io/media/games/49c/49c3dfa4ce2f6f140cc4825868e858cb.jpg",
     "rating_api": 4.03,
@@ -154,7 +155,8 @@
   },
   {
     "id": 28,
-    "stock": 50, 
+      "trailer": "https://www.youtube.com/embed/MyaYlbizpvs",  
+      "stock": 50, 
     "name": "Red Dead Redemption 2",
     "background_image": "https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg",
     "rating_api": 4.59,
@@ -171,7 +173,7 @@
  
   {    "stock": 50,
     "id": 4286,
-
+    "trailer": "https://www.youtube.com/embed/1MSEFVfrz9A",
     "name": "BioShock",
     "background_image": "https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg",
     "rating_api": 4.37,
@@ -187,7 +189,7 @@
   },
   {    "stock": 50,
     "id": 1030,
-
+    "trailer": "https://www.youtube.com/embed/Y4HSyVXKYz8",
     "name": "Limbo",
     "background_image": "https://media.rawg.io/media/games/942/9424d6bb763dc38d9378b488603c87fa.jpg",
     "rating_api": 4.16,
@@ -205,12 +207,12 @@
   },
   {    "stock": 50,
     "id": 2454,
-
+    "trailer": "https://www.youtube.com/embed/l5XQ4zABINA",
     "name": "DOOM (2016)",
     "background_image": "https://media.rawg.io/media/games/c4b/c4b0cab189e73432de3a250d8cf1c84e.jpg",
     "rating_api": 4.39,
     "description": "<p>Return of the classic FPS, Doom (2016) acts as a reboot of the series and brings back the Doomslayer, protagonist of the original Doom games. In order to solve the energy crisis, humanity learned to harvest the energy from Hell, and when something went wrong and a demon invasion has started, it’s up to the player to control the Doomslayer and destroy the evil.</p>\n<p>Doom is a fast-paced game that restores the concept of instant health packs and leaves the player against armies of Hell with no cover, no health regeneration, or help from anyone. After damaging monsters enough, they will start glowing, which will allow players to perform glory kills to restore some health. While exploring the levels, players will come across secrets, collectible items, or upgrade points for the weapons and armor. The single-player campaign silent protagonist has a noticeable personality. He gets visibly annoyed and angry in his actions during expository cutscenes and forces his way through the game. Multiplayer maps gather players in Deathmatch/”king-of-the-hill” type game modes, with all the weapons from the single-player campaign.</p>",
-    "price": "20",
+    "price": "20.99",
     "released": "2016-05-13",
     "images": "https://media.rawg.io/media/games/c4b/c4b0cab189e73432de3a250d8cf1c84e.jpg,https://media.rawg.io/media/screenshots/353/353c1e834e7da7d6ceaa6beaff529c29.jpg,https://media.rawg.io/media/screenshots/e50/e50f822107b8cc6af57aa21d76524149.jpg,https://media.rawg.io/media/screenshots/ae9/ae9e9f7bfe19c63bd16151f81f81a7ed.jpg,https://media.rawg.io/media/screenshots/14e/14e33eccb109558b0524761340ff2023.jpg,https://media.rawg.io/media/screenshots/45d/45d16955ac9e90141b726684a07db02a.jpg,https://media.rawg.io/media/screenshots/b77/b77629938389a41160d3b2a56eaed568.jpg",
     "requirements": "<strong>Minimum:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows7,Windows8,Windows10<br></li><li><strong>Processor:</strong> Intel cpu i3<br></li><li><strong>Memory:</strong> 4 GB RAM<br></li><li><strong>Graphics:</strong> GTX 650<br></li><li><strong>Storage:</strong> 2 GB available space<br></li><li><strong>Sound Card:</strong> Realtek</li></ul>,<strong>Recommended:</strong><br><ul class=\"bb_ul\"><li><strong>OS:</strong> Windows7,Windows8,Windows10<br></li><li><strong>Processor:</strong> Intel cpu i5<br></li><li><strong>Memory:</strong> 8 GB RAM<br></li><li><strong>Graphics:</strong> GTX 770<br></li><li><strong>Storage:</strong> 4 GB available space<br></li><li><strong>Sound Card:</strong> Realtek</li></ul>",
@@ -221,7 +223,7 @@
   },
   {    "stock": 50,
     "id": 3070,
-
+    "trailer": "https://www.youtube.com/embed/WbVfMVBTR7I",
     "name": "Fallout 4",
     "background_image": "https://media.rawg.io/media/games/d82/d82990b9c67ba0d2d09d4e6fa88885a7.jpg",
     "rating_api": 3.8,
@@ -237,8 +239,8 @@
   },
  
   {    "stock": 50,
-    "id": 11859
-    ,
+    "id": 11859,
+    "trailer": "https://www.youtube.com/embed/N7ZafWA2jd8",    
     "name": "Team Fortress 2",
     "background_image": "https://media.rawg.io/media/games/46d/46d98e6910fbc0706e2948a7cc9b10c5.jpg",
     "rating_api": 3.66,
@@ -254,7 +256,7 @@
   },
   {    "stock": 50,
     "id": 3939,
-
+    "trailer": "https://www.youtube.com/embed/Z2tmHMIA1sU",
     "name": "PAYDAY 2",
     "background_image": "https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg",
     "rating_api": 3.5,
@@ -270,7 +272,7 @@
   },
   {    "stock": 50,
     "id": 4459,
-
+    "trailer": "https://www.youtube.com/embed/M80K51DosFo",
     "name": "Grand Theft Auto IV",
     "background_image": "https://media.rawg.io/media/games/4a0/4a0a1316102366260e6f38fd2a9cfdce.jpg",
     "rating_api": 4.25,
@@ -286,7 +288,7 @@
   },
   {    "stock": 50,
     "id": 3272,
-
+    "trailer": "https://www.youtube.com/embed/SgSX3gOrj60",
     "name": "Rocket League",
     "background_image": "https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg",
     "rating_api": 3.97,
@@ -302,8 +304,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 10213
-    ,
+    "id": 10213,
+    "trailer": "https://www.youtube.com/embed/cSFPIwMEq4",    
     "name": "Dota 2",
     "background_image": "https://media.rawg.io/media/games/83f/83f6f70a7c1b86cd2637b029d8b42caa.jpg",
     "rating_api": 3.05,
@@ -318,8 +320,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 29028
-    ,
+    "id": 29028,
+    "trailer": "https://www.youtube.com/embed/QThDHIu8sZE",    
     "name": "Metro 2033",
     "background_image": "https://media.rawg.io/media/games/120/1201a40e4364557b124392ee50317b99.jpg",
     "rating_api": 3.93,
@@ -335,7 +337,8 @@
   },
   {
     "id": 422,
-    "stock": 50,
+      "trailer": "https://www.youtube.com/embed/6nUvWkD8rAE",  
+      "stock": 50,
     "name": "Terraria",
     "background_image": "https://media.rawg.io/media/games/f46/f466571d536f2e3ea9e815ad17177501.jpg",
     "rating_api": 4.04,
@@ -352,7 +355,8 @@
   },
   {
     "id": 766,
-    "stock": 50,
+     "trailer": "https://www.youtube.com/embed/MsbL8lFHrZI",  
+      "stock": 50,
     "name": "Warframe",
     "background_image": "https://media.rawg.io/media/games/f87/f87457e8347484033cb34cde6101d08d.jpg",
     "rating_api": 3.42,
@@ -369,7 +373,7 @@
   },
   {    "stock": 50,
     "id": 3192,
-
+    "trailer": "https://www.youtube.com/embed/C19ap2M7DDE",
     "name": "Metal Gear Solid V: The Phantom Pain",
     "background_image": "https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg",
     "rating_api": 4.16,
@@ -385,7 +389,7 @@
   },
   {    "stock": 50,
     "id": 7689,
-
+    "trailer": "https://www.youtube.com/embed/7j0ClET3Wbw",
     "name": "Rise of the Tomb Raider",
     "background_image": "https://media.rawg.io/media/games/b45/b45575f34285f2c4479c9a5f719d972e.jpg",
     "rating_api": 4.03,
@@ -399,8 +403,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 41494
-    ,
+    "id": 41494,
+    "trailer": "https://www.youtube.com/embed/qIcTM8WXFjk",    
     "name": "Cyberpunk 2077",
     "background_image": "https://media.rawg.io/media/games/26d/26d4437715bee60138dab4a7c8c59c92.jpg",
     "rating_api": 4.08,
@@ -416,13 +420,13 @@
     ]
   },
   {    "stock": 50,
-    "id": 23027
-    ,
+    "id": 23027,
+    "trailer": "https://www.youtube.com/embed/N40uY51s5Z0",    
     "name": "The Walking Dead: Season 1",
     "background_image": "https://media.rawg.io/media/games/8d6/8d69eb6c32ed6acfd75f82d532144993.jpg",
     "rating_api": 4.32,
     "description": "<p>The Walking Dead is a five-part game series set in the same universe as Robert Kirkman’s award-winning comic book series. Play as Lee Everett, a convicted criminal, who has been given a second chance at life in a world devastated by the undead. With corpses returning to life and survivors stopping at nothing to maintain their own safety, protecting an orphaned girl named Clementine may offer him redemption in a world gone to hell.<br />\nA continuing story of adventure horror spanning across 5 episodes:</p>\n<p>Episode 1 – A New Day (Available Now)<br />\nEpisode 2 – Starved for Help (Available Now)</p>\n<p>Episode 3 – Long Road Ahead (Available Now)<br />\nEpisode 4 – Around Every Corner (Available Now)<br />\nEpisode 5 – No Time Left (Available Now)<br />\nAll five episodes are now available immediately upon purchasing Season 1. Based on Robert Kirkman’s Eisner-Award winning comic book series, The Walking Dead allows gamers to experience the true horror of the zombie apocalypse<br />\nA tailored game experience – Live with the profound and lasting consequences of the decisions that you make in each episode. Your actions and choices will affect how your story plays out across the entire series.<br />\nExperience events, meet people and visit locations that foreshadow the story of Deputy Sheriff Rick Grimes<br />\nMeet Glenn before he heads to Atlanta, explore Hershel’s farm before Rick and his group of survivors arrive and before the barn becomes a notorious location in Walking Dead lore<br />\nYou’ll be forced to make decisions that are not only difficult, but that will require you to make an almost immediate choice. There’s no time to ponder when the undead are pounding the door down!<br />\nFeatures meaningful decision-making, exploration, problem solving and a constant fight for survival in a world overrun by the undead<br />\nArtwork inspired by the original comic books</p>",
-    "price": "1.00",
+    "price": "1.99",
     "released": "2012-04-23",
     "images": "https://media.rawg.io/media/games/8d6/8d69eb6c32ed6acfd75f82d532144993.jpg,https://media.rawg.io/media/screenshots/d38/d38c78ec9cc707bf42652452235dbe8c.jpg,https://media.rawg.io/media/screenshots/bdb/bdb7dd4891bfbb0a80cd49b36ffd1a20.jpg,https://media.rawg.io/media/screenshots/72b/72b67d15b5ae5538734bac2b195f2976.jpg,https://media.rawg.io/media/screenshots/74d/74d6a18a7b5592777de8f6a7cdbc91f8.jpg,https://media.rawg.io/media/screenshots/52a/52aca015b4748b1b0bbbacf33110e983.jpg,https://media.rawg.io/media/screenshots/94b/94b6701276d06b5b562890601fd6abaa.jpg",
     "requirements": "XP / Vista / 7 / 8 / 10<br />Processor: 2.0 GHz Pentium 4 or equivalent, <br />Memory: 3 GB RAM, <br />Hard Disk Space: 2 GB Space Free, <br />Video Card: ATI or NVidia card w/ 512 MB RAM (Not recommended for Intel integrated graphics),Direct X 9.0c<br />Sound: Direct X 9.0c sound device.<br />Mouse &amp; Keyboard,7 / 8 / 10<br />Processor: Core 2 Duo 2GHz or equivalent<br />Memory: 3 GB RAM <br />Hard Disk Space: 2 GB Space Free<br />Video Card: ATI or NVidia card w/ 1024 MB RAM (Not recommended for Intel integrated graphics), Direct X 9.0c<br />Sound: Direct X 9.0c sound device<br />Mouse &amp; Keyboard",
@@ -433,7 +437,7 @@
   },
   {    "stock": 50,
     "id": 3287,
-
+    "trailer": "https://www.youtube.com/embed/JeGAQXY2FzI",
     "name": "Batman: Arkham Knight",
     "background_image": "https://media.rawg.io/media/games/310/3106b0e012271c5ffb16497b070be739.jpg",
     "rating_api": 4.22,
@@ -447,8 +451,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 16944
-    ,
+    "id": 16944,
+    "trailer": "https://www.youtube.com/embed/HedLjjlSy3Y",    
     "name": "The Witcher 2: Assassins of Kings Enhanced Edition",
     "background_image": "https://media.rawg.io/media/games/6cd/6cd653e0aaef5ff8bbd295bf4bcb12eb.jpg",
     "rating_api": 4.17,
@@ -462,8 +466,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 11973
-    ,
+    "id": 11973,
+    "trailer": "https://www.youtube.com/embed/bhSfjt8jQyk",    
     "name": "Middle-earth: Shadow of Mordor",
     "background_image": "https://media.rawg.io/media/games/d1a/d1a2e99ade53494c6330a0ed945fe823.jpg",
     "rating_api": 3.89,
@@ -478,8 +482,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 19103
-    ,
+    "id": 19103,
+    "trailer": "https://www.youtube.com/embed/ID1dWN3n7q4",    
     "name": "Half-Life 2: Lost Coast",
     "description": "<p>Essentially a tech demo, “Half-Life 2: Lost Coast” sole purpose was to show off the new high-dynamic-range-rendering of the Source engine, it was a welcome addition to the franchise. It’s a free addition to the game that can be downloaded through Steam by the owners of Half-Life 2. Gordon Freeman founds himself near a group of decaying piers, fully armed and ready to explore the monastery above him, fighting through the Combine forces.<br />\nHigh-dynamic-range-rendering introduced realistic lighting effects to the game, emulating even camera’s overexposure to the bright light, which was eventually moved to the main game. Lost Coast story is conveyed without cutscenes, every part of the level is tailored specifically to demonstrate the changes, made by developers. Even though it was originally created for the Half-Life 2, it was removed from the main game, alongside some minor story details. It’s not a full standalone game and wasn’t intended as one.</p>",
    "price": "null",
@@ -494,7 +498,8 @@
   },
   {
     "id": 416,
-    "stock": 50,
+     "trailer": "https://www.youtube.com/embed/u_CbHrBbHNQ",  
+      "stock": 50,
     "name": "Grand Theft Auto: San Andreas",
     "background_image": "https://media.rawg.io/media/games/960/960b601d9541cec776c5fa42a00bf6c4.jpg",
     "rating_api": 4.51,
@@ -509,8 +514,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 17822
-    ,
+    "id": 17822,
+    "trailer": "https://www.youtube.com/embed/m3EF-71dodo",    
     "name": "The Witcher: Enhanced Edition Director's Cut",
     "background_image": "https://media.rawg.io/media/games/ee3/ee3e10193aafc3230ba1cae426967d10.jpg",
     "rating_api": 4.06,
@@ -526,7 +531,7 @@
   },
   {    "stock": 50,
     "id": 4427,
-
+    "trailer": "https://www.youtube.com/embed/tzWTcDydlpM",
     "name": "BioShock 2",
     "background_image": "https://media.rawg.io/media/games/157/15742f2f67eacff546738e1ab5c19d20.jpg",
     "rating_api": 4.06,
@@ -541,8 +546,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 10035
-    ,
+    "id": 10035,
+    "trailer": "https://www.youtube.com/embed/LVqxMCZ3u6k",    
     "name": "Hitman",
     "background_image": "https://media.rawg.io/media/games/16b/16b1b7b36e2042d1128d5a3e852b3b2f.jpg",
     "rating_api": 3.92,
@@ -558,7 +563,8 @@
     ]
   },
   {
-  "id": 19710,
+  "id": 19710,    
+  "trailer": "https://www.youtube.com/embed/HVy5Ajb34bI",
   "stock": 50,
     "name": "Half-Life 2: Episode One",
     "background_image": "https://media.rawg.io/media/games/7a2/7a2500ee8b2c0e1ff268bb4479463dea.jpg",
@@ -575,7 +581,7 @@
   },
   {    "stock": 50,
     "id": 4252,
-
+    "trailer": "https://www.youtube.com/embed/2N1TJP1cxmo",
     "name": "Mirror's Edge",
     "background_image": "https://media.rawg.io/media/games/8e4/8e4de3f54ac659e08a7ba6a2b731682a.jpg",
     "rating_api": 4.07,
@@ -589,8 +595,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 19709
-    ,
+    "id": 19709,
+    "trailer": "https://www.youtube.com/embed/n0l5N6Exjz0",    
     "name": "Half-Life 2: Episode Two",
     "background_image": "https://media.rawg.io/media/games/198/1988a337305e008b41d7f536ce9b73f6.jpg",
     "rating_api": 4.45,
@@ -607,7 +613,8 @@
   },
   {    
   "id": 3612,
-  "stock": 50,
+    "trailer": "https://www.youtube.com/embed/2o9SUPgyZRY", 
+     "stock": 50,
     "name": "Hotline Miami",
     "background_image": "https://media.rawg.io/media/games/9fa/9fa63622543e5d4f6d99aa9d73b043de.jpg",
     "rating_api": 4.38,
@@ -625,7 +632,7 @@
   },
   {    "stock": 50,
     "id": 1447,
-
+    "trailer": "https://www.youtube.com/embed/uvSs5b6y-YM",
     "name": "Deus Ex: Mankind Divided",
     "background_image": "https://media.rawg.io/media/games/c24/c24ec439abf4a2e92f3429dfa83f7f94.jpg",
     "rating_api": 3.96,
@@ -641,7 +648,7 @@
   },
   {    "stock": 50,
     "id": 9767,
-
+    "trailer": "https://www.youtube.com/embed/UAO2urG23S4",
     "name": "Hollow Knight",
     "background_image": "https://media.rawg.io/media/games/4cf/4cfc6b7f1850590a4634b08bfab308ab.jpg",
     "rating_api": 4.41,
@@ -658,7 +665,7 @@
   },
   {    "stock": 50,
     "id": 3790,
-
+    "trailer": "https://www.youtube.com/embed/uKA-IA4locM",
     "name": "Outlast",
     "background_image": "https://media.rawg.io/media/games/9dd/9ddabb34840ea9227556670606cf8ea3.jpg",
     "rating_api": 3.7,
@@ -675,6 +682,7 @@
   },
   {    
     "id": 290856,
+    "trailer": "https://www.youtube.com/embed/wC3RB9UteKo",
     "stock": 50,
     "name": "Apex Legends",
     "background_image": "https://media.rawg.io/media/games/b72/b7233d5d5b1e75e86bb860ccc7aeca85.jpg",
@@ -693,7 +701,7 @@
   },
   {    "stock": 50,
     "id": 4332,
-
+    "trailer": "https://www.youtube.com/embed/kIoJnMT3yUI",
     "name": "Spec Ops: The Line",
     "background_image": "https://media.rawg.io/media/games/b49/b4912b5dbfc7ed8927b65f05b8507f6c.jpg",
     "rating_api": 4.08,
@@ -709,7 +717,8 @@
   },
   {
     "id": 41,
-    "stock": 50, 
+      "trailer": "https://www.youtube.com/embed/aOadxZBsPiA", 
+       "stock": 50, 
     "name": "Little Nightmares",
     "background_image": "https://media.rawg.io/media/games/8a0/8a02f84a5916ede2f923b88d5f8217ba.jpg",
     "rating_api": 4.06,
@@ -724,8 +733,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 58134
-    ,
+    "id": 58134,
+    "trailer": "https://www.youtube.com/embed/1E051WtpyWg",    
     "name": "Marvel's Spider-Man",
     "background_image": "https://media.rawg.io/media/games/9aa/9aa42d16d425fa6f179fc9dc2f763647.jpg",
     "rating_api": 4.47,
@@ -741,7 +750,7 @@
   },
   {    "stock": 50,
     "id": 4161,
-
+    "trailer": "https://www.youtube.com/embed/J6gnOVJsCsM",
     "name": "Far Cry 3",
     "background_image": "https://media.rawg.io/media/games/15c/15c95a4915f88a3e89c821526afe05fc.jpg",
     "rating_api": 4.23,
@@ -756,7 +765,8 @@
     ]
   },
   {    
-    "id": 13668,
+    "id": 13668,   
+     "trailer": "https://www.youtube.com/embed/u1nY_5-UrY4",
     "stock": 50,
     "name": "Amnesia: The Dark Descent",
     "background_image": "https://media.rawg.io/media/games/b54/b54598d1d5cc31899f4f0a7e3122a7b0.jpg",
@@ -773,7 +783,8 @@
     ]
   },
   {
-    "id": 10754,
+    "id": 10754,    
+    "trailer": "https://www.youtube.com/embed/_KVfPMSK8hA",
     "stock": 50,
     "name": "BioShock Remastered",
     "background_image": "https://media.rawg.io/media/games/be0/be01c3d7d8795a45615da139322ca080.jpg",
@@ -788,7 +799,8 @@
     ]
   },
   { 
-    "id": 19487,
+    "id": 19487,    
+    "trailer": "https://www.youtube.com/embed/cF_YGL3W6CE",
     "stock": 50,
     "name": "Alan Wake",
     "background_image": "https://media.rawg.io/media/games/5c0/5c0dd63002cb23f804aab327d40ef119.jpg",
@@ -806,6 +818,7 @@
   },
   { 
     "id": 4386,
+    "trailer": "https://www.youtube.com/embed/Aqg2PUEyBFA",    
     "stock": 50,
     "name": "Saints Row: The Third",
     "background_image": "https://media.rawg.io/media/games/d69/d69810315bd7e226ea2d21f9156af629.jpg",
@@ -821,8 +834,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 11936
-    ,
+    "id": 11936,
+    "trailer": "https://www.youtube.com/embed/8ePZoY-Kgz4",    
     "name": "Half-Life 2: Deathmatch",
     "background_image": "https://media.rawg.io/media/games/ec3/ec3a7db7b8ab5a71aad622fe7c62632f.jpg",
     "rating_api": 3.27,
@@ -837,7 +850,7 @@
   },
   {    "stock": 50,
     "id": 3696,
-
+    "trailer": "https://www.youtube.com/embed/BlvfqfGTar4",
     "name": "Wolfenstein: The New Order",
     "background_image": "https://media.rawg.io/media/games/c80/c80bcf321da44d69b18a06c04d942662.jpg",
     "rating_api": 4.19,
@@ -853,6 +866,7 @@
   },
   {    "stock": 50,
     "id": 4828,
+    "trailer": "https://www.youtube.com//embed/v3ZWbpce_Os",    
     "name": "Borderlands",
     "background_image": "https://media.rawg.io/media/games/c6b/c6bfece1daf8d06bc0a60632ac78e5bf.jpg",
     "rating_api": 3.84,
@@ -869,7 +883,7 @@
   },
   {    "stock": 50,
     "id": 4514,
-
+    "trailer": "https://www.youtube.com/embed/ZbPxNGh7dto",
     "name": "L.A. Noire",
     "background_image": "https://media.rawg.io/media/games/e2d/e2d3f396b16dded0f841c17c9799a882.jpg",
     "rating_api": 4.16,
@@ -884,8 +898,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 18080
-    ,
+    "id": 18080,
+    "trailer": "https://www.youtube.com/embed/O2W0N3uKXmo",    
     "name": "Half-Life",
     "background_image": "https://media.rawg.io/media/games/6c5/6c55e22185876626881b76c11922b073.jpg",
     "rating_api": 4.4,
@@ -902,8 +916,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 29177
-    ,
+    "id": 29177,
+    "trailer": "https://www.youtube.com/embed/8a-EObAhYrg",    
     "name": "Detroit: Become Human",
     "background_image": "https://media.rawg.io/media/games/951/951572a3dd1e42544bd39a5d5b42d234.jpg",
     "rating_api": 4.29,
@@ -919,7 +933,7 @@
   },
   {    "stock": 50,
     "id": 3144,
-
+    "trailer": "",
     "name": "Super Meat Boy",
     "background_image": "https://media.rawg.io/media/games/e04/e04963f3ac4c4fa83a1dc0b9231e50db.jpg",
     "rating_api": 3.97,
@@ -935,7 +949,7 @@
   },
   {
     "id": 39,
-    "stock": 50, 
+      "trailer": "",  "stock": 50, 
     "name": "Prey",
     "background_image": "https://media.rawg.io/media/games/e6d/e6de699bd788497f4b52e2f41f9698f2.jpg",
     "rating_api": 4.28,
@@ -951,8 +965,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 17540
-    ,
+    "id": 17540,
+    "trailer": "",    
     "name": "Injustice: Gods Among Us Ultimate Edition",
     "background_image": "https://media.rawg.io/media/games/234/23410661770ae13eac11066980834367.jpg",
     "rating_api": 3.53,
@@ -968,8 +982,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 10533
-    ,
+    "id": 10533,
+    "trailer": "",    
     "name": "Path of Exile",
     "background_image": "https://media.rawg.io/media/games/d0f/d0f91fe1d92332147e5db74e207cfc7a.jpg",
     "rating_api": 3.64,
@@ -987,7 +1001,7 @@
   },
   {    "stock": 50,
     "id": 4570,
-
+    "trailer": "",
     "name": "Dead Space",
     "background_image": "https://media.rawg.io/media/games/ebd/ebdbb7eb52bd58b0e7fa4538d9757b60.jpg",
     "rating_api": 4.37,
@@ -1002,8 +1016,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 13633
-    ,
+    "id": 13633,
+    "trailer": "",    
     "name": "Sid Meier's Civilization V",
     "background_image": "https://media.rawg.io/media/games/55e/55ee6432ac2bf224610fa17e4c652107.jpg",
     "rating_api": 4.29,
@@ -1018,7 +1032,7 @@
   },
   {    "stock": 50,
     "id": 4806,
-
+    "trailer": "",
     "name": "Mass Effect 2",
     "background_image": "https://media.rawg.io/media/games/3cf/3cff89996570cf29a10eb9cd967dcf73.jpg",
     "rating_api": 4.48,
@@ -1034,7 +1048,7 @@
   },
   {
     "id": 362,
-    "stock": 50,
+     "trailer": "",   "stock": 50,
     "name": "For Honor",
     "background_image": "https://media.rawg.io/media/games/4e0/4e0e7b6d6906a131307c94266e5c9a1c.jpg",
     "rating_api": 3.3,
@@ -1050,7 +1064,7 @@
   },
   {    "stock": 50,
     "id": 9721,
-
+    "trailer": "",
     "name": "Garry's Mod",
     "background_image": "https://media.rawg.io/media/games/48c/48cb04ca483be865e3a83119c94e6097.jpg",
     "rating_api": 3.77,
@@ -1069,7 +1083,7 @@
   },
   {    "stock": 50,
     "id": 5583,
-
+    "trailer": "",
     "name": "Hitman: Absolution",
     "background_image": "https://media.rawg.io/media/games/d46/d46373f39458670305704ef089387520.jpg",
     "rating_api": 3.72,
@@ -1085,7 +1099,7 @@
   },
   {
     "id": 654,
-    "stock": 50,
+     "trailer": "",   "stock": 50,
     "name": "Stardew Valley",
     "background_image": "https://media.rawg.io/media/games/713/713269608dc8f2f40f5a670a14b2de94.jpg",
     "rating_api": 4.4,
@@ -1101,8 +1115,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 12536
-    ,
+    "id": 12536,
+    "trailer": "",    
     "name": "Hellblade: Senua's Sacrifice",
     "background_image": "https://media.rawg.io/media/games/63f/63f0e68688cad279ed38cde931dbfcdb.jpg",
     "rating_api": 4.27,
@@ -1119,7 +1133,7 @@
   },
   {    "stock": 50,
     "id": 5563,
-
+    "trailer": "",
     "name": "Fallout: New Vegas",
     "background_image": "https://media.rawg.io/media/games/995/9951d9d55323d08967640f7b9ab3e342.jpg",
     "rating_api": 4.43,
@@ -1137,7 +1151,7 @@
   },
   {
     "id": 430,
-    "stock": 50,
+     "trailer": "",   "stock": 50,
     "name": "Grand Theft Auto: Vice City",
     "background_image": "https://media.rawg.io/media/games/13a/13a528ac9cf48bbb6be5d35fe029336d.jpg",
     "rating_api": 4.45,
@@ -1153,7 +1167,7 @@
   },
   {    "stock": 50,
     "id": 4248,
-
+    "trailer": "",
     "name": "Dishonored",
     "background_image": "https://media.rawg.io/media/games/4e6/4e6e8e7f50c237d76f38f3c885dae3d2.jpg",
     "rating_api": 4.37,
@@ -1168,9 +1182,10 @@
       "RPG"
     ]
   },
-  {    "stock": 50,
-    "id": 10243
-    ,
+  {   
+    "stock": 50,
+    "id": 10243,
+    "trailer": "",    
     "name": "Company of Heroes 2",
     "background_image": "https://media.rawg.io/media/games/0bd/0bd5646a3d8ee0ac3314bced91ea306d.jpg",
     "rating_api": 3.08,
@@ -1185,8 +1200,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 12447
-    ,
+    "id": 12447,
+    "trailer": "",    
     "name": "The Elder Scrolls V: Skyrim Special Edition",
     "background_image": "https://media.rawg.io/media/games/62c/62c7c8b28a27b83680b22fb9d33fc619.jpg",
     "rating_api": 4.45,
@@ -1201,8 +1216,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 11935
-    ,
+    "id": 11935,
+    "trailer": "",    
     "name": "Half-Life Deathmatch: Source",
     "background_image": "https://media.rawg.io/media/games/174/174fabfca02d5730531bab2153a7dfcb.jpg",
     "rating_api": 3.24,
@@ -1217,7 +1232,7 @@
   },
   {    "stock": 50,
     "id": 3747,
-
+    "trailer": "",
     "name": "Metal Gear Solid V: Ground Zeroes",
     "background_image": "https://media.rawg.io/media/games/7ac/7aca7ccf0e70cd0974cb899ab9e5158e.jpg",
     "rating_api": 3.89,
@@ -1233,7 +1248,7 @@
   },
   {    "stock": 50,
     "id": 4166,
-
+    "trailer": "",
     "name": "Mass Effect",
     "background_image": "https://media.rawg.io/media/games/a6c/a6ccd34125c594abf1a9c9821b9a715d.jpg",
     "rating_api": 4.4,
@@ -1248,8 +1263,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 58812
-    ,
+    "id": 58812,
+    "trailer": "",    
     "name": "Control",
     "background_image": "https://media.rawg.io/media/games/253/2534a46f3da7fa7c315f1387515ca393.jpg",
     "rating_api": 4.18,
@@ -1266,7 +1281,7 @@
   },
   {    "stock": 50,
     "id": 3543,
-
+    "trailer": "",
     "name": "Borderlands: The Pre-Sequel",
     "background_image": "https://media.rawg.io/media/games/530/5302dd22a190e664531236ca724e8726.jpg",
     "rating_api": 3.55,
@@ -1283,7 +1298,7 @@
   },
   {    "stock": 50,
     "id": 3017,
-
+    "trailer": "",
     "name": "Just Cause 3",
     "background_image": "https://media.rawg.io/media/games/5bb/5bb55ccb8205aadbb6a144cf6d8963f1.jpg",
     "rating_api": 3.37,
@@ -1299,7 +1314,7 @@
   },
   {
     "id": 108,
-    "stock": 50,
+     "trailer": "",   "stock": 50,
     "name": "Mortal Kombat X",
     "background_image": "https://media.rawg.io/media/games/aa3/aa36ba4b486a03ddfaef274fb4f5afd4.jpg",
     "rating_api": 3.86,
@@ -1316,7 +1331,7 @@
   
   {
     "id": 613,
-    "stock": 50,
+     "trailer": "",   "stock": 50,
     "name": "Bastion",
     "background_image": "https://media.rawg.io/media/games/f99/f9979698c43fd84c3ab69280576dd3af.jpg",
     "rating_api": 4.16,
@@ -1334,7 +1349,7 @@
   },
   {    "stock": 50,
     "id": 9882,
-
+    "trailer": "",
     "name": "Don't Starve Together",
     "background_image": "https://media.rawg.io/media/games/dd5/dd50d4266915d56dd5b63ae1bf72606a.jpg",
     "rating_api": 3.78,
@@ -1351,7 +1366,7 @@
   },
   {    "stock": 50,
     "id": 3254,
-
+    "trailer": "",
     "name": "Journey",
     "background_image": "https://media.rawg.io/media/games/baf/baf9905270314e07e6850cffdb51df41.jpg",
     "rating_api": 4.33,
@@ -1367,8 +1382,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 11934
-    ,
+    "id": 11934,
+    "trailer": "",    
     "name": "Counter-Strike: Source",
     "background_image": "https://media.rawg.io/media/games/48e/48e63bbddeddbe9ba81942772b156664.jpg",
     "rating_api": 3.72,
@@ -1383,7 +1398,7 @@
   },
   {    "stock": 50,
     "id": 4513,
-
+    "trailer": "",
     "name": "Just Cause 2",
     "background_image": "https://media.rawg.io/media/games/a3c/a3c529a12c896c0ef02db5b4741de2ba.jpg",
     "rating_api": 3.61,
@@ -1399,7 +1414,7 @@
   },
   {    "stock": 50,
     "id": 3191,
-
+    "trailer": "",
     "name": "Mad Max",
     "background_image": "https://media.rawg.io/media/games/d7d/d7d33daa1892e2468cd0263d5dfc957e.jpg",
     "rating_api": 3.76,
@@ -1415,6 +1430,7 @@
   },
   {    "stock": 50,
     "id": 257201,
+    "trailer": "",
     "name": "Star Wars Jedi: Fallen Order",
     "background_image": "https://media.rawg.io/media/games/559/559bc0768f656ad0c63c54b80a82d680.jpg",
     "rating_api": 4.15,
@@ -1430,8 +1446,8 @@
   },
   {
     "stock": 50,
-    "id": 10141
-    ,
+    "id": 10141,
+    "trailer": "", 
     "name": "NieR:Automata",
     "background_image": "https://media.rawg.io/media/games/5a4/5a44112251d70a25291cc33757220fce.jpg",
     "rating_api": 4.37,
@@ -1445,7 +1461,7 @@
   },
   {
     "id": 5525,
-    "stock": 50,
+    "trailer": "",    "stock": 50,
     "name": "Brutal Legend",
     "background_image": "https://media.rawg.io/media/games/af7/af7a831001c5c32c46e950cc883b8cb7.jpg",
     "rating_api": 3.65,
@@ -1462,6 +1478,7 @@
   {
     "stock": 50,
     "id": 3603,
+    "trailer": "",    
     "name": "Metro 2033 Redux",
     "background_image": "https://media.rawg.io/media/games/4fb/4fb548e4816c84d1d70f1a228fb167cc.jpg",
     "rating_api": 4.09,
@@ -1478,6 +1495,7 @@
  
   {
     "id": 923,
+    "trailer": "",  
     "stock": 50,
     "name": "Titanfall 2",
     "background_image": "https://media.rawg.io/media/games/569/56978b5a77f13aa2ec5d09ec81d01cad.jpg",
@@ -1494,7 +1512,7 @@
   },
   {    "stock": 50,
     "id": 4280,
-    "name": "Max Payne 3",
+    "trailer": "",    "name": "Max Payne 3",
     "background_image": "https://media.rawg.io/media/games/5bf/5bf88a28de96321c86561a65ee48e6c2.jpg",
     "rating_api": 4.25,
     "description": "<p>In Max Payne III we see Max from a new perspective. Taking place nine years after the second game, Payne left the police department in New York and now serves as a private security contractor in São Paulo, Brazil. Guarding the Branco family - Ricardo, Victor and Marcelo, everything turns into a disaster when a local street gang kidnaps Ricardo&#39;s wife. In attempt saving Ricardo&#39;s wife, another outlaw involves. In the end, Max has to infiltrate the gang to save Fabiana and perform some justice.</p>\n<p>Even if Max is old, he still can put on a hell of a fight. A cover system provides some good tactical advantages and bullet time is now something iconic for the series. Manipulating with time, Max can perform some amazing tricks to kill his opponent. Also, you can shoot from any angle basically, while lying on the ground. If that isn&#39;t enough for you, you can obliterate your enemies with melee attacks or blow them up by using explosives. </p>\n<p>As another feature of the game, no loading screens are involved. Cut-scenes are also interactive, and with that, the process of the game is absolutely smooth which makes the best experience from an intense shooter.</p>",
@@ -1508,7 +1526,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 28179,
+    "id": 28179,    
+    "trailer": "",
     "name": "SEGA Mega Drive and Genesis Classics",
     "background_image": "https://media.rawg.io/media/games/0fd/0fd84d36596a83ef2e5a35f63a072218.jpg",
     "rating_api": 3,
@@ -1527,8 +1546,8 @@
   },
   
   {    "stock": 50,
-    "id": 17576
-    ,
+    "id": 17576,
+    "trailer": "", 
     "name": "Batman: Arkham City - Game of the Year Edition",
     "background_image": "https://media.rawg.io/media/games/c50/c5085506fe4b5e20fc7aa5ace842c20b.jpg",
     "rating_api": 4.38,
@@ -1544,8 +1563,8 @@
   },
   {
     "stock": 50,
-    "id": 13910
-    ,
+    "id": 13910,
+    "trailer": "",  
     "name": "XCOM: Enemy Unknown",
     "background_image": "https://media.rawg.io/media/games/238/2383a172b4d50a7b44e07980eb7141ea.jpg",
     "rating_api": 4.19,
@@ -1560,7 +1579,7 @@
   },
   {    "stock": 50,
     "id": 3604,
-
+    "trailer": "",
     "name": "Metro: Last Light Redux",
     "background_image": "https://media.rawg.io/media/games/7a4/7a45e4cdc5b07f316d49cf147b083b27.jpg",
     "rating_api": 4.12,
@@ -1575,8 +1594,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 46889
-    ,
+    "id": 46889,
+    "trailer": "", 
     "name": "Monster Hunter: World",
     "background_image": "https://media.rawg.io/media/games/21c/21cc15d233117c6809ec86870559e105.jpg",
     "rating_api": 4.02,
@@ -1592,8 +1611,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 19301
-    ,
+    "id": 19301,
+    "trailer": "",
     "name": "Counter-Strike",
     "background_image": "https://media.rawg.io/media/games/9c4/9c47f320eb73c9a02d462e12f6206b26.jpg",
     "rating_api": 4.03,
@@ -1608,8 +1627,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 18240
-    ,
+    "id": 18240,
+    "trailer": "", 
     "name": "Brothers: A Tale of Two Sons",
     "background_image": "https://media.rawg.io/media/games/b6b/b6b20bfc4b34e312dbc8aac53c95a348.jpg",
     "rating_api": 4.19,
@@ -1625,8 +1644,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 11142
-    ,
+    "id": 11142,
+    "trailer": "",    
     "name": "BioShock 2 Remastered",
     "background_image": "https://media.rawg.io/media/games/7c4/7c448374df84b607f67ce9182a3a3ca7.jpg",
     "rating_api": 4.01,
@@ -1641,8 +1660,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 13535
-    ,
+    "id": 13535,
+    "trailer": "",    
     "name": "Left 4 Dead",
     "background_image": "https://media.rawg.io/media/games/476/476178ef18ab0534771d099f51cdc694.jpg",
     "rating_api": 4.1,
@@ -1656,7 +1675,7 @@
   },
   {    "stock": 50,
     "id": 2743,
-
+    "trailer": "",
     "name": "Heavy Rain",
     "background_image": "https://media.rawg.io/media/games/0af/0af85e8edddfa55368e47c539914a220.jpg",
     "rating_api": 4.09,
@@ -1670,7 +1689,7 @@
   },
   {    "stock": 50,
     "id": 1416,
-
+    "trailer": "",
     "name": "Mafia II",
     "background_image": "https://media.rawg.io/media/games/9e5/9e5b274c7e3aa5e30beba31b834b0e7e.jpg",
     "rating_api": 4.21,
@@ -1684,7 +1703,7 @@
   },
   {    "stock": 50,
     "id": 2361,
-
+    "trailer": "",
     "name": "Psychonauts",
     "background_image": "https://media.rawg.io/media/games/c89/c89ca70716080733d03724277df2c6c7.jpg",
     "rating_api": 4.03,
@@ -1698,7 +1717,7 @@
   },
   {    "stock": 50,
     "id": 2235,
-
+    "trailer": "",
     "name": "Batman: Arkham Origins",
     "background_image": "https://media.rawg.io/media/games/fc3/fc30790a3b3c738d7a271b02c1e26dc2.jpg",
     "rating_api": 3.93,
@@ -1713,7 +1732,7 @@
   
   {    "stock": 50,
     "id": 4003,
-
+    "trailer": "",
     "name": "GRID 2",
     "background_image": "https://media.rawg.io/media/games/27b/27b02ffaab6b250cc31bf43baca1fc34.jpg",
     "rating_api": 3.29,
@@ -1727,7 +1746,7 @@
   },
   {    "stock": 50,
     "id": 1682,
-
+    "trailer": "",
     "name": "The Wolf Among Us",
     "background_image": "https://media.rawg.io/media/games/be0/be084b850302abe81675bc4ffc08a0d0.jpg",
     "rating_api": 4.37,
@@ -1739,8 +1758,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 15002
-    ,
+    "id": 15002,
+    "trailer": "",    
     "name": "The Stanley Parable",
     "background_image": "https://media.rawg.io/media/screenshots/8f0/8f0b94922ad5e59968852649697b2643.jpg",
     "rating_api": 4.38,
@@ -1754,7 +1773,7 @@
   },
   {    "stock": 50,
     "id": 8488,
-
+    "trailer": "",
     "name": "Tom Clancy's Rainbow Six Siege",
     "background_image": "https://media.rawg.io/media/games/b34/b3419c2706f8f8dbe40d08e23642ad06.jpg",
     "rating_api": 3.92,
@@ -1767,8 +1786,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 11052
-    ,
+    "id": 11052,
+    "trailer": "",    
     "name": "Titan Quest Anniversary Edition",
     "background_image": "https://media.rawg.io/media/games/33d/33df5a032898b8ab7e3773c7a5f1d336.jpg",
     "rating_api": 3.79,
@@ -1783,7 +1802,7 @@
   {
     "stock": 50,
     "id": 3853,
-
+    "trailer": "",
     "name": "Trine 2: Complete Story",
     "background_image": "https://media.rawg.io/media/screenshots/c97/c97b943741f5fbc936fe054d9d58851d.jpg",
     "rating_api": 3.72,
@@ -1801,7 +1820,8 @@
   },
   {
     "id": 998,
-    "stock": 50,
+     "trailer": "",  
+      "stock": 50,
     "name": "Battlefield 1",
     "background_image": "https://media.rawg.io/media/games/998/9980c4296f311d8bcc5b451ca51e4fe1.jpg",
     "rating_api": 3.81,
@@ -1817,8 +1837,8 @@
   },
   
   {    "stock": 50,
-    "id": 13305
-    ,
+    "id": 13305,
+    "trailer": "",    
     "name": "Assassin’s Creed III",
     "background_image": "https://media.rawg.io/media/games/275/2759da6fcaa8f81f21800926168c85f6.jpg",
     "rating_api": 3.72,
@@ -1832,8 +1852,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 10340
-    ,
+    "id": 10340,
+    "trailer": "",    
     "name": "Crusader Kings II",
     "background_image": "https://media.rawg.io/media/games/c22/c22d804ac753c72f2617b3708a625dec.jpg",
     "rating_api": 3.57,
@@ -1849,7 +1869,7 @@
   },
   {    "stock": 50,
     "id": 3876,
-
+    "trailer": "",
     "name": "Deus Ex: Human Revolution - Director's Cut",
     "background_image": "https://media.rawg.io/media/games/a12/a12f806432cb385bc286f0935c49cd14.jpg",
     "rating_api": 4.3,
@@ -1865,7 +1885,7 @@
   },
   {    "stock": 50,
     "id": 9743,
-
+    "trailer": "",
     "name": "Unturned",
     "background_image": "https://media.rawg.io/media/games/93e/93ee6101e1c943732f06080dddb0fe4c.jpg",
     "rating_api": 2.69,
@@ -1881,7 +1901,7 @@
   },
   {    "stock": 50,
     "id": 4527,
-
+    "trailer": "",
     "name": "Call of Duty: Modern Warfare 2",
     "background_image": "https://media.rawg.io/media/games/9af/9af24c1886e2c7b52a4a2c65aa874638.jpg",
     "rating_api": 4.25,
@@ -1897,7 +1917,7 @@
   },
   {    "stock": 50,
     "id": 3497,
-
+    "trailer": "",
     "name": "Far Cry 4",
     "background_image": "https://media.rawg.io/media/games/b39/b396dac1f3e0f538841aa0355dd066d3.jpg",
     "rating_api": 3.81,
@@ -1912,7 +1932,7 @@
   },
   {    "stock": 50,
     "id": 4599,
-
+    "trailer": "",
     "name": "Saints Row 2",
     "background_image": "https://media.rawg.io/media/games/10d/10d19e52e5e8415d16a4d344fe711874.jpg",
     "rating_api": 3.56,
@@ -1927,8 +1947,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 13461
-    ,
+    "id": 13461,
+    "trailer": "",    
     "name": "Resident Evil 5",
     "background_image": "https://media.rawg.io/media/games/974/974342a3959981a17bdbbff2fd7f97b0.jpg",
     "rating_api": 3.81,
@@ -1943,8 +1963,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 12024
-    ,
+    "id": 12024,
+    "trailer": "",    
     "name": "Insurgency",
     "background_image": "https://media.rawg.io/media/games/1a1/1a17e9b6286edb7e1f1e510110ccb0c0.jpg",
     "rating_api": 3.4,
@@ -1960,8 +1980,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 11435
-    ,
+    "id": 11435,
+    "trailer": "",    
     "name": "Viscera Cleanup Detail: Shadow Warrior",
     "background_image": "https://media.rawg.io/media/screenshots/f2f/f2f3c93d6153da7aee590f3ab8ccd803.jpg",
     "rating_api": 2.58,
@@ -1978,7 +1998,7 @@
   },
   {     "stock": 50,
     "id": 2093,
-
+    "trailer": "",
     "name": "No Man's Sky",
     "background_image": "https://media.rawg.io/media/games/174/1743b3dd185bda4a7be349347d4064df.jpg",
     "rating_api": 3.68,
@@ -1998,7 +2018,7 @@
   },
   {    "stock": 50,
     "id": 1256,
-
+    "trailer": "",
     "name": "XCOM 2",
     "background_image": "https://media.rawg.io/media/games/9bf/9bfac18ff678f41a4674250fa0e04a52.jpg",
     "rating_api": 4.1,
@@ -2014,7 +2034,7 @@
   },
   {    "stock": 50,
     "id": 3678,
-
+    "trailer": "",
     "name": "War Thunder",
     "background_image": "https://media.rawg.io/media/games/d07/d0790809a13027251b6d0f4dc7538c58.jpg",
     "rating_api": 3.22,
@@ -2031,7 +2051,7 @@
   },
   {    "stock": 50,
     "id": 3740,
-
+    "trailer": "",
     "name": "FEZ",
     "background_image": "https://media.rawg.io/media/games/4cb/4cb855e8ef1578415a928e53c9f51867.png",
     "rating_api": 4,
@@ -2049,7 +2069,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 274755,
+    "id": 274755 ,   
+    "trailer": "",
     "name": "Hades",
     "background_image": "https://media.rawg.io/media/games/1f4/1f47a270b8f241e4676b14d39ec620f7.jpg",
     "rating_api": 4.47,
@@ -2067,7 +2088,8 @@
   },
   {
     "id": 952,
-    "stock": 50,
+     "trailer": "",   
+     "stock": 50,
     "name": "Shadowrun Returns",
     "background_image": "https://media.rawg.io/media/games/d4b/d4bcd78873edd9992d93aff9cc8db0c8.jpg",
     "rating_api": 3.49,
@@ -2083,8 +2105,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 13268
-    ,
+    "id": 13268,
+    "trailer": "",    
     "name": "Amnesia: A Machine for Pigs",
     "background_image": "https://media.rawg.io/media/games/d9f/d9f982e042df6263684ba1fdea3efc1c.jpg",
     "rating_api": 3.25,
@@ -2101,7 +2123,7 @@
   },
   {    "stock": 50,
     "id": 9810,
-
+    "trailer": "",
     "name": "ARK: Survival Evolved",
     "background_image": "https://media.rawg.io/media/games/58a/58ac7f6569259dcc0b60b921869b19fc.jpg",
     "rating_api": 3.11,
@@ -2120,7 +2142,7 @@
   },
   {    "stock": 50,
     "id": 3766,
-
+    "trailer": "",
     "name": "Thief",
     "background_image": "https://media.rawg.io/media/games/59a/59a3ebcba3d08c51532c6ca877aff256.jpg",
     "rating_api": 3.25,
@@ -2136,7 +2158,7 @@
   },
   {
     "id": 906,
-    "stock": 50,
+     "trailer": "",   "stock": 50,
     "name": "Call of Duty: Black Ops III",
     "background_image": "https://media.rawg.io/media/games/fd6/fd6a1eecd3ec0f875f1924f3656b7dd9.jpg",
     "rating_api": 3.24,
@@ -2152,7 +2174,7 @@
   },
   {    "stock": 50,
     "id": 3168,
-
+    "trailer": "",
     "name": "SOMA",
     "background_image": "https://media.rawg.io/media/games/149/149bbed9d90dc09328ba79bbacfda3c8.jpg",
     "rating_api": 4.16,
@@ -2168,8 +2190,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 10560
-    ,
+    "id": 10560,
+    "trailer": "",    
     "name": "Total War: SHOGUN 2",
     "background_image": "https://media.rawg.io/media/games/be9/be9cf02720c9326e11d0fda14518554f.jpg",
     "rating_api": 3.59,
@@ -2183,8 +2205,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 16199
-    ,
+    "id": 16199,
+    "trailer": "",    
     "name": "Killer is Dead - Nightmare Edition",
     "background_image": "https://media.rawg.io/media/games/345/34589f72fe291f0f38f12488f28c8f43.jpg",
     "rating_api": 3.21,
@@ -2199,7 +2221,7 @@
   },
   {    "stock": 50,
     "id": 4882,
-
+    "trailer": "",
     "name": "Lara Croft and the Guardian of Light",
     "background_image": "https://media.rawg.io/media/games/a92/a92272ea5cfc35b8ad6317fbd81ce0f6.jpg",
     "rating_api": 3.42,
@@ -2215,7 +2237,7 @@
   },
   {    "stock": 50,
     "id": 3635,
-
+    "trailer": "",
     "name": "Rogue Legacy",
     "background_image": "https://media.rawg.io/media/games/598/59851e152a6898c8bf79069b5bf2f4db.jpg",
     "rating_api": 3.86,
@@ -2233,7 +2255,7 @@
   },
   {    "stock": 50,
     "id": 5565,
-
+    "trailer": "",
     "name": "F.E.A.R. 3",
     "background_image": "https://media.rawg.io/media/games/1da/1da9a7af524e81d257f972fbc06baefd.jpg",
     "rating_api": 3.34,
@@ -2249,7 +2271,7 @@
   },
   {    "stock": 50,
     "id": 3561,
-
+    "trailer": "",
     "name": "Spelunky",
     "background_image": "https://media.rawg.io/media/games/fad/fadc4be043ed07904012d47cd02671e4.jpg",
     "rating_api": 3.69,
@@ -2264,8 +2286,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 19491
-    ,
+    "id": 19491,
+    "trailer": "",    
     "name": "Burnout Paradise: The Ultimate Box",
     "background_image": "https://media.rawg.io/media/games/7cf/7cf38d2d80267c121c6d0d361e9429ce.jpg",
     "rating_api": 3.95,
@@ -2280,8 +2302,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 19647
-    ,
+    "id": 19647,
+    "trailer": "",    
     "name": "Crysis 2 - Maximum Edition",
     "background_image": "https://media.rawg.io/media/games/1ed/1edaaa9e24e0072772244633d01642f4.jpg",
     "rating_api": 3.71,
@@ -2296,7 +2318,7 @@
   },
   {    "stock": 50,
     "id": 5564,
-
+    "trailer": "",
     "name": "F.E.A.R. 2: Project Origin",
     "background_image": "https://media.rawg.io/media/games/d1d/d1dd46e2ef7f8a1ee946d3ab779c3754.jpg",
     "rating_api": 3.83,
@@ -2312,7 +2334,7 @@
   },
   {    "stock": 50,
     "id": 1789,
-
+    "trailer": "",
     "name": "The Swapper",
     "background_image": "https://media.rawg.io/media/games/6fc/6fcb1c529c764700d55f3bbc1b0fbb5b.jpg",
     "rating_api": 3.53,
@@ -2330,8 +2352,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 17885
-    ,
+    "id": 17885,
+    "trailer": "",    
     "name": "Overlord",
     "background_image": "https://media.rawg.io/media/games/d1c/d1cd8a226cb224357c1f59605577cbf2.jpg",
     "rating_api": 3.79,
@@ -2346,8 +2368,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 12929
-    ,
+    "id": 12929,
+    "trailer": "",    
     "name": "The Talos Principle",
     "background_image": "https://media.rawg.io/media/games/948/948fe7f00b6cba8472f5ecd07a455077.jpg",
     "rating_api": 4.16,
@@ -2364,7 +2386,7 @@
   },
   {
     "id": 719,
-    "stock": 50,
+     "trailer": "",   "stock": 50,
     "name": "Deponia",
     "background_image": "https://media.rawg.io/media/games/c2e/c2e6ad5c838d551aeff376f1f3d9d65e.jpg",
     "rating_api": 3.84,
@@ -2381,8 +2403,8 @@
     ]
   },
   {    "stock": 50,
-    "id": 17959
-    ,
+    "id": 17959,
+    "trailer": "",    
     "name": "Ori and the Blind Forest: Definitive Edition",
     "background_image": "https://media.rawg.io/media/games/04a/04a7e7e185fb51493bdcbe1693a8b3dc.jpg",
     "rating_api": 4.43,
@@ -2398,7 +2420,8 @@
 },
 {
     "id": 432,
-    "stock": 50,
+     "trailer": "",  
+      "stock": 50,
     "name": "Grand Theft Auto III",
     "background_image": "https://media.rawg.io/media/games/5fa/5fae5fec3c943179e09da67a4427d68f.jpg",
     "rating_api": 4.16,
@@ -2413,8 +2436,8 @@
     ]
 },
 {    "stock": 50,
-    "id": 28202
-    ,
+    "id": 28202,
+    "trailer": "",    
     "name": "Wolfenstein II: The New Colossus",
     "background_image": "https://media.rawg.io/media/games/a0e/a0ef08621301a1eab5e04fa5c96978fa.jpeg",
     "rating_api": 4.09,
@@ -2429,8 +2452,8 @@
     ]
 },
 {    "stock": 50,
-    "id": 10061
-    ,
+    "id": 10061,
+    "trailer": "",    
     "name": "Watch Dogs 2",
     "background_image": "https://media.rawg.io/media/games/f52/f52cf6ba08089cd5f1a9c8f7fcc93d1f.jpg",
     "rating_api": 3.85,
@@ -2445,8 +2468,8 @@
     ]
 },
 {    "stock": 50,
-    "id": 18272
-    ,
+    "id": 18272,
+    "trailer": "",    
     "name": "Magicka",
     "background_image": "https://media.rawg.io/media/games/c7a/c7a71a0531a9518236d99d0d60abe447.jpg",
     "rating_api": 3.81,
@@ -2461,8 +2484,8 @@
     ]
 },
 {    "stock": 50,
-    "id": 10548
-    ,
+    "id": 10548,
+    "trailer": "",    
     "name": "Darksiders Warmastered Edition",
     "background_image": "https://media.rawg.io/media/games/1f1/1f1888e1308959dfd3be4c144a81d19c.jpg",
     "rating_api": 3.69,
@@ -2478,7 +2501,7 @@
 },
 {    "stock": 50,
     "id": 9830,
-
+    "trailer": "",
     "name": "Brawlhalla",
     "background_image": "https://media.rawg.io/media/games/35b/35b47c4d85cd6e08f3e2ca43ea5ce7bb.jpg",
     "rating_api": 3.23,
@@ -2495,8 +2518,8 @@
     ]
 },
 {    "stock": 50,
-    "id": 17352
-    ,
+    "id": 17352,
+    "trailer": "",    
     "name": "Killing Floor",
     "background_image": "https://media.rawg.io/media/games/806/8060a7663364ac23e15480728938d6f3.jpg",
     "rating_api": 3.44,
@@ -2511,7 +2534,7 @@
 },
 {    "stock": 50,
     "id": 3474,
-
+    "trailer": "",
     "name": "Lara Croft and the Temple of Osiris",
     "background_image": "https://media.rawg.io/media/games/1fb/1fb1c5f7a71d771f440b27ce7f71e7eb.jpg",
     "rating_api": 3.11,
@@ -2527,8 +2550,8 @@
     ]
 },
 {    "stock": 50,
-    "id": 18613
-    ,
+    "id": 18613,
+    "trailer": "",    
     "name": "Counter-Strike: Condition Zero",
     "background_image": "https://media.rawg.io/media/games/8bd/8bd24e3c15354a9555bb1437fe555a69.jpg",
     "rating_api": 3.16,
@@ -2543,7 +2566,7 @@
 },
 {    "stock": 50,
     "id": 4639,
-
+    "trailer": "",
     "name": "Dragon Age: Origins",
     "background_image": "https://media.rawg.io/media/games/dc0/dc0926d3f84ffbcc00968fe8a6f0aed3.jpg",
     "rating_api": 4.4,
@@ -2558,7 +2581,7 @@
 },
 {
     "id": 865,
-    "stock": 50,
+     "trailer": "",   "stock": 50,
     "name": "Call of Duty: Black Ops",
     "background_image": "https://media.rawg.io/media/games/410/41033a495ce8f7fd4b0934bdb975f12a.jpg",
     "rating_api": 4.02,
@@ -2573,8 +2596,8 @@
     ]
 },
 {    "stock": 50,
-    "id": 19590
-    ,
+    "id": 19590,
+    "trailer": "",    
     "name": "Ori and the Blind Forest",
     "background_image": "https://media.rawg.io/media/games/f8c/f8c6a262ead4c16b47e1219310210eb3.jpg",
     "rating_api": 4.4,
@@ -2589,8 +2612,8 @@
     ]
 },
 {    "stock": 50,
-    "id": 58751
-    ,
+    "id": 58751,
+    "trailer": "",    
     "name": "Halo Infinite",
     "background_image": "https://media.rawg.io/media/games/e1f/e1ffbeb1bac25b19749ad285ca29e158.jpg",
     "rating_api": 3.75,
@@ -2607,7 +2630,7 @@
 },
 {    "stock": 50,
     "id": 3771,
-
+    "trailer": "",
     "name": "Rayman Legends",
     "background_image": "https://media.rawg.io/media/games/85c/85c8ae70e7cdf0105f06ef6bdce63b8b.jpg",
     "rating_api": 4.16,
@@ -2622,7 +2645,7 @@
 },
 {    "stock": 50,
     "id": 1090,
-
+    "trailer": "",
     "name": "This War of Mine",
     "background_image": "https://media.rawg.io/media/games/283/283e7e600366b0da7021883d27159b27.jpg",
     "rating_api": 4.06,
@@ -2639,7 +2662,7 @@
 },
 {    "stock": 50,
     "id": 3757,
-
+    "trailer": "",
     "name": "South Park: The Stick of Truth",
     "background_image": "https://media.rawg.io/media/games/8ca/8ca40b562a755d6a0e30d48e6c74b178.jpg",
     "rating_api": 4.21,
@@ -2655,7 +2678,7 @@
 },
 {    "stock": 50,
     "id": 2572,
-
+    "trailer": "",
     "name": "DiRT Rally",
     "background_image": "https://media.rawg.io/media/games/78d/78dfae12fb8c5b16cd78648553071e0a.jpg",
     "rating_api": 3.69,
@@ -2671,8 +2694,8 @@
     ]
 },
 {    "stock": 50,
-    "id": 58777
-    ,
+    "id": 58777,
+    "trailer": "",    
     "name": "DOOM Eternal",
     "background_image": "https://media.rawg.io/media/games/3ea/3ea3c9bbd940b6cb7f2139e42d3d443f.jpg",
     "rating_api": 4.38,
@@ -2689,7 +2712,7 @@
 
     {    "stock": 50,
         "id": 3015,
-
+    "trailer": "",
         "name": "Chivalry: Medieval Warfare",
         "background_image": "https://media.rawg.io/media/games/7f0/7f021d4a3577ac9d591a628a431fc2e5.jpg",
         "rating_api": 3.4,
@@ -2705,7 +2728,7 @@
     },
     {    "stock": 50,
         "id": 3932,
-
+    "trailer": "",
         "name": "The Bureau: XCOM Declassified",
         "background_image": "https://media.rawg.io/media/games/5cc/5cc765484c6df567ed9207c1781b88cb.jpg",
         "rating_api": 3.02,
@@ -2721,7 +2744,7 @@
     },
     {    "stock": 50,
         "id": 1358,
-
+    "trailer": "",
         "name": "Papers, Please",
         "background_image": "https://media.rawg.io/media/games/6d3/6d33014a4ed48a19c30a77ead5a0f62e.jpg",
         "rating_api": 4.36,
@@ -2738,8 +2761,8 @@
         ]
     },
     {    "stock": 50,
-        "id": 18241
-        ,
+        "id": 18241,
+    "trailer": "",        
         "name": "DmC: Devil May Cry",
         "background_image": "https://media.rawg.io/media/games/295/295eb868c241e6ad32ac033b8e6a2ede.jpg",
         "rating_api": 4.01,
@@ -2754,8 +2777,8 @@
         ]
     },
     {    "stock": 50,
-        "id": 15859
-        ,
+        "id": 15859,
+    "trailer": "",        
         "name": "Star Wars: Knights of the Old Republic",
         "background_image": "https://media.rawg.io/media/games/6e0/6e0c19bb111bd4fa20cf0eb72a049519.jpg",
         "rating_api": 4.4,
@@ -2770,8 +2793,8 @@
         ]
     },
     {    "stock": 50,
-        "id": 43877
-        ,
+        "id": 43877,
+    "trailer": "",        
         "name": "Quake Champions",
         "background_image": "https://media.rawg.io/media/games/fba/fbae1bcfae1feffda6a11fbc1c939420.jpg",
         "rating_api": 3.26,
@@ -2786,8 +2809,8 @@
         ]
     },
     {    "stock": 50,
-        "id": 19384
-        ,
+        "id": 19384,
+    "trailer": "",        
         "name": "The Binding of Isaac",
         "background_image": "https://media.rawg.io/media/games/cef/cefedf18016cbab466861eb698daf988.jpg",
         "rating_api": 3.89,
@@ -2803,8 +2826,8 @@
         ]
     },
     {    "stock": 50,
-        "id": 28172
-        ,
+        "id": 28172,
+    "trailer": "",        
         "name": "Kingdom Come: Deliverance",
         "background_image": "https://media.rawg.io/media/games/d8f/d8f3b28fc747ed6f92943cdd33fb91b5.jpeg",
         "rating_api": 4.02,
@@ -2821,7 +2844,7 @@
     },
     {    "stock": 50,
         "id": 4550,
-
+    "trailer": "",
         "name": "Dead Space 2",
         "background_image": "https://media.rawg.io/media/games/9d5/9d5aa70db8c16566d79712df6417d13a.jpg",
         "rating_api": 4.35,
@@ -2837,7 +2860,7 @@
     },
     {    "stock": 50,
         "id": 4954,
-
+    "trailer": "",
         "name": "Castle Crashers",
         "background_image": "https://media.rawg.io/media/games/d1a/d1a1202a378607b6c635c8f18ace95dd.jpg",
         "rating_api": 3.91,
@@ -2853,7 +2876,7 @@
     },
     {    "stock": 50,
         "id": 5562,
-
+    "trailer": "",
         "name": "Fallout 3",
         "background_image": "https://media.rawg.io/media/games/5a4/5a4e70bb8a862829dbaa398aa5f66afc.jpg",
         "rating_api": 4.08,
@@ -2869,7 +2892,7 @@
     },
     {    "stock": 50,
         "id": 8146,
-
+    "trailer": "",
         "name": "Assassin's Creed Unity",
         "background_image": "https://media.rawg.io/media/games/59f/59fc1c5de1d29cb9234741c97d250150.jpg",
         "rating_api": 3.58,
@@ -2884,7 +2907,7 @@
     },
     {    "stock": 50,
         "id": 9475,
-
+    "trailer": "",
         "name": "Don't Starve",
         "background_image": "https://media.rawg.io/media/games/f3e/f3eec35c6218dcfd93a537751e6bfa61.jpg",
         "rating_api": 3.86,
@@ -2899,7 +2922,7 @@
     },
     {    "stock": 50,
         "id": 4013,
-
+    "trailer": "",
         "name": "Call of Juarez: Gunslinger",
         "background_image": "https://media.rawg.io/media/games/a86/a86ce0afaf2d5ec2b0f048989f01795e.jpg",
         "rating_api": 3.84,
@@ -2915,7 +2938,8 @@
     },
     {
         "id": 857,
-    "stock": 50,
+     "trailer": "",  
+      "stock": 50,
         "name": "Halo: The Master Chief Collection",
         "background_image": "https://media.rawg.io/media/games/c24/c24f4434882ae9c2c8d9d38de82cb7a5.jpg",
         "rating_api": 4.27,
@@ -2930,7 +2954,8 @@
         ]
     },
     {    "stock": 50,
-        "id": 356714,
+        "id": 356714   ,
+         "trailer": "",
         "name": "Among Us",
         "background_image": "https://media.rawg.io/media/games/e74/e74458058b35e01c1ae3feeb39a3f724.jpg",
         "rating_api": 3.86,
@@ -2947,7 +2972,7 @@
     },
     {    "stock": 50,
         "id": 6617,
-
+    "trailer": "",
         "name": "Quantum Break",
         "background_image": "https://media.rawg.io/media/games/a28/a289e23b4d4d84f26ab59125e3be4483.jpg",
         "rating_api": 3.92,
@@ -2963,7 +2988,7 @@
     },
     {    "stock": 50,
         "id": 1774,
-
+    "trailer": "",
         "name": "Grim Fandango Remastered",
         "background_image": "https://media.rawg.io/media/games/df2/df20fd77db56ae7b0a26a7ff4baa9ccc.jpg",
         "rating_api": 3.98,
@@ -2979,7 +3004,7 @@
     },
         {    "stock": 50,
             "id": 1244,
-
+    "trailer": "",
             "name": "Darkest Dungeon",
             "background_image": "https://media.rawg.io/media/games/fd9/fd92f105dcd6491bc5d61135033d1f19.jpg",
             "rating_api": 4.2,
@@ -2995,7 +3020,7 @@
             ]
         },
         {    "stock": 50,
-            "id": 19365,
+            "id": 19365,    "trailer": "",
             "name": "Homefront",
             "background_image": "https://media.rawg.io/media/games/657/657574cd437df9102f511b3be095b0ea.jpg",
             "rating_api": 2.93,
@@ -3011,7 +3036,7 @@
         },
         {    "stock": 50,
             "id": 1169,
-
+    "trailer": "",
             "name": "Mafia III",
             "background_image": "https://media.rawg.io/media/games/a34/a348e613424260bc7e034fb6031c762e.jpg",
             "rating_api": 3.13,
@@ -3027,7 +3052,7 @@
         },
         {    "stock": 50,
             "id": 3486,
-            "name": "Syberia",
+    "trailer": "",            "name": "Syberia",
             "background_image": "https://media.rawg.io/media/games/852/8522935d8ab27b610a254b52de0da212.jpg",
             "rating_api": 3.98,
             "description": "<p>Syberia is an adventure game where a twisted story is combined with puzzle solving and a graphical quest’s elements. You take on the role of Kate Walker, who has to travel over half of Europe to fix her business issues. However, her adventure appears to be exciting and surreal, and, actually, life-changing. Searching for a man to sell her a toy factory, Kate becomes involved in a fantastic journey that leads her to the land of Syberia where mammoths are still alive.<br />\nThe main gameplay activity is classical for point-and-click quests and for the most part is solving numerous complicated puzzles that are tightly connected with the plot development and extend and deepen the story. Huge locations may contain dozens of puzzles, so finding all clues will make you explore every corner of every place. Puzzles often feature work with details from mechanisms and odd inventions. The gameplay supports the surreal atmosphere of the game which twists the reality with human dreams and hopes.<br />\nSyberia is followed by two sequels, Syberia II and Syberia 3, that continue the adventures of Kate Walker.</p>",
@@ -3042,7 +3067,7 @@
         },
         {
             "id": 42,
-    "stock": 50, 
+      "trailer": "",  "stock": 50, 
             "name": "What Remains of Edith Finch",
             "background_image": "https://media.rawg.io/media/games/34e/34e100b1f648de99f32d477065f04653.jpg",
             "rating_api": 4.4,
@@ -3058,7 +3083,7 @@
         },
         {    "stock": 50,
             "id": 3028,
-            "name": "Beyond: Two Souls",
+    "trailer": "",            "name": "Beyond: Two Souls",
             "background_image": "https://media.rawg.io/media/games/07a/07a74470a2618fd71945db0619602baf.jpg",
             "rating_api": 3.78,
             "description": "<p>This game is often called an &quot;interactive film&quot; - because the proportion between the given story and the possibilities to influence the story is indeed somewhat different than in most games. The game develops between three points in the biography of the girl Jodie Holmes. In these three points, we find ourselves repeatedly. And in general, we see 16 years of her life, from 8 to 24 years.<br />\nJodie from birth has a gift of communication with a disembodied being called Aiden. In this context, the Jodie-Aiden couple can capture people&#39;s consciousness, move objects, and even strangle people. At the same time, Jodie is periodically exposed to attacks of vague energies.<br />\nHer parents are not her relatives, they give her to psychiatrists and refuse her. When the family of one of the psychiatrists perishes, Jodie, with the help of Ayden, establishes a connection with the deceased, she can let the living and the dead speak.<br />\nThe CIA is interested in Jodie&#39;s abilities and makes her become an agent. She then instructs her on several missions, but Jodie realises that she is being used for criminal activities - and refuses to cooperate with the CIA. CIA agents do not leave her alone, and she destroys them.<br />\nThe game has a lot of interpretations of what is happening in the world of the dead, different people use Jodi&#39;s forces in different ways. Jody herself also does not have a clear picture, she seeks and finds real parents, helps different people - but they rarely pay her the same.</p>",
@@ -3072,8 +3097,8 @@
             ]
         },
         {    "stock": 50,
-            "id": 17126
-            ,
+            "id": 17126,
+    "trailer": "",            
             "name": "Torchlight II",
             "background_image": "https://media.rawg.io/media/games/c06/c06d88c35785c8003147cb53c84af033.jpg",
             "rating_api": 3.85,
@@ -3088,8 +3113,8 @@
             ]
         },
         {    "stock": 50,
-            "id": 11726
-            ,
+            "id": 11726,
+    "trailer": "",            
             "name": "Dead Cells",
             "background_image": "https://media.rawg.io/media/games/f90/f90ee1a4239247a822771c40488e68c5.jpg",
             "rating_api": 4.25,
@@ -3106,7 +3131,8 @@
             ]
         },
         {    "stock": 50,
-            "id": 10419,
+            "id": 10419,   
+             "trailer": "",
             "name": "Subnautica",
             "background_image": "https://media.rawg.io/media/games/739/73990e3ec9f43a9e8ecafe207fa4f368.jpg",
             "rating_api": 4.24,
@@ -3121,7 +3147,7 @@
             ]
         },
         {    "stock": 50,
-            "id": 21924,
+            "id": 21924,    "trailer": "",
             "name": "Call of Duty: WWII",
             "background_image": "https://media.rawg.io/media/games/1e5/1e5e33b88be978f451196a751424a72e.jpg",
             "rating_api": 3.52,
@@ -3136,7 +3162,7 @@
             ]
         },
         {    "stock": 50,
-            "id": 17875,
+            "id": 17875,    "trailer": "",
             "name": "Guacamelee! Super Turbo Championship Edition",
             "background_image": "https://media.rawg.io/media/games/fc8/fc838d98c9b944e6a15176eabf40bee8.jpg",
             "rating_api": 3.56,
@@ -3152,7 +3178,7 @@
             ]
         },
         {    "stock": 50,
-            "id": 19542,
+            "id": 19542,    "trailer": "",
             "name": "Half-Life: Blue Shift",
             "background_image": "https://media.rawg.io/media/games/4cb/4cb463b5588adc672124fb041f09e91c.jpg",
             "rating_api": 3.7,
@@ -3166,7 +3192,7 @@
             ]
         },
         {    "stock": 50,
-            "id": 21265,
+            "id": 21265,    "trailer": "",
             "name": "Half-Life: Opposing Force",
             "background_image": "https://media.rawg.io/media/games/110/1106ebafac87cc573161f1f4f16e84cf.jpeg",
             "rating_api": 3.84,
@@ -3181,7 +3207,8 @@
         },
         {    "stock": 50,
             "id": 2873,
-            "name": "The Witness",
+    "trailer": "",           
+    "name": "The Witness",
             "background_image": "https://media.rawg.io/media/screenshots/9d2/9d22689a1c2a7ced9d1690e0c5c66871.jpg",
             "rating_api": 4.02,
             "description": "<p>The Witness is a 3D puzzle game where you explore a mysterious island full of natural and artificial structures. The game is focused on non-verbal communication that should make the player more attentive to the environment surrounding him. To complete the game, you need to solve puzzles in each of the eleven island&#39;s regions and get to the mountain in the center of it. While the regions differ a little, puzzles they feature are quite similar and, as a rule, have something to do with symmetry to be solved. Puzzles are activated at the grids you can find around locations. <br />\nThere are two modes in the game. In the walking mode you can explore the island, and in the path-drawing mode you don’t move and focus on solving puzzles.<br />\nWhile the game’s plot is quite unclear and The Witness doesn’t give many details on the hero’s background, its key feature is the visual aspect combined with music, inspiring quotes you can hear and the meditative tone of the game in general. The game features several visual illusions based on depth perception.</p>",
@@ -3197,7 +3224,7 @@
         },
         {    "stock": 50,
             "id": 3842,
-            "name": "Battlefield 4",
+    "trailer": "",            "name": "Battlefield 4",
             "background_image": "https://media.rawg.io/media/games/ac7/ac7b8327343da12c971cfc418f390a11.jpg",
             "rating_api": 3.92,
             "description": "<p>The game allows you to gain experience of everything that can happen with the soldiers of the special forces during the most diverse missions. A full arsenal of modern weapons, from dozens of models of knives, small and heavier guns, from boats and helicopters to tanks and warships - all this is either at the player&#39;s disposal or meets him during missions. On land and sea, in the city and in the air. The game responds to everyone and everything. Weather - rain and wind change everything, as in life. The wet foliage behaves differently than the dry, gusts of the wind act on everything in the entire space of the map, the shower makes the air less transparent, thickens the darkness. Water is not just a surface, but water, with waves that you swing - in multiplayer, these waves are for everyone, their behavior is calculated exactly as the real waves would behave, players feel them precisely with the same difference for their position, as if they were in the actual sea, on the same wavelength, but in different places. Seven missions, five additions, three variants of the ending. The ability to see the gameplay through the eyes of any of the players, above the entire card, in a third-person mode and in the &quot;Free Cam&quot; mode. Multiple multiplayer modes, classes and game factions.</p>",
@@ -3213,7 +3240,7 @@
         {    
           "stock": 50,
             "id": 1959,
-            "name": "Goat Simulator",
+    "trailer": "",            "name": "Goat Simulator",
             "background_image": "https://media.rawg.io/media/games/a44/a444a7628bdb49b24d06a7672f805814.jpg",
             "rating_api": 3.18,
             "description": "<p>Goat Simulator is a game that mainly can be described as a crazy one. It does not have a specific story, and there is no central villain. It is illogical, besides there are lots of bugs. But playing in it, you catch unbridled pleasure, looking at how the goat is trying to destroy everything around, using a great variety of funny and unforgettable tricks, what makes the game curious, but very rich.</p>\n<p>You play as a goat, whose purpose is to cause the highest damage to the world. Destroy the gas station, the car, the cottage in the vastness of the whole of the suburban district, but do it with style and taste, for example, do a backflip, and at the same time, chuck the basket so it will fly out of the window. Thus, after every perfect and crazy action, you will be rewarded with some points and bonuses!</p>\n<p>Also, you could use the Steam Workshop and create your goats, levels, missions, and more!</p>",
@@ -3230,7 +3257,7 @@
         },
             {    "stock": 50,
                 "id": 3892,
-                "name": "Sniper Elite V2",
+    "trailer": "",                "name": "Sniper Elite V2",
                 "background_image": "https://media.rawg.io/media/games/03d/03d17d237f9541b67a13f9425ced4ca4.jpg",
                 "rating_api": 3.4,
                 "description": "<p>Sniper Elite V2 is a third-person tactical shooter, the second installment in Sniper Elite series and a full-fledged remake of the first game. The game takes place during the Battle of Berlin in 1945. You play as an American military officer and skilled sniper Karl Fairburne on his mission to neutralize German scientists involved in the development of V-2 ballistic missile.  <br />\nThe gameplay encourages the player to kill enemies from a distance, without being noticed. Karl can have numerous different weapons, including machine guns, pistols, traps and others. However, his primary weapon is his sniper rifle. Developers intended to make shooting sniper rifle more realistic than in other games. Several elements affect shots such as the wind direction, bullet drop, and so on.  <br />\nOne the game’s key features is “X-Ray Kill Cam.” It activates when the player makes the skillful shot and shows the bullet trajectory, an impact it made on the enemy’s body and the damage that its organs took.</p>",
@@ -3245,7 +3272,7 @@
             },
             {    "stock": 50,
                 "id": 2733,
-                "name": "Broforce",
+    "trailer": "",                "name": "Broforce",
                 "background_image": "https://media.rawg.io/media/games/9cc/9cc11e2e81403186c7fa9c00c143d6e4.jpg",
                 "rating_api": 4.01,
                 "description": "<p>Broforce is a parody run-and-gun game made in a 2D side-scrolling manner. Players are offered to take control of a Bro – one of the soldiers of the special Broforce unit. Actually, players are going to assume roles of several protagonists (all are Bros) while completing game levels. The main idea is to make a parody of fictional movie heroes of the 80s - 90s. During the levels Bros fight against terrorists in the setting of games of the 80s to rescue other Bros. The gameplay features special combat mechanics: each Bro has two different attacks (first is constant and endless, while the second requires recharging) and a melee weapon to climb the obstacles. However, enemies can be also defeated by using distracting maneuvers. Bros also have special abilities like parkour skill or explosion resistance. The level can be completed only if another Bro is rescued, terrorists with their boss are eliminated, and the American flag is set on the enemies’ base. After each mission, the location explodes and Bros fly away by helicopter.</p>",
@@ -3260,7 +3287,7 @@
                 ]
             },
             {    "stock": 50,
-                "id": 10073,
+                "id": 10073,    "trailer": "",
                 "name": "Divinity: Original Sin 2",
                 "background_image": "https://media.rawg.io/media/games/424/424facd40f4eb1f2794fe4b4bb28a277.jpg",
                 "rating_api": 4.4,
@@ -3275,7 +3302,7 @@
                 ]
             },
             {    "stock": 50,
-                "id": 16113,
+                "id": 16113,    "trailer": "",
                 "name": "Sleeping Dogs",
                 "background_image": "https://media.rawg.io/media/games/3d9/3d9bac98d79bcd2d445f829e8d6be902.jpg",
                 "rating_api": 4.12,
@@ -3291,6 +3318,7 @@
             },
             {
                 "id": 624,
+                "trailer": "",               
                 "stock": 50,
                 "name": "FTL: Faster Than Light",
                 "background_image": "https://media.rawg.io/media/games/5f4/5f4780690dbf04900cbac5f05b9305f3.jpg",
@@ -3307,8 +3335,8 @@
                 ]
             },
             {    "stock": 50,
-                "id": 11276
-                ,
+                "id": 11276,
+                "trailer": "",                
                 "name": "Call of Duty: Modern Warfare 3",
                 "background_image": "https://media.rawg.io/media/games/e9c/e9c042d14515eb3ff7cb4db9fe78e435.jpg",
                 "rating_api": 3.75,
@@ -3323,8 +3351,8 @@
                 ]
             },
             {    "stock": 50,
-                "id": 59359
-                ,
+                "id": 59359,
+                "trailer": "",                
                 "name": "A Plague Tale: Innocence",
                 "background_image": "https://media.rawg.io/media/games/b4a/b4adf80c36e267b35acc3497ed2af19c.jpg",
                 "rating_api": 4.18,
@@ -3339,8 +3367,8 @@
                 ]
             },
             {    "stock": 50,
-                "id": 16112
-                ,
+                "id": 16112,
+                "trailer": "",                
                 "name": "Sleeping Dogs: Definitive Edition",
                 "background_image": "https://media.rawg.io/media/games/bd7/bd7cfccfececba1ec2b97a120a40373f.jpg",
                 "rating_api": 4.12,
@@ -3355,8 +3383,8 @@
                 ]
             },
             {    "stock": 50,
-                "id": 28559
-                ,
+                "id": 28559,
+                "trailer": "",                
                 "name": "Dragon Age: Inquisition",
                 "background_image": "https://media.rawg.io/media/games/260/26023c855f1769a93411d6a7ea084632.jpeg",
                 "rating_api": 3.8,
@@ -3372,8 +3400,8 @@
                 ]
             },
             {    "stock": 50,
-                "id": 15834
-                ,
+                "id": 15834,
+    "trailer": "",                
                 "name": "The Walking Dead: Season 2",
                 "background_image": "https://media.rawg.io/media/games/471/4712c9ac591f556f553556b864a7e92b.jpg",
                 "rating_api": 4.02,
@@ -3389,7 +3417,7 @@
             },
             {    "stock": 50,
                 "id": 7819,
-
+    "trailer": "",
                 "name": "SUPERHOT",
                 "background_image": "https://media.rawg.io/media/screenshots/ad4/ad445a12ee46543d4d117f3893041ebf.jpg",
                 "rating_api": 4.22,
@@ -3406,7 +3434,7 @@
             },
             {
                 "id": 492,
-    "stock": 50,
+     "trailer": "",   "stock": 50,
                 "name": "Yakuza 0",
                 "background_image": "https://media.rawg.io/media/games/ca1/ca16da30f86d8f4d36261de45fb35430.jpg",
                 "rating_api": 4.36,
@@ -3421,8 +3449,8 @@
                 ]
             },
             {    "stock": 50,
-                "id": 22571
-                ,
+                "id": 22571,
+    "trailer": "",                
                 "name": "Black Desert Online",
                 "background_image": "https://media.rawg.io/media/games/651/651ae84f2d5e36206aad90976a453329.jpg",
                 "rating_api": 3.01,
@@ -3442,7 +3470,8 @@
             },
             {    "stock": 50,
                 "id": 3408,
-                "name": "Hotline Miami 2: Wrong Number",
+              "trailer": "",               
+               "name": "Hotline Miami 2: Wrong Number",
                 "background_image": "https://media.rawg.io/media/games/003/0031c0067559d41df19cf98ad87e02aa.jpg",
                 "rating_api": 4.26,
                 "description": "<p>Hotline Miami 2: Wrong number is a sequel to Hotline Miami.</p>\n<ol>\n<li>There is a Cold war between the Soviet Union and the USA, which gradually turns into a hot war. In Hawaii, there are military operations. In the centre of the event, the squad &quot;Ghost Wolves&quot;, which includes Dan Smith named &quot;Beard&quot;, Jacket (the main character of the first part), and two soldiers. The United States, for this moment, are losing. The squad was ordered to capture the most dangerous Soviet zone.  </li>\n</ol>\n<p>As for the gameplay, a lot of details are borrowed from the first part, but unlike it, in the Wrong Number, there were levels of difficulty (classic and hard). The difficulty level unlocks after beating the game on classic difficulty. The difference is that all the levels are turned over, and contain more dangerous opponents.</p>\n<p>The game has 13 playable characters. Each of them has their vision of the story, like Jacket and Biker in the original game. Masks from the first part appeared in the game again, and new masks that are giving new abilities were also added.</p>",
