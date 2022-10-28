@@ -37,11 +37,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       defaultValue: null,
       get() {
-        const value = this.getDataValue('price')
+        let value = this.getDataValue('price')
         if(value === 'null') return 0
-        return this.discount?.status 
-          ? this.discount.currentPrice
-          : value
+        else if(this.discount?.status) return this.discount.currentPrice
+        else return parseInt(value) 
       }
     },
     images: {
