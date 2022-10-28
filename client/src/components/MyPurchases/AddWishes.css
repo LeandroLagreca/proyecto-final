@@ -1,0 +1,21 @@
+.CardsWishes {
+    display: flex;
+    align-items: flex-start;
+  margin: 20px;
+}
+
+.imageWishes {
+  width: 160px;
+  height: 90px;
+  border-radius:  5px;
+}
+
+.lisWishStyle{
+    align-items: center;
+    display: grid;
+    border-bottom-color: darkgray;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    grid-template-columns: 4fr 1fr 1fr auto;
+    grid-template-rows: auto;
+}

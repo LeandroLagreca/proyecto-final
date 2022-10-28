@@ -1,110 +1,92 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Typography, Button, Container, Grid, Box } from '@mui/material';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import {
-	Container,
-	FormControl,
-	Typography,
-	Grid,
-	TextField,
-	FormControlLabel,
-	Switch,
-	Button,
-	Stack,
-	Badge,
-	Avatar,
-	IconButton,
-	Box,
-	List,
-} from '@mui/material';
+import { Link } from 'react-router-dom';
+import { AddToCartButton, AddToWishes } from '../';
+import './AddWishes.css';
 
-import { CartCard } from '../';
+import { VpnKey } from '@mui/icons-material';
+
+import Sidebar from '../Sidebar/Sidebar';
+import Footer from '../Footer/Footer';
 
 const MyPurchases = () => {
-	const cartList = useSelector((state) => state.user.cartList);
-	const user = useSelector((state) => state.user.status);
-	const [open, setOpen] = useState(false);
-	const [total, setTotal] = useState(0);
-	const navigate = useNavigate();
-
-	useEffect(() => {
-		let totalPrice = cartList.map((e) => {
-			if (e.price == null) {
-				return 0;
-			} else {
-				return {
-					cant: e.cant,
-					price: parseFloat(e.price),
-				};
-			}
-		});
-
-		totalPrice = totalPrice.reduce((a, b) => a + b.price * b.cant, 0);
-
-		if (Number.isInteger(totalPrice)) {
-			totalPrice = totalPrice + '00';
-			totalPrice = parseFloat(totalPrice);
-			console.log(totalPrice);
-		} else {
-			let splitedPrice = totalPrice.toFixed(2);
-			console.log(splitedPrice);
-			splitedPrice = splitedPrice.toString();
-			if (splitedPrice[4] === undefined) {
-				splitedPrice = splitedPrice + '0';
-			}
-			totalPrice = parseFloat(splitedPrice);
-		}
-
-		const newTotal = totalPrice;
-		setTotal(newTotal);
-	}, [cartList]);
+	const { wishes } = useSelector((state) => state.user);
 
 	return (
 		<Container
-			maxWidth="sm"
-			sx={{ mb: 5, paddingTop: '40px' }}
+			maxWidth="md"
+			sx={{
+				mb: 6,
+				paddingTop: '20px',
+				margin: '0 auto',
+				display: 'block',
+				overflow: 'auto',
+			}}
 			component={Grid}
-			spacing={2}
+			spacing={1}
 		>
-			<List
-				sx={{
-					display: 'flex',
-					flexDirection: 'column',
-					gap: '3px',
-					height: 500,
-					overflowY: 'scroll',
-				}}
+			<Typography
+				variant="h4"
+				align="center"
+				sx={{ fontWight: 'bold', pading: '10px' }}
 			>
-				{cartList.map((el, i) => (
-					<CartCard
-						key={el.id}
-						id={el.id}
-						name={el.name}
-						picture={el.picture}
-						price={el.price}
-						cant={el.cant}
-						stock={el.stock}
-					/>
-				))}
-			</List>
-			<Box
-				display={'flex'}
-				borderTop={'1px solid black'}
-				p={2}
-				alignItems={'center'}
-				justifyContent={'space-between'}
-			>
-				<Typography variant="h5">Total: ${total}</Typography>
-
-				<Button
-					sx={{ width: 200 }}
-					variant="contained"
-					onClick={() => {
-						navigate('/checkout');
-					}}
-				>
-					Checkout
-				</Button>
+				PURCHASED GAMES
+			</Typography>
+			<Typography variant="subtitle1" display={'flex'} ml={2}>
+				Esta es una lista de productos comprados, haga clic en CODE para ver la
+				clave del juego
+			</Typography>
+			<Box display="flex" flexDirection={'column'}>
+				{wishes.map((e, index) => {
+					return (
+						<Box key={index} align-items="center" display="flex" width={'96%'}>
+							<ul
+								style={{
+									display: 'flex',
+									flexWrap: 'wrap',
+									justifyContent: 'center',
+									listStyle: 'none',
+								}}
+							>
+								<li className="lisWishStyle">
+									{
+										<Box className="CardsWishes">
+											<Link to={`/detail/${e.id}`} underline="none">
+												<img
+													className="imageWishes"
+													src={e.image}
+													alt="imageWishes"
+												/>
+											</Link>
+											<Typography
+												variant="subtitle2"
+												ml={2}
+												display={'flex'}
+												alignSelf="center"
+											>
+												<b>{e.name}</b>
+											</Typography>
+										</Box>
+									}
+									<Typography
+										variant="subtitle2"
+										ml={2}
+										display={'flex'}
+										alignSelf="center"
+										justifyContent="center"
+									>
+										<b>${e.price}</b>
+									</Typography>
+									<Button sx={{ minWidth: 'auto' }} variant="contained">
+										CODE
+										<VpnKey />
+									</Button>
+								</li>
+							</ul>
+						</Box>
+					);
+				})}
 			</Box>
 		</Container>
 	);
