@@ -87,7 +87,7 @@ function handleSelect(e) {
 function handleDelete(el){
     setInput({
         ...input,
-        genres: input.genres.filter(x=> x!== el)
+        genres: input.genres.map(x=> x!== el)
     })
 }
 
@@ -239,6 +239,12 @@ useEffect(()=> {
                         {/* {input.otro&& input.genres.replace("otro",input.otro)} */}
                             {/* <FormHelperText id="component-error-text">{errors.requirements}</FormHelperText> */}
                             {console.log(input)}
+                            {input.genres.map(el=> 
+                        <div>
+                            <p>{el}</p> 
+                            <button onClick={handleDelete} >x</button>
+                        </div>
+                        )}
                         </FormControl>
                     </CardContent>
                     {Object.entries(errors).length===0 && input.name!==""?<CardContent>   
@@ -252,18 +258,6 @@ useEffect(()=> {
                         <Button disabled>Save</Button>
                         </FormControl>
                     </CardContent>}
-
-                    <CardContent>   
-                        <FormControl>
-                        {input.genres.map(el=> 
-                        <div>
-                            <p>{el}</p> 
-                            <button onClick={handleDelete} >x</button>
-                        </div>
-                        )}
-
-                        </FormControl>
-                    </CardContent>
                 </Card>
             </Grid>
         </Grid>
