@@ -25,6 +25,7 @@ const initialState = {
 	loading: false,
 	filters,
 	comments: {},
+	genres: []
 };
 
 const videoGameSlice = createSlice({
@@ -108,6 +109,12 @@ const videoGameSlice = createSlice({
 		setGameComments: (state, { payload }) => {
 			state.comments.comments = [...state.comments.comments, payload];
 		},
+		getAllGenres: (state, { payload }) => {
+			state.genres = payload;
+		},
+		postAllGames: (state, { payload }) => {
+			state = payload
+		},
 	},
 });
 
@@ -125,6 +132,9 @@ export const {
 	cleanFilter,
 	getGameComments,
 	setGameComments,
+	getAllGenres,
+	postAllGames,
+	
 } = videoGameSlice.actions;
 
 export default videoGameSlice.reducer;

@@ -1,5 +1,5 @@
 .boxBanner {
-	height: 400px;
+	height: 350px;
 	/* background: linear-gradient(rgb(19, 31, 67), rgb(61, 61, 205)); */
 
 	background: rgb(59, 72, 106);
@@ -8,7 +8,7 @@
 		rgba(59, 72, 106, 1) 25%,
 		rgba(23, 26, 33, 1) 86%
 	);
-	margin-bottom: 40px;
+	margin-bottom: 90px;
 }
 
 .paperBan {

@@ -1,13 +1,12 @@
 import React from 'react';
 
-import { Routes, Route } from 'react-router-dom';
+
+import { AccountNavBar, Footer, Loader } from '../components';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { AdminContainer } from '../containers';
-import {
-	MyProfile,
-	MyPurchases,
-	MyNotifications,
-	AccountNavBar,
-} from '../components';
+import { MyProfile, MyPurchases, MyNotifications } from '../components';
+import Sidebar from '../components/Sidebar/Sidebar';
+
 
 const paths = {
 	profile: '/profile',
@@ -18,12 +17,14 @@ const paths = {
 const Account = () => {
 	return (
 		<AdminContainer>
+			<Sidebar></Sidebar>
 			<AccountNavBar />
 			<Routes>
 				<Route path={paths.profile} element={<MyProfile />} />
 				<Route path={paths.purchases} element={<MyPurchases />} />
 				<Route path={paths.notifications} element={<MyNotifications />} />
 			</Routes>
+			<Footer></Footer>
 		</AdminContainer>
 	);
 };

@@ -12,10 +12,11 @@ import {
 import { store } from "../store";
 const API = "http://localhost:3001/";
 
-export const getUserInfo = (email) => {
+export const getUserInfo = (email, auth) => {
   return async function (dispatch) {
     try {
       const { data } = await axios.post(API + "login", { email });
+      if(auth) return data
       dispatch(setInfo(data));
     } catch (error) {
       return null;
