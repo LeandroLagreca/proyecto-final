@@ -18,12 +18,14 @@ const createOrder = async (req, res) => {
       //get game data
       const gamesData = await Promise.all(
         purchase.map(async (e) => {
+          let amount = e.amount;
+          console.log(amount)
           let gameData = await Videogame.findOne({
             where: { id: e.gameID },
             attributes: ["name", "price", "id"],
-          });
+          }).then( game=>game.decrement("stock", { by: amount }))
 
-          let amount = e.amount;
+         
 
           let subtotal = gameData.dataValues.price * amount;
           let gameinfo = {
@@ -59,24 +61,29 @@ const createOrder = async (req, res) => {
 
         const games = await Videogame.findAll({
           where: { id: { [Op.or]: [gameIDS] } },
-        });
+        })
         let promiseAssociation = games.map(async (game) => {
           return await game.addPurchaseOrder(newPurchase);
         });
         const resolvedPromise = await Promise.all(promiseAssociation);
 
+     
+       
         return res.status(200).send({ gamesData, total });
       } else {
         return res.status(404).send({ msg: "thats not a valid userid" });
       }
     } catch (error) {
-      res.send({msg:error})
+      res.send({ msg: error });
       console.log(error);
     }
   } else {
     res
       .status(400)
-      .json({ error: "expects userData{userID, cuit, dni, address} and games{purchase:[{gameID,amount}]} required by body" });
+      .json({
+        error:
+          "expects userData{userID, cuit, dni, address} and games{purchase:[{gameID,amount}]} required by body",
+      });
   }
 };
 
@@ -118,7 +125,7 @@ const getAllOrders = async (req, res) => {
 
   if (name) {
     where.name = {
-      [Op.iLike]: `%${name}%`
+      [Op.iLike]: `%${name}%`,
     };
   }
 
@@ -127,14 +134,14 @@ const getAllOrders = async (req, res) => {
     include: [
       {
         model: Videogame,
-        attributes: ["name", "price"]
+        attributes: ["name", "price"],
       },
       {
         model: User,
-        attributes: ["name", "id", "email", 'admin']
-      }
+        attributes: ["name", "id", "email", "admin"],
+      },
     ],
-    where
+    where,
   };
 
   try {
@@ -144,23 +151,22 @@ const getAllOrders = async (req, res) => {
     }
     res.json(orders);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(400).json({ error: error.message });
   }
 };
 const ChangeStatePurchaseOrder = async (req, res) => {
   let { status } = req.body;
-  let {id}=req.params;
+  let { id } = req.params;
   if (status && id) {
     try {
       let finalState = await PurchaseOrder.update(
         { status },
         { where: { id: id } }
       );
-      res.status(200).send({msg:"up to date"})
+      res.status(200).send({ msg: "up to date" });
     } catch (error) {
-      res.status(404).send({msg:error})
-      
+      res.status(404).send({ msg: error });
     }
   }
 };
@@ -168,5 +174,5 @@ module.exports = {
   getAllOrders,
   createOrder,
   getUserOrders,
-  ChangeStatePurchaseOrder
+  ChangeStatePurchaseOrder,
 };
