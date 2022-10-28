@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
-import {useDispatch, useSelector} from 'react-redux';
-import {getGames} from '../../redux/actions/videoGame';
+import { useState } from "react";
 import {
   IconButton,
 	MenuItem,
