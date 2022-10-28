@@ -15,7 +15,8 @@ const {
   getDiscounts,
   getRowTableVideoGames,
 } = require("../controllers/videogameControllers.js");
-const axios = require("axios");
+
+const transporter = require("../nodemailer/config");
 
 const {
   getAllOrders,
@@ -32,6 +33,7 @@ const {
   UserUpdate,
   PostLogin,
 } = require("../controllers/User.js");
+const { sendEmail } = require('../controllers/Emails')
 const {
   upLoadDicountsBanner,
   getDiscountsBanner,
@@ -39,7 +41,8 @@ const {
 const router = Router();
 
 //Configuración de rutas
-
+//Emails
+router.post("/sendMail", sendEmail);
 //Payment
 router.post("/payment", postPayment);
 
@@ -71,12 +74,11 @@ router.get("/discounts", getDiscounts);
 //User
 router.get("/user", allDataUser);
 
-router.get("/searchUser",UserByName);
+router.get("/searchUser", UserByName);
 
 router.get("/user/:id", UserByID);
 
 router.put("/user/:id", UserUpdate);
-
 
 //sesion
 router.post("/register", UserPost);

@@ -4,7 +4,7 @@ const { Videogame, Genre } = require("../db");
 const router = Router();
 const { API_KEY } = process.env;
 const json = require("../harcode.json");
-const { Op, Sequelize } = require("sequelize");
+const { Op, Sequelize, DataTypes } = require("sequelize");
 //Post
 
 const getRowTableVideoGames = async (req, res) => {
@@ -158,15 +158,6 @@ const getAllGames = async (req, res) => {
     );
   }
 
-  if (price) {
-    where.price = Sequelize.where(
-      Sequelize.fn("TO_NUMBER", Sequelize.col("price"), "999,999.99"),
-      {
-        [Op.lte]: Number(price),
-      }
-    );
-  }
-
   if (genre)
     genreFilter.name = {
       [Op.iLike]: genre,
@@ -188,10 +179,11 @@ const getAllGames = async (req, res) => {
     limit: 10,
   };
   try {
-    const { count, rows } = await Videogame.findAndCountAll(config);
+    let { count, rows } = await Videogame.findAndCountAll(config);
     if (rows.length) {
-      // const position = (Number(page) - 1) * 10
-      // const results = rows.slice(position, position + 10)
+      if (price) {
+        rows = rows.filter(game => Number(game.price) <= Number(price))
+      }
       res.json({
         status: "success",
         offset: (page - 1) * 10,
