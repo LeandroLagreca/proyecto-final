@@ -34,7 +34,13 @@ function validate(input){
         errors.price = "Es necesario un valor"
     }else{
         if(input.price < 1 || input.price > 100)
-        errors.price = "El precio debe ser entre 1 y 100"  
+        errors.price = "El precio debe ser entre 1$ y 100$"  
+    }
+    if(!input.rating){
+        errors.rating = "Es necesario un valor"
+    }else{
+        if(input.rating < 1 || input.rating > 5)
+        errors.rating = "El rating debe ser entre 1 y 5 estrellas"  
     }
     if (!input.requirements){
         errors.requirements = "Por favor detalle los pasos de su receta"
@@ -57,6 +63,7 @@ export default function ComposedTextField() {
   description:"",
   background_image:"",
   price:0,
+  rating:0,
   requirements:"",
   genres:[],
   otro:""
@@ -87,7 +94,7 @@ function handleSelect(e) {
 function handleDelete(el){
     setInput({
         ...input,
-        genres: input.genres.map(x=> x!== el)
+        genres: input.genres.filter(x=> x!== el)
     })
 }
 
@@ -95,8 +102,8 @@ function handleDelete(el){
 
   function handleSubmit(e){
     e.preventDefault();
-    if(input.name && input.description&&input.background_image&&input.price&&input.requirements
-        &&!errors.name&& !errors.description&&!errors.background_image&&!errors.price&&!errors.requirements&&input.genres.length !==0 &&input.genres.length<=3)
+    if(input.name && input.description&&input.background_image&&input.price&&input.rating&&input.requirements
+        &&!errors.name&& !errors.description&&!errors.background_image&&!errors.price&&!errors.rating&&!errors.requirements&&input.genres.length !==0 &&input.genres.length<=3)
 
     {dispatch(postGames(input))
     alert("Juego creado con exito!")
@@ -105,6 +112,7 @@ function handleDelete(el){
         description:"",
         background_image:"",
         price:0,
+        rating:0,
         requirements:"",
         genres:[]
     })}
@@ -203,6 +211,24 @@ useEffect(()=> {
                     </CardContent>
 
                     <CardContent>   
+                        {!errors.rating? <FormControl variant="standard">
+                            <InputLabel htmlFor="component-simple">Rating</InputLabel>
+                            <Input id="component-simple" name="rating" value={input.rating} onChange={handleChange} />
+                        </FormControl>
+                            :
+                        <FormControl error variant="standard">
+                            <InputLabel htmlFor="component-error">Rating</InputLabel>
+                            <Input
+                            id="component-error"
+                            name="rating"
+                            value={input.rating}
+                            onChange={handleChange}
+                            aria-describedby="component-error-text"/>
+                            <FormHelperText id="component-error-text">{errors.rating}</FormHelperText>
+                        </FormControl>}
+                    </CardContent>
+
+                    <CardContent>   
                         {!errors.requirements? <FormControl variant="standard">
                             <InputLabel htmlFor="component-simple">Requirements</InputLabel>
                             <Input id="component-simple" name="requirements" value={input.requirements} onChange={handleChange} />
@@ -239,17 +265,17 @@ useEffect(()=> {
                         {/* {input.otro&& input.genres.replace("otro",input.otro)} */}
                             {/* <FormHelperText id="component-error-text">{errors.requirements}</FormHelperText> */}
                             {console.log(input)}
-                            {input.genres.map(el=> 
+                            {/* {input.genres.map(el=> 
                         <div>
                             <p>{el}</p> 
                             <button onClick={handleDelete} >x</button>
                         </div>
-                        )}
+                        )} */}
                         </FormControl>
                     </CardContent>
                     {Object.entries(errors).length===0 && input.name!==""?<CardContent>   
                         <FormControl>
-                        <Button type='submit' onSubmit={(e)=>handleSubmit(e)} >Save</Button> 
+                        <Button type='submit' onClick={(e)=>handleSubmit(e)} >Save</Button> 
                         </FormControl>
                     </CardContent>
                     :
