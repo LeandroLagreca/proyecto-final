@@ -50,8 +50,7 @@ const createOrder = async (req, res) => {
       });
       await newOrder.addVideogames(findGames);
 
-      const algo = await user.addPurchaseOrder(newOrder);
-      console.log(algo);
+      await user.addPurchaseOrder(newOrder);
       return res.status(201).json({
         msg: "Order created successfully",
         data: newOrder,
