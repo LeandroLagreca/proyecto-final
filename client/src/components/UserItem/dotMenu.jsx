@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {getGames} from '../../redux/actions/videoGame';
 import {
   IconButton,
@@ -12,6 +12,7 @@ import{auth} from '../../firebase/credenciales';
 import {OrderByStock} from '../../redux/reducers/videoGame';
 
 export default function DotMenu({id}) {
+  const allVideoGames = useSelector((state)=> state.games)
   const dispatch = useDispatch();
   const [/*order*/, setOrder]= useState('');
     const [anchorEl, setAnchorEl] = useState(null);
@@ -39,7 +40,8 @@ export default function DotMenu({id}) {
   const handleOrderStock =(e)=>{
     dispatch(OrderByStock(e.target.value))
     setOrder(e.target.value);
-}
+};
+
 
 	function requestNewEmail() {
 		// axios.put("http://localhost:3001/user/");
@@ -83,6 +85,20 @@ export default function DotMenu({id}) {
                 <DeleteForever />
 				</MenuItem>
       </Menu>
+
+        <div> 
+          {allVideoGames.map((e)=>{
+          return (
+            <div key = {e.name}>
+              name={e.name}
+              stock={e.stock}
+    </div>
+          )
+        })
+        }
+        </div>
+        
+
         <select onChange={e => handleOrderStock(e)}>
                 <option hidden>Stock</option>
                 <option value='min'>Min</option>
