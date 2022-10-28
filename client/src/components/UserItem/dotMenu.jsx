@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {useDispatch} from 'react-redux';
+import {getGames} from '../../redux/actions/videoGame';
 import {
   IconButton,
 	MenuItem,
@@ -28,7 +29,12 @@ export default function DotMenu({id}) {
         handleCodeInApp: true,
       };
     sendPasswordResetEmail(auth, email, actionCodeSettings)
-	}
+	};
+
+  useEffect(()=>{
+    dispatch(getGames())
+},[dispatch])
+
 
   const handleOrderStock =(e)=>{
     dispatch(OrderByStock(e.target.value))
@@ -76,12 +82,12 @@ export default function DotMenu({id}) {
                 Eliminar usuario
                 <DeleteForever />
 				</MenuItem>
+      </Menu>
         <select onChange={e => handleOrderStock(e)}>
                 <option hidden>Stock</option>
                 <option value='min'>Min</option>
                 <option value='max'>Max</option>
       </select>
-      </Menu>
     </div>
   )
 }
