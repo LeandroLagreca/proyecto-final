@@ -49,15 +49,16 @@ export default function MainCard({
 }) {
 	const { mode, toggleMode } = useContext(ColorModeContext);
 	return (
-		<Card sx={styles.card} className='imgCard'>
+		<Link component={RouterLink} position="relative" to={`/detail/${id}`} underline="none">
+		<Card sx={styles.card} position="relative" className='imgCard'>
 			<CardMedia
-			
+			className='imagenEnCard'
 				component="img"
 				alt="gameCard"
 				height={130}
 				image={background_image}
 			/>
-			<CardContent>
+			<CardContent sx={{paddingTop:0, paddingBottom:5}}>
 				<Typography
 					textAlign={"start"}
 					sx={{ fontWeight: 600 }}
@@ -68,7 +69,7 @@ export default function MainCard({
 				</Typography>
 				{!discount?.status ? (
 					<Box sx={{display:"flex", height:50}}>
-					<Typography variant="subtitle2" color="text.primary" alignitems="flex-end">
+					<Typography display={"flex"} variant="subtitle2" color="text.primary" alignItems="flex-end">
 						<b>${price}</b>
 					</Typography>
 					</Box>
@@ -110,23 +111,23 @@ export default function MainCard({
 					</Box>
 				)}
 			</CardContent>
-			<CardActions>
+			<CardActions >
 				<AddToWishes
 					id={id}
 					name={name}
 					image={background_image}
 					price={price}
-					styles={{ position: 'absolute', left: 0, top: 0 }}
+					styles={{ position: 'absolute', left: 0, bottom: 0 }}
 				/>
 				<AddToCartButton
 					id={id}
 					name={name}
 					picture={background_image}
 					price={price}
-					styles={{ position: 'absolute', right: 0, top: 0 }}
+					styles={{ position: 'absolute', right: 0, bottom: 0 }}
 				/>
 			</CardActions>
-			<Link component={RouterLink} to={`/detail/${id}`} underline="none">
+			{/* <Link component={RouterLink} to={`/detail/${id}`} underline="none">
 				<Button
 					variant="outlined"
 					size="small"
@@ -144,7 +145,8 @@ export default function MainCard({
 						Detail
 					</Typography>
 				</Button>
-			</Link>
+			</Link> */}
 		</Card>
+		</Link>
 	);
 }
