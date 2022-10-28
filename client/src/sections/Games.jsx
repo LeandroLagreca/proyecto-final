@@ -13,8 +13,9 @@ const styles = {
 		display: 'grid',
 		gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
 		justifyItems: 'center',
+		columnGap: 5,
 		rowGap: 5,
-		paddingX: 5,
+		paddingX: 20,
 	},
 };
 
