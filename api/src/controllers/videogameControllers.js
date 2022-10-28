@@ -111,27 +111,6 @@ const videogamePost = async (req, res) => {
   }
 };
 
-const getGamesDb = async (req, res) => {
-  try {
-    let games = await Videogame.findAll({
-      where: {
-        stock: { [Op.lt]: 0 },
-      },
-      include: {
-        model: Genre,
-        attributes: ["name"],
-        through: {
-          attributes: [],
-        },
-      },
-    });
-
-    return games;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 const getAllGames = async (req, res) => {
   const { filter = "" } = req.query;
   const { name, rating, price, genre } = filter;
@@ -224,14 +203,14 @@ const videogameByID = async (req, res) => {
   }
 };
 
-const getGenres = async () => {
+const getGenres = async (req, res) => {
   try {
-    const data = await Genre.findAll();
-    return data;
+    const data = await Genre.findAll({ attributes: ['id', 'name']});
+    res.status(200).send(data);
   } catch (error) {
     console.log(error);
   }
-};
+}
 
 const getDiscounts = async (req, res) => {
   try {

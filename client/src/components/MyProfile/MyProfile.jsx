@@ -6,17 +6,15 @@ import {
 	Grid,
 	TextField,
 	FormControlLabel,
-	Checkbox,
 	Switch,
 	Button,
 	Stack,
 	Badge,
 	Avatar,
+	IconButton,
 } from '@mui/material';
 
-import { styled } from '@mui/material/styles';
-
-import { SaveAs } from '@mui/icons-material';
+import { SaveAs, PhotoCamera } from '@mui/icons-material';
 
 const MyProfile = () => {
 	return (
@@ -156,11 +154,14 @@ const MyProfile = () => {
 					overlap="circular"
 					anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
 					badgeContent={
-						<SmallAvatar
-							sx={{ width: 100, height: 100 }}
-							alt="Remy Sharp"
-							src="https://static.vecteezy.com/system/resources/previews/002/261/132/original/camera-icon-symbol-sign-isolate-on-white-background-illustration-eps-10-free-vector.jpg"
-						/>
+						<IconButton
+							color="primary"
+							aria-label="upload picture"
+							component="label"
+						>
+							<input hidden accept="image/*" type="file" />
+							<PhotoCamera sx={{ width: 100, height: 100 }} />
+						</IconButton>
 					}
 				>
 					<Avatar
@@ -174,11 +175,4 @@ const MyProfile = () => {
 	);
 };
 
-const SmallAvatar = styled(Avatar)(({ theme }) => ({
-	width: 22,
-	height: 22,
-	border: `2px solid ${theme.palette.background.paper}`,
-}));
-
 export default MyProfile;
-
