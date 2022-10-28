@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { AddressForm, Review } from "../../components";
-import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import axios from "axios";
 import {
   CssBaseline,
   Container,
@@ -15,15 +14,14 @@ import {
   Checkbox,
   Modal,
 } from "@mui/material/";
-
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
-import axios from "axios";
+import { AddressForm, Review } from "../../components";
+
+import { makeEmail } from "./utils";
 
 const Cart = () => {
   //Aplicando tecnologia de hook stripe hooks
-  const params = useParams()
-  console.log(params)
   const [cardPay, setCardPay] = useState({
     cardNumber: "",
     cardExpiry: "",
@@ -45,7 +43,7 @@ const Cart = () => {
 
   const [activeStep, setActiveStep] = useState(0);
 
-  const {id : userId, cartList} = useSelector((state) => state.user);
+  const { id: userId, cartList, email } = useSelector((state) => state.user);
   const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
   const stripe = useStripe();
@@ -57,8 +55,8 @@ const Cart = () => {
     } else {
       return {
         cant: e.cant,
-        price: parseFloat(e.price)
-      } ;
+        price: parseFloat(e.price),
+      };
     }
   });
 
@@ -85,7 +83,6 @@ const Cart = () => {
     });
 
     if (!error) {
-      setOpen(true);
       const { id } = paymentMethod;
       try {
         await axios.post("http://localhost:3001/payment", {
@@ -93,20 +90,20 @@ const Cart = () => {
           amount: totalPrice, //cents
         });
 
-        await axios.post('http://localhost:3001/orders', {
-      userData: {
-        userID: userId,
-        ...address
-      },
-      bildData: {
-        games: cartList,
-        totalPrice
-      }
-    })
-
+        const order = await axios.post("http://localhost:3001/orders", {
+          userData: {
+            userID: userId,
+            ...address,
+          },
+          bildData: {
+            games: cartList,
+            totalPrice,
+          },
+        });
+        setOpen(true);
+        makeEmail(email, address.firstName, order.data.data)
         elements.getElement(CardElement).clear();
-      } catch (error) {
-      }
+      } catch (error) {}
     }
     setLoading(false);
 
@@ -202,7 +199,6 @@ const Cart = () => {
         </Paper>
       </Container>
     </>
-      
   );
 };
 
