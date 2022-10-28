@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-
 const page = window.sessionStorage.getItem('page')
 	? JSON.parse(window.sessionStorage.getItem('page'))
 	: 1;
@@ -134,7 +133,6 @@ export const {
 	setGameComments,
 	getAllGenres,
 	postAllGames,
-	
 } = videoGameSlice.actions;
 
 export default videoGameSlice.reducer;

@@ -1,5 +1,6 @@
-import { useState } from "react";
-import axios from "axios";
+import { useState, useEffect } from "react";
+import {useDispatch, useSelector} from 'react-redux';
+import {getGames} from '../../redux/actions/videoGame';
 import {
   IconButton,
 	MenuItem,
@@ -25,7 +26,9 @@ export default function DotMenu({id}) {
         handleCodeInApp: true,
       };
     sendPasswordResetEmail(auth, email, actionCodeSettings)
-	}
+	};
+
+
 
 	function requestNewEmail() {
 		// axios.put("http://localhost:3001/user/");

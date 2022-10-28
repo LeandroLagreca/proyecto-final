@@ -108,7 +108,7 @@ const videogamePost = async (req, res) => {
       res.status(404).send({ msg: "a name is required" });
     }
   } catch (error) {
-    res.send(error);
+    res.status(404).send(error);
   }
 };
 
@@ -225,14 +225,14 @@ const videogameByID = async (req, res) => {
   }
 };
 
-const getGenres = async () => {
+const getGenres = async (req, res) => {
   try {
-    const data = await Genre.findAll();
-    return data;
+    const data = await Genre.findAll({ attributes: ['id', 'name']});
+    res.status(200).send(data);
   } catch (error) {
     console.log(error);
   }
-};
+}
 
 const getDiscounts = async (req, res) => {
   try {
