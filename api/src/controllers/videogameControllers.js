@@ -91,7 +91,6 @@ const videogamePost = async (req, res) => {
         stock,
       });
 
-
       let genresDb = await Genre.findAll({
         where: { name: genres },
       });
@@ -161,7 +160,7 @@ const getAllGames = async (req, res) => {
     let { count, rows } = await Videogame.findAndCountAll(config);
     if (rows.length) {
       if (price) {
-        rows = rows.filter(game => Number(game.price) <= Number(price))
+        rows = rows.filter((game) => Number(game.price) <= Number(price));
       }
       res.json({
         status: "success",
@@ -272,6 +271,24 @@ const updateVideogame = async (req, res) => {
   }
 };
 
+const addStock = async (req, res) => {
+  let { gameID, cant } = req.body;
+  if (gameID && cant) {
+    try {
+      let game = await Videogame.findOne({
+        where: { id: gameID }
+        
+      }).then((Vgame) => {
+        Vgame.increment("stock", { by: cant });
+     
+      });
+     
+      res.status(200).send(`added ${cant} items to stock`);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+};
 module.exports = {
   videogamePost,
   videogameByID,
@@ -280,4 +297,5 @@ module.exports = {
   getAllGames,
   getDiscounts,
   getRowTableVideoGames,
+  addStock,
 };
