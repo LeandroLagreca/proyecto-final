@@ -29,12 +29,6 @@ export default function MediaControlCard() {
           <LinkedInIcon sx={{ height: 38, width: 38 }}>
             {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
           </LinkedInIcon>
-          <IconButton aria-label="play/pause">
-            <PlayArrowIcon sx={{ height: 38, width: 38 }} />
-          </IconButton>
-          <IconButton aria-label="next">
-            {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
-          </IconButton>
         </Box>
       </Box>
       <CardMedia
