@@ -10,6 +10,7 @@ import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import {imgMario} from "../Nosotros/4x4mario.jpg"
 
 export default function MediaControlCard() {
   const theme = useTheme();
@@ -34,7 +35,7 @@ export default function MediaControlCard() {
       <CardMedia
         component="img"
         sx={{ width: 151 }}
-        image="/static/images/cards/live-from-space.jpg"
+        image={imgMario}
         alt="Live from space album cover"
       />
     </Card>
