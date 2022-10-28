@@ -17,12 +17,14 @@ import {
 
 import { AddToCartButton, AddToWishes } from '../';
 
+import "./Cards.css"
+
 const styles = {
 	card: {
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'space-between',
-		width: 200,
+		width: 220,
 		height: 300,
 		position: 'relative',
 		overflow: 'visible',
@@ -47,26 +49,29 @@ export default function MainCard({
 }) {
 	const { mode, toggleMode } = useContext(ColorModeContext);
 	return (
-		<Card sx={styles.card}>
+		<Card sx={styles.card} className='imgCard'>
 			<CardMedia
+			
 				component="img"
 				alt="gameCard"
-				height="150"
+				height={130}
 				image={background_image}
 			/>
 			<CardContent>
 				<Typography
-					gutterBottom
+					textAlign={"start"}
 					sx={{ fontWeight: 600 }}
-					variant="subtitle1"
+					variant="subtitle2"
 					component="div"
 				>
 					{name}
 				</Typography>
 				{!discount?.status ? (
-					<Typography variant="subtitle2" color="text.primary">
-						${price}
+					<Box sx={{display:"flex", height:50}}>
+					<Typography variant="subtitle2" color="text.primary" alignitems="flex-end">
+						<b>${price}</b>
 					</Typography>
+					</Box>
 				) : (
 					<Box display="flex">
 						<Typography
