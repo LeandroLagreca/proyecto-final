@@ -88,7 +88,7 @@ export default function Detail() {
     });
   };
 //Handle SUBMIT dispacha accion para postear comentario
-  async function handleSubmit(e) {
+  async function handleSubmit(e)  {
 	if(isLogued===false){
 		e.preventDefault();
 	}
@@ -103,7 +103,7 @@ export default function Detail() {
         userComment: "",
         rating_like: 3,
       },
-    });
+    })
     }	
   }
 
@@ -264,8 +264,8 @@ export default function Detail() {
             >
               {/* CARRUSEL */}
               <Carousel className="carusel">
-                {imgCarousel.map((item) => (
-                  <Item key={item.id} item={item} />
+                {imgCarousel.map((item, index) => (
+                  <Item key={index} item={item} />
                 ))}
               </Carousel>
             </Box>
@@ -274,6 +274,7 @@ export default function Detail() {
                 variant="body2"
                 textAlign="justify"
                 color="text.primary"
+                component={'span'}
               >
                 {gameDetail.description ? parse(gameDetail.description) : null} {/* DESCRIPCION */}
               </Typography>
@@ -296,6 +297,7 @@ export default function Detail() {
             </Typography>
             <Typography
               sx={{ borderRadius: 2 }}
+              component={'div'}
               backgroundColor="secondary.light"
               variant="body2"
               color="text.primary"

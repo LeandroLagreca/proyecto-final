@@ -1,5 +1,5 @@
 import React from "react";
-import { Paper, Box } from "@mui/material";
+import { Paper } from "@mui/material";
 import "./Item.css";
 
 export default function Item({ item, name }) {
@@ -19,11 +19,9 @@ export default function Item({ item, name }) {
         <iframe
           className="frame"
           scrolling="no"
-          mozallowfullscreen
           src={item}
           title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; mozallowfullscreen; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         ></iframe>
       )}
     </Paper>

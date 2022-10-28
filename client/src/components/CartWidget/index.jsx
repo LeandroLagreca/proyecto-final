@@ -54,7 +54,6 @@ export default function CartWidget() {
       console.log(totalPrice)
     } else {
       let splitedPrice = totalPrice.toFixed(2);
-      console.log(splitedPrice)
       splitedPrice = splitedPrice.toString();
       if (splitedPrice[4] === undefined) {
         splitedPrice = splitedPrice + '0';
