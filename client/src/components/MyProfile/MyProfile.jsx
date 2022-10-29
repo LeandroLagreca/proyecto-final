@@ -32,7 +32,9 @@ const MyProfile = () => {
 
 	const [editProfile, setEditProfile] = useState(false);
 
-	useEffect(() => {}, []);
+	useEffect(() => {
+		console.log(editProfile);
+	}, [editProfile]);
 
 	return (
 		<Container
@@ -48,7 +50,7 @@ const MyProfile = () => {
 				<Grid container spacing={3}>
 					<Grid item xs={12} sm={6}>
 						<TextField
-							required
+							disabled={!editProfile}
 							id="firstName"
 							name="firstName"
 							label="First name"
@@ -60,7 +62,7 @@ const MyProfile = () => {
 					</Grid>
 					<Grid item xs={12} sm={6}>
 						<TextField
-							required
+							disabled={!editProfile}
 							id="lastName"
 							name="lastName"
 							label="Last name"
@@ -72,7 +74,7 @@ const MyProfile = () => {
 					</Grid>
 					<Grid item xs={12} sm={6}>
 						<TextField
-							required
+							disabled={!editProfile}
 							id="country"
 							name="country"
 							label="Country"
@@ -84,6 +86,7 @@ const MyProfile = () => {
 					</Grid>
 					<Grid item xs={12} sm={6}>
 						<TextField
+							disabled={!editProfile}
 							id="state"
 							name="state"
 							label="State/Province/Region"
@@ -94,7 +97,7 @@ const MyProfile = () => {
 					</Grid>
 					<Grid item xs={12} sm={12}>
 						<TextField
-							required
+							disabled={!editProfile}
 							id="city"
 							name="city"
 							label="City"
@@ -106,7 +109,7 @@ const MyProfile = () => {
 					</Grid>
 					<Grid item xs={12}>
 						<TextField
-							required
+							disabled={!editProfile}
 							id="address1"
 							name="address1"
 							label="Address"
@@ -118,7 +121,7 @@ const MyProfile = () => {
 					</Grid>
 					<Grid item xs={12}>
 						<TextField
-							required
+							disabled={!editProfile}
 							id="cardName"
 							name="cardHolder"
 							label="Card holder"
@@ -130,7 +133,7 @@ const MyProfile = () => {
 					</Grid>
 					<Grid item xs={12}>
 						<TextField
-							required
+							disabled={!editProfile}
 							id="numberCard"
 							name="numberCard"
 							label="Card number"
@@ -142,7 +145,12 @@ const MyProfile = () => {
 					</Grid>
 					<Grid item xs={12} sm={6}>
 						<FormControlLabel
-							control={<Switch defaultChecked />}
+							control={
+								<Switch
+									checked={editProfile}
+									onChange={(e) => setEditProfile(e.target.checked)}
+								/>
+							}
 							label="Edit profile"
 						/>
 					</Grid>
