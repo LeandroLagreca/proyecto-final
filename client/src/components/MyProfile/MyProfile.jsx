@@ -98,8 +98,8 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="state"
-							name="state"
-							label="State/Province/Region"
+							name="province"
+							label="province"
 							fullWidth
 							variant="standard"
 							value={values.province}
@@ -123,7 +123,7 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="address1"
-							name="address1"
+							name="address"
 							label="Address"
 							fullWidth
 							autoComplete="shipping address-line1"
@@ -149,7 +149,7 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="numberCard"
-							name="numberCard"
+							name="cardNumber"
 							label="Card number"
 							fullWidth
 							autoComplete="cc-number"
