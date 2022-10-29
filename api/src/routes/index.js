@@ -14,7 +14,7 @@ const {
   getAllGames,
   getDiscounts,
   getRowTableVideoGames,
-  addStock,
+  UpdateStock,
   getUserGames
 } = require("../controllers/videogameControllers.js");
 
@@ -61,7 +61,7 @@ router.put("/comments", updateComment);
 
 router.get("/row-videogames", getRowTableVideoGames);
 
-router.put("/videogames/stock",addStock)
+router.put("/videogames/stock",UpdateStock)
 
 router.get("/videogames/user/:id", getUserGames);
 

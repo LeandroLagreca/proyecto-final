@@ -135,57 +135,41 @@ const getAllGames = async (req, res) => {
       }
     );
   }
-
-  if(price) {
-    switch(price){
-      case '25':
+  if (price) {
+    switch (price) {
+      case "25":
         where.price = {
-          [Op.and]: [
-            {[Op.gte]: 0},
-            {[Op.lt]: 25}
-          ]
-        }
+          [Op.and]: [{ [Op.gte]: 0 }, { [Op.lt]: 25 }],
+        };
         break;
-      case '50':
+      case "50":
         where.price = {
-          [Op.and]: [
-            {[Op.gte]: 25},
-            {[Op.lt]: 50}
-          ]
-        }
+          [Op.and]: [{ [Op.gte]: 25 }, { [Op.lt]: 50 }],
+        };
         break;
-      case '75':
+      case "75":
         where.price = {
-          [Op.and]: [
-            {[Op.gte]: 50},
-            {[Op.lt]: 75}
-          ]
-        }
+          [Op.and]: [{ [Op.gte]: 50 }, { [Op.lt]: 75 }],
+        };
         break;
-      case '100':
+      case "100":
         where.price = {
-          [Op.and]: [
-            {[Op.gte]: 75},
-            {[Op.lte]: 100}
-          ]
-        }
+          [Op.and]: [{ [Op.gte]: 75 }, { [Op.lte]: 100 }],
+        };
         break;
       default:
         where.price = {
           [Op.and]: [
-            {[Op.gte]: Number(price) - 25},
-            {[Op.lte]: Number(price)}
-          ]
-        }
+            { [Op.gte]: Number(price) - 25 },
+            { [Op.lte]: Number(price) },
+          ],
+        };
     }
-    
   }
-
-  if (genre){
+  if (genre)
     genreFilter.name = {
       [Op.iLike]: genre,
-    }
-  };
+    };
 
   let config = {
     distinct: true,
@@ -205,6 +189,9 @@ const getAllGames = async (req, res) => {
   try {
     let { count, rows } = await Videogame.findAndCountAll(config);
     if (rows.length) {
+      if (price) {
+        rows = rows.filter((game) => Number(game.price) <= Number(price));
+      }
       res.json({
         status: "success",
         offset: (page - 1) * 10,
@@ -223,30 +210,26 @@ const getAllGames = async (req, res) => {
     res.status(400).send(error);
   }
 };
-
-const getUserGames = async(req, res) => {
-  const { id } = req.params
+const getUserGames = async (req, res) => {
+  const { id } = req.params;
   try {
     const userGames = await Videogame.findAll({
       include: {
         model: User,
-        where: {id},
-        attributes: ['id', 'name'],
-        through: {attributes: []}
-      }
-    }) 
-    if(!userGames.length) {
-      res.status(404).send("This user don't have any game yet")
+        where: { id },
+        attributes: ["id", "name"],
+        through: { attributes: [] },
+      },
+    });
+    if (!userGames.length) {
+      res.status(404).send("This user don't have any game yet");
     } else {
-      res.json(userGames)
+      res.json(userGames);
     }
   } catch (error) {
-      res.status(400).send(error.message)
+    res.status(400).send(error.message);
   }
-  
-
-}
-
+};
 const videogameByID = async (req, res) => {
   const { id } = req.params;
 
@@ -337,23 +320,53 @@ const updateVideogame = async (req, res) => {
   }
 };
 
-const addStock = async (req, res) => {
-  let { gameID, cant } = req.body;
-  if (gameID && cant) {
-    try {
-      let game = await Videogame.findOne({
-        where: { id: gameID }
-        
-      }).then((Vgame) => {
-        Vgame.increment("stock", { by: cant });
-     
-      });
-     
-      res.status(200).send(`added ${cant} items to stock`);
-    } catch (error) {
-      console.log(error);
+const UpdateStock = async (req, res) => {
+  let { gameID, amount, operador } = req.body;
+
+ if(gameID && amount && operador) {
+  try {
+    const subUpdated = async (amount) => {
+      const updatedRows = await Videogame.update(
+        {
+          stock: Sequelize.literal(`stock - ${amount}`),
+        },
+        { where: { id: gameID },
+        returning: true, plain: true }
+      );
+      console.log(updatedRows[1].dataValues.stock);
+      return updatedRows[1].dataValues.stock;
+    };
+    const sumUpdated = async (amount) => {
+      const updatedRows = await Videogame.update(
+        {
+          stock: Sequelize.literal(`stock + ${amount} `),
+        },
+        { where: { id: gameID },
+        returning: true, plain: true}
+      
+      );
+      
+      
+      return updatedRows[1].dataValues.stock
+    };
+
+    if (operador == "sum") {
+      let newStock = await sumUpdated(amount);
+      return res.status(200).send({ msg: `New stock ${newStock}` });
+    } else if (operador == "sub") {
+      let newStock = await subUpdated(amount);
+      return res.status(200).send({ msg: `New stock ${newStock}` });
     }
+
+ 
+  } catch (error) {
+    console.log(error);
   }
+ }
+ else{
+  res.status(404).send({error:"gameID, amount and operador (sum, sub) are required by body"})
+ }
+ 
 };
 module.exports = {
   videogamePost,
@@ -363,6 +376,6 @@ module.exports = {
   getAllGames,
   getDiscounts,
   getRowTableVideoGames,
-  addStock,
-  getUserGames
+  getUserGames,
+  UpdateStock,
 };
