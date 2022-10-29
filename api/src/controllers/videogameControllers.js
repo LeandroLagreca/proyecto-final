@@ -136,10 +136,56 @@ const getAllGames = async (req, res) => {
     );
   }
 
-  if (genre)
+  if(price) {
+    switch(price){
+      case '25':
+        where.price = {
+          [Op.and]: [
+            {[Op.gte]: 0},
+            {[Op.lt]: 25}
+          ]
+        }
+        break;
+      case '50':
+        where.price = {
+          [Op.and]: [
+            {[Op.gte]: 25},
+            {[Op.lt]: 50}
+          ]
+        }
+        break;
+      case '75':
+        where.price = {
+          [Op.and]: [
+            {[Op.gte]: 50},
+            {[Op.lt]: 75}
+          ]
+        }
+        break;
+      case '100':
+        where.price = {
+          [Op.and]: [
+            {[Op.gte]: 75},
+            {[Op.lte]: 100}
+          ]
+        }
+        break;
+      default:
+        where.price = {
+          [Op.and]: [
+            {[Op.gte]: Number(price) - 25},
+            {[Op.lte]: Number(price)}
+          ]
+        }
+    }
+    
+  }
+
+  if (genre){
     genreFilter.name = {
       [Op.iLike]: genre,
-    };
+    }
+  };
 
   let config = {
     distinct: true,
@@ -159,9 +205,6 @@ const getAllGames = async (req, res) => {
   try {
     let { count, rows } = await Videogame.findAndCountAll(config);
     if (rows.length) {
-      if (price) {
-        rows = rows.filter((game) => Number(game.price) <= Number(price));
-      }
       res.json({
         status: "success",
         offset: (page - 1) * 10,
@@ -205,12 +248,12 @@ const videogameByID = async (req, res) => {
 
 const getGenres = async (req, res) => {
   try {
-    const data = await Genre.findAll({ attributes: ['id', 'name']});
+    const data = await Genre.findAll({ attributes: ["id", "name"] });
     res.status(200).send(data);
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 const getDiscounts = async (req, res) => {
   try {

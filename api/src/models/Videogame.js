@@ -34,14 +34,13 @@ module.exports = (sequelize) => {
       defaultValue: null,
     },
     price: {
-      type: DataTypes.STRING,
+      type: DataTypes.FLOAT,
       defaultValue: null,
       get() {
         const value = this.getDataValue('price')
         if(value === 'null') return 0
-        return this.discount?.status 
-          ? this.discount.currentPrice
-          : value
+        if(this.discount?.status) return this.discount.currentPrice
+        return value
       }
     },
     images: {
