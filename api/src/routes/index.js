@@ -14,7 +14,8 @@ const {
   getAllGames,
   getDiscounts,
   getRowTableVideoGames,
-  addStock
+  addStock,
+  getUserGames
 } = require("../controllers/videogameControllers.js");
 
 const transporter = require("../nodemailer/config");
@@ -59,7 +60,11 @@ router.put("/comments", updateComment);
 //Videogame
 
 router.get("/row-videogames", getRowTableVideoGames);
+
 router.put("/videogames/stock",addStock)
+
+router.get("/videogames/user/:id", getUserGames);
+
 router.get("/videogames/:id", videogameByID);
 
 router.post("/videogames", videogamePost);
