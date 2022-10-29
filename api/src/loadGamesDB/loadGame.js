@@ -25,7 +25,7 @@ const Game = async () => {
                 rating_api: e.rating_api,
                 description: e.description,
                 released: e.released,
-                price: e.price,
+                price: parseFloat(e.price),
                 discount: e.discount,
                 images: e.images,
                 requirements: e.requirements,
