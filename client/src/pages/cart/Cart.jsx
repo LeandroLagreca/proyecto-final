@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import {
   CssBaseline,
@@ -19,8 +19,13 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { AddressForm, Review } from "../../components";
 
 import { makeEmail } from "./utils";
+import { addPurchases } from "../../redux/actions/user";
+
 
 const Cart = () => {
+
+  const dispatch = useDispatch();
+
   //Aplicando tecnologia de hook stripe hooks
   const [cardPay, setCardPay] = useState({
     cardNumber: "",
@@ -108,6 +113,7 @@ const Cart = () => {
     setLoading(false);
 
     setActiveStep(activeStep + 1);
+    dispatch(addPurchases(cartList));
   };
 
   const handleUserInfo = (e) => {
