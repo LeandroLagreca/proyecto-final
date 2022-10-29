@@ -25,6 +25,29 @@ const createQuestion = async (req, res) => {
 	}
 };
 
+const answerQuestion = async (req, res) => {
+	const { questionId } = req.params
+	const { text } = req.body
+
+	try {
+		const findQuestion = await Question.findOne({
+			where: {id: questionId}
+		})
+	
+		if(!findQuestion) {
+			return res.status(404).send('Dont exist any question with the gave id')
+		} else {
+			await findQuestion.update({
+				answer: text
+			})
+			res.json(findQuestion)
+		}
+	} catch (error) {
+			res.status(400).send(error.message)
+	}
+	
+}
+
 module.exports = {
 	createQuestion
 };
