@@ -53,7 +53,6 @@ router.post("/comments", postComment);
 router.put("/comments", updateComment);
 
 //Videogame
-
 router.get("/row-videogames", getRowTableVideoGames);
 
 router.get("/videogames/:id", videogameByID);
@@ -88,6 +87,7 @@ router.get("/orders", getAllOrders);
 router.get("/orders/user/:id", getUserOrders);
 router.post("/orders", createOrder);
 router.put("/orders/:id", ChangeStatePurchaseOrder);
+
 //Images
 router.post("/images/discounts", upLoadDicountsBanner);
 router.get("/images/discounts", getDiscountsBanner);

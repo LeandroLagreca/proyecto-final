@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
 	Container,
 	FormControl,
@@ -14,8 +14,26 @@ import {
 	IconButton,
 } from '@mui/material';
 import { SaveAs, PhotoCamera } from '@mui/icons-material';
+import { useSelector, useDispatch } from 'react-redux';
 
 const MyProfile = () => {
+	// const { user } = useSelector((state) => state.user);
+
+	const [values, setValues] = useState({
+		firstName: 'DAVID',
+		lastName: 'HUARICANCHA',
+		country: 'PERU',
+		province: 'MADRE DE DIOS',
+		city: 'PUERTO MALDONADO',
+		address: 'BARRIO NUEVO PSJ 2 MZ 1 LT 1',
+		cardHolder: 'DAVID JESUS LOPEZ ALIAGA',
+		cardNumber: '4242 4242 4242 4242',
+	});
+
+	const [editProfile, setEditProfile] = useState(false);
+
+	useEffect(() => {}, []);
+
 	return (
 		<Container
 			maxWidth="sm"
@@ -37,6 +55,7 @@ const MyProfile = () => {
 							fullWidth
 							autoComplete="given-name"
 							variant="standard"
+							value={values.firstName}
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
@@ -48,58 +67,7 @@ const MyProfile = () => {
 							fullWidth
 							autoComplete="family-name"
 							variant="standard"
-						/>
-					</Grid>
-					<Grid item xs={12}>
-						<TextField
-							required
-							id="address1"
-							name="address1"
-							label="Address line 1"
-							fullWidth
-							autoComplete="shipping address-line1"
-							variant="standard"
-						/>
-					</Grid>
-					<Grid item xs={12}>
-						<TextField
-							id="address2"
-							name="address2"
-							label="Address line 2"
-							fullWidth
-							autoComplete="shipping address-line2"
-							variant="standard"
-						/>
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<TextField
-							required
-							id="city"
-							name="city"
-							label="City"
-							fullWidth
-							autoComplete="shipping address-level2"
-							variant="standard"
-						/>
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<TextField
-							id="state"
-							name="state"
-							label="State/Province/Region"
-							fullWidth
-							variant="standard"
-						/>
-					</Grid>
-					<Grid item xs={12} sm={6}>
-						<TextField
-							required
-							id="zip"
-							name="zip"
-							label="Zip / Postal code"
-							fullWidth
-							autoComplete="shipping postal-code"
-							variant="standard"
+							value={values.lastName}
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
@@ -111,17 +79,53 @@ const MyProfile = () => {
 							fullWidth
 							autoComplete="shipping country"
 							variant="standard"
+							value={values.country}
+						/>
+					</Grid>
+					<Grid item xs={12} sm={6}>
+						<TextField
+							id="state"
+							name="state"
+							label="State/Province/Region"
+							fullWidth
+							variant="standard"
+							value={values.province}
+						/>
+					</Grid>
+					<Grid item xs={12} sm={12}>
+						<TextField
+							required
+							id="city"
+							name="city"
+							label="City"
+							fullWidth
+							autoComplete="shipping address-level2"
+							variant="standard"
+							value={values.city}
+						/>
+					</Grid>
+					<Grid item xs={12}>
+						<TextField
+							required
+							id="address1"
+							name="address1"
+							label="Address"
+							fullWidth
+							autoComplete="shipping address-line1"
+							variant="standard"
+							value={values.address}
 						/>
 					</Grid>
 					<Grid item xs={12}>
 						<TextField
 							required
 							id="cardName"
-							name="cardName"
+							name="cardHolder"
 							label="Card holder"
 							fullWidth
 							autoComplete="cc-name"
 							variant="standard"
+							value={values.cardHolder}
 						/>
 					</Grid>
 					<Grid item xs={12}>
@@ -133,12 +137,13 @@ const MyProfile = () => {
 							fullWidth
 							autoComplete="cc-number"
 							variant="standard"
+							value={values.cardNumber}
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
 						<FormControlLabel
 							control={<Switch defaultChecked />}
-							label="Label"
+							label="Edit profile"
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>

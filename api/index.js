@@ -23,7 +23,7 @@ const { Game } = require('./src/loadGamesDB/loadGame.js')
 const { genresToDb } = require('./src/loadGamesDB/loadGenre.js')
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ alter: true }).then(() => {
   genresToDb().then(()=>{
     Game().then(()=>{
       server.listen(3001, () => {
