@@ -12,6 +12,8 @@ import {
 	Badge,
 	Avatar,
 	IconButton,
+	Modal,
+	Box,
 } from '@mui/material';
 import { SaveAs, PhotoCamera } from '@mui/icons-material';
 import { useSelector, useDispatch } from 'react-redux';
@@ -31,6 +33,7 @@ const MyProfile = () => {
 	});
 
 	const [editProfile, setEditProfile] = useState(false);
+	const [open, setOpen] = useState(false);
 
 	const handleChanges = (e) => {
 		setValues({
@@ -170,10 +173,35 @@ const MyProfile = () => {
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
-						<Button variant="contained" endIcon={<SaveAs />}>
+						<Button
+							variant="contained"
+							endIcon={<SaveAs />}
+							onClick={() => setOpen(true)}
+						>
 							Save
 						</Button>
 					</Grid>
+					<Modal
+						open={open}
+						onClose={() => setOpen(false)}
+						aria-labelledby="modal-modal-title"
+						aria-describedby="modal-modal-description"
+					>
+						<Box sx={style}>
+							<Typography
+								id="modal-modal-title"
+								variant="h6"
+								component="h2"
+								sx={{ paddingBottom: '10px' }}
+							>
+								ESTA SEGURO DE GUARDAR LOS CAMBIOS?
+							</Typography>
+							<Stack spacing={2} direction="row">
+								<Button variant="contained">No</Button>
+								<Button variant="contained">Si</Button>
+							</Stack>
+						</Box>
+					</Modal>
 				</Grid>
 			</FormControl>
 			<Stack direction="row" spacing={1}>
@@ -200,6 +228,22 @@ const MyProfile = () => {
 			</Stack>
 		</Container>
 	);
+};
+
+const style = {
+	position: 'absolute',
+	display: 'flex',
+	alignItems: 'center',
+	justifyContent: 'space-around',
+	flexDirection: 'column',
+	top: '50%',
+	left: '50%',
+	transform: 'translate(-50%, -50%)',
+	width: 400,
+	bgcolor: 'background.paper',
+	border: '2px solid #000',
+	boxShadow: 24,
+	p: 4,
 };
 
 export default MyProfile;
