@@ -32,6 +32,13 @@ const MyProfile = () => {
 
 	const [editProfile, setEditProfile] = useState(false);
 
+	const handleChanges = (e) => {
+		setValues({
+			...values,
+			[e.target.name]: e.target.value,
+		});
+	};
+
 	useEffect(() => {
 		console.log(editProfile);
 	}, [editProfile]);
@@ -58,6 +65,7 @@ const MyProfile = () => {
 							autoComplete="given-name"
 							variant="standard"
 							value={values.firstName}
+							onChange={handleChanges}
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
@@ -70,6 +78,7 @@ const MyProfile = () => {
 							autoComplete="family-name"
 							variant="standard"
 							value={values.lastName}
+							onChange={handleChanges}
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
@@ -82,6 +91,7 @@ const MyProfile = () => {
 							autoComplete="shipping country"
 							variant="standard"
 							value={values.country}
+							onChange={handleChanges}
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
@@ -93,6 +103,7 @@ const MyProfile = () => {
 							fullWidth
 							variant="standard"
 							value={values.province}
+							onChange={handleChanges}
 						/>
 					</Grid>
 					<Grid item xs={12} sm={12}>
@@ -105,6 +116,7 @@ const MyProfile = () => {
 							autoComplete="shipping address-level2"
 							variant="standard"
 							value={values.city}
+							onChange={handleChanges}
 						/>
 					</Grid>
 					<Grid item xs={12}>
@@ -117,6 +129,7 @@ const MyProfile = () => {
 							autoComplete="shipping address-line1"
 							variant="standard"
 							value={values.address}
+							onChange={handleChanges}
 						/>
 					</Grid>
 					<Grid item xs={12}>
@@ -129,6 +142,7 @@ const MyProfile = () => {
 							autoComplete="cc-name"
 							variant="standard"
 							value={values.cardHolder}
+							onChange={handleChanges}
 						/>
 					</Grid>
 					<Grid item xs={12}>
@@ -141,6 +155,7 @@ const MyProfile = () => {
 							autoComplete="cc-number"
 							variant="standard"
 							value={values.cardNumber}
+							onChange={handleChanges}
 						/>
 					</Grid>
 					<Grid item xs={12} sm={6}>
