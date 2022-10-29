@@ -12,9 +12,9 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    questions: {
-      type: DataTypes.JSON,
-      defaultValue: []
+    answer: {
+      type: DataTypes.TEXT,
+      defaultValue: null
     }
   })
 };
