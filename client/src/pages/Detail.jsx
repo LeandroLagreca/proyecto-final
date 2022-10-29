@@ -195,6 +195,7 @@ export default function Detail() {
   if (loading) return <Loader />;
 
   return (
+    <Box className="boxBanner2">
     <Container>
       <Sidebar/>
       <Paper elevation={8} sx={{ padding: 2 }}>
@@ -210,7 +211,7 @@ export default function Detail() {
             <Box
               display="flex"
               backgroundColor="primary.main"
-              borderRadius={1}
+              className="ReqTit"
               sx={{
                 borderColor: "#42a5f5",
                 alignItems: "center",
@@ -287,7 +288,7 @@ export default function Detail() {
           >
             {/* REQUERIMIENTOS */}
             <Typography
-              borderRadius={0.5}
+              className="ReqTit"
               backgroundColor="primary.main"
               variant="body1"
               height={35}
@@ -296,11 +297,12 @@ export default function Detail() {
               Requeriments
             </Typography>
             <Typography
-              sx={{ borderRadius: 2 }}
+              className="borderReq"
               component={'div'}
               backgroundColor="secondary.light"
               variant="body2"
               color="text.primary"
+              textAlign="start"
             >
               {gameDetail.requirements ? parse(gameDetail.requirements) : null}
             </Typography>
@@ -390,5 +392,6 @@ export default function Detail() {
       </section>
       <Footer/>
     </Container>
+    </Box>
   );
 }
