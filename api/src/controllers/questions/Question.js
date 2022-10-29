@@ -8,14 +8,14 @@ const createQuestion = async (req, res) => {
       text,
 			userId
     });
-		const findUser = User.findOne({
+		const findUser = await User.findOne({
 			where: {id: userId}
 		})
-		const findGame = Videogame.findOne({
+		const findGame = await Videogame.findOne({
 			where: {id: gameId}
 		})
-		newQuestion.addUser(findUser)
-		newQuestion.addVideogame(findGame)
+		await newQuestion.addUser(findUser)
+		await newQuestion.addVideogame(findGame)
 		res.status(201).json({
 			msg: 'Question created successfully',
 			question: newQuestion
