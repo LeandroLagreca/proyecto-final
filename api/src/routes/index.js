@@ -40,6 +40,12 @@ const {
   upLoadDicountsBanner,
   getDiscountsBanner,
 } = require("../controllers/Images");
+
+const {
+  createQuestion,
+	answerQuestion
+} = require('../controllers/questions/Question')
+
 const router = Router();
 
 //Configuración de rutas
@@ -57,7 +63,14 @@ router.post("/comments", postComment);
 
 router.put("/comments", updateComment);
 
-//Videogame
+//Q&A
+router.get('/questions')
+
+router.post('/questions', createQuestion)
+
+router.put('/answer/:questionId', answerQuestion)
+
+//Videogames
 
 router.get("/row-videogames", getRowTableVideoGames);
 

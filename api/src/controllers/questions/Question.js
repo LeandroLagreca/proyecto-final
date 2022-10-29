@@ -49,5 +49,6 @@ const answerQuestion = async (req, res) => {
 }
 
 module.exports = {
-	createQuestion
+	createQuestion,
+	answerQuestion
 };
