@@ -40,12 +40,15 @@ const upLoadDicountsBanner = async (req, res) => {
 
 const getDiscountsBanner = async (req, res) => {
   try {
-    const banner = await Image.findAll();
-    if (!banner.length)
-      return res.status(404).send("You don't has uploaded this file yet");
-    res.json(banner[0]);
+    const banner = await Image.findOne({
+      where: {
+        name: 'bannerDicounts'
+      }
+    });
+    if (!banner) return res.status(404).send("You don't has uploaded this file yet");
+    res.json(banner);
   } catch (error) {
-	res.status(500).send(error.message)
+	res.status(400).send(error.message)
   }
 };
 
