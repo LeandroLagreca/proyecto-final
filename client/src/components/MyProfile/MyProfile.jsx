@@ -13,7 +13,6 @@ import {
 	Avatar,
 	IconButton,
 } from '@mui/material';
-
 import { SaveAs, PhotoCamera } from '@mui/icons-material';
 
 const MyProfile = () => {
