@@ -49,7 +49,7 @@ const MyProfile = () => {
 	return (
 		<Container
 			maxWidth="sm"
-			sx={{ mb: 5, paddingTop: '40px' }}
+			sx={{ mb: 5, paddingTop: '50px' }}
 			component={Grid}
 			spacing={2}
 		>
@@ -204,28 +204,6 @@ const MyProfile = () => {
 					</Modal>
 				</Grid>
 			</FormControl>
-			<Stack direction="row" spacing={1}>
-				<Badge
-					overlap="circular"
-					anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-					badgeContent={
-						<IconButton
-							color="primary"
-							aria-label="upload picture"
-							component="label"
-						>
-							<input hidden accept="image/*" type="file" />
-							<PhotoCamera sx={{ width: 100, height: 100 }} />
-						</IconButton>
-					}
-				>
-					<Avatar
-						sx={{ width: 400, height: 400 }}
-						alt="Travis Howard"
-						src="https://learn.microsoft.com/en-us/answers/storage/attachments/209536-360-f-364211147-1qglvxv1tcq0ohz3fawufrtonzz8nq3e.jpg"
-					/>
-				</Badge>
-			</Stack>
 		</Container>
 	);
 };
