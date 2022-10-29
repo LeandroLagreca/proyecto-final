@@ -1,4 +1,5 @@
 const cloudinary = require('../cloudinary/config')
+const { Image } = require('../db')
 
 const upLoadDicountsBanner = async (req, res) => {
   const file = req.files.image
@@ -6,10 +7,25 @@ const upLoadDicountsBanner = async (req, res) => {
     const upload = await cloudinary.v2.uploader.upload(file.tempFilePath,
   { 
     public_id: "discounts_banner",
-    folder: 'gamescript'
+    folder: 'gamescript',
+    overwrite: true
    })
-
    if(upload.secure_url) {
+    const findSome = await Image.findOne({
+      where: {
+        name: 'bannerDicounts'
+      }
+    })
+    if(!findSome) {
+      await Image.create({
+        name: 'bannerDicounts',
+        image: upload.secure_url
+      })
+    } else {
+      findSome.update({
+        image: upload.secure_url
+      })
+    }
      res.send(upload.secure_url)
    } else {
     res.status(404).send('No hay ningun banner subido')
