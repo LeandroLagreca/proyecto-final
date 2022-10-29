@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const axios = require("axios");
-const { Videogame, Genre } = require("../db");
+const { Videogame, Genre, User } = require("../db");
 const router = Router();
 const { API_KEY } = process.env;
 const json = require("../harcode.json");
@@ -224,6 +224,29 @@ const getAllGames = async (req, res) => {
   }
 };
 
+const getUserGames = async(req, res) => {
+  const { id } = req.params
+  try {
+    const userGames = await Videogame.findAll({
+      include: {
+        model: User,
+        where: {id},
+        attributes: ['id', 'name'],
+        through: {attributes: []}
+      }
+    }) 
+    if(!userGames.length) {
+      res.status(404).send("This user don't have any game yet")
+    } else {
+      res.json(userGames)
+    }
+  } catch (error) {
+      res.status(400).send(error.message)
+  }
+  
+
+}
+
 const videogameByID = async (req, res) => {
   const { id } = req.params;
 
@@ -341,4 +364,5 @@ module.exports = {
   getDiscounts,
   getRowTableVideoGames,
   addStock,
+  getUserGames
 };
