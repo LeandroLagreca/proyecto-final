@@ -43,7 +43,8 @@ const {
 
 const {
   createQuestion,
-	answerQuestion
+	answerQuestion,
+  getQuestions
 } = require('../controllers/questions/Question')
 
 const router = Router();
@@ -64,7 +65,7 @@ router.post("/comments", postComment);
 router.put("/comments", updateComment);
 
 //Q&A
-router.get('/questions')
+router.get('/questions', getQuestions)
 
 router.post('/questions', createQuestion)
 

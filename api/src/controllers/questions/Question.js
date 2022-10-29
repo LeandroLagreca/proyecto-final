@@ -48,7 +48,24 @@ const answerQuestion = async (req, res) => {
 	
 }
 
+const getQuestions = async (req, res) => {
+
+	try {
+		const questions = await Question.findAll()
+	
+		if(!questions.length) {
+			return res.status(404).send('Dont exist any question yet')
+		} else {
+			res.json(questions)
+		}
+	} catch (error) {
+			res.status(400).send(error.message)
+	}
+	
+}
+
 module.exports = {
 	createQuestion,
-	answerQuestion
+	answerQuestion,
+	getQuestions
 };
