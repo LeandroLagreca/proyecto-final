@@ -7,6 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { filterByGenre } from '../../redux/reducers/videoGame';
 
+
 export default function SelectGenere() {
 	const dispatch = useDispatch();
 	const [ options, setOptions ] = useState([])
@@ -23,7 +24,7 @@ export default function SelectGenere() {
 
 	return (
 		<div>
-			<FormControl sx={{ m: 1, minWidth: 100 }}>
+			<FormControl sx={{ m: 1, minWidth: 100, backgroundColor:"secondary.main",  borderRadius:1 }}>
 				<InputLabel>Genere</InputLabel>
 				<Select value={genre} onChange={handleGenere} autoWidth label="Genere">
 					<MenuItem value="">

@@ -15,7 +15,7 @@ const styles = {
 		justifyItems: 'center',
 		columnGap: 5,
 		rowGap: 5,
-		paddingX: 20,
+		paddingX: 8,
 	},
 };
 

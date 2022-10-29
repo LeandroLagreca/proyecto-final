@@ -7,7 +7,7 @@ import { setLoading } from '../../redux/reducers/videoGame';
 import { useEffect } from 'react';
 import { getGames } from '../../redux/actions/videoGame';
 import { Box, List, ListItem, ListSubheader } from '@mui/material';
-
+import "./filter.css"
 
 
 export default function Filter() {
@@ -32,13 +32,13 @@ export default function Filter() {
 	}, [page, sort, name, rating, price, genre, dispatch])
 
 	return (
-				<Box sx={{display:"flex", textAling:"center", alignItems: 'center'}}>
+				<Box className='Filters' sx={{display:"flex", textAling:"center", alignItems: 'center'}}>
 
 					<List 
 					subheader={
-						<ListSubheader sx={{fontSize: 50}} >
+						<Box   sx={{fontSize: 40, color: "black"}} >
 						  Filters
-						</ListSubheader>
+						</Box>
 					  }>
 						<ListItem sx={{marginLeft:"45px"}}>
 							<SelectRating />
