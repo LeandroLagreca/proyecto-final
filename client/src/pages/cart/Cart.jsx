@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link as RouterLink } from "react-router-dom";
 import axios from "axios";
 import {
   CssBaseline,
@@ -13,13 +14,14 @@ import {
   FormControlLabel,
   Checkbox,
   Modal,
+  Link,
 } from "@mui/material/";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
 import { AddressForm, Review } from "../../components";
 
 import { makeEmail } from "./utils";
-import { addPurchases } from "../../redux/actions/user";
+import { addPurchases, clearCart } from "../../redux/actions/user";
 
 
 const Cart = () => {
@@ -105,6 +107,7 @@ const Cart = () => {
             totalPrice,
           },
         });
+        dispatch(clearCart())
         setOpen(true);
         makeEmail(email, address.firstName, order.data.data)
         elements.getElement(CardElement).clear();
@@ -194,9 +197,11 @@ const Cart = () => {
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                       GRACIAS POR SU PREFERENCIA
                     </Typography>
-                    <Button variant="contained" href="/home" sx={{ mt: 2 }}>
-                      {"OK"}
-                    </Button>
+                    <Link component={RouterLink} to='/home' underline="none">
+                      <Button variant="contained" sx={{ mt: 2 }}>
+                        {"OK"}
+                      </Button>
+                    </Link>
                   </Box>
                 </Modal>
               </Box>
