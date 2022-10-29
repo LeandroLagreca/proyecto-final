@@ -44,7 +44,7 @@ export default function Detail() {
   if (gameDetail.images) {
     var images = gameDetail.images;
     imgCarousel = images.split(",");
-    imgCarousel.push(gameDetail.trailer)
+    imgCarousel.unshift(gameDetail.trailer)
   }
 
   //Estado locad de Form de Reseñas
@@ -264,7 +264,7 @@ export default function Detail() {
               sx={{ borderRadius: "4px" }}
             >
               {/* CARRUSEL */}
-              <Carousel className="carusel">
+              <Carousel autoPlay={false} className="carusel">
                 {imgCarousel.map((item, index) => (
                   <Item key={index} item={item} />
                 ))}

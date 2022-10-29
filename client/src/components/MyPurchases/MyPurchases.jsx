@@ -53,7 +53,7 @@ const MyPurchases = () => {
 			<Typography
 				variant="h4"
 				align="center"
-				sx={{ fontWight: 'bold', pading: '10px' }}
+				sx={{ fontWight: 'bold', padding: '10px' }}
 			>
 				PURCHASED GAMES
 			</Typography>
@@ -157,6 +157,7 @@ const MyPurchases = () => {
 					);
 				})}
 			</Box>
+			
 		</Container>
 	);
 };
