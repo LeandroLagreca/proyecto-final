@@ -64,6 +64,7 @@ router.post("/comments", postComment);
 
 router.put("/comments", updateComment);
 
+
 //Q&A
 router.get('/questions', getQuestions)
 
@@ -72,6 +73,9 @@ router.post('/questions', createQuestion)
 router.put('/answer/:questionId', answerQuestion)
 
 //Videogames
+
+
+
 
 router.get("/row-videogames", getRowTableVideoGames);
 
@@ -110,6 +114,7 @@ router.get("/orders", getAllOrders);
 router.get("/orders/user/:id", getUserOrders);
 router.post("/orders", createOrder);
 router.put("/orders/:id", ChangeStatePurchaseOrder);
+
 //Images
 router.post("/images/discounts", upLoadDicountsBanner);
 router.get("/images/discounts", getDiscountsBanner);
