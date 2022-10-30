@@ -35,11 +35,11 @@ const ContactComponent = () => {
       return(
           
 
-        <Box id="contacto" sx={{display:"inline-block", width:"50%", }}>
+        <Box id="contacto" sx={{display:"inline-block", width:"50%", height:"auto"}}>
 
           <form  onSubmit={sendEmail}>
             
-            <Box sx={{display:"flex", flexDirection:"row", justifyContent:"space-between", height: "400px", padding:"40px", borderRadius:"20px", boxShadow: 4 , border:"solid 1px" }}>
+            <Box sx={{display:"flex", flexDirection:"column", justifyContent:"space-between", height: "480px", padding:"40px", borderRadius:"20px", boxShadow: 4 , border:"solid 1px" }}>
          
          <Box container  sx={{display:"flex", flexDirection:"column", gap:"15px", textAlign:"start" }}>
          <Typography  variant='h5' gutterBottom fontWeight={"bold"}>
@@ -93,7 +93,7 @@ const ContactComponent = () => {
 
             <textarea name="message" cols="30" rows="5" required className='textarea'  />
             </Box>
-            <Button type='submit' className='contactbtn' >Submit</Button>
+            <Button type='submit' sx={{alignSelf:"center"}} variant='contained' className='contactbtn' >Submit</Button>
             </Box>
             
             </Box>
