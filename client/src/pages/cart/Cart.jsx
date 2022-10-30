@@ -192,10 +192,10 @@ const Cart = () => {
                       variant="h6"
                       component="h2"
                     >
-                      PEDIDO REALIZADO
+                      APPROVED PURCHASE
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                      GRACIAS POR SU PREFERENCIA
+                    THANK YOU FOR YOUR PREFERENCE
                     </Typography>
                     <Link component={RouterLink} to='/home' underline="none">
                       <Button variant="contained" sx={{ mt: 2 }}>
