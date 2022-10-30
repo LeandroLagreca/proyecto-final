@@ -34,18 +34,19 @@ const ContactComponent = () => {
       
       return(
           
+    <Box className="boxcontact" sx={{marginTop:"50px"}}  >
 
-        <Box id="contacto" sx={{display:"inline-block", width:"50%", }}>
+        <Box id="contacto" sx={{display:"inline-block", width:"50%", margin:"100px", backgroundColor:"#edf2f4", borderRadius:"20px",  }}>
 
           <form  onSubmit={sendEmail}>
             
-            <Box sx={{display:"flex", flexDirection:"row", justifyContent:"space-between", height: "400px", padding:"40px", borderRadius:"20px", boxShadow: 4 , border:"solid 1px" }}>
+            <Box sx={{display:"flex", flexDirection:"row", justifyContent:"space-between", height: "400px", padding:"40px", borderRadius:"20px", boxShadow: 4 , border:"solid 1px",  }}>
          
-         <Box container  sx={{display:"flex", flexDirection:"column", gap:"15px", textAlign:"start" }}>
+         <Box container  sx={{display:"flex", flexDirection:"column", gap:"8px", textAlign:"start", color:"#091d36" }}>
          <Typography  variant='h5' gutterBottom fontWeight={"bold"}>
                 Contact Us!
-
             </Typography>
+            <label htmlFor=""> Full Name</label>
             <TextField
             id="outlined-textarea"
             label="Full Name"
@@ -54,13 +55,14 @@ const ContactComponent = () => {
             type={"text"}
             name={"fullName"}
             placeholder={"Name"}
-            sx={{boxShadow:"4"}}
+            sx={{boxShadow:"3", width:"250px", }}
             
+            color='primary'
             
             />
             
             
-
+            <label htmlFor=""> Phone Number</label>
             <TextField
             id="outlined-textarea"
             label="Phone Number"
@@ -69,11 +71,13 @@ const ContactComponent = () => {
             type={"text"}
             name={"phone"}
             placeholder={"Phone Number"}
-            sx={{boxShadow:"4"}}
+            sx={{boxShadow:"3", width:"250px"}}
+            color="primary"
+            
             />
            
             
-
+           <label htmlFor="">Enter Email</label>
             <TextField
             id="outlined-textarea"
             label="Enter Email"
@@ -82,24 +86,35 @@ const ContactComponent = () => {
             type={"text"}
             name={"email"}
             placeholder={"Enter Email"}
-            sx={{boxShadow:"4"}}
+            sx={{boxShadow:"3", width:"250px"}}
+            color="primary"
+            className='textfield'
+            
             
             />
             
         </Box>
-            <Box sx={{display:"flex", flexDirection:"column", textAlign:"start" , gap:"10px"}}>
-            <label >Message</label>
-            <Box sx={{display:"flex", flexDirection:"column", boxShadow:"4"}}>
-
-            <textarea name="message" cols="30" rows="5" required className='textarea'  />
-            </Box>
-            <Button type='submit' className='contactbtn' >Submit</Button>
+            <Box sx={{display:"flex", flexDirection:"column", textAlign:"start" , gap:"10px", color:"#091d36"}}>
+              
+            
+            <label htmlFor="" >Message</label>
+            <TextField
+              id="outlined-multiline-static"
+              
+              multiline
+              rows={3}
+              sx={{marginRight:"20px", boxShadow:"3" }}
+              
+              />
+            
+              <Button type='submit' sx={{backgroundColor:"#5e83ba", width:"50%", color:"#091d36", marginTop:"50px" ,"&:hover": {backgroundColor:"#091d36", color:"#5e83ba"}}} >Submit</Button>
             </Box>
             
             </Box>
         </form>
         </Box>
        
+    </Box>
       )
  }
 
