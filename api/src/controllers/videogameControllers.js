@@ -333,7 +333,7 @@ const UpdateStock = async (req, res) => {
         { where: { id: gameID },
         returning: true, plain: true }
       );
-      console.log(updatedRows[1].dataValues.stock);
+      
       return updatedRows[1].dataValues.stock;
     };
     const sumUpdated = async (amount) => {

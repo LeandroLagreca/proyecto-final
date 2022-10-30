@@ -4,7 +4,18 @@ const { Op } = require("sequelize");
 const createOrder = async (req, res) => {
   const { games, totalPrice } = req.body.bildData;
   const { saveData = false } = req.query;
-  const { userID, cuit, dni, address } = req.body.userData;
+  const {
+    userID,
+    cuit,
+    dni,
+    address,
+    firstname,
+    lastname,
+    country,
+    province,
+    cardnumber,
+    cardholder,
+  } = req.body.userData;
 
   if (saveData) {
     try {
@@ -14,9 +25,17 @@ const createOrder = async (req, res) => {
           cuit: cuit,
           dni: dni,
           address: address,
+          firstname: firstname,
+          lastname: lastname,
+          country: country,
+          province: province,
+          cardnumber: cardnumber,
+          cardholder: cardholder,
         },
         { where: { id: userID } }
       );
+   updatedUserData()
+    
     } catch (error) {
       console.log(error);
     }
