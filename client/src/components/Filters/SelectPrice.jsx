@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import FormControl from "@mui/material/FormControl";
 import { filterByPrice } from "../../redux/reducers/videoGame";
 import Slider from "@mui/material/Slider";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export default function SelectPrice() {
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ export default function SelectPrice() {
     <div>
       <FormControl sx={{ m: 1, minWidth: 100 }}>
         <Box style={{ width: 200, display: 'flex', flexDirection:'column', alignItems:'center' }}>
-          <label>Price </label>
+        <Typography variant='h5' color={"secondary.main"}>Price</Typography>
           <Slider
             step={25}
             min={0}

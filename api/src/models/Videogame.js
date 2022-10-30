@@ -34,8 +34,8 @@ module.exports = (sequelize) => {
       defaultValue: null,
     },
     price: {
-      type: DataTypes.STRING,
-      defaultValue: null,
+      type: DataTypes.FLOAT,
+      defaultValue: 0,
       get() {
         let value = this.getDataValue('price')
         if(value === 'null') return 0

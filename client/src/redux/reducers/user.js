@@ -6,6 +6,7 @@ const cartList = window.localStorage.getItem('cartList')
 
 const initialState = {
 	status: 'guest',
+  email: '',
 	id: null,
 	cartList,
 	wishes: [],
@@ -28,13 +29,15 @@ const userSlice = createSlice({
     setInfo: (state, { payload }) => {
 		const {
 			id,
+      email,
 			deseos,
 			cart,
-      admin
+      admin,
 		} = payload
       return {
 		...state,
 		id,
+    email,
 		wishes: deseos,
 		cartList: cart,
     admin

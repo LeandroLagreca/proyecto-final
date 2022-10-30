@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const axios = require("axios");
-const { Videogame, Genre } = require("../db");
+const { Videogame, Genre, User } = require("../db");
 const router = Router();
 const { API_KEY } = process.env;
 const json = require("../harcode.json");
@@ -91,7 +91,6 @@ const videogamePost = async (req, res) => {
         stock,
       });
 
-
       let genresDb = await Genre.findAll({
         where: { name: genres },
       });
@@ -109,27 +108,6 @@ const videogamePost = async (req, res) => {
     }
   } catch (error) {
     res.status(404).send(error);
-  }
-};
-
-const getGamesDb = async (req, res) => {
-  try {
-    let games = await Videogame.findAll({
-      where: {
-        stock: { [Op.lt]: 0 },
-      },
-      include: {
-        model: Genre,
-        attributes: ["name"],
-        through: {
-          attributes: [],
-        },
-      },
-    });
-
-    return games;
-  } catch (error) {
-    console.log(error);
   }
 };
 
@@ -157,7 +135,37 @@ const getAllGames = async (req, res) => {
       }
     );
   }
-
+  if (price) {
+    switch (price) {
+      case "25":
+        where.price = {
+          [Op.and]: [{ [Op.gte]: 0 }, { [Op.lt]: 25 }],
+        };
+        break;
+      case "50":
+        where.price = {
+          [Op.and]: [{ [Op.gte]: 25 }, { [Op.lt]: 50 }],
+        };
+        break;
+      case "75":
+        where.price = {
+          [Op.and]: [{ [Op.gte]: 50 }, { [Op.lt]: 75 }],
+        };
+        break;
+      case "100":
+        where.price = {
+          [Op.and]: [{ [Op.gte]: 75 }, { [Op.lte]: 100 }],
+        };
+        break;
+      default:
+        where.price = {
+          [Op.and]: [
+            { [Op.gte]: Number(price) - 25 },
+            { [Op.lte]: Number(price) },
+          ],
+        };
+    }
+  }
   if (genre)
     genreFilter.name = {
       [Op.iLike]: genre,
@@ -246,7 +254,26 @@ const getAllGames = async (req, res) => {
     res.status(400).send(error);
   }
 };
-
+const getUserGames = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const userGames = await Videogame.findAll({
+      include: {
+        model: User,
+        where: { id },
+        attributes: ["id", "name"],
+        through: { attributes: [] },
+      },
+    });
+    if (!userGames.length) {
+      res.status(404).send("This user don't have any game yet");
+    } else {
+      res.json(userGames);
+    }
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
 const videogameByID = async (req, res) => {
   const { id } = req.params;
 
@@ -271,12 +298,12 @@ const videogameByID = async (req, res) => {
 
 const getGenres = async (req, res) => {
   try {
-    const data = await Genre.findAll({ attributes: ['id', 'name']});
+    const data = await Genre.findAll({ attributes: ["id", "name"] });
     res.status(200).send(data);
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 const getDiscounts = async (req, res) => {
   try {
@@ -337,6 +364,54 @@ const updateVideogame = async (req, res) => {
   }
 };
 
+const UpdateStock = async (req, res) => {
+  let { gameID, amount, operador } = req.body;
+
+ if(gameID && amount && operador) {
+  try {
+    const subUpdated = async (amount) => {
+      const updatedRows = await Videogame.update(
+        {
+          stock: Sequelize.literal(`stock - ${amount}`),
+        },
+        { where: { id: gameID },
+        returning: true, plain: true }
+      );
+      
+      return updatedRows[1].dataValues.stock;
+    };
+    const sumUpdated = async (amount) => {
+      const updatedRows = await Videogame.update(
+        {
+          stock: Sequelize.literal(`stock + ${amount} `),
+        },
+        { where: { id: gameID },
+        returning: true, plain: true}
+      
+      );
+      
+      
+      return updatedRows[1].dataValues.stock
+    };
+
+    if (operador == "sum") {
+      let newStock = await sumUpdated(amount);
+      return res.status(200).send({ msg: `New stock ${newStock}` });
+    } else if (operador == "sub") {
+      let newStock = await subUpdated(amount);
+      return res.status(200).send({ msg: `New stock ${newStock}` });
+    }
+
+ 
+  } catch (error) {
+    console.log(error);
+  }
+ }
+ else{
+  res.status(404).send({error:"gameID, amount and operador (sum, sub) are required by body"})
+ }
+ 
+};
 module.exports = {
   videogamePost,
   videogameByID,
@@ -345,4 +420,6 @@ module.exports = {
   getAllGames,
   getDiscounts,
   getRowTableVideoGames,
+  getUserGames,
+  UpdateStock,
 };

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { AddressForm, Review } from "../../components";
-import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Link as RouterLink } from "react-router-dom";
+import axios from "axios";
 import {
   CssBaseline,
   Container,
@@ -14,16 +14,21 @@ import {
   FormControlLabel,
   Checkbox,
   Modal,
+  Link,
 } from "@mui/material/";
-
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
-import axios from "axios";
+import { AddressForm, Review } from "../../components";
+
+import { makeEmail } from "./utils";
+import { addPurchases, clearCart } from "../../redux/actions/user";
+
 
 const Cart = () => {
+
+  const dispatch = useDispatch();
+
   //Aplicando tecnologia de hook stripe hooks
-  const params = useParams()
-  console.log(params)
   const [cardPay, setCardPay] = useState({
     cardNumber: "",
     cardExpiry: "",
@@ -45,7 +50,7 @@ const Cart = () => {
 
   const [activeStep, setActiveStep] = useState(0);
 
-  const {id : userId, cartList} = useSelector((state) => state.user);
+  const { id: userId, cartList, email } = useSelector((state) => state.user);
   const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
   const stripe = useStripe();
@@ -57,8 +62,8 @@ const Cart = () => {
     } else {
       return {
         cant: e.cant,
-        price: parseFloat(e.price)
-      } ;
+        price: parseFloat(e.price),
+      };
     }
   });
 
@@ -85,7 +90,6 @@ const Cart = () => {
     });
 
     if (!error) {
-      setOpen(true);
       const { id } = paymentMethod;
       try {
         await axios.post("http://localhost:3001/payment", {
@@ -93,24 +97,26 @@ const Cart = () => {
           amount: totalPrice, //cents
         });
 
-        await axios.post('http://localhost:3001/orders', {
-      userData: {
-        userID: userId,
-        ...address
-      },
-      bildData: {
-        games: cartList,
-        totalPrice
-      }
-    })
-
+        const order = await axios.post("http://localhost:3001/orders", {
+          userData: {
+            userID: userId,
+            ...address,
+          },
+          bildData: {
+            games: cartList,
+            totalPrice,
+          },
+        });
+        dispatch(clearCart())
+        setOpen(true);
+        makeEmail(email, address.firstName, order.data.data)
         elements.getElement(CardElement).clear();
-      } catch (error) {
-      }
+      } catch (error) {}
     }
     setLoading(false);
 
     setActiveStep(activeStep + 1);
+    dispatch(addPurchases(cartList));
   };
 
   const handleUserInfo = (e) => {
@@ -191,9 +197,11 @@ const Cart = () => {
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                       GRACIAS POR SU PREFERENCIA
                     </Typography>
-                    <Button variant="contained" href="/home" sx={{ mt: 2 }}>
-                      {"OK"}
-                    </Button>
+                    <Link component={RouterLink} to='/home' underline="none">
+                      <Button variant="contained" sx={{ mt: 2 }}>
+                        {"OK"}
+                      </Button>
+                    </Link>
                   </Box>
                 </Modal>
               </Box>
@@ -202,7 +210,6 @@ const Cart = () => {
         </Paper>
       </Container>
     </>
-      
   );
 };
 

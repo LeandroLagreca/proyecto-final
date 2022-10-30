@@ -14,6 +14,8 @@ const {
   getAllGames,
   getDiscounts,
   getRowTableVideoGames,
+  UpdateStock,
+  getUserGames
 } = require("../controllers/videogameControllers.js");
 
 const transporter = require("../nodemailer/config");
@@ -38,6 +40,13 @@ const {
   upLoadDicountsBanner,
   getDiscountsBanner,
 } = require("../controllers/Images");
+
+const {
+  createQuestion,
+	answerQuestion,
+  getQuestions
+} = require('../controllers/questions/Question')
+
 const router = Router();
 
 //Configuración de rutas
@@ -55,9 +64,24 @@ router.post("/comments", postComment);
 
 router.put("/comments", updateComment);
 
-//Videogame
+
+//Q&A
+router.get('/questions', getQuestions)
+
+router.post('/questions', createQuestion)
+
+router.put('/answer/:questionId', answerQuestion)
+
+//Videogames
+
+
+
 
 router.get("/row-videogames", getRowTableVideoGames);
+
+router.put("/videogames/stock",UpdateStock)
+
+router.get("/videogames/user/:id", getUserGames);
 
 router.get("/videogames/:id", videogameByID);
 
@@ -90,6 +114,7 @@ router.get("/orders", getAllOrders);
 router.get("/orders/user/:id", getUserOrders);
 router.post("/orders", createOrder);
 router.put("/orders/:id", ChangeStatePurchaseOrder);
+
 //Images
 router.post("/images/discounts", upLoadDicountsBanner);
 router.get("/images/discounts", getDiscountsBanner);
