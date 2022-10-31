@@ -1,8 +1,9 @@
 const { Question, User, Videogame } = require("../../db");
 const { someError } = require('./utils')
+
 const createQuestion = async (req, res) => {
   const { userId, gameId, text } = req.body;
-	if(someError(...req.body)) return res.status(401).send('Faltan parametros requeridos')
+	if(someError({...req.body})) return res.status(401).send('Faltan parametros requeridos')
   try {
     const newQuestion = await Question.create({
       text,
@@ -14,14 +15,14 @@ const createQuestion = async (req, res) => {
 		const findGame = await Videogame.findOne({
 			where: {id: gameId}
 		})
-		await newQuestion.addUser(findUser)
-		await newQuestion.addVideogame(findGame)
+		await newQuestion.setUser(findUser)
+		await newQuestion.setVideogame(findGame)
 		res.status(201).json({
 			msg: 'Question created successfully',
 			question: newQuestion
 		})
   } catch (error) {
-			res.send(400).status(error.message)
+			res.status(400).send(error.message)
 	}
 };
 
@@ -49,9 +50,19 @@ const answerQuestion = async (req, res) => {
 }
 
 const getQuestions = async (req, res) => {
-
+	const { gameId } = req.query
+	const where = {}
+	if(gameId) {
+		where.id = gameId
+	}
 	try {
-		const questions = await Question.findAll()
+		const questions = await Question.findAll({
+			include: {
+				model: Videogame,
+				where,
+				attributes: ['name']
+			}
+		})
 	
 		if(!questions.length) {
 			return res.status(404).send('Dont exist any question yet')
