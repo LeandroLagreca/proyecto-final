@@ -90,6 +90,13 @@ function handleSelect(e) {
     }) 
 }
 
+function handlePush(e) {
+    setInput({
+        ...input,
+        genres:[...input.genres.push(input.otro), e.target.value] //concatena las dietas al estado
+    }) 
+}
+
 
 function handleDelete(el){
     setInput({
@@ -103,7 +110,7 @@ function handleDelete(el){
   function handleSubmit(e){
     e.preventDefault();
     if(input.name && input.description&&input.background_image&&input.price&&input.rating&&input.requirements
-        &&!errors.name&& !errors.description&&!errors.background_image&&!errors.price&&!errors.rating&&!errors.requirements&&input.genres.length !==0 &&input.genres.length<=3)
+        &&!errors.name&& !errors.description&&!errors.background_image&&!errors.price&&!errors.rating&&!errors.requirements)
 
     {dispatch(postGames(input))
     alert("Juego creado con exito!")
@@ -256,13 +263,15 @@ useEffect(()=> {
                             value={input.genres}
                             aria-describedby="component-error-text"><MenuItem>Seleccione</MenuItem>
                             {generos&& generos.map(e=>(<MenuItem key={e.name} value={e.name}>{e.name}</MenuItem>))}
-                            <MenuItem value="otro">Otro</MenuItem>
+                            {/* <MenuItem value="otro">Otro</MenuItem> */}
                             </Select>
-                            {input.genres.includes("otro")?<FormControl variant="standard">
+                            <FormControl variant="standard">
                             <InputLabel htmlFor="component-simple">Otro genero</InputLabel>
                             <Input id="component-simple" name="otro" value={input.otro} onChange={handleChange} />
-                        </FormControl> :null}
-                        {/* {input.otro&& input.genres.replace("otro",input.otro)} */}
+                            <Button onClick={handlePush}>Agregar</Button>
+                        </FormControl>
+                       
+
                             {/* <FormHelperText id="component-error-text">{errors.requirements}</FormHelperText> */}
                             {console.log(input)}
                             {/* {input.genres.map(el=> 
@@ -271,6 +280,7 @@ useEffect(()=> {
                             <button onClick={handleDelete} >x</button>
                         </div>
                         )} */}
+                        {console.log(input.genres)}
                         </FormControl>
                     </CardContent>
                     {Object.entries(errors).length===0 && input.name!==""?<CardContent>   
