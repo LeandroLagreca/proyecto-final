@@ -53,6 +53,16 @@ const MyProfile = () => {
 		setEditProfile(false);
 	};
 
+	useEffect(() => {
+		window.onbeforeunload = function () {
+			return true;
+		};
+
+		return () => {
+			window.onbeforeunload = null;
+		};
+	}, []);
+
 	return (
 		<Container
 			maxWidth="sm"
@@ -69,7 +79,7 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="firstName"
-							name="firstName"
+							name="firstname"
 							label="First name"
 							fullWidth
 							autoComplete="given-name"
@@ -82,7 +92,7 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="lastName"
-							name="lastName"
+							name="lastname"
 							label="Last name"
 							fullWidth
 							autoComplete="family-name"
@@ -120,7 +130,7 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="city"
-							name="city"
+							name="cuit"
 							label="City"
 							fullWidth
 							autoComplete="shipping address-level2"
@@ -146,7 +156,7 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="cardName"
-							name="cardHolder"
+							name="cardholder"
 							label="Card holder"
 							fullWidth
 							autoComplete="cc-name"
@@ -159,7 +169,7 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="numberCard"
-							name="cardNumber"
+							name="cardnumber"
 							label="Card number"
 							fullWidth
 							autoComplete="cc-number"
@@ -206,7 +216,7 @@ const MyProfile = () => {
 							<Stack spacing={2} direction="row">
 								<Button
 									component={Link}
-									to='/account'
+									to="/account"
 									variant="contained"
 									value="no"
 									onClick={handleSave}
@@ -215,7 +225,7 @@ const MyProfile = () => {
 								</Button>
 								<Button
 									component={Link}
-									to='/account'
+									to="/account"
 									variant="contained"
 									value="si"
 									onClick={handleSave}

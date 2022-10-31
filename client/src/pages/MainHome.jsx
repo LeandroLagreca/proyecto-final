@@ -8,14 +8,6 @@ import { useEffect } from 'react';
 import { putUserData } from '../redux/actions/user';
 
 const MainHome = () => {
-	const idUser = useSelector((state) => state.user.id);
-	const dispatch = useDispatch();
-
-	useEffect(() => {
-		if (idUser) {
-			dispatch(putUserData(idUser));
-		}
-	}, [idUser, dispatch]);
 
 	return (
 		<>
