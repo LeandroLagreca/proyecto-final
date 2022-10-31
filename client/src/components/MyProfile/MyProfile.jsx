@@ -51,6 +51,7 @@ const MyProfile = () => {
 	const handleSave = (e) => {
 		dispatch(putUserData(id, values));
 		setEditProfile(false);
+		setOpen(false);
 	};
 
 	useEffect(() => {
@@ -216,7 +217,7 @@ const MyProfile = () => {
 							<Stack spacing={2} direction="row">
 								<Button
 									component={Link}
-									to="/account"
+									to="/home"
 									variant="contained"
 									value="no"
 									onClick={handleSave}
@@ -225,7 +226,6 @@ const MyProfile = () => {
 								</Button>
 								<Button
 									component={Link}
-									to="/account"
 									variant="contained"
 									value="si"
 									onClick={handleSave}

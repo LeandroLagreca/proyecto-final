@@ -24,7 +24,52 @@ import {
 
 import { images } from '../../assets';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { putUserData } from '../../redux/actions/user';
+
 const AccountNavBar = () => {
+	const userData = useSelector((state) => state.user.userData);
+	const dispatch = useDispatch();
+
+	const [profile, setProfile] = React.useState({
+		file: '',
+		base64URL: '',
+	});
+
+	React.useEffect(() => {
+		console.log(profile.base64URL);
+	}, [profile]);
+
+	const convertBase64 = (file) => {
+		return new Promise((resolve, reject) => {
+			const fileReader = new FileReader();
+			fileReader.readAsDataURL(file);
+
+			fileReader.onload = () => {
+				resolve(fileReader.result);
+			};
+
+			fileReader.onerror = (error) => {
+				reject(error);
+			};
+		});
+	};
+
+	const handleFileInputChange = (e) => {
+		const file = e.target.files[0];
+		setProfile({ ...profile, file: file });
+
+		convertBase64(file)
+			.then((result) => {
+				setProfile({ ...profile, base64URL: result });
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+
+		dispatch(putUserData(userData.id, { image: profile.base64URL }));
+	};
+
 	return (
 		<Drawer
 			PaperProps={{
@@ -52,16 +97,29 @@ const AccountNavBar = () => {
 								aria-label="upload picture"
 								component="label"
 							>
-								<input hidden accept="image/*" type="file" />
+								<input
+									hidden
+									accept="image/*"
+									type="file"
+									onChange={handleFileInputChange}
+								/>
 								<PhotoCamera sx={{ width: 50, height: 50 }} />
 							</IconButton>
 						}
 					>
-						<Avatar
-							sx={{ width: 200, height: 200 }}
-							alt="Travis Howard"
-							src={images.avatar}
-						/>
+						{userData.image === '' ? (
+							<Avatar
+								sx={{ width: 200, height: 200 }}
+								alt="Travis Howard"
+								src={images.avatar}
+							/>
+						) : (
+							<Avatar
+								sx={{ width: 200, height: 200 }}
+								alt="Travis Howard"
+								src={userData.image}
+							/>
+						)}
 					</Badge>
 				</Stack>
 				<ListItem>
