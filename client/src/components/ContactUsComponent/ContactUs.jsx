@@ -5,7 +5,7 @@ import emailjs from '@emailjs/browser';
 import { useEffect } from 'react';
 import Swal from 'sweetalert2';
 import "./ContactUs.css"
-import validation from '../LandingForm/validations';
+import validation from './validations';
 import { Check, PriorityHigh } from '@mui/icons-material';
 
 
