@@ -6,7 +6,7 @@ const parse = require("html-react-parser"); //funcion para parsear html
 const imgLink = "Url de imagen de usuario"; //aqui cuando agreguen la funcion de Imagen Profile
 
 export default function Comments({ list, type }) {
-  if (!list.length) return <></>;
+  if (!list?.length) return <></>;
   return (
     <div style={{ padding: 0 }} className="Comments">
       <h1>
