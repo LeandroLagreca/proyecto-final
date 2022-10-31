@@ -37,10 +37,10 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
       defaultValue: 0,
       get() {
-        const value = this.getDataValue('price')
-        if(!value) return 0
-        if(this.discount?.status) return this.discount.currentPrice
-        return value
+        let value = this.getDataValue('price')
+        if(value === 'null') return 0
+        else if(this.discount?.status) return this.discount.currentPrice
+        else return parseInt(value) 
       }
     },
     images: {

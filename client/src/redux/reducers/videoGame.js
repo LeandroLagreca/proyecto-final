@@ -75,7 +75,7 @@ const videoGameSlice = createSlice({
 
 				name: payload,
 				rating: '' ,
-				price: '',
+				price: 0,
 				genre: '',
 				sort: '',
 			};
@@ -91,7 +91,7 @@ const videoGameSlice = createSlice({
 			state.filters = {
 				name: '',
 				rating: '',
-				price: '',
+				price: 0,
 				genre: '',
 				sort: '',
 			};

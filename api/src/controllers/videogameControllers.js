@@ -170,6 +170,51 @@ const getAllGames = async (req, res) => {
     genreFilter.name = {
       [Op.iLike]: genre,
     };
+  if(price){
+    where.price = {
+      
+    }
+    switch (price) {
+        
+      case "25":
+        where.price = {
+          [Op.and]: [
+            {[Op.gte]: "0"},    
+            {[Op.lte]: "25"} 
+          ]
+            
+          
+        }
+        break;
+      case "50":
+        where.price = {
+          [Op.and]: {
+            [Op.gt]: "25",
+            [Op.lte]: "50"
+          }
+        }
+        
+        break;
+      case "75":
+        where.price = {
+          [Op.and]: {
+            [Op.gt]: "50",
+            [Op.lte]: "75"
+          }
+        }
+      break;
+      case "100":
+        where.price = {
+          [Op.and]: {
+            [Op.gt]: 75,
+            [Op.lte]: 100
+          }
+        }
+        break;
+      default:
+        break;
+    }
+  }
 
   let config = {
     distinct: true,
@@ -196,6 +241,7 @@ const getAllGames = async (req, res) => {
         results: rows.length,
         games: rows,
       });
+      
     } else {
       let message;
       if (filter?.name) message = "No se encontro el juego buscado";
