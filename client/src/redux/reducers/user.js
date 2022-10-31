@@ -15,6 +15,7 @@ const initialState = {
 	purchases: [],
 	collection: [],
 	comments: [],
+    userData: {},
 };
 
 const userSlice = createSlice({
@@ -60,6 +61,9 @@ const userSlice = createSlice({
 		getAllUserComments: (state, { payload }) => {
 			state.comments = payload;
 		},
+        getUserData: (state, { payload }) => {
+            state.userData = payload;
+        },
 	},
 });
 
@@ -73,5 +77,6 @@ export const {
 	addToPurchases,
 	addToCollection,
 	getAllUserComments,
+    getUserData,
 } = userSlice.actions;
 export default userSlice.reducer;
