@@ -1,17 +1,45 @@
-import { Button, FormControl, FormLabel, Grid, TextareaAutosize, TextField, Typography } from '@mui/material';
+import { Alert, Button, FormControl, FormHelperText, FormLabel, Grid, TextareaAutosize, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import {React,  useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { useEffect } from 'react';
 import Swal from 'sweetalert2';
 import "./ContactUs.css"
+import validation from '../LandingForm/validations';
+import { Check, PriorityHigh } from '@mui/icons-material';
 
 
 
 const ContactComponent = () => {
     const [result, setResult] = useState(false)
-   
+    const [contactInfo, setContactInfo] = useState({
+      phone:"",
+      fullName:"",
+      email:""
+    })
+    const [errors, setErrors] = useState({})
+    console.log(contactInfo)
+    console.log(errors)
     
+   
+    useEffect(() => {
+      const check = validation(contactInfo);
+      setErrors(check);
+      
+    }, [contactInfo]);
+
+    function handleChange(e) {
+      const value = e.target.value;
+      const name = e.target.name;
+  
+      setContactInfo((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
+
+
+   
     const sendEmail = (e) => {
         e.preventDefault();
     
@@ -29,18 +57,18 @@ const ContactComponent = () => {
           })
       };
 
-
+    
       
       
       return(
           
-    <Box className="boxcontact" sx={{marginTop:"50px"}}  >
+    <Box id="contacto" className="boxcontact" sx={{marginTop:"50px",}}  >
 
-        <Box id="contacto" sx={{display:"inline-block", width:"50%", margin:"100px", backgroundColor:"#edf2f4", borderRadius:"20px",  height:"auto"}}>
+        <Box  sx={{display:"inline-block", width:"50%", margin:"100px", backgroundColor:"#edf2f4", borderRadius:"20px", justifyContent:"center",   }}>
 
           <form  onSubmit={sendEmail}>
             
-            <Box sx={{display:"flex", flexDirection:"column", justifyContent:"space-between", height: "480px", padding:"40px", borderRadius:"20px", boxShadow: 4 , border:"solid 1px",  }}>
+            <Box sx={{display:"flex", flexDirection:"row", justifyContent:"space-between", height: "400px", padding:"40px", borderRadius:"20px", boxShadow: 4 , border:"solid 1px",  }}>
          
          <Box container  sx={{display:"flex", flexDirection:"column", gap:"8px", textAlign:"start", color:"#091d36" }}>
          <Typography  variant='h5' gutterBottom fontWeight={"bold"}>
@@ -54,44 +82,69 @@ const ContactComponent = () => {
             required
             type={"text"}
             name={"fullName"}
-            
+            value={contactInfo.fullName}
             sx={{boxShadow:"3", width:"250px", }}
+            onChange={handleChange}
+            color={
+              errors?.name  ? (
+                  "error"
+              ): "success"
+            }
+            placeholder='Pepe Gutierrez'
             
-            color='primary'
             
             />
+             
+             
             
             
             <label htmlFor=""> Phone Number</label>
+            <Box>
+
             <TextField
             id="outlined-textarea"
-            
             multiline
             required
             type={"text"}
             name={"phone"}
-            
+            value={contactInfo.phone}
             sx={{boxShadow:"3", width:"250px"}}
-            color="primary"
+            color={
+              errors?.phoneFormat ? (
+                "error"
+              ): "success"
+            }
+            onChange={handleChange}
             
+            placeholder="1135462365"
             />
+            
            
+            </Box>
             
            <label htmlFor="">Enter Email</label>
+           
+
             <TextField
             id="outlined-textarea"
             
             multiline
             required
-            type={"text"}
+            type={"email"}
             name={"email"}
-            
+            value={contactInfo.email}
             sx={{boxShadow:"3", width:"250px"}}
-            color="primary"
+            color={
+              errors.emailFormat ? (
+                "error"
+              ): "success"
+            }
             className='textfield'
-            
-            
+            onChange={handleChange}
+            placeholder="emaildeprueba@gmail.com"
             />
+           
+          
             
         </Box>
             <Box sx={{display:"flex", flexDirection:"column", textAlign:"start" , gap:"10px", color:"#091d36"}}>
@@ -107,7 +160,7 @@ const ContactComponent = () => {
               
               />
             
-              <Button type='submit' sx={{backgroundColor:"#5e83ba", width:"50%", color:"#091d36", marginTop:"50px" ,"&:hover": {backgroundColor:"#091d36", color:"#5e83ba"}}} >Submit</Button>
+              <Button type='submit' sx={{backgroundColor:"#5e83ba", width:"50%", color:"#091d36", marginTop:"50px" ,"&:hover": {backgroundColor:"#091d36", color:"#5e83ba"}}} disabled={errors.emailFormat  ? true : false} >Submit</Button>
             </Box>
             
             </Box>
