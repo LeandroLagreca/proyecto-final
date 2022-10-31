@@ -10,7 +10,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getGenres,postGames } from '../../redux/actions/videoGame';
-import {useParams} from "react-router-dom";
+import {useParams} from 'react-router-dom';
 
 function validate(input){
     var errors = {}
@@ -53,8 +53,8 @@ function validate(input){
     
 
 export default function ComposedTextField() {
-//   const {id}= useParams()
-//   console.log(id)
+let {id} = useParams()
+console.log(id)
   const dispatch = useDispatch()
   const generos = useSelector((state)=> state.videogames.genres)
   const [errors,setErrors] = useState({})
@@ -66,7 +66,9 @@ export default function ComposedTextField() {
   rating:0,
   requirements:"",
   genres:[],
-  otro:""
+  otro:"",
+  newGenres:[]
+
   })  
 
 
@@ -93,7 +95,7 @@ function handleSelect(e) {
 function handlePush(e) {
     setInput({
         ...input,
-        genres:[...input.genres.push(input.otro), e.target.value] //concatena las dietas al estado
+        genres:[...input.newGenres.push(input.otro), e.target.value] //concatena las dietas al estado
     }) 
 }
 
@@ -121,7 +123,9 @@ function handleDelete(el){
         price:0,
         rating:0,
         requirements:"",
-        genres:[]
+        genres:[],
+        newGenres:[]
+
     })}
     else alert ("Por favor, complete el formulario correctamente")
 }
@@ -130,7 +134,7 @@ useEffect(()=> {
     dispatch(getGenres())
      }, []);
 
-  return (
+  return ( 
     <Box
       my={2}
       component="form"
@@ -144,7 +148,7 @@ useEffect(()=> {
    
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                 <Card>
-                <h1>Edit Game</h1>
+                <h1>Create Game</h1>
                     <CardContent>   
                         {!errors.name? <FormControl variant="standard">
                             <InputLabel htmlFor="component-simple">Name</InputLabel>
@@ -291,7 +295,7 @@ useEffect(()=> {
                     :
                     <CardContent>   
                         <FormControl>
-                        <Button disabled>Save</Button>
+                        <Button disabled>Create</Button>
                         </FormControl>
                     </CardContent>}
                 </Card>

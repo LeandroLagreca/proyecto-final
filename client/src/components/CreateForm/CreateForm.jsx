@@ -66,7 +66,9 @@ export default function ComposedTextField() {
   rating:0,
   requirements:"",
   genres:[],
-  otro:""
+  otro:"",
+  newGenres:[]
+
   })  
 
 
@@ -93,7 +95,7 @@ function handleSelect(e) {
 function handlePush(e) {
     setInput({
         ...input,
-        genres:[...input.genres.push(input.otro), e.target.value] //concatena las dietas al estado
+        genres:[...input.newGenres.push(input.otro), e.target.value] //concatena las dietas al estado
     }) 
 }
 
@@ -121,7 +123,9 @@ function handleDelete(el){
         price:0,
         rating:0,
         requirements:"",
-        genres:[]
+        genres:[],
+        newGenres:[]
+
     })}
     else alert ("Por favor, complete el formulario correctamente")
 }
