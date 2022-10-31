@@ -22,6 +22,8 @@ import {
 	PhotoCamera,
 } from '@mui/icons-material';
 
+import { images } from '../../assets';
+
 const AccountNavBar = () => {
 	return (
 		<Drawer
@@ -58,7 +60,7 @@ const AccountNavBar = () => {
 						<Avatar
 							sx={{ width: 200, height: 200 }}
 							alt="Travis Howard"
-							src="https://learn.microsoft.com/en-us/answers/storage/attachments/209536-360-f-364211147-1qglvxv1tcq0ohz3fawufrtonzz8nq3e.jpg"
+							src={images.avatar}
 						/>
 					</Badge>
 				</Stack>
