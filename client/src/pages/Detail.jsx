@@ -137,7 +137,7 @@ export default function Detail() {
                       variant="contained"
                     />
                   </Box>
-                  {/* ADDWISHES_ICON */}
+                  {/* ADDWISHES_ICON s*/}
                   <Box>
                     <AddToWishes
                       id={id}

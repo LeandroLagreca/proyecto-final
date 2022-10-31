@@ -32,7 +32,7 @@ export default function Comments({list, type}) {
     }
   useEffect(() => {}, [gameComment]);
 
-  //Update de comentario
+  //Update de comentarios
   async function handleSubmitUpdate(e)  {
     if (!value.comment.text) {
       e.preventDefault();
