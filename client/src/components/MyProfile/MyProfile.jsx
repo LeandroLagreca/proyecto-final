@@ -56,6 +56,16 @@ const MyProfile = () => {
 		setEditProfile(false);
 	};
 
+	useEffect(() => {
+		window.onbeforeunload = function () {
+			return true;
+		};
+
+		return () => {
+			window.onbeforeunload = null;
+		};
+	}, []);
+
 	return (
 		<Container
 			maxWidth="sm"
@@ -209,7 +219,7 @@ const MyProfile = () => {
 							<Stack spacing={2} direction="row">
 								<Button
 									component={Link}
-									to='/account'
+									to="/account"
 									variant="contained"
 									value="no"
 									onClick={handleSave}
@@ -218,7 +228,7 @@ const MyProfile = () => {
 								</Button>
 								<Button
 									component={Link}
-									to='/account'
+									to="/account"
 									variant="contained"
 									value="si"
 									onClick={handleSave}

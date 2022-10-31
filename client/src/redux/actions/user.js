@@ -19,6 +19,10 @@ export const getUserInfo = (email, auth) => {
 			const { data } = await axios.post(API + 'login', { email });
 			if (auth) return data;
 			dispatch(setInfo(data));
+
+			const updatedData = await axios.put(API + `user/${data.id}`, data);
+			dispatch(getUserData(updatedData.data.user));
+
 		} catch (error) {
 			return null;
 		}
