@@ -107,11 +107,19 @@ const AccountNavBar = () => {
 							</IconButton>
 						}
 					>
-						<Avatar
-							sx={{ width: 200, height: 200 }}
-							alt="Travis Howard"
-							src={images.avatar}
-						/>
+						{userData.image === '' ? (
+							<Avatar
+								sx={{ width: 200, height: 200 }}
+								alt="Travis Howard"
+								src={images.avatar}
+							/>
+						) : (
+							<Avatar
+								sx={{ width: 200, height: 200 }}
+								alt="Travis Howard"
+								src={userData.image}
+							/>
+						)}
 					</Badge>
 				</Stack>
 				<ListItem>

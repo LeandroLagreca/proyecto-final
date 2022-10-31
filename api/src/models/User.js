@@ -32,6 +32,7 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.TEXT,
+      defaultValue: "",
     },
     password: {
       type: DataTypes.STRING,
