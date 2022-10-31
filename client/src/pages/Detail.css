@@ -38,13 +38,13 @@ ul {
 	width: 100px;
 }
 
-.description {
+/* .description {
 	-webkit-user-modify: read-write-plaintext-only;
 }
 
 .requeriments {
 	-webkit-user-modify: read-write-plaintext-only;
-}
+} */
 
 .ReqTit{
 	border-top-left-radius: 6px;

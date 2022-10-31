@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Container, Box, Input, Button } from "@mui/material";
 import { DiscountsContainer } from "../containers";
 
-import { Container, Box, Input, Button } from "@mui/material";
 import { Card, Footer, Loader } from "../components";
 import Sidebar from "../components/Sidebar/Sidebar";
+import Swal from "sweetalert2";
 
 const styles = {
   banner: {
@@ -49,14 +50,19 @@ export default function Discounts() {
   const [ discounts, setDiscounts ] = useState([])
   const [ loading, setLoading ] = useState(true)
   const { admin } = useSelector(state => state.user)
-  const [banner, setBanner] = useState('https://res.cloudinary.com/ds0b11qnv/image/upload/v1666927361/gamescript/discounts_banner.webp');
+  const [banner, setBanner] = useState('');
   const [inputValue, setInputValue] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     axios("http://localhost:3001/discounts")
     .then(response => setDiscounts(response.data))
+    .then(() => {
+      axios('http://localhost:3001/images/discounts')
+      .then(response => setBanner(response.data.image))
+    })
     .then(() => setLoading(false))
+    .catch(() => navigate('/home'))
   }, [navigate]);
 
   function handleInput(e) {
@@ -64,12 +70,12 @@ export default function Discounts() {
   }
 
   async function handleUpload() {
-    if (!inputValue) return alert("No se puede subir un archivo vacio");
+    if (!inputValue) return Swal.fire("No se puede subir un archivo vacio");
     const data = new FormData();
     data.append('image', inputValue)
     const url = "http://localhost:3001/images/discounts";
     const image = await axios.post(url, data);
-    if(image) setBanner(image)
+    if(image) setBanner(image.data)
   }
 
   if(loading) return <Loader />

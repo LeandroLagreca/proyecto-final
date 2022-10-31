@@ -234,7 +234,6 @@ const getAllGames = async (req, res) => {
   try {
     let { count, rows } = await Videogame.findAndCountAll(config);
     if (rows.length) {
-     
       res.json({
         status: "success",
         offset: (page - 1) * 10,

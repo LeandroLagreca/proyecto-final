@@ -36,11 +36,11 @@ const ContactComponent = () => {
           
     <Box className="boxcontact" sx={{marginTop:"50px"}}  >
 
-        <Box id="contacto" sx={{display:"inline-block", width:"50%", margin:"100px", backgroundColor:"#edf2f4", borderRadius:"20px",  }}>
+        <Box id="contacto" sx={{display:"inline-block", width:"50%", margin:"100px", backgroundColor:"#edf2f4", borderRadius:"20px",  height:"auto"}}>
 
           <form  onSubmit={sendEmail}>
             
-            <Box sx={{display:"flex", flexDirection:"row", justifyContent:"space-between", height: "400px", padding:"40px", borderRadius:"20px", boxShadow: 4 , border:"solid 1px",  }}>
+            <Box sx={{display:"flex", flexDirection:"column", justifyContent:"space-between", height: "480px", padding:"40px", borderRadius:"20px", boxShadow: 4 , border:"solid 1px",  }}>
          
          <Box container  sx={{display:"flex", flexDirection:"column", gap:"8px", textAlign:"start", color:"#091d36" }}>
          <Typography  variant='h5' gutterBottom fontWeight={"bold"}>
