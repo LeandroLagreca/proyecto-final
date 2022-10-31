@@ -16,3 +16,13 @@
     background-color: "#091d36";
     color: #5e83ba;
 }
+
+.boxcontact{
+    background-image: url("../../assets/imgcontact.png");
+    background-repeat: "no-repeat";
+    object-fit:"cover"; 
+    height: 800px; 
+    background-size:"cover"; 
+    background-position: "25% 75%"
+}
+

@@ -1,17 +1,45 @@
-import { Button, FormControl, FormLabel, Grid, TextareaAutosize, TextField, Typography } from '@mui/material';
+import { Alert, Button, FormControl, FormHelperText, FormLabel, Grid, TextareaAutosize, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import {React,  useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { useEffect } from 'react';
 import Swal from 'sweetalert2';
 import "./ContactUs.css"
+import validation from '../LandingForm/validations';
+import { Check, PriorityHigh } from '@mui/icons-material';
 
 
 
 const ContactComponent = () => {
     const [result, setResult] = useState(false)
-   
+    const [contactInfo, setContactInfo] = useState({
+      phone:"",
+      fullName:"",
+      email:""
+    })
+    const [errors, setErrors] = useState({})
+    console.log(contactInfo)
+    console.log(errors)
     
+   
+    useEffect(() => {
+      const check = validation(contactInfo);
+      setErrors(check);
+      
+    }, [contactInfo]);
+
+    function handleChange(e) {
+      const value = e.target.value;
+      const name = e.target.name;
+  
+      setContactInfo((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
+
+
+   
     const sendEmail = (e) => {
         e.preventDefault();
     
@@ -29,77 +57,117 @@ const ContactComponent = () => {
           })
       };
 
-
+    
       
       
       return(
           
+    <Box id="contacto" className="boxcontact" sx={{marginTop:"50px",}}  >
 
-        <Box id="contacto" sx={{display:"inline-block", width:"50%", height:"auto"}}>
+        <Box id="contacto" sx={{display:"inline-block", width:"50%", margin:"100px", backgroundColor:"#edf2f4", borderRadius:"20px",  height:"605px"}}>
 
           <form  onSubmit={sendEmail}>
             
-            <Box sx={{display:"flex", flexDirection:"column", justifyContent:"space-between", height: "480px", padding:"40px", borderRadius:"20px", boxShadow: 4 , border:"solid 1px" }}>
+            <Box sx={{display:"flex", flexDirection:"column", justifyContent:"space-evenly", height: "605px", padding:"40px", borderRadius:"20px", boxShadow: 4 , border:"solid 1px",  }}>
          
-         <Box container  sx={{display:"flex", flexDirection:"column", gap:"15px", textAlign:"start" }}>
+         <Box container  sx={{display:"flex", flexDirection:"column", gap:"8px", textAlign:"start", color:"#091d36" }}>
          <Typography  variant='h5' gutterBottom fontWeight={"bold"}>
                 Contact Us!
-
             </Typography>
+            <label htmlFor=""> Full Name</label>
             <TextField
             id="outlined-textarea"
-            label="Full Name"
+            
             multiline
             required
             type={"text"}
             name={"fullName"}
-            placeholder={"Name"}
-            sx={{boxShadow:"4"}}
+            value={contactInfo.fullName}
+            sx={{boxShadow:"3", width:"250px", }}
+            onChange={handleChange}
+            color={
+              errors?.name  ? (
+                  "error"
+              ): "success"
+            }
+            placeholder='Pepe Gutierrez'
             
             
             />
+             
+             
             
             
+            <label htmlFor=""> Phone Number</label>
+            <Box>
 
             <TextField
             id="outlined-textarea"
-            label="Phone Number"
             multiline
             required
             type={"text"}
             name={"phone"}
-            placeholder={"Phone Number"}
-            sx={{boxShadow:"4"}}
-            />
-           
+            value={contactInfo.phone}
+            sx={{boxShadow:"3", width:"250px"}}
+            color={
+              errors?.phoneFormat ? (
+                "error"
+              ): "success"
+            }
+            onChange={handleChange}
             
+            placeholder="1135462365"
+            />
+            
+           
+            </Box>
+            
+           <label htmlFor="">Enter Email</label>
+           
 
             <TextField
             id="outlined-textarea"
-            label="Enter Email"
+            
             multiline
             required
-            type={"text"}
+            type={"email"}
             name={"email"}
-            placeholder={"Enter Email"}
-            sx={{boxShadow:"4"}}
-            
+            value={contactInfo.email}
+            sx={{boxShadow:"3", width:"250px"}}
+            color={
+              errors.emailFormat ? (
+                "error"
+              ): "success"
+            }
+            className='textfield'
+            onChange={handleChange}
+            placeholder="emaildeprueba@gmail.com"
             />
+           
+          
             
         </Box>
-            <Box sx={{display:"flex", flexDirection:"column", textAlign:"start" , gap:"10px"}}>
-            <label >Message</label>
-            <Box sx={{display:"flex", flexDirection:"column", boxShadow:"4"}}>
-
-            <textarea name="message" cols="30" rows="5" required className='textarea'  />
-            </Box>
-            <Button type='submit' sx={{alignSelf:"center"}} variant='contained' className='contactbtn' >Submit</Button>
+            <Box sx={{display:"flex", flexDirection:"column", textAlign:"start" , gap:"10px", color:"#091d36"}}>
+              
+            
+            <label htmlFor="" >Message</label>
+            <TextField
+              id="outlined-multiline-static"
+              
+              multiline
+              rows={3}
+              sx={{marginRight:"20px", boxShadow:"3" }}
+              
+              />
+            
+              <Button type='submit' sx={{backgroundColor:"#5e83ba", width:"50%", color:"#091d36", marginTop:"50px" ,"&:hover": {backgroundColor:"#091d36", color:"#5e83ba"}}} disabled={errors.emailFormat  ? true : false} >Submit</Button>
             </Box>
             
             </Box>
         </form>
         </Box>
        
+    </Box>
       )
  }
 

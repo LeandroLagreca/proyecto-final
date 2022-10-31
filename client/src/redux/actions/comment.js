@@ -6,11 +6,10 @@ const API = 'http://localhost:3001/';
 export const getComments = (id) => {
 	return async function (dispatch) {
 		try {
-			const { data } = await axios(API + `videogames/comments?gameID=` + id);
-			dispatch(getGameComments(data));
-			// console.log(data);
+			const { data } = await axios(API + `videogames/comments?gameID=${id}`);
+			dispatch(getGameComments(data.comments));
 		} catch (error) {
-			return;
+			dispatch(getGameComments([]))
 		}
 	};
 };

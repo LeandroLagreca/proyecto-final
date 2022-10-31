@@ -11,7 +11,7 @@ const Copyright = (props) => {
 		>
 			{'Copyright © '}
 			<Link color="inherit" href="#" underline="none">
-				Henry Games
+				GameScript
 			</Link>{' '}
 			{new Date().getFullYear()}
 			{'.'}

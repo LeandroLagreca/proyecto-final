@@ -144,7 +144,7 @@ useEffect(()=> {
    
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                 <Card>
-                <h1>Edit Game</h1>
+                <h1>Create Game</h1>
                     <CardContent>   
                         {!errors.name? <FormControl variant="standard">
                             <InputLabel htmlFor="component-simple">Name</InputLabel>
@@ -291,7 +291,7 @@ useEffect(()=> {
                     :
                     <CardContent>   
                         <FormControl>
-                        <Button disabled>Save</Button>
+                        <Button disabled>Create</Button>
                         </FormControl>
                     </CardContent>}
                 </Card>

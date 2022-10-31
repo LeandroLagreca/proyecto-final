@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
@@ -19,6 +20,7 @@ import "./Comments.css";
 
 const parse = require("html-react-parser"); //funcion para parsear html
 const imgLink = "Url de imagen de usuario"; //aqui cuando agreguen la funcion de Imagen Profile
+
 
 export default function Comments() {
   const gameComment = useSelector((state) => state.videogames.comments);
@@ -294,27 +296,30 @@ export default function Comments() {
                       style={{ textAlign: "right" }}
                       component="legend"
                     >
+
                       Rating
                     </Typography>
-                    {/* Rating / Estrellitas */}
-                    <Rating 
-                      style={{ float: "right" }}
-                      name="read-only"
-                      value={c.rating_like}
-                      readOnly
-                    />
-                    <p style={{ textAlign: "left" }}>
-                    {parse(c.text)} {/* Texto o Review del usuario */}
-                    </p>
-                    <p style={{ textAlign: "left", color: "gray" }}>
-                      posted {c.createdAt} {/* Cuando se hizo el review */}
-                    </p>
-                  </Grid>
-                </Grid>
-              </Paper>
-            );
-          })
-        : null}
+                    <Rating
+                    style={{ float: "right" }}
+                    name="read-only"
+                    value={c.rating_like}
+                    readOnly
+                  />
+                  </>
+                ) : (
+                  <></>
+                )}
+                <p style={{ textAlign: "left" }}>
+                  {parse(c.text)} {/* Texto o Review del usuario */}
+                </p>
+                <p style={{ textAlign: "left", color: "gray" }}>
+                  posted {c.createdAt} {/* Cuando se hizo el review */}
+                </p>
+              </Grid>
+            </Grid>
+          </Paper>
+        );
+      })}
     </div>
   );
 }
