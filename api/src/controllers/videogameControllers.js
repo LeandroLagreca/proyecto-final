@@ -21,34 +21,20 @@ const addGenreDB = async (genres) => {
     try {
       let currentGenres = await getGenres();
 
-      if (Array.isArray(genres)) {
-        let newGenres = genres.filter(
-          (eArr2) =>
-            !currentGenres.find((eArr1) => eArr2 == eArr1.dataValues.name)
-        );
+      let newGenres = genres.filter(
+        (eArr2) =>
+          !currentGenres.find((eArr1) => eArr2 == eArr1.dataValues.name)
+      );
 
-        if (newGenres.length > 0) {
-          let promisesDb = newGenres.map(async (e) => {
-            let newGenre = await Genre.create({ name: e });
-          });
-          let addedGenres = Promise.all(promisesDb);
+      if (newGenres.length > 0) {
+        let promisesDb = newGenres.map(async (e) => {
+          return await Genre.create({ name: e });
+        });
+        let addedGenres =await Promise.all(promisesDb);
 
-          return { success: `new genres created in db` };
-        } else {
-          let failed = "those genres already exist";
-          return failed;
-        }
+        return { success: `new genres created in db`,newGenres:newGenres };
       } else {
-        let found = currentGenres.find((e) => e.dataValues.name === genres);
-
-        if (found) {
-          let error = "that genre already exist";
-
-          return error;
-        } else {
-          let newGenre = await Genre.create({ name: genres });
-          return { success: `${genres} was created successfully` };
-        }
+        return { failed: "those genres already exist" };
       }
     } catch (error) {
       console.log(error);
@@ -89,25 +75,27 @@ const videogamePost = async (req, res) => {
         stock,
       });
 
-      let genresDb = await Genre.findAll({
-        where: { name: genres },
-      });
-
-      newVideogame.addGenre(genresDb);
 
       if (newGenres) {
         let response = await addGenreDB(newGenres);
 
         if (response.success) {
-          let newGenresDb = await Genre.findAll({ where: { name: newGenres } });
-
-          newVideogame.addGenre(newGenresDb);
-
-          res.status(200).json({
-            msg: "game was created",
-            newgenre: response,
-            newgame: newVideogame,
-          });
+          try {
+            let allGenres = newGenres.concat(...genres);
+        
+            let genresDb = await Genre.findAll({
+              where: { name: allGenres },
+            });
+            
+           await newVideogame.addGenre(genresDb);
+            res.status(200).json({
+              msg: "game was created",
+              newgenre: response,
+              newgame: newVideogame,
+            });
+          } catch (error) {
+            console.log(error);
+          }
         } else {
           res.status(200).json({
             msg: "game was created",
