@@ -20,8 +20,8 @@ import "./Comments.css";
 const parse = require("html-react-parser"); //funcion para parsear html
 const imgLink = "Url de imagen de usuario"; //aqui cuando agreguen la funcion de Imagen Profile
 
-export default function Comments() {
-  const gameComment = useSelector((state) => state.videogames.comments);
+export default function Comments({list, type}) {
+  const gameComment = list;
     const user = useSelector((state) => state.user.status);
     const dispatch = useDispatch();
     var userId = "";
@@ -183,9 +183,15 @@ export default function Comments() {
 
   return (
     <div style={{ padding: 0 }} className="Comments">
-      <h1>Reviews</h1>
-      {Array.isArray(gameComment.comments)
-        ? gameComment.comments.map((c) => {
+      <h1>
+      {
+        type === "review" ?
+          'Reseñas' :
+          'Preguntas'
+      }
+      </h1>
+      {Array.isArray(gameComment)
+        ? gameComment.map((c) => {
             return (
               <Paper
                 elevation={4}
@@ -270,6 +276,7 @@ export default function Comments() {
                           }}
                         />
                     </Box>
+
                     <Button type="submit" sx={{marginLeft:5}} variant="outlined">
                       Submit
                     </Button>
@@ -290,19 +297,22 @@ export default function Comments() {
                     <h4 style={{ margin: 0, textAlign: "left" }}>
                       {c.userComment} {/* Nombre del usuario */}
                     </h4>
-                    <Typography
-                      style={{ textAlign: "right" }}
-                      component="legend"
-                    >
+                    {/* Rating / Estrellitas */}
+                    {type === "review" ? (
+                  <>
+                    <Typography style={{ textAlign: "right" }} component="legend">
                       Rating
                     </Typography>
-                    {/* Rating / Estrellitas */}
-                    <Rating 
-                      style={{ float: "right" }}
-                      name="read-only"
-                      value={c.rating_like}
-                      readOnly
-                    />
+                    <Rating
+                    style={{ float: "right" }}
+                    name="read-only"
+                    value={c.rating_like}
+                    readOnly
+                  />
+                  </>
+                ) : (
+                  <></>
+                )}
                     <p style={{ textAlign: "left" }}>
                     {parse(c.text)} {/* Texto o Review del usuario */}
                     </p>
