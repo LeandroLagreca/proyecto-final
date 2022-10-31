@@ -23,7 +23,8 @@ const initialState = {
 	page,
 	loading: false,
 	filters,
-	comments: {},
+	gameComments: [],
+	gameQuestions: [],
 	genres: []
 };
 
@@ -98,15 +99,19 @@ const videoGameSlice = createSlice({
 			state.page = 1;
 		},
 		getGameComments: (state, { payload }) => {
-			// console.log(payload);
-
-			state.comments = payload;
+			state.gameComments = payload;
 		},
 		rowVideoGames: (state, { payload }) => {
 			state.rowVideoGames = payload;
 		},
 		setGameComments: (state, { payload }) => {
-			state.comments.comments = [...state.comments.comments, payload];
+			state.gameComments = [...state.gameComments, payload];
+		},
+		getGameQuestions: (state, { payload }) => {
+			state.gameQuestions = payload;
+		},
+		setGameQuestions: (state, { payload }) => {
+			state.gameQuestions = [...state.gameQuestions, payload];
 		},
 		getAllGenres: (state, { payload }) => {
 			state.genres = payload;
@@ -131,6 +136,8 @@ export const {
 	cleanFilter,
 	getGameComments,
 	setGameComments,
+	getGameQuestions,
+	setGameQuestions,
 	getAllGenres,
 	postAllGames,
 } = videoGameSlice.actions;

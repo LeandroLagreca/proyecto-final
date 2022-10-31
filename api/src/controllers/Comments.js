@@ -63,7 +63,6 @@ const getUserComments = async (req, res) => {
           through: { attributes: [] },
         },
       });
-      console.log(allComments);
 
       if (allComments) {
         res.status(200).send(allComments);
@@ -79,8 +78,8 @@ const getUserComments = async (req, res) => {
 
 const getGameComments = async (req, res) => {
   let { gameID } = req.query;
+  if(!gameID) return res.status(401).send('El ID del juego es requerido')
   try {
-    if (gameID) {
       let allComments = await Videogame.findOne({
         where: { id: gameID },
         attributes: ["name"],
@@ -104,9 +103,8 @@ const getGameComments = async (req, res) => {
       } else {
         res.status(200).json([]);
       }
-    }
   } catch (error) {
-    console.log(error);
+    res.status(400).send(error.message);
   }
 };
 

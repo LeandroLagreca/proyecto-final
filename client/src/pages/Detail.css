@@ -95,7 +95,6 @@ section {
 }
 
 .boxBanner2 {
-	height: 1400px;
 	/* background: linear-gradient(rgb(19, 31, 67), rgb(61, 61, 205)); */
 
 	background: rgb(59, 72, 106);
@@ -105,5 +104,4 @@ section {
 		rgb(26, 34, 53) 86%
 		
 	);
-	margin-bottom: 90px;
 }
