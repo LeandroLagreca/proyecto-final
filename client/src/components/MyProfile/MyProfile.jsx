@@ -72,7 +72,7 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="firstName"
-							name="firstName"
+							name="firstname"
 							label="First name"
 							fullWidth
 							autoComplete="given-name"
@@ -85,7 +85,7 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="lastName"
-							name="lastName"
+							name="lastname"
 							label="Last name"
 							fullWidth
 							autoComplete="family-name"
@@ -123,7 +123,7 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="city"
-							name="city"
+							name="cuit"
 							label="City"
 							fullWidth
 							autoComplete="shipping address-level2"
@@ -149,7 +149,7 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="cardName"
-							name="cardHolder"
+							name="cardholder"
 							label="Card holder"
 							fullWidth
 							autoComplete="cc-name"
@@ -162,7 +162,7 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="numberCard"
-							name="cardNumber"
+							name="cardnumber"
 							label="Card number"
 							fullWidth
 							autoComplete="cc-number"
