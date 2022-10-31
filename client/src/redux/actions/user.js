@@ -8,6 +8,7 @@ import {
 	addToCollection,
 	getAllUserComments,
 	updateWishes,
+	getUserData,
 } from '../reducers/user';
 import { store } from '../store';
 const API = 'http://localhost:3001/';
@@ -186,6 +187,18 @@ export const getUserComments = (ID) => {
 		try {
 			const { data } = await axios.get(API + 'user/comments?userID=' + ID);
 			dispatch(getAllUserComments(data));
+		} catch (error) {
+			return null;
+		}
+	};
+};
+
+export const putUserData = (ID, data) => {
+	return async function (dispatch) {
+		try {
+			const updatedData = await axios.put(API + `user/${ID}`, data);
+      console.log(updatedData.data.user, 'updatedData console.log')
+			dispatch(getUserData(updatedData.data.user));
 		} catch (error) {
 			return null;
 		}
