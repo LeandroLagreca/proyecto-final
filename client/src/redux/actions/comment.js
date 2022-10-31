@@ -25,3 +25,15 @@ export const postComments = (value) => {
 		}
 	};
 };
+
+export const updateComments = (value) => {
+	return async function (dispatch) {
+		try {
+			console.log("Valores aaaa")
+			console.log(value.comment)
+			await axios.put(API + `comments`, value.comment)
+		} catch (error) {
+			return;
+		}
+	};
+};

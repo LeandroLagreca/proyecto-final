@@ -13,7 +13,7 @@ import Item from "../components/Items/Item";
 import Comments from "../sections/Comments";
 import LinkIcon from "@mui/icons-material/Link";
 import { getComments } from "../redux/actions/comment";
-import { postComments } from "../redux/actions/comment";
+import { postComments, updateComments } from "../redux/actions/comment";
 import FormatBoldIcon from "@mui/icons-material/FormatBold";
 import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import FormatItalicIcon from "@mui/icons-material/FormatItalic";
@@ -91,8 +91,19 @@ export default function Detail() {
   async function handleSubmit(e)  {
 	if(isLogued===false){
 		e.preventDefault();
-	}
-	else{
+	} 
+  else if (value.comment.text == "") {
+    e.preventDefault();
+    Swal.fire({
+      toast: true,
+      icon: 'error',
+      title: 'You can not post a comment without text',
+      position: 'bottom-right',
+      showConfirmButton: false,
+      timer: 3000,
+    })
+  }
+  else {
     e.preventDefault();
     dispatch(postComments(value));
     setValue({
@@ -130,6 +141,7 @@ export default function Detail() {
         })
     }
   };
+  
 
   //{----------------------Icons de review--------------------}
   //Handle para BOLD
@@ -199,7 +211,7 @@ export default function Detail() {
     <Container>
       <Sidebar/>
       <Paper elevation={8} sx={{ padding: 2 }}>
-      <Typography variant="caption" display="flex" mb={1}><Link className="redir" to={"/home"}>Games</Link> <Typography variant="caption" ml={1} color={"darkgray"}>> </Typography>    <Link className="redir" to={"/home"}> Detail </Link>  <Typography variant="caption" ml={1} mr={1} color={"darkgray"}>> </Typography>  <b>{gameDetail.name}</b> </Typography>
+      <Typography variant="caption" display="flex" mb={1}><Link className="redir" to={"/home"}>Games</Link> <Typography variant="caption" ml={1} color={"darkgray"}>> </Typography>    <Link className="redir" to={"/home"}> Detail </Link>  <Typography variant="caption" ml={1} mr={1} color={"darkgray"}> </Typography>  <b>{gameDetail.name}</b> </Typography>
         <Box display="flex" alignItems="flex-start" className="boxDivisor">
           <Box
             className="containerNombreImagenDescription"

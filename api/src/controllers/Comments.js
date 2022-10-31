@@ -112,31 +112,27 @@ const getGameComments = async (req, res) => {
 
 
 const updateComment = async (req, res) => {
-  let {
-    text,
-    rating_like,
-    rating_dislike,
-    id,
-  } = req.body;
-
+  let props = {...req.body};
+  console.log(props)
   try {
-    let find = await Comment.findOne({ where: { id: id } });
-
+    let find = await Comment.findOne({ where: { id: props.id } });
+    console.log(find)
     if (find) {
-      await Comment.update(
-        {
-          text: text ? text : find.text,
-          rating_like: rating_like ? rating_like++ : find.rating_like,
-          rating_dislike: rating_dislike ? rating_dislike++ : find.rating_dislike,
+      await Comment.update({
+        text: props.text ? props.text : find.text,
+        rating_like: props.rating_like ? props.rating_like : find.rating_like,
 
-        },
-        { where: { id: id } }
-      );
+      }, {
+          where: {
+              id: props.id,
+          }
+      });
+      
       return res.send({ msg: "Comment updated successfully" });
     }
     res.send({ msg: "Comment doesn't exist" });
   } catch (error) {
-    res.status.send(error);
+    res.status(404).send(error);
   }
 };
 
