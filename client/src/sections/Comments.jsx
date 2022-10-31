@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
@@ -21,9 +20,8 @@ import "./Comments.css";
 const parse = require("html-react-parser"); //funcion para parsear html
 const imgLink = "Url de imagen de usuario"; //aqui cuando agreguen la funcion de Imagen Profile
 
-
-export default function Comments() {
-  const gameComment = useSelector((state) => state.videogames.comments);
+export default function Comments({list, type}) {
+  const gameComment = list;
     const user = useSelector((state) => state.user.status);
     const dispatch = useDispatch();
     var userId = "";
@@ -34,7 +32,7 @@ export default function Comments() {
     }
   useEffect(() => {}, [gameComment]);
 
-  //Update de comentario
+  //Update de comentarios
   async function handleSubmitUpdate(e)  {
     if (!value.comment.text) {
       e.preventDefault();
@@ -185,9 +183,15 @@ export default function Comments() {
 
   return (
     <div style={{ padding: 0 }} className="Comments">
-      <h1>Reviews</h1>
-      {Array.isArray(gameComment.comments)
-        ? gameComment.comments.map((c) => {
+      <h1>
+      {
+        type === "review" ?
+          'Reseñas' :
+          'Preguntas'
+      }
+      </h1>
+      {Array.isArray(gameComment)
+        ? gameComment.map((c) => {
             return (
               <Paper
                 elevation={4}
@@ -272,6 +276,7 @@ export default function Comments() {
                           }}
                         />
                     </Box>
+
                     <Button type="submit" sx={{marginLeft:5}} variant="outlined">
                       Submit
                     </Button>
@@ -292,11 +297,10 @@ export default function Comments() {
                     <h4 style={{ margin: 0, textAlign: "left" }}>
                       {c.userComment} {/* Nombre del usuario */}
                     </h4>
-                    <Typography
-                      style={{ textAlign: "right" }}
-                      component="legend"
-                    >
-
+                    {/* Rating / Estrellitas */}
+                    {type === "review" ? (
+                  <>
+                    <Typography style={{ textAlign: "right" }} component="legend">
                       Rating
                     </Typography>
                     <Rating
@@ -309,17 +313,18 @@ export default function Comments() {
                 ) : (
                   <></>
                 )}
-                <p style={{ textAlign: "left" }}>
-                  {parse(c.text)} {/* Texto o Review del usuario */}
-                </p>
-                <p style={{ textAlign: "left", color: "gray" }}>
-                  posted {c.createdAt} {/* Cuando se hizo el review */}
-                </p>
-              </Grid>
-            </Grid>
-          </Paper>
-        );
-      })}
+                    <p style={{ textAlign: "left" }}>
+                    {parse(c.text)} {/* Texto o Review del usuario */}
+                    </p>
+                    <p style={{ textAlign: "left", color: "gray" }}>
+                      posted {c.createdAt} {/* Cuando se hizo el review */}
+                    </p>
+                  </Grid>
+                </Grid>
+              </Paper>
+            );
+          })
+        : null}
     </div>
   );
 }

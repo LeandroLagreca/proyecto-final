@@ -18,14 +18,7 @@ import {
 import Carousel from "react-material-ui-carousel";
 import Item from "../components/Items/Item";
 import Comments from "../sections/Comments";
-import LinkIcon from "@mui/icons-material/Link";
-import { getComments } from "../redux/actions/comment";
-import { postComments, updateComments } from "../redux/actions/comment";
-import FormatBoldIcon from "@mui/icons-material/FormatBold";
-import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
-import FormatItalicIcon from "@mui/icons-material/FormatItalic";
-import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
-import {Button,Typography,Container,Box,TextField,Paper,IconButton,Avatar,Rating,} from "@mui/material";
+import { Typography, Container, Box, Paper, Button } from "@mui/material";
 import FloatingActionButtons from "../components/EditForm/BotonEditar";
 import Sidebar from "../components/Sidebar/Sidebar";
 
@@ -51,65 +44,7 @@ export default function Detail() {
     imgCarousel.unshift(details.trailer);
   }
 
-
-  //Estado locad de Form de Reseñas
-  const [value, setValue] = React.useState({
-    userID: userId,
-    gameID: id,
-    comment: {
-      text: "",
-      userComment: "",
-      rating_like: 3,
-    },
-  }); //Estado local para enviar Comment con negritas y demas
-  const [already, setAlready] = React.useState({
-    bold: false,
-    italic: false,
-    underline: false,
-    link: false,
-    quote: false,
-  });
-
-  //estado local para estrellas Rating
-  const [estrella, setEstrella] = React.useState(3);
-
-  const [isLogued, setIsLogued] = React.useState(false);
-
-  //HandleChange para Form
-  const handleChange = (e) => {
-    value.comment.text = e.target.value;
-    value.comment.userComment = userName;
-    setValue({
-      ...value,
-      userID: auth.lastNotifiedUid,
-    });
-  };
-
-  //Handle para Rating del form
-  const handleStar = (e) => {
-    value.comment.rating_like = e.target.value;
-    setValue({
-      ...value,
-    });
-  };
-//Handle SUBMIT dispacha accion para postear comentario
-  async function handleSubmit(e)  {
-	if(isLogued===false){
-		e.preventDefault();
-	} 
-  else if (value.comment.text == "") {
-    e.preventDefault();
-    Swal.fire({
-      toast: true,
-      icon: 'error',
-      title: 'You can not post a comment without text',
-      position: 'bottom-right',
-      showConfirmButton: false,
-      timer: 3000,
-    })
-  }
-  else {
-
+  async function handleSubmit(e) {
     e.preventDefault();
     if (status === "guest") {
       Swal.fire({
@@ -119,56 +54,6 @@ export default function Detail() {
         position: "bottom-right",
         showConfirmButton: false,
         timer: 3000,
-
-      })
-    }else{
-		setIsLogued(true)
-        Swal.fire({
-          toast: true,
-          icon: 'success',
-          title: 'Your review has been posted',
-          position: 'bottom-right',
-          showConfirmButton: false,
-          timer: 3000,
-        })
-    }
-  };
-  
-
-  //{----------------------Icons de review--------------------}
-  //Handle para BOLD
-  const handleBold = (e) => {
-    if (already.bold === true) {
-      console.log("entre");
-    } else {
-      setValue({ ...value, comment: { text: `<b>${value.comment.text}</b>` } });
-      setAlready({ ...already, bold: true });
-    }};
-  //Handle para ITALIC
-  const handleItalic = (event) => {
-    if (already.italic === true) {
-      console.log("entre");
-    } else {
-      setValue({ ...value, comment: { text: `<i>${value.comment.text}</i>` } });
-      setAlready({ ...already, italic: true });
-    }};
-  //Handle para UNDERLINE
-  const handleUnderline = (event) => {
-    if (already.underline === true) {
-      console.log("entre");
-    } else {
-      setValue({ ...value, comment: { text: `<u>${value.comment.text}</u>` } });
-      setAlready({ ...already, underline: true });
-    }};
-  //Handle para LINK
-  const handleLink = (event) => {
-    if (already.link === true) {
-      console.log("entre");
-    } else {
-      setValue({
-        ...value,
-        comment: { text: `<a href="#">${value.comment.text}` },
-
       });
     } else {
       dispatch(postQuestion({
@@ -191,31 +76,24 @@ export default function Detail() {
   if (loading) return <Loader />;
 
   return (
-
-    <Box className="boxBanner2">
-    <Container>
-      <Sidebar/>
-      <Paper elevation={8} sx={{ padding: 2 }}>
-      <Typography variant="caption" display="flex" mb={1}><Link className="redir" to={"/home"}>Games</Link> <Typography variant="caption" ml={1} color={"darkgray"}>> </Typography>    <Link className="redir" to={"/home"}> Detail </Link>  <Typography variant="caption" ml={1} mr={1} color={"darkgray"}> </Typography>  <b>{gameDetail.name}</b> </Typography>
-        <Box display="flex" alignItems="flex-start" className="boxDivisor">
-          <Box
-            className="containerNombreImagenDescription"
-            backgroundColor="secondary.light"
-            width={650}
-            borderRadius={3}
-            sx={{ border: "grey" }}
-          >
-            <Box
-              display="flex"
-              backgroundColor="primary.main"
-              className="ReqTit"
-              sx={{
-                borderColor: "#42a5f5",
-                alignItems: "center",
-                justifyContent: "space-evenly",
-              }}
-            >
-
+    <>
+      <div className="boxBanner2">
+        <Container>
+          <Sidebar />
+          <Paper elevation={8} sx={{ padding: 2 }}>
+            <Typography variant="caption" display="flex" mb={1}>
+              <Link className="redir" to={"/home"}>
+                Games  {' >>'}
+              </Link>
+              <Typography
+                variant="caption"
+                ml={1}
+                mr={1}
+                color={"darkgray"}
+              ></Typography>
+              <b>{details.name}</b>
+            </Typography>
+            <Box display="flex" alignItems="flex-start" className="boxDivisor">
               <Box
                 className="containerNombreImagenDescription"
                 backgroundColor="secondary.light"
@@ -259,7 +137,7 @@ export default function Detail() {
                       variant="contained"
                     />
                   </Box>
-                  {/* ADDWISHES_ICON */}
+                  {/* ADDWISHES_ICON s*/}
                   <Box>
                     <AddToWishes
                       id={id}
