@@ -189,9 +189,6 @@ const getAllGames = async (req, res) => {
   try {
     let { count, rows } = await Videogame.findAndCountAll(config);
     if (rows.length) {
-      if (price) {
-        rows = rows.filter((game) => Number(game.price) <= Number(price));
-      }
       res.json({
         status: "success",
         offset: (page - 1) * 10,
