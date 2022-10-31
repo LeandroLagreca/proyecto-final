@@ -16,7 +16,7 @@ const getRowTableVideoGames = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-const addGenre = async (genres) => {
+const addGenreDB = async (genres) => {
   if (genres) {
     try {
       let currentGenres = await getGenres();
@@ -33,9 +33,7 @@ const addGenre = async (genres) => {
           });
           let addedGenres = Promise.all(promisesDb);
 
-          let success = `new genres created in db`;
-
-          return success;
+          return { success: `new genres created in db` };
         } else {
           let failed = "those genres already exist";
           return failed;
@@ -49,7 +47,7 @@ const addGenre = async (genres) => {
           return error;
         } else {
           let newGenre = await Genre.create({ name: genres });
-          return { msg: `${genres} was created successfully` };
+          return { success: `${genres} was created successfully` };
         }
       }
     } catch (error) {
@@ -95,11 +93,28 @@ const videogamePost = async (req, res) => {
         where: { name: genres },
       });
 
-      newVideogame.addGenres(genresDb);
+      newVideogame.addGenre(genresDb);
 
       if (newGenres) {
-        let response = await addGenre(newGenres);
-        res.status(200).send({ msg: "game was created", newgenre: response });
+        let response = await addGenreDB(newGenres);
+
+        if (response.success) {
+          let newGenresDb = await Genre.findAll({ where: { name: newGenres } });
+
+          newVideogame.addGenre(newGenresDb);
+
+          res.status(200).json({
+            msg: "game was created",
+            newgenre: response,
+            newgame: newVideogame,
+          });
+        } else {
+          res.status(200).json({
+            msg: "game was created",
+            newgenre: response,
+            newgame: newVideogame,
+          });
+        }
       } else {
         res.status(200).json(newVideogame);
       }
@@ -139,43 +154,37 @@ const getAllGames = async (req, res) => {
     genreFilter.name = {
       [Op.iLike]: genre,
     };
-  if(price){
+  if (price) {
     switch (price) {
-        
       case "25":
         where.price = {
-          [Op.and]: [
-            {[Op.gte]: "0"},    
-            {[Op.lte]: "25"} 
-          ]
-            
-          
-        }
+          [Op.and]: [{ [Op.gte]: "0" }, { [Op.lte]: "25" }],
+        };
         break;
       case "50":
         where.price = {
           [Op.and]: {
             [Op.gt]: "25",
-            [Op.lte]: "50"
-          }
-        }
-        
+            [Op.lte]: "50",
+          },
+        };
+
         break;
       case "75":
         where.price = {
           [Op.and]: {
             [Op.gt]: "50",
-            [Op.lte]: "75"
-          }
-        }
-      break;
+            [Op.lte]: "75",
+          },
+        };
+        break;
       case "100":
         where.price = {
           [Op.and]: {
             [Op.gt]: 75,
-            [Op.lte]: 100
-          }
-        }
+            [Op.lte]: 100,
+          },
+        };
         break;
       default:
         where.price = {
@@ -212,7 +221,6 @@ const getAllGames = async (req, res) => {
         results: rows.length,
         games: rows,
       });
-      
     } else {
       let message;
       if (filter?.name) message = "No se encontro el juego buscado";
@@ -269,7 +277,7 @@ const videogameByID = async (req, res) => {
 const getGenres = async (req, res) => {
   try {
     const data = await Genre.findAll({ attributes: ["id", "name"] });
-    res.status(200).send(data);
+    return data;
   } catch (error) {
     console.log(error);
   }
@@ -337,50 +345,44 @@ const updateVideogame = async (req, res) => {
 const UpdateStock = async (req, res) => {
   let { gameID, amount, operador } = req.body;
 
- if(gameID && amount && operador) {
-  try {
-    const subUpdated = async (amount) => {
-      const updatedRows = await Videogame.update(
-        {
-          stock: Sequelize.literal(`stock - ${amount}`),
-        },
-        { where: { id: gameID },
-        returning: true, plain: true }
-      );
-      
-      return updatedRows[1].dataValues.stock;
-    };
-    const sumUpdated = async (amount) => {
-      const updatedRows = await Videogame.update(
-        {
-          stock: Sequelize.literal(`stock + ${amount} `),
-        },
-        { where: { id: gameID },
-        returning: true, plain: true}
-      
-      );
-      
-      
-      return updatedRows[1].dataValues.stock
-    };
+  if (gameID && amount && operador) {
+    try {
+      const subUpdated = async (amount) => {
+        const updatedRows = await Videogame.update(
+          {
+            stock: Sequelize.literal(`stock - ${amount}`),
+          },
+          { where: { id: gameID }, returning: true, plain: true }
+        );
 
-    if (operador == "sum") {
-      let newStock = await sumUpdated(amount);
-      return res.status(200).send({ msg: `New stock ${newStock}` });
-    } else if (operador == "sub") {
-      let newStock = await subUpdated(amount);
-      return res.status(200).send({ msg: `New stock ${newStock}` });
+        return updatedRows[1].dataValues.stock;
+      };
+      const sumUpdated = async (amount) => {
+        const updatedRows = await Videogame.update(
+          {
+            stock: Sequelize.literal(`stock + ${amount} `),
+          },
+          { where: { id: gameID }, returning: true, plain: true }
+        );
+
+        return updatedRows[1].dataValues.stock;
+      };
+
+      if (operador == "sum") {
+        let newStock = await sumUpdated(amount);
+        return res.status(200).send({ msg: `New stock ${newStock}` });
+      } else if (operador == "sub") {
+        let newStock = await subUpdated(amount);
+        return res.status(200).send({ msg: `New stock ${newStock}` });
+      }
+    } catch (error) {
+      console.log(error);
     }
-
- 
-  } catch (error) {
-    console.log(error);
+  } else {
+    res.status(404).send({
+      error: "gameID, amount and operador (sum, sub) are required by body",
+    });
   }
- }
- else{
-  res.status(404).send({error:"gameID, amount and operador (sum, sub) are required by body"})
- }
- 
 };
 module.exports = {
   videogamePost,
