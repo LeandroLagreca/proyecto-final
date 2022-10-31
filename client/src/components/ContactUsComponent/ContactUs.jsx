@@ -49,12 +49,12 @@ const ContactComponent = () => {
             <label htmlFor=""> Full Name</label>
             <TextField
             id="outlined-textarea"
-            label="Full Name"
+            
             multiline
             required
             type={"text"}
             name={"fullName"}
-            placeholder={"Name"}
+            
             sx={{boxShadow:"3", width:"250px", }}
             
             color='primary'
@@ -65,12 +65,12 @@ const ContactComponent = () => {
             <label htmlFor=""> Phone Number</label>
             <TextField
             id="outlined-textarea"
-            label="Phone Number"
+            
             multiline
             required
             type={"text"}
             name={"phone"}
-            placeholder={"Phone Number"}
+            
             sx={{boxShadow:"3", width:"250px"}}
             color="primary"
             
@@ -80,12 +80,12 @@ const ContactComponent = () => {
            <label htmlFor="">Enter Email</label>
             <TextField
             id="outlined-textarea"
-            label="Enter Email"
+            
             multiline
             required
             type={"text"}
             name={"email"}
-            placeholder={"Enter Email"}
+            
             sx={{boxShadow:"3", width:"250px"}}
             color="primary"
             className='textfield'
