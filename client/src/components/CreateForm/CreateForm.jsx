@@ -88,14 +88,14 @@ export default function ComposedTextField() {
 function handleSelect(e) {
     setInput({
         ...input,
-        genres:[...input.genres, e.target.value] //concatena las dietas al estado
+        genres:[...input.genres, e.target.value] 
     }) 
 }
 
 function handlePush(e) {
     setInput({
         ...input,
-        genres:[...input.newGenres.push(input.otro), e.target.value] //concatena las dietas al estado
+        newGenres:[...input.newGenres.push(input.otro), e.target.value]
     }) 
 }
 
