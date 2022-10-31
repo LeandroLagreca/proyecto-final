@@ -9,13 +9,10 @@ import {
 	Switch,
 	Button,
 	Stack,
-	Badge,
-	Avatar,
-	IconButton,
 	Modal,
 	Box,
 } from '@mui/material';
-import { SaveAs, PhotoCamera } from '@mui/icons-material';
+import { SaveAs } from '@mui/icons-material';
 import { useSelector, useDispatch } from 'react-redux';
 import { putUserData } from '../../redux/actions/user';
 import { Link } from 'react-router-dom';
