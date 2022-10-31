@@ -23,7 +23,8 @@ const initialState = {
 	page,
 	loading: false,
 	filters,
-	comments: {},
+	gameComments: [],
+	gameQuestions: [],
 	genres: []
 };
 
