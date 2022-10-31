@@ -20,7 +20,7 @@ import Purchases from './components/Purchases/Purchases';
 import Sidebar from './components/Sidebar/Sidebar';
 import Collection from './components/Collection/Collection';
 import LandingPage from './components/Landing/LandingPage';
-import Nosotros from './components/Nosotros/Nosotros'
+import Nosotros from "./components/Nosotros/Nosotros"
 
 const Routes = ({ setMode, mode }) => {
 

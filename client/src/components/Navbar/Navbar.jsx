@@ -86,7 +86,7 @@ const Navbar = () => {
       <MenuItem
         onClick={handleMenuClose}
         component={Link}
-        to={`/account`}
+        to={`/account/profile`}
       >
         My account
       </MenuItem>

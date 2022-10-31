@@ -59,7 +59,6 @@ router.post('/payment', postPayment);
 
 //Comment
 router.get('/user/comments', getUserComments);
-
 router.get('/videogames/comments', getGameComments);
 router.post('/comments', postComment);
 router.put('/comments', updateComment);
@@ -70,7 +69,6 @@ router.post('/questions', createQuestion);
 router.put('/answer/:questionId', answerQuestion);
 
 //Videogames
-
 router.get('/row-videogames', getRowTableVideoGames);
 router.put('/videogames/stock', UpdateStock);
 router.get('/videogames/user/:id', getUserGames);

@@ -14,19 +14,24 @@ import {
 } from '@mui/material';
 import { SaveAs } from '@mui/icons-material';
 import { useSelector, useDispatch } from 'react-redux';
+import { putUserData } from '../../redux/actions/user';
+import { Link } from 'react-router-dom';
 
 const MyProfile = () => {
-	// const { user } = useSelector((state) => state.user);
+	const { userData } = useSelector((state) => state.user);
+	const { id } = useSelector((state) => state.user);
+
+	const dispatch = useDispatch();
 
 	const [values, setValues] = useState({
-		firstName: 'DAVID',
-		lastName: 'HUARICANCHA',
-		country: 'PERU',
-		province: 'MADRE DE DIOS',
-		city: 'PUERTO MALDONADO',
-		address: 'BARRIO NUEVO PSJ 2 MZ 1 LT 1',
-		cardHolder: 'DAVID JESUS LOPEZ ALIAGA',
-		cardNumber: '4242 4242 4242 4242',
+		firstname: userData.firstname,
+		lastname: userData.lastname,
+		country: userData.country,
+		province: userData.province,
+		ciut: userData.ciut,
+		address: userData.address,
+		cardholder: userData.cardholder,
+		cardnumber: userData.cardnumber,
 	});
 
 	const [editProfile, setEditProfile] = useState(false);
@@ -42,6 +47,21 @@ const MyProfile = () => {
 	useEffect(() => {
 		console.log(editProfile);
 	}, [editProfile]);
+
+	const handleSave = (e) => {
+		dispatch(putUserData(id, values));
+		setEditProfile(false);
+	};
+
+	useEffect(() => {
+		window.onbeforeunload = function () {
+			return true;
+		};
+
+		return () => {
+			window.onbeforeunload = null;
+		};
+	}, []);
 
 	return (
 		<Container
@@ -59,12 +79,12 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="firstName"
-							name="firstName"
+							name="firstname"
 							label="First name"
 							fullWidth
 							autoComplete="given-name"
 							variant="standard"
-							value={values.firstName}
+							value={values.firstname}
 							onChange={handleChanges}
 						/>
 					</Grid>
@@ -72,12 +92,12 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="lastName"
-							name="lastName"
+							name="lastname"
 							label="Last name"
 							fullWidth
 							autoComplete="family-name"
 							variant="standard"
-							value={values.lastName}
+							value={values.lastname}
 							onChange={handleChanges}
 						/>
 					</Grid>
@@ -110,12 +130,12 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="city"
-							name="city"
+							name="cuit"
 							label="City"
 							fullWidth
 							autoComplete="shipping address-level2"
 							variant="standard"
-							value={values.city}
+							value={values.ciut}
 							onChange={handleChanges}
 						/>
 					</Grid>
@@ -136,12 +156,12 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="cardName"
-							name="cardHolder"
+							name="cardholder"
 							label="Card holder"
 							fullWidth
 							autoComplete="cc-name"
 							variant="standard"
-							value={values.cardHolder}
+							value={values.cardholder}
 							onChange={handleChanges}
 						/>
 					</Grid>
@@ -149,12 +169,12 @@ const MyProfile = () => {
 						<TextField
 							disabled={!editProfile}
 							id="numberCard"
-							name="cardNumber"
+							name="cardnumber"
 							label="Card number"
 							fullWidth
 							autoComplete="cc-number"
 							variant="standard"
-							value={values.cardNumber}
+							value={values.cardnumber}
 							onChange={handleChanges}
 						/>
 					</Grid>
@@ -194,8 +214,24 @@ const MyProfile = () => {
 								ESTA SEGURO DE GUARDAR LOS CAMBIOS?
 							</Typography>
 							<Stack spacing={2} direction="row">
-								<Button variant="contained">No</Button>
-								<Button variant="contained">Si</Button>
+								<Button
+									component={Link}
+									to="/account"
+									variant="contained"
+									value="no"
+									onClick={handleSave}
+								>
+									No
+								</Button>
+								<Button
+									component={Link}
+									to="/account"
+									variant="contained"
+									value="si"
+									onClick={handleSave}
+								>
+									Si
+								</Button>
 							</Stack>
 						</Box>
 					</Modal>

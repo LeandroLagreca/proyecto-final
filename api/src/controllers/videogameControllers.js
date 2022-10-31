@@ -135,45 +135,11 @@ const getAllGames = async (req, res) => {
       }
     );
   }
-  if (price) {
-    switch (price) {
-      case "25":
-        where.price = {
-          [Op.and]: [{ [Op.gte]: 0 }, { [Op.lt]: 25 }],
-        };
-        break;
-      case "50":
-        where.price = {
-          [Op.and]: [{ [Op.gte]: 25 }, { [Op.lt]: 50 }],
-        };
-        break;
-      case "75":
-        where.price = {
-          [Op.and]: [{ [Op.gte]: 50 }, { [Op.lt]: 75 }],
-        };
-        break;
-      case "100":
-        where.price = {
-          [Op.and]: [{ [Op.gte]: 75 }, { [Op.lte]: 100 }],
-        };
-        break;
-      default:
-        where.price = {
-          [Op.and]: [
-            { [Op.gte]: Number(price) - 25 },
-            { [Op.lte]: Number(price) },
-          ],
-        };
-    }
-  }
   if (genre)
     genreFilter.name = {
       [Op.iLike]: genre,
     };
   if(price){
-    where.price = {
-      
-    }
     switch (price) {
         
       case "25":
@@ -212,7 +178,12 @@ const getAllGames = async (req, res) => {
         }
         break;
       default:
-        break;
+        where.price = {
+          [Op.and]: [
+            { [Op.gte]: Number(price) - 25 },
+            { [Op.lte]: Number(price) },
+          ],
+        };
     }
   }
 

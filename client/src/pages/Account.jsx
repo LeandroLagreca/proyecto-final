@@ -1,12 +1,12 @@
-import React from 'react';
-
+import React, { useEffect } from 'react';
 
 import { AccountNavBar, Footer, Loader } from '../components';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { AdminContainer } from '../containers';
 import { MyProfile, MyPurchases, MyNotifications } from '../components';
 import Sidebar from '../components/Sidebar/Sidebar';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { putUserData } from '../redux/actions/user';
 
 const paths = {
 	profile: '/profile',
@@ -15,6 +15,7 @@ const paths = {
 };
 
 const Account = () => {
+
 	return (
 		<AdminContainer>
 			<Sidebar></Sidebar>
