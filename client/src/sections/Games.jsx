@@ -48,14 +48,14 @@ const Games = () => {
 								<li>
 									{
 										<Card
-											background_image={e.background_image}
+										background_image={e.background_image}
 											name={e.name}
 											id={e.id}
 											price={e.price}
 											description={e.description}
 											discount={e.discount}
-										/>
-									}
+											/>
+										}
 								</li>
 							</ul>
 						</Box>
