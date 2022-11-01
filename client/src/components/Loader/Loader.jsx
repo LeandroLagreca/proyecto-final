@@ -4,7 +4,7 @@ import gif from '../../assets/loader.gif'
 
 const Loader = () => {
   return (
-    <Box width='100%' height='100%' >
+    <Box sx={{minWidth:"700px", maxWidth:"700px", minHeight:"1200px", maxHeigth:"600px"}} >
       <img src={gif} alt='cargando...'/>
     </Box>
   )

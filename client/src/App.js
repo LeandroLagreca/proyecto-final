@@ -11,11 +11,11 @@ import {ColorContextProvider} from './components/Theme/Theme';
 function App() {
 	
 	return (
-		<BrowserRouter>
-		{/* <ColorContextProvider > */}
-			<Routes />	
-		{/* </ColorContextProvider> */}
-		</BrowserRouter>
+		<ColorContextProvider >
+			<BrowserRouter>
+				<Routes />	
+			</BrowserRouter>
+		</ColorContextProvider>
 	);
 }
 

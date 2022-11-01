@@ -11,11 +11,11 @@ const MainHome = () => {
 
 	return (
 		<>
-			<Box>
+			<Box >
 				<Sidebar />
 				<Social />
 				<Stack direction={'row'}>
-					<FilterSection />
+					<FilterSection  />
 					<Games />
 				</Stack>
 				<About />

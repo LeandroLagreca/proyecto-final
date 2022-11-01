@@ -7,10 +7,11 @@ import {
   Button,
   FormControl,
   OutlinedInput,
-  InputLabel,
   FormHelperText,
   InputAdornment,
   Link as MuiLink,
+  Divider,
+  Typography,
 } from "@mui/material";
 import { Check, PriorityHigh } from "@mui/icons-material";
 import { auth } from "../../firebase/credenciales";
@@ -23,6 +24,7 @@ import {
 import Swal from "sweetalert2";
 import validation from "./validations";
 import { getUserInfo } from "../../redux/actions/user";
+import GoogleIcon from '@mui/icons-material/Google';
 const styles = {
   container: {
     display: "flex",
@@ -35,12 +37,15 @@ const styles = {
   },
 };
 
+
 export default function LandingForm({ register, setRegister }) {
   const [userInfo, setUserInfo] = useState({
     email: "",
     password: "",
   });
   const [errors, setErrors] = useState({});
+  
+
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -119,24 +124,52 @@ export default function LandingForm({ register, setRegister }) {
       handleCodeInApp: true,
     };
     sendPasswordResetEmail(auth, (email = userInfo.email), actionCodeSettings);
+    Swal.fire({
+      icon:"success",
+      text:"we have sent you an email to reset your password, please check it. "
+    })
   }
   async function handleGoogle() {
     const provider = new GoogleAuthProvider();
     signInWithRedirect(auth, provider);
   }
   return (
-    <Box component={"form"} onSubmit={submitHandler} sx={styles.container}>
+    <Box component={"form"} onSubmit={submitHandler} sx={{display:"flex", flexDirection:"column", minWidth:"400px", minHeight:"500px", padding:"20px", maxWidth:"400px" }} border="solid 1px">
+      <Typography variant="h4">
+				{register ? 'SING UP' : 'LOG IN'}{' '}
+			</Typography>
       <FormControl>
-        <InputLabel variant="outlined" htmlFor="email">
-          E-mail
-        </InputLabel>
+        
+        <Box sx={{marginBottom:"5%", marginTop:"10%" }}>
+        <Button 
+        variant="contained"
+        startIcon={<GoogleIcon></GoogleIcon>}
+        sx={{minWidth:"100%", maxWidth:"100%"}}
+        onClick={handleGoogle}
+        >
+          Sing in with Google
+        </Button>
+        </Box>
+        
+        <Divider variant="middle" sx={{marginBottom:"5%"}} />
+
+        <p>OR</p>
+
+        <Divider variant="middle" sx={{marginBottom:"5%", marginTop:"5%"}} />
+
+        
+        
+        
+        
+        
         <OutlinedInput
-          label="E-mail"
+          placeholder="Enter Email"
           onChange={handleChange}
           id="email"
           name="email"
           value={userInfo.email}
           type="email"
+          sx={{marginBottom:"5%", }}
         />
         {register ? (
           <>
@@ -146,7 +179,7 @@ export default function LandingForm({ register, setRegister }) {
               ) : (
                 <Check color="success" />
               )}
-              Es requerido
+              is required
             </FormHelperText>
             <FormHelperText variant="outlined">
               {errors?.emailFormat ? (
@@ -154,7 +187,7 @@ export default function LandingForm({ register, setRegister }) {
               ) : (
                 <Check color="success" />
               )}
-              Debe tener formato de email
+              should be in email format
             </FormHelperText>
           </>
         ) : (
@@ -162,19 +195,21 @@ export default function LandingForm({ register, setRegister }) {
         )}
       </FormControl>
       <FormControl>
-        <InputLabel variant="outlined" htmlFor="password">
-          Password
-        </InputLabel>
+        
+
         <OutlinedInput
           onChange={handleChange}
           id="password"
           name="password"
           value={userInfo.password}
           type="password"
-          label="Password"
-        >
+          placeholder="Password"
+
+          >
           <InputAdornment position="end">Show</InputAdornment>
         </OutlinedInput>
+          <Button onClick={handleReset} sx={{diplay:"inline-block",maxWidth:"50%", fontSize:"0.6rem", textAlign:"start", justifyContent:"start", }} color="secondary">I forget my password</Button>
+        
         {register ? (
           <>
             <FormHelperText variant="outlined">
@@ -183,7 +218,7 @@ export default function LandingForm({ register, setRegister }) {
               ) : (
                 <Check color="success" />
               )}
-              Es requerido
+              Is required
             </FormHelperText>
             <FormHelperText variant="outlined">
               {errors?.passFormat ? (
@@ -191,25 +226,33 @@ export default function LandingForm({ register, setRegister }) {
               ) : (
                 <Check color="success" />
               )}
-              Debe tener entre 6 y 14 caracters, al menos un digito, una
-              minuscula y una mayuscula
+              It must have between 6 and 14 characters, at least one digit, one
+              lowercase and uppercase
             </FormHelperText>
           </>
         ) : (
           <></>
         )}
+        <Box sx={{display:"flex", flexDirection:"column",marginTop:"10%"}}>
+
         {register && Object.keys(errors).length ? (
           <></>
-        ) : (
-          <Button type="submit" sx={styles.button} variant="outlined">
-            {register ? "registrate" : "iniciar sesion"}
+          ) : (
+            <Button type="submit" sx={styles.button}  variant="contained" color="primary">
+            {register ? "SING UP" : "LOG IN"}
           </Button>
-        )}
-        <MuiLink component={Link} to="/home" underline="none">
-          <Button>invitado</Button>
-        </MuiLink>
-        <Button onClick={handleReset}>Reset password</Button>
-        <Button onClick={handleGoogle}>Inicia con Google</Button>
+          
+          )}
+        <Button sx={styles.button} variant={"outlined"} onClick={() => setRegister(!register)}>
+				{register ? 'I HAVE AN ACCOUNT' : 'I WANT TO REGISTER'}
+			</Button>
+        </Box>
+        <Box sx={{marginTop:"25%", marginLeft:"50%", minWidth:"200px"}}>
+          <MuiLink component={Link} to="/home" underline="none" sx={{color:"#5e83ba"}}>
+            <Typography sx={{fontSize:"0.8rem"}}>CONTINUE LIKE A GUEST</Typography>
+          </MuiLink>
+        </Box>
+        
       </FormControl>
     </Box>
   );

@@ -14,7 +14,7 @@ export default function DisableElevation() {
   return (
       <Button onClick={e=>{handleClick(e)}} sx={{mt:1}} variant="contained" disableElevation color={"secondary"}>
         <IconButton >
-          <Typography color={"primary"} >Reset filters</Typography>
+          <Typography color={"primary"} ></Typography>
           <RotateLeftIcon ></RotateLeftIcon>
         </IconButton>
       </Button>
