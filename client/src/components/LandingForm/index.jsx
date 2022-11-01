@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import { Check, PriorityHigh } from "@mui/icons-material";
 import { auth } from "../../firebase/credenciales";
+import signWithGoogle from "../../firebase/signWithGoogle";
 import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
@@ -130,8 +131,7 @@ export default function LandingForm({ register, setRegister }) {
     })
   }
   async function handleGoogle() {
-    const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider);
+    signWithGoogle(auth)
   }
   return (
     <Box component={"form"} onSubmit={submitHandler} sx={{display:"flex", flexDirection:"column", minWidth:"400px", minHeight:"500px", padding:"20px", maxWidth:"400px" }} border="solid 1px">

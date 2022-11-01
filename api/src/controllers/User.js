@@ -121,22 +121,24 @@ const UserUpdate = async (req, res) => {
 };
 
 const PostLogin = async (req, res) => {
-	const { available } = req.body;
-	if (available === false) {
-		res.status(400).send('User does not available');
-	} else {
 		const { email } = req.body;
+		console.log(req.body)
 		try {
 			let found = await User.findOne({ where: { email: email } });
+			if(found?.available === false) return res.status(400).send('User does not available');
+			if(req.query.google && !found) {
+				const newUser = await User.create({...req.body})
+				return res.json(newUser)
+			}
 			if (found) {
 				return res.status(200).send(found);
 			} else {
 				return res.status(404).send({ msg: 'sorry, this email is not exist' });
 			}
 		} catch (error) {
+			console.log(error)
 			res.status(400).send(error);
 		}
-	}
 };
 /*
      filtro para ordenar por stock el admin en front 
