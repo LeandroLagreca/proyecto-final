@@ -17,32 +17,35 @@ const getRowTableVideoGames = async (req, res) => {
   }
 };
 const addGenreDB = async (genres) => {
-  if (genres) {
-    try {
-      let currentGenres = await getGenres();
+  return async (req, res) => {
+    if (genres) {
+      try {
+        let currentGenres = await getGenres();
 
-      let newGenres = genres.filter(
-        (eArr2) =>
-          !currentGenres.find((eArr1) => eArr2 == eArr1.dataValues.name)
-      );
+        let newGenres = genres.filter(
+          (eArr2) =>
+            !currentGenres.find((eArr1) => eArr2 == eArr1.dataValues.name)
+        );
 
-      if (newGenres.length > 0) {
-        let promisesDb = newGenres.map(async (e) => {
-          return await Genre.create({ name: e });
-        });
-        let addedGenres =await Promise.all(promisesDb);
+        if (newGenres.length > 0) {
+          let promisesDb = newGenres.map(async (e) => {
+            return await Genre.create({ name: e });
+          });
+          let addedGenres = await Promise.all(promisesDb);
 
-        return { success: `new genres created in db`,newGenres:newGenres };
-      } else {
-        return { failed: "those genres already exist" };
+          return { success: `new genres created in db`, newGenres: newGenres };
+        } else {
+          return { failed: "those genres already exist" };
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
+    } else {
+      res.status(404).send("a genre or arr of genres is required");
     }
-  } else {
-    res.status(404).send("a genre or arr of genres is required");
-  }
+  };
 };
+
 const videogamePost = async (req, res) => {
   try {
     const {
@@ -75,19 +78,18 @@ const videogamePost = async (req, res) => {
         stock,
       });
 
-
       if (newGenres) {
         let response = await addGenreDB(newGenres);
 
         if (response.success) {
           try {
             let allGenres = newGenres.concat(...genres);
-        
+
             let genresDb = await Genre.findAll({
               where: { name: allGenres },
             });
-            
-           await newVideogame.addGenre(genresDb);
+
+            await newVideogame.addGenre(genresDb);
             res.status(200).json({
               msg: "game was created",
               newgenre: response,
@@ -264,8 +266,8 @@ const videogameByID = async (req, res) => {
 
 const getGenres = async (req, res) => {
   try {
-    const data = await Genre.findAll({ attributes: ["id", "name"] });
-    return data;
+    const data = await Genre.findAll({ attributes: ["name"] });
+    res.send(data);
   } catch (error) {
     console.log(error);
   }
