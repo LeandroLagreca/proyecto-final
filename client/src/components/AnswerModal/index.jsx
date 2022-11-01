@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import {
   Button,
-  Typography,
-  Rating,
   Dialog,
   DialogActions,
   DialogContent,
@@ -12,11 +10,9 @@ import {
 } from "@mui/material";
 import { TextForm } from "..";
 
-export default function AnswerModal({questionId}) {
+export default function AnswerModal({userId, questionId, game}) {
   const [open, setOpen] = useState(false);
   const [answer, setAnswer] = useState("");
-
-  const navigate = useNavigate()
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -30,7 +26,9 @@ export default function AnswerModal({questionId}) {
     axios.put('http://localhost:3001/answer/' + questionId, {
       text: answer
     })
-    .then(() => navigate('/admin/questions'))
+    .then(() => axios.put(`http://localhost:3001/user/notifications/${userId}`, {
+      text: `Recibiste una respuesta en tu pregunta sobre el juego: ${game}`
+    }))
   };
   return (
     <>
