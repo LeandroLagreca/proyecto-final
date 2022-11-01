@@ -9,7 +9,7 @@ import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getGenres,postGames } from '../../redux/actions/videoGame';
+import { getGenres,putGames } from '../../redux/actions/videoGame';
 import {useParams} from "react-router-dom";
 
 function validate(input){
@@ -52,8 +52,9 @@ function validate(input){
 
     
 
-export default function ComposedTextField(props) {
+export default function ComposedTextField() {
  const { id } = useParams();
+ console.log(id)
  
 
   const dispatch = useDispatch()
@@ -115,8 +116,8 @@ function handleDelete(el){
     if(input.name && input.description&&input.background_image&&input.price&&input.rating&&input.requirements
         &&!errors.name&& !errors.description&&!errors.background_image&&!errors.price&&!errors.rating&&!errors.requirements)
 
-    {dispatch(postGames(input))
-    alert("Juego creado con exito!")
+    {dispatch(putGames(input, id))
+    //alert("Juego creado con exito!")
     setInput({
         name:"",
         description:"",
