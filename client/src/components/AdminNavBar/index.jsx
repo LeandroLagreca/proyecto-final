@@ -56,6 +56,17 @@ export default function AdminNavBar() {
           </MuiLink>
         </ListItem>
         <Divider />
+        <ListItem>
+          <MuiLink color={'secondary'} component={Link} to='/admin/questions' underline="none">
+            <ListItemButton>
+              <ListItemIcon>
+                <ConfirmationNumber />
+              </ListItemIcon>
+              <ListItemText primary={"Preguntas"} />
+            </ListItemButton>
+          </MuiLink>
+        </ListItem>
+        <Divider />
       </List>
     </Drawer>
   );
