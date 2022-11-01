@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import { ColorContextProvider } from "../Theme/Theme";
+import "./Index.css"
 import {
   Box,
   Button,
@@ -12,6 +14,8 @@ import {
   Link as MuiLink,
   Divider,
   Typography,
+  Container,
+  TextField
 } from "@mui/material";
 import { Check, PriorityHigh } from "@mui/icons-material";
 import { auth } from "../../firebase/credenciales";
@@ -25,6 +29,7 @@ import Swal from "sweetalert2";
 import validation from "./validations";
 import { getUserInfo } from "../../redux/actions/user";
 import GoogleIcon from '@mui/icons-material/Google';
+
 const styles = {
   container: {
     display: "flex",
@@ -36,6 +41,7 @@ const styles = {
     marginTop: 2,
   },
 };
+
 
 
 export default function LandingForm({ register, setRegister }) {
@@ -134,8 +140,12 @@ export default function LandingForm({ register, setRegister }) {
     signInWithRedirect(auth, provider);
   }
   return (
-    <Box component={"form"} onSubmit={submitHandler} sx={{display:"flex", flexDirection:"column", minWidth:"400px", minHeight:"500px", padding:"20px", maxWidth:"400px" }} border="solid 1px">
-      <Typography variant="h4">
+   
+    <Container className={window.localStorage.getItem("themeMode") === "dark" ? "bg" : "bg2"} sx={{minWidth:"100vw", minHeight:"100vh", position:"absolute", top:"0", left:"0", display:"flex", justifyContent:"center", alingItems:"center", padding:"60px"}}>
+
+    
+    <Box component={"form"} onSubmit={submitHandler} sx={{display:"flex", flexDirection:"column", minWidth:"400px", minHeight:"500px", padding:"20px", maxWidth:"400px", backgroundColor:"#f8f9fa",   }} border="solid 1px" borderColor={window.localStorage.getItem("themeMode") === "dark" ? "white" : "black"}  >
+      <Typography variant="h4" >
 				{register ? 'SING UP' : 'LOG IN'}{' '}
 			</Typography>
       <FormControl>
@@ -151,9 +161,9 @@ export default function LandingForm({ register, setRegister }) {
         </Button>
         </Box>
         
-        <Divider variant="middle" sx={{marginBottom:"5%"}} />
+        <Divider variant="middle" sx={{marginBottom:"5%"}}  />
 
-        <p>OR</p>
+        <Typography variant="h6" sx={{fontSize:"0.8rem"}} >OR</Typography>
 
         <Divider variant="middle" sx={{marginBottom:"5%", marginTop:"5%"}} />
 
@@ -162,7 +172,7 @@ export default function LandingForm({ register, setRegister }) {
         
         
         
-        <OutlinedInput
+        <TextField
           placeholder="Enter Email"
           onChange={handleChange}
           id="email"
@@ -170,6 +180,10 @@ export default function LandingForm({ register, setRegister }) {
           value={userInfo.email}
           type="email"
           sx={{marginBottom:"5%", }}
+          InputProps={{ inputProps: { style: { color: 'black' }}}}
+          color="primary"
+          focused
+
         />
         {register ? (
           <>
@@ -178,36 +192,39 @@ export default function LandingForm({ register, setRegister }) {
                 <PriorityHigh color="warning" />
               ) : (
                 <Check color="success" />
-              )}
+                )}
               is required
             </FormHelperText>
             <FormHelperText variant="outlined">
               {errors?.emailFormat ? (
                 <PriorityHigh color="warning" />
-              ) : (
-                <Check color="success" />
-              )}
+                ) : (
+                  <Check color="success" />
+                  )}
               should be in email format
             </FormHelperText>
           </>
         ) : (
           <></>
-        )}
+          )}
       </FormControl>
       <FormControl>
         
 
-        <OutlinedInput
+        <TextField
           onChange={handleChange}
           id="password"
           name="password"
           value={userInfo.password}
           type="password"
           placeholder="Password"
-
+          InputProps={{ inputProps: { style: { color: 'black' }}}}
+          color="primary"
+          focused
+          
           >
           <InputAdornment position="end">Show</InputAdornment>
-        </OutlinedInput>
+        </TextField>
           <Button onClick={handleReset} sx={{diplay:"inline-block",maxWidth:"50%", fontSize:"0.6rem", textAlign:"start", justifyContent:"start", }} color="secondary">I forget my password</Button>
         
         {register ? (
@@ -235,15 +252,15 @@ export default function LandingForm({ register, setRegister }) {
         )}
         <Box sx={{display:"flex", flexDirection:"column",marginTop:"10%"}}>
 
-        {register && Object.keys(errors).length ? (
-          <></>
+          {register && Object.keys(errors).length ? (
+            <></>
           ) : (
             <Button type="submit" sx={styles.button}  variant="contained" color="primary">
             {register ? "SING UP" : "LOG IN"}
           </Button>
           
           )}
-        <Button sx={styles.button} variant={"outlined"} onClick={() => setRegister(!register)}>
+        <Button color={window.localStorage.getItem("themeMode") === "dark" ? "secondary" : "primary"} sx={styles.button} variant={"outlined"} onClick={() => setRegister(!register)}>
 				{register ? 'I HAVE AN ACCOUNT' : 'I WANT TO REGISTER'}
 			</Button>
         </Box>
@@ -255,5 +272,7 @@ export default function LandingForm({ register, setRegister }) {
         
       </FormControl>
     </Box>
+    </Container>
+    
   );
 }

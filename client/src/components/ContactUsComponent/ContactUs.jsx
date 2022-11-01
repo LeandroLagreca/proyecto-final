@@ -91,6 +91,7 @@ const ContactComponent = () => {
               ): "success"
             }
             placeholder='Pepe Gutierrez'
+            InputProps={{ inputProps: { style: { color: 'black' }}}}
             
             
             />
@@ -108,7 +109,7 @@ const ContactComponent = () => {
             type={"text"}
             name={"phone"}
             value={contactInfo.phone}
-            sx={{boxShadow:"3", width:"250px"}}
+            sx={{boxShadow:"3", width:"250px", backgroundColor:"white"}}
             color={
               errors?.phoneFormat ? (
                 "error"
@@ -117,6 +118,8 @@ const ContactComponent = () => {
             onChange={handleChange}
             
             placeholder="1135462365"
+            className='text'
+            InputProps={{ inputProps: { style: { color: 'black' }}}}
             />
             
            
@@ -133,7 +136,7 @@ const ContactComponent = () => {
             type={"email"}
             name={"email"}
             value={contactInfo.email}
-            sx={{boxShadow:"3", width:"250px"}}
+            sx={{boxShadow:"3", width:"250px", backgroundColor:"white"}}
             color={
               errors.emailFormat ? (
                 "error"
@@ -142,6 +145,7 @@ const ContactComponent = () => {
             className='textfield'
             onChange={handleChange}
             placeholder="emaildeprueba@gmail.com"
+            InputProps={{ inputProps: { style: { color: 'black' }}}}
             />
            
           
@@ -153,14 +157,15 @@ const ContactComponent = () => {
             <label htmlFor="" >Message</label>
             <TextField
               id="outlined-multiline-static"
-              
               multiline
               rows={3}
-              sx={{marginRight:"20px", boxShadow:"3" }}
+              sx={{marginRight:"20px", boxShadow:"3", backgroundColor:"white" }}
+              color={window.localStorage.getItem("themeMode") === "dark" ? "primary" : "primary"}
+              InputProps={{ inputProps: { style: { color: 'black' }}}}
               
               />
             
-              <Button type='submit' sx={{backgroundColor:"#5e83ba", width:"50%", color:"#091d36", marginTop:"50px" ,"&:hover": {backgroundColor:"#091d36", color:"#5e83ba"}}} disabled={errors.emailFormat  ? true : false} >Submit</Button>
+              <Button type='submit' sx={{backgroundColor:"#5e83ba", width:"50%", color:"#091d36", marginTop:"50px" ,"&:hover": {backgroundColor:"#091d36", color:"#5e83ba"}}} disabled={errors?.emailFormat  ? true : false} >Submit</Button>
             </Box>
             
             </Box>
