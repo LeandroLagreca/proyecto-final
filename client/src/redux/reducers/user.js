@@ -27,7 +27,7 @@ const userSlice = createSlice({
 			state.status = payload;
 		},
 		setInfo: (state, { payload }) => {
-			const { id, email, deseos, cart, admin } = payload;
+			const { id, email, deseos, cart, admin, notifications } = payload;
 			return {
 				...state,
 				id,
