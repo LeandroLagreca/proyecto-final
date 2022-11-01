@@ -17,33 +17,31 @@ const getRowTableVideoGames = async (req, res) => {
   }
 };
 const addGenreDB = async (genres) => {
-  return async (req, res) => {
-    if (genres) {
-      try {
-        let currentGenres = await getGenres();
+  if (genres) {
+    try {
+      let currentGenres = await Genre.findAll({ attributes: ["name"] });
 
-        let newGenres = genres.filter(
-          (eArr2) =>
-            !currentGenres.find((eArr1) => eArr2 == eArr1.dataValues.name)
-        );
+      let newGenres = genres.filter(
+        (eArr2) =>
+          !currentGenres.find((eArr1) => eArr2 == eArr1.dataValues.name)
+      );
 
-        if (newGenres.length > 0) {
-          let promisesDb = newGenres.map(async (e) => {
-            return await Genre.create({ name: e });
-          });
-          let addedGenres = await Promise.all(promisesDb);
+      if (newGenres.length > 0) {
+        let promisesDb = newGenres.map(async (e) => {
+          return await Genre.create({ name: e });
+        });
+        let addedGenres = await Promise.all(promisesDb);
 
-          return { success: `new genres created in db`, newGenres: newGenres };
-        } else {
-          return { failed: "those genres already exist" };
-        }
-      } catch (error) {
-        console.log(error);
+        return { success: `new genres created in db`, newGenres: newGenres };
+      } else {
+        return { failed: "those genres already exist" };
       }
-    } else {
-      res.status(404).send("a genre or arr of genres is required");
+    } catch (error) {
+      console.log(error);
     }
-  };
+  } else {
+    return { error: "a genre or arr of genres is required" };
+  }
 };
 
 const videogamePost = async (req, res) => {
@@ -82,6 +80,7 @@ const videogamePost = async (req, res) => {
         let response = await addGenreDB(newGenres);
 
         if (response.success) {
+          console.log("entré");
           try {
             let allGenres = newGenres.concat(...genres);
 
