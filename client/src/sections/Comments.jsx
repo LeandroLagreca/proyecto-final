@@ -275,66 +275,78 @@ export default function Comments({ list, type }) {
                         paddingTop: 1,
                       }}
                     >
-                    <Box>
-                      <Typography component="legend">Rating</Typography>
+                      <Box>
+                        <Typography component="legend">Rating</Typography>
                         <Rating
                           name="rating_like"
                           value={estrella}
                           onClick={handleStar}
                           onChange={(event, newValue) => {
-                          setEstrella(newValue);
+                            setEstrella(newValue);
                           }}
                         />
-                    </Box>
+                      </Box>
 
-                    <Button type="submit" sx={{marginLeft:5}} variant="outlined">
-                      Submit
-                    </Button>
+                      <Button
+                        type="submit"
+                        sx={{ marginLeft: 5 }}
+                        variant="outlined"
+                      >
+                        Submit
+                      </Button>
                     </Box>
                   </form>
-                  ) : (null)}
-                </Grid>
-                ) : 
-                <Grid item>
-                </Grid>
-                }
+                ) : null}
+              </Grid>
+            ) : (
+              <Grid item></Grid>
+            )}
 
-                <Grid container wrap="nowrap" spacing={2}>
-                  <Grid item>
-                    <Avatar alt={c.userComment} src={imgLink} /> {/* Imagen usuario//alt nombreUsuario */}
-                  </Grid>
-                  <Grid justifyContent="left" item xs zeroMinWidth> 
-                    <h4 style={{ margin: 0, textAlign: "left" }}>
-                      {c.userComment} {/* Nombre del usuario */}
-                    </h4>
-                    {/* Rating / Estrellitas */}
-                    {type === "review" ? (
+            <Grid container wrap="nowrap" spacing={2}>
+              <Grid item>
+                <Avatar alt={c.userComment} src={imgLink} />{" "}
+                {/* Imagen usuario//alt nombreUsuario */}
+              </Grid>
+              <Grid justifyContent="left" item xs zeroMinWidth>
+                <h4 style={{ margin: 0, textAlign: "left" }}>
+                  {c.userComment} {/* Nombre del usuario */}
+                </h4>
+                {/* Rating / Estrellitas */}
+                {type === "review" ? (
                   <>
-                    <Typography style={{ textAlign: "right" }} component="legend">
+                    <Typography
+                      style={{ textAlign: "right" }}
+                      component="legend"
+                    >
                       Rating
                     </Typography>
                     <Rating
-                    style={{ float: "right" }}
-                    name="read-only"
-                    value={c.rating_like}
-                    readOnly
-                  />
+                      style={{ float: "right" }}
+                      name="read-only"
+                      value={c.rating_like}
+                      readOnly
+                    />
                   </>
                 ) : (
                   <></>
                 )}
-                    <p style={{ textAlign: "left" }}>
-                    {parse(c.text)} {/* Texto o Review del usuario */}
-                    </p>
-                    <p style={{ textAlign: "left", color: "gray" }}>
-                      posted {c.createdAt} {/* Cuando se hizo el review */}
-                    </p>
-                  </Grid>
-                </Grid>
-              </Paper>
-            );
-          })
-        : null}
+                <p style={{ textAlign: "left" }}>
+                  {parse(c.text)} {/* Texto o Review del usuario */}
+                </p>
+                <p style={{ textAlign: "left", color: "gray" }}>
+                  posted {c.createdAt} {/* Cuando se hizo el review */}
+                </p>
+                {pathname !== "/admin/questions" || c.answer ? (
+                  <></>
+                ) : (
+                  <AnswerModal questionId={c.id} />
+                )}
+              </Grid>
+            </Grid>
+            {!c.answer ? <></> : <Answer text={c.answer} date={c.createdAt}/>}
+          </Paper>
+        );
+      })}
     </div>
   );
 }
