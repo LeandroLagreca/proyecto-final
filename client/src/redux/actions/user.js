@@ -21,8 +21,11 @@ export const getUserInfo = (email, auth) => {
 			dispatch(setInfo(data));
 
 			const updatedData = await axios.put(API + `user/${data.id}`, data);
+			const  purchases  = await axios.get(
+				`${API}orders/user/${data.id}`
+			);
 			dispatch(getUserData(updatedData.data.user));
-
+			dispatch(addToPurchases(purchases.data.PurchaseOrders));
 		} catch (error) {
 			return null;
 		}
@@ -201,7 +204,7 @@ export const putUserData = (ID, data) => {
 	return async function (dispatch) {
 		try {
 			const updatedData = await axios.put(API + `user/${ID}`, data);
-      console.log(updatedData.data.user, 'updatedData console.log')
+			console.log(updatedData.data.user, 'updatedData console.log');
 			dispatch(getUserData(updatedData.data.user));
 		} catch (error) {
 			return null;
