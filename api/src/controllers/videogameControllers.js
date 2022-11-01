@@ -328,7 +328,8 @@ const updateVideogame = async (req, res) => {
     }
     res.send({ msg: "Videogame doesn't exist" });
   } catch (error) {
-    res.status.send(error);
+    console.log(error)
+    res.status(500).send(error);
   }
 };
 

@@ -7,6 +7,7 @@ import {
   cleanFilter,
   getAllGenres,
   postAllGames,
+  putAllGames
 } from "../reducers/videoGame";
 
 const API = "http://localhost:3001/";
@@ -82,6 +83,15 @@ export const getGenres = () =>
     try {
       const response = await axios.post(API + "videogames", payload);
       dispatch(postAllGames(response));
+    } catch (error) {
+      return;
+    }
+  };  
+
+  export const putGames = (input, id) =>
+  async function () { 
+    try {
+      const response = await axios.put(API + `videogames/${id}`, input);
     } catch (error) {
       return;
     }

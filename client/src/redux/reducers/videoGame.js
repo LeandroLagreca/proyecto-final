@@ -119,6 +119,9 @@ const videoGameSlice = createSlice({
 		postAllGames: (state, { payload }) => {
 			state = payload
 		},
+		putAllGames: (state, { payload }) => {
+			state.games = payload;
+		},
 	},
 });
 
@@ -140,6 +143,7 @@ export const {
 	setGameQuestions,
 	getAllGenres,
 	postAllGames,
+	putAllGames,
 } = videoGameSlice.actions;
 
 export default videoGameSlice.reducer;
