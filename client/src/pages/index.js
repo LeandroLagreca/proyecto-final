@@ -9,3 +9,4 @@ export { default as AdminGames } from './AdminGames';
 export { default as Cart } from './cart/Cart';
 export { default as Discounts } from './Discounts';
 export { default as Account } from './Account';
+export { default as AdminQuestions } from './AdminQuestions';
