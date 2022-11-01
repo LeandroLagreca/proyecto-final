@@ -127,6 +127,7 @@ export default function MainCard({
         image={background_image}
         price={price}
         styles={{ position: "absolute", left: 0, bottom: 0 }}
+       
       />
       <AddToCartButton
         id={id}

@@ -2,18 +2,24 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import { ColorContextProvider } from "../Theme/Theme";
+import "./Index.css"
 import {
   Box,
   Button,
   FormControl,
   OutlinedInput,
-  InputLabel,
   FormHelperText,
   InputAdornment,
   Link as MuiLink,
+  Divider,
+  Typography,
+  Container,
+  TextField
 } from "@mui/material";
 import { Check, PriorityHigh } from "@mui/icons-material";
 import { auth } from "../../firebase/credenciales";
+import signWithGoogle from "../../firebase/signWithGoogle";
 import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
@@ -23,6 +29,8 @@ import {
 import Swal from "sweetalert2";
 import validation from "./validations";
 import { getUserInfo } from "../../redux/actions/user";
+import GoogleIcon from '@mui/icons-material/Google';
+
 const styles = {
   container: {
     display: "flex",
@@ -35,12 +43,16 @@ const styles = {
   },
 };
 
+
+
 export default function LandingForm({ register, setRegister }) {
   const [userInfo, setUserInfo] = useState({
     email: "",
     password: "",
   });
   const [errors, setErrors] = useState({});
+  
+
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -119,24 +131,59 @@ export default function LandingForm({ register, setRegister }) {
       handleCodeInApp: true,
     };
     sendPasswordResetEmail(auth, (email = userInfo.email), actionCodeSettings);
+    Swal.fire({
+      icon:"success",
+      text:"we have sent you an email to reset your password, please check it. "
+    })
   }
   async function handleGoogle() {
-    const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider);
+    signWithGoogle(auth)
   }
   return (
-    <Box component={"form"} onSubmit={submitHandler} sx={styles.container}>
+   
+    <Container className={window.localStorage.getItem("themeMode") === "dark" ? "bg" : "bg2"} sx={{minWidth:"100vw", minHeight:"100vh", position:"absolute", top:"0", left:"0", display:"flex", justifyContent:"center", alingItems:"center", padding:"60px"}}>
+
+    
+    <Box component={"form"} onSubmit={submitHandler} sx={{display:"flex", flexDirection:"column", minWidth:"400px", minHeight:"500px", padding:"20px", maxWidth:"400px", backgroundColor:"#f8f9fa",   }} border="solid 1px" borderColor={window.localStorage.getItem("themeMode") === "dark" ? "white" : "black"}  >
+      <Typography variant="h4" >
+				{register ? 'SING UP' : 'LOG IN'}{' '}
+			</Typography>
       <FormControl>
-        <InputLabel variant="outlined" htmlFor="email">
-          E-mail
-        </InputLabel>
-        <OutlinedInput
-          label="E-mail"
+        
+        <Box sx={{marginBottom:"5%", marginTop:"10%" }}>
+        <Button 
+        variant="contained"
+        startIcon={<GoogleIcon></GoogleIcon>}
+        sx={{minWidth:"100%", maxWidth:"100%"}}
+        onClick={handleGoogle}
+        >
+          Sing in with Google
+        </Button>
+        </Box>
+        
+        <Divider variant="middle" sx={{marginBottom:"5%"}}  />
+
+        <Typography variant="h6" sx={{fontSize:"0.8rem"}} >OR</Typography>
+
+        <Divider variant="middle" sx={{marginBottom:"5%", marginTop:"5%"}} />
+
+        
+        
+        
+        
+        
+        <TextField
+          placeholder="Enter Email"
           onChange={handleChange}
           id="email"
           name="email"
           value={userInfo.email}
           type="email"
+          sx={{marginBottom:"5%", }}
+          InputProps={{ inputProps: { style: { color: 'black' }}}}
+          color="primary"
+          focused
+
         />
         {register ? (
           <>
@@ -145,36 +192,41 @@ export default function LandingForm({ register, setRegister }) {
                 <PriorityHigh color="warning" />
               ) : (
                 <Check color="success" />
-              )}
-              Es requerido
+                )}
+              is required
             </FormHelperText>
             <FormHelperText variant="outlined">
               {errors?.emailFormat ? (
                 <PriorityHigh color="warning" />
-              ) : (
-                <Check color="success" />
-              )}
-              Debe tener formato de email
+                ) : (
+                  <Check color="success" />
+                  )}
+              should be in email format
             </FormHelperText>
           </>
         ) : (
           <></>
-        )}
+          )}
       </FormControl>
       <FormControl>
-        <InputLabel variant="outlined" htmlFor="password">
-          Password
-        </InputLabel>
-        <OutlinedInput
+        
+
+        <TextField
           onChange={handleChange}
           id="password"
           name="password"
           value={userInfo.password}
           type="password"
-          label="Password"
-        >
+          placeholder="Password"
+          InputProps={{ inputProps: { style: { color: 'black' }}}}
+          color="primary"
+          focused
+          
+          >
           <InputAdornment position="end">Show</InputAdornment>
-        </OutlinedInput>
+        </TextField>
+          <Button onClick={handleReset} sx={{diplay:"inline-block",maxWidth:"50%", fontSize:"0.6rem", textAlign:"start", justifyContent:"start", }} color="secondary">I forget my password</Button>
+        
         {register ? (
           <>
             <FormHelperText variant="outlined">
@@ -183,7 +235,7 @@ export default function LandingForm({ register, setRegister }) {
               ) : (
                 <Check color="success" />
               )}
-              Es requerido
+              Is required
             </FormHelperText>
             <FormHelperText variant="outlined">
               {errors?.passFormat ? (
@@ -191,26 +243,36 @@ export default function LandingForm({ register, setRegister }) {
               ) : (
                 <Check color="success" />
               )}
-              Debe tener entre 6 y 14 caracters, al menos un digito, una
-              minuscula y una mayuscula
+              It must have between 6 and 14 characters, at least one digit, one
+              lowercase and uppercase
             </FormHelperText>
           </>
         ) : (
           <></>
         )}
-        {register && Object.keys(errors).length ? (
-          <></>
-        ) : (
-          <Button type="submit" sx={styles.button} variant="outlined">
-            {register ? "registrate" : "iniciar sesion"}
+        <Box sx={{display:"flex", flexDirection:"column",marginTop:"10%"}}>
+
+          {register && Object.keys(errors).length ? (
+            <></>
+          ) : (
+            <Button type="submit" sx={styles.button}  variant="contained" color="primary">
+            {register ? "SING UP" : "LOG IN"}
           </Button>
-        )}
-        <MuiLink component={Link} to="/home" underline="none">
-          <Button>invitado</Button>
-        </MuiLink>
-        <Button onClick={handleReset}>Reset password</Button>
-        <Button onClick={handleGoogle}>Inicia con Google</Button>
+          
+          )}
+        <Button color={window.localStorage.getItem("themeMode") === "dark" ? "secondary" : "primary"} sx={styles.button} variant={"outlined"} onClick={() => setRegister(!register)}>
+				{register ? 'I HAVE AN ACCOUNT' : 'I WANT TO REGISTER'}
+			</Button>
+        </Box>
+        <Box sx={{marginTop:"25%", marginLeft:"50%", minWidth:"200px"}}>
+          <MuiLink component={Link} to="/home" underline="none" sx={{color:"#5e83ba"}}>
+            <Typography sx={{fontSize:"0.8rem"}}>CONTINUE LIKE A GUEST</Typography>
+          </MuiLink>
+        </Box>
+        
       </FormControl>
     </Box>
+    </Container>
+    
   );
 }

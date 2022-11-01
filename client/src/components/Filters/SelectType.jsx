@@ -15,7 +15,7 @@ export default function SelectType() {
 
   return (
     <div>
-      <FormControl sx={{ m: 1, minWidth: 100, backgroundColor:"secondary.main", borderRadius:1 }}>
+      <FormControl sx={{ m: 1, minWidth: 160, backgroundColor:"secondary.main", borderRadius:1 }}>
         <InputLabel>A-Z</InputLabel>
         <Select value={sort} onChange={handleType} autoWidth label="Type">
           <MenuItem value="">

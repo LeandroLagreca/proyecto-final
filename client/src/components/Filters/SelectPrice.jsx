@@ -39,7 +39,7 @@ export default function SelectPrice() {
     <div>
       <FormControl sx={{ m: 1, minWidth: 100 }}>
         <Box style={{ width: 200, display: 'flex', flexDirection:'column', alignItems:'center' }}>
-        <Typography variant='h5' color={"secondary.main"}>Price</Typography>
+        <Typography variant='h6' color={"secondary.main"} sx={{fontSize:"15px"}}>PRICE</Typography>
           <Slider
             step={25}
             min={0}

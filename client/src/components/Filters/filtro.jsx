@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { getGames } from '../../redux/actions/videoGame';
 import { Box, List, ListItem, ListSubheader } from '@mui/material';
 import "./filter.css"
+import DisableElevation from './CleanButton';
 
 
 export default function Filter() {
@@ -32,14 +33,16 @@ export default function Filter() {
 	}, [page, sort, name, rating, price, genre, dispatch])
 
 	return (
-				<Box className='Filters' sx={{display:"flex", textAling:"center", alignItems: 'center'}}>
+				<Box className='Filters' sx={{display:"flex", textAling:"center", alignItems: 'center', flexDirection:"column"}}>
 
 					<List 
 					subheader={
-						<Box   sx={{fontSize: 40, color: "black"}} >
-						  Filters
+						<Box   sx={{fontSize: 25, }} color = {window.localStorage.getItem("themeMode") === "dark" ? "white" : "black"} >
+						  FILTERS
 						</Box>
 					  }>
+						<Box sx={{display:"flex", flexDirection:"column", justifyContent:"center"}}>
+
 						<ListItem sx={{marginLeft:"45px"}}>
 							<SelectRating />
 						</ListItem>
@@ -47,14 +50,19 @@ export default function Filter() {
 							<SelectPrice />
 						
 						</ListItem>
-						<ListItem sx={{marginLeft:"50px"}}>
+						<ListItem sx={{marginLeft:"22px"}}>
 							<SelectType />
 							
 						</ListItem>
-						<ListItem sx={{marginLeft:"50px"}}>
+						<ListItem sx={{marginLeft:"22px"}}>
 							<SelectGenere />
 							
 						</ListItem>
+						<ListItem sx={{marginLeft:"70px"}}>
+							<DisableElevation/>
+							
+						</ListItem>
+						</Box>
 					</List>
 				
 				</Box>
