@@ -50,17 +50,23 @@ const answerQuestion = async (req, res) => {
 };
 
 const getQuestions = async (req, res) => {
-  const { gameId } = req.query;
+  const { gameId, userId } = req.query
   const where = {};
-  if (gameId) {
-    where.id = gameId;
-  }
+  
+  if(userId) {
+		where.userId = userId
+	}
+
+	if(gameId) {
+		gameWhere.videogameId = gameId
+	}
+  
   try {
     const questions = await Question.findAll({
+			where,
       include: [
         {
           model: Videogame,
-          where,
           attributes: ["name"],
         },
         {

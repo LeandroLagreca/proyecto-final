@@ -66,5 +66,9 @@ module.exports = (sequelize) => {
       defaultValue: true,
       allowNull: false,
     },
+    notifications: {
+      type: DataTypes.ARRAY(DataTypes.JSON),
+      defaultValue: [],
+    }
   });
 };

@@ -23,3 +23,5 @@ export { default as TextForm } from './TextForm';
 export { default as ReviewForm } from './ReviewForm';
 export { default as AnswerModal } from './AnswerModal';
 export { default as Answer } from './Answer';
+export { default as NotificationsWidget } from './NotificationsWidget';
+export { default as NotificationCard } from './NotificationCard';
