@@ -58,7 +58,7 @@ const getQuestions = async (req, res) => {
 	}
 
 	if(gameId) {
-		gameWhere.videogameId = gameId
+		where.videogameId = gameId
 	}
   
   try {
