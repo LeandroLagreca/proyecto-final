@@ -3,21 +3,6 @@ import { updateNotifications } from "../reducers/user";
 import { store } from "../store";
 const API = "http://localhost:3001/";
 
-export const addNotification = (notification, userId) => {
-  const { notifications } = store.getState().user;
-  return async function (dispatch) {
-    const newNotifications = [...notifications, notification];
-    try {
-      await axios.put(API + `user/${userId}`, {
-        notifications: newNotifications,
-      });
-      dispatch(updateNotifications(newNotifications));
-    } catch (error) {
-      return;
-    }
-  };
-};
-
 export const deleteFromNotifications = (notiId) => {
   const { id, notifications } = store.getState().user;
   return async function (dispatch) {
