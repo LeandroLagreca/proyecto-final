@@ -74,12 +74,14 @@ export default function ReviewForm({gameId, userId}) {
     })
   } 
 
+  if(loading || prevReviews.includes(gameId)) return <></>
+
   return (
     <>
       <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open form dialog
-      </Button>
+      <IconButton size='large' variant="outlined" onClick={handleClickOpen}>
+        <StarBorder fontSize="large" />
+      </IconButton>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Valora este Juego</DialogTitle>
         <DialogContent>
