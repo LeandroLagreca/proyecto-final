@@ -21,3 +21,5 @@ export { default as MyNotifications } from './MyNotifications/MyNotifications';
 export { default as AccountNavBar } from './AccountNavBar/AccountNavBar';
 export { default as TextForm } from './TextForm';
 export { default as ReviewForm } from './ReviewForm';
+export { default as NotificationsWidget } from './NotificationsWidget';
+export { default as NotificationCard } from './NotificationCard';
