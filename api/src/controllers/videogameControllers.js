@@ -126,6 +126,7 @@ const getAllGames = async (req, res) => {
   const where = {};
   const genreFilter = {};
 
+  where.stock = { [Op.gte]: 1 };
   if (name)
     where.name = {
       [Op.iLike]: `%${name}%`,
