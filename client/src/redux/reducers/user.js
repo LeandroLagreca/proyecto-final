@@ -9,6 +9,7 @@ const initialState = {
 	email: '',
 	id: null,
 	cartList,
+	notifications: [],
 	wishes: [],
 	admin: false,
 	emailVerified: false,
