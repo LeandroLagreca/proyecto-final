@@ -9,6 +9,7 @@ const initialState = {
 	email: '',
 	id: null,
 	cartList,
+	notifications: [],
 	wishes: [],
 	admin: false,
 	emailVerified: false,
@@ -26,7 +27,7 @@ const userSlice = createSlice({
 			state.status = payload;
 		},
 		setInfo: (state, { payload }) => {
-			const { id, email, deseos, cart, admin } = payload;
+			const { id, email, deseos, cart, admin, notifications } = payload;
 			return {
 				...state,
 				id,
@@ -34,10 +35,14 @@ const userSlice = createSlice({
 				wishes: deseos,
 				cartList: cart,
 				admin,
+				notifications
 			};
 		},
 		updateCart: (state, { payload }) => {
 			state.cartList = payload;
+		},
+		updateNotifications: (state, { payload }) => {
+			state.notifications = payload;
 		},
 		addOne: (state, { payload }) => {
 			const productRef = state.cartList.find((el) => el.id === payload);
@@ -70,6 +75,7 @@ const userSlice = createSlice({
 export const {
 	setSigned,
 	updateCart,
+	updateNotifications,
 	addOne,
 	removeOne,
 	updateWishes,

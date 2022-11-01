@@ -8,7 +8,6 @@ import {
   Box,
   Toolbar,
   IconButton,
-  Typography,
   Badge,
   MenuItem,
   Menu,
@@ -23,13 +22,13 @@ import {
   MoreVert as MoreIcon,
 } from "@mui/icons-material";
 
-import { CartWidget, SessionButton } from "../";
+import { CartWidget, SessionButton, NotificationsWidget } from "../";
 import Searchbar from "./Searchbar";
 
 const styles = {
   brand: {
     width: 200,
-    height: 'auto'
+    height: "auto",
   },
   link: {
     textDecoration: "none",
@@ -194,17 +193,20 @@ const Navbar = () => {
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <CartWidget />
             {status !== "guest" ? (
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
+              <>
+                <NotificationsWidget />
+                <IconButton
+                  size="large"
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  color="inherit"
+                >
+                  <AccountCircle />
+                </IconButton>
+              </>
             ) : (
               ""
             )}
