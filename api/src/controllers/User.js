@@ -1,4 +1,5 @@
 const { User } = require('../db');
+const { uuid } = require('uuidv4');
 const { firebaseApp } = require('../firebase/credenciales');
 const { Op } = require('sequelize');
 const {
@@ -140,6 +141,28 @@ const PostLogin = async (req, res) => {
 			res.status(400).send(error);
 		}
 };
+
+const addNotification = async (req, res) => {
+	const { id } = req.params;
+	const { text } = req.body
+	try {
+		let user = await User.findOne({where: {id}});
+
+    await user.update({
+			notifications: [
+				...user.notifications,
+				{
+					id: uuid(),
+					text
+				}
+			]
+		})
+
+		res.status(201).send('Notification added');
+	} catch (error) {
+		res.status(400).json({ error: 'Error update User' });
+	}
+}
 /*
      filtro para ordenar por stock el admin en front 
     const OrdenXStock = 
@@ -167,4 +190,5 @@ module.exports = {
 	UserPost,
 	UserUpdate,
 	PostLogin,
+	addNotification
 };

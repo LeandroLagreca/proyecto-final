@@ -339,7 +339,7 @@ export default function Comments({ list, type }) {
                 {pathname !== "/admin/questions" || c.answer ? (
                   <></>
                 ) : (
-                  <AnswerModal questionId={c.id} />
+                  <AnswerModal userId={c.userId} questionId={c.id} game={c.videogame.name} />
                 )}
               </Grid>
             </Grid>
