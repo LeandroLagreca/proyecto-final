@@ -60,9 +60,21 @@ const getQuestions = async (req, res) => {
 	if(gameId) {
 		gameWhere.videogameId = gameId
 	}
-	
+
 	try {
-		const questions = await Question.findAll({where})
+		const questions = await Question.findAll({
+			where,
+			include: [
+				{
+					model: User,
+					attributes: ['name']
+				},
+				{
+					model: Videogame,
+					attributes: ['name']
+				}
+			]
+		})
 	
 		if(!questions.length) {
 			return res.status(404).send('Dont exist any question yet')
