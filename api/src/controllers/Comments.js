@@ -17,6 +17,8 @@ const postComment = async (req, res) => {
             userComment: userComment,
             rating_dislike: rating_dislike,
             rating_like: rating_like,
+            videogameId: gameID,
+            userId: userID
           });
           let gameName = await game.name;
           let userName = await user.name;
@@ -59,6 +61,7 @@ const getUserComments = async (req, res) => {
             "rating_dislike",
             "createdAt",
             "id",
+            'videogameId'
           ],
           through: { attributes: [] },
         },

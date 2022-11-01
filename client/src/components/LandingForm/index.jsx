@@ -19,6 +19,7 @@ import {
 } from "@mui/material";
 import { Check, PriorityHigh } from "@mui/icons-material";
 import { auth } from "../../firebase/credenciales";
+import signWithGoogle from "../../firebase/signWithGoogle";
 import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
@@ -136,8 +137,7 @@ export default function LandingForm({ register, setRegister }) {
     })
   }
   async function handleGoogle() {
-    const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider);
+    signWithGoogle(auth)
   }
   return (
    

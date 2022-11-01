@@ -15,9 +15,10 @@ import { Link } from 'react-router-dom';
 import './AddWishes.css';
 
 import { VpnKey, Visibility, VisibilityOff } from '@mui/icons-material';
+import { ReviewForm } from '..';
 
 const MyPurchases = () => {
-	const { wishes } = useSelector((state) => state.user);
+	const { wishes, id } = useSelector((state) => state.user);
 	const handleClose = () => setOpen(false);
 	const [open, setOpen] = React.useState(false);
 
@@ -65,6 +66,7 @@ const MyPurchases = () => {
 				{wishes.map((e, index) => {
 					return (
 						<Box key={index} align-items="center" display="flex" width={'96%'}>
+							<ReviewForm gameId={e.id} userId={id} />
 							<ul
 								style={{
 									display: 'flex',
