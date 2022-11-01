@@ -20,6 +20,7 @@ import {
 	LocalMall,
 	NotificationsActive,
 	PhotoCamera,
+	QuestionMark
 } from '@mui/icons-material';
 
 import { images } from '../../assets';
@@ -155,6 +156,21 @@ const AccountNavBar = () => {
 								<NotificationsActive />
 							</ListItemIcon>
 							<ListItemText primary={'My Notification'} />
+						</ListItemButton>
+					</MuiLink>
+				</ListItem>
+				<Divider />
+				<ListItem>
+					<MuiLink
+						component={Link}
+						to="/account/questions"
+						underline="none"
+					>
+						<ListItemButton>
+							<ListItemIcon>
+								<QuestionMark />
+							</ListItemIcon>
+							<ListItemText primary={'My Questions'} />
 						</ListItemButton>
 					</MuiLink>
 				</ListItem>
