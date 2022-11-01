@@ -16,7 +16,7 @@ export default function SelectRating() {
 		<div>
 			<FormControl sx={{ m: 1, minWidth: 100 }}>
 				<Box sx={{display: 'flex', flexDirection:'column', alignItems: 'center' }}>
-					<Typography variant='h5' color={"secondary.main"}>Rating</Typography>
+					<Typography variant='h6' color={"secondary.main"} sx={{fontSize:"15px"}}>RATING</Typography>
 					<Rating
 						name="simple-controlled"
 						value={parseInt(rating)}

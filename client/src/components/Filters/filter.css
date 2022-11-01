@@ -1,5 +1,5 @@
 .Filters{
-    background-color: rgb(171, 171, 171);
+    border: solid 1px;
     position: sticky;
     border-radius: 15px;
 }

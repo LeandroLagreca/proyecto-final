@@ -20,11 +20,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<ColorContextProvider>
+			{/* <ColorContextProvider> */}
 				<Elements stripe={stripePromise}>
 					<App />
 				</Elements>
-			</ColorContextProvider>
+			{/* </ColorContextProvider> */}
 		</Provider>
 	</React.StrictMode>
 );
