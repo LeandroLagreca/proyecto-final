@@ -31,8 +31,8 @@ const Games = () => {
 		return <h3>No hay resultados que coincidan con tu búsqueda.</h3>;
 
 	return (
-		<Box flex={6}>
-			<Box sx={styles.container}>
+		<Box flex={6} >
+			<Box sx={styles.container} >
 				{games?.map((e, index) => {
 					return (
 						<Box key={index}>
