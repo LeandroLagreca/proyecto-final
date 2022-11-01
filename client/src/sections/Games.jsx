@@ -28,7 +28,7 @@ const Games = () => {
 
 	if (loading) return <Loader />;
 	else if (!games.length && !loading)
-		return <h3>No hay resultados que coincidan con tu búsqueda.</h3>;
+		return <h3>Uups... no match for your search.</h3>;
 
 	return (
 		<Box flex={6} >
@@ -48,14 +48,14 @@ const Games = () => {
 								<li>
 									{
 										<Card
-											background_image={e.background_image}
+										background_image={e.background_image}
 											name={e.name}
 											id={e.id}
 											price={e.price}
 											description={e.description}
 											discount={e.discount}
-										/>
-									}
+											/>
+										}
 								</li>
 							</ul>
 						</Box>
