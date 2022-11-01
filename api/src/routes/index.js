@@ -34,6 +34,7 @@ const {
 	UserPost,
 	UserUpdate,
 	PostLogin,
+	addNotification
 } = require('../controllers/User.js');
 const { sendEmail } = require('../controllers/Emails');
 const {
@@ -82,6 +83,7 @@ router.get('/discounts', getDiscounts);
 //User
 router.get('/user', allDataUser);
 router.get('/searchUser', UserByName);
+router.put('/user/notifications/:id', addNotification);
 router.get('/user/:id', UserByID);
 router.put('/user/:id', UserUpdate);
 
@@ -98,5 +100,4 @@ router.put('/orders/:id', ChangeStatePurchaseOrder);
 //Images
 router.post('/images/discounts', upLoadDicountsBanner);
 router.get('/images/discounts', getDiscountsBanner);
-
 module.exports = router;

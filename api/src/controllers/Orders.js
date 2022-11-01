@@ -34,8 +34,6 @@ const createOrder = async (req, res) => {
         },
         { where: { id: userID } }
       );
-   updatedUserData()
-    
     } catch (error) {
       console.log(error);
     }
@@ -72,7 +70,35 @@ const createOrder = async (req, res) => {
     const findGames = await Videogame.findAll({
       where: { id: { [Op.or]: [...gameIDS] } },
     });
+    //create random codes
 
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    function generateString() {
+      let result = " ";
+      const charactersLength = characters.length;
+      for (let i = 0; i < 10; i++) {
+        result += characters.charAt(
+          Math.floor(Math.random() * charactersLength)
+        );
+      }
+
+      return result;
+    }
+    let gameCodes = games.map((e) => {
+      if (e.cant === 1) {
+        return { game: e.name, code: generateString() };
+      } else {
+        let codes = [];
+        for (let i = 0; i < e.cant; i++) {
+          let code = generateString();
+          let game = { game: e.name, code: code };
+          codes.push(game);
+        }
+        return codes;
+      }
+    });
     //crear orden y asociarla
     let user = await User.findOne({ where: { id: userID } });
     if (user) {
@@ -87,6 +113,7 @@ const createOrder = async (req, res) => {
       return res.status(201).json({
         msg: "Order created successfully",
         data: newOrder,
+        gamesCodes: gameCodes,
       });
     } else {
       return res.status(404).send({ msg: "thats not a valid userid" });

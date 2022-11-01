@@ -28,7 +28,8 @@
     "nodemailer": "^6.8.0",
     "pg": "^8.5.1",
     "sequelize": "^6.3.5",
-    "stripe": "^10.14.0"
+    "stripe": "^10.14.0",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "chai": "^4.2.0",

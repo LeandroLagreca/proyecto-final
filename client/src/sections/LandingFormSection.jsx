@@ -21,13 +21,13 @@ export default function LandingFormSection() {
 	const [register, setRegister] = useState(false);
 	return (
 		<Container sx={styles.container}>
-			<Typography variant="h3">
+			{/* <Typography variant="h3">
 				{register ? 'Registrate' : 'Iniciar Sesion'}{' '}
-			</Typography>
+			</Typography> */}
 			<LandingForm register={register} setRegister={setRegister} />
-			<Button sx={styles.button} onClick={() => setRegister(!register)}>
+			{/* <Button sx={styles.button} onClick={() => setRegister(!register)}>
 				{register ? 'ya tengo una cuenta' : 'quiero registrarme'}
-			</Button>
+			</Button> */}
 		</Container>
 	);
 }

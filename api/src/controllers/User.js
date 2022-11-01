@@ -1,4 +1,5 @@
 const { User } = require('../db');
+const { uuid } = require('uuidv4');
 const { firebaseApp } = require('../firebase/credenciales');
 const { Op } = require('sequelize');
 const {
@@ -121,23 +122,47 @@ const UserUpdate = async (req, res) => {
 };
 
 const PostLogin = async (req, res) => {
-	const { available } = req.body;
-	if (available === false) {
-		res.status(400).send('User does not available');
-	} else {
 		const { email } = req.body;
+		console.log(req.body)
 		try {
 			let found = await User.findOne({ where: { email: email } });
+			if(found?.available === false) return res.status(400).send('User does not available');
+			if(req.query.google && !found) {
+				const newUser = await User.create({...req.body})
+				return res.json(newUser)
+			}
 			if (found) {
 				return res.status(200).send(found);
 			} else {
 				return res.status(404).send({ msg: 'sorry, this email is not exist' });
 			}
 		} catch (error) {
+			console.log(error)
 			res.status(400).send(error);
 		}
-	}
 };
+
+const addNotification = async (req, res) => {
+	const { id } = req.params;
+	const { text } = req.body
+	try {
+		let user = await User.findOne({where: {id}});
+
+    await user.update({
+			notifications: [
+				...user.notifications,
+				{
+					id: uuid(),
+					text
+				}
+			]
+		})
+
+		res.status(201).send('Notification added');
+	} catch (error) {
+		res.status(400).json({ error: 'Error update User' });
+	}
+}
 /*
      filtro para ordenar por stock el admin en front 
     const OrdenXStock = 
@@ -165,4 +190,5 @@ module.exports = {
 	UserPost,
 	UserUpdate,
 	PostLogin,
+	addNotification
 };

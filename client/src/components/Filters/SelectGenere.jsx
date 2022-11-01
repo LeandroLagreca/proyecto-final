@@ -24,7 +24,7 @@ export default function SelectGenere() {
 
 	return (
 		<div>
-			<FormControl sx={{ m: 1, minWidth: 100, backgroundColor:"secondary.main",  borderRadius:1 }}>
+			<FormControl sx={{ m: 1, minWidth: 160, backgroundColor:"secondary.main",  borderRadius:1, }}>
 				<InputLabel>Genere</InputLabel>
 				<Select value={genre} onChange={handleGenere} autoWidth label="Genere">
 					<MenuItem value="">
