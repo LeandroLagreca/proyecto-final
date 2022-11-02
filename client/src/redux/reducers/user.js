@@ -63,7 +63,7 @@ const userSlice = createSlice({
 			state.wishes = payload;
 		},
 		addToPurchases: (state, { payload }) => {
-			state.purchases = payload;
+			state.purchases = [...state.purchases, ...payload];
 		},
 		addToCollection: (state, { payload }) => {
 			state.collection = [...state.collection, payload];
