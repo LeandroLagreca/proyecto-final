@@ -9,8 +9,8 @@ import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getGenres,postGames } from '../../redux/actions/videoGame';
-import {useParams} from 'react-router-dom';
+import { getGenres,putGames } from '../../redux/actions/videoGame';
+import {useParams} from "react-router-dom";
 
 function validate(input){
     var errors = {}
@@ -53,8 +53,10 @@ function validate(input){
     
 
 export default function ComposedTextField() {
-let {id} = useParams()
-console.log(id)
+ const { id } = useParams();
+ console.log(id)
+ 
+
   const dispatch = useDispatch()
   const generos = useSelector((state)=> state.videogames.genres)
   const [errors,setErrors] = useState({})
@@ -88,14 +90,14 @@ console.log(id)
 function handleSelect(e) {
     setInput({
         ...input,
-        genres:[...input.genres, e.target.value] //concatena las dietas al estado
+        genres:[...input.genres, e.target.value] 
     }) 
 }
 
 function handlePush(e) {
     setInput({
         ...input,
-        genres:[...input.newGenres.push(input.otro), e.target.value] //concatena las dietas al estado
+        newGenres:[...input.newGenres.push(input.otro), e.target.value]
     }) 
 }
 
@@ -114,8 +116,8 @@ function handleDelete(el){
     if(input.name && input.description&&input.background_image&&input.price&&input.rating&&input.requirements
         &&!errors.name&& !errors.description&&!errors.background_image&&!errors.price&&!errors.rating&&!errors.requirements)
 
-    {dispatch(postGames(input))
-    alert("Juego creado con exito!")
+    {dispatch(putGames(input, id))
+    //alert("Juego creado con exito!")
     setInput({
         name:"",
         description:"",
@@ -134,7 +136,7 @@ useEffect(()=> {
     dispatch(getGenres())
      }, []);
 
-  return ( 
+  return (
     <Box
       my={2}
       component="form"
@@ -148,7 +150,7 @@ useEffect(()=> {
    
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                 <Card>
-                <h1>Create Game</h1>
+                <h1>Edit Game</h1>
                     <CardContent>   
                         {!errors.name? <FormControl variant="standard">
                             <InputLabel htmlFor="component-simple">Name</InputLabel>
@@ -295,7 +297,7 @@ useEffect(()=> {
                     :
                     <CardContent>   
                         <FormControl>
-                        <Button disabled>Create</Button>
+                        <Button disabled>Save</Button>
                         </FormControl>
                     </CardContent>}
                 </Card>
