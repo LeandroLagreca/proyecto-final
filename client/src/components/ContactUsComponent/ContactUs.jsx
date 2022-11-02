@@ -165,7 +165,7 @@ const ContactComponent = () => {
               
               />
             
-              <Button type='submit' sx={{backgroundColor:"#5e83ba", width:"50%", color:"#091d36", marginTop:"50px" ,"&:hover": {backgroundColor:"#091d36", color:"#5e83ba"}}} disabled={errors?.emailFormat  ? true : false} >Submit</Button>
+              <Button type='submit' sx={{backgroundColor:"#5e83ba", width:"50%", color:"#091d36", marginTop:"50px" ,"&:hover": {backgroundColor:"#091d36", color:"#5e83ba"}}} disabled={!errors?.emailFormat && !errors?.phoneFormat ? false : true} >Submit</Button>
             </Box>
             
             </Box>
