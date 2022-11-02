@@ -20,7 +20,7 @@ import {
 	LocalMall,
 	NotificationsActive,
 	PhotoCamera,
-	QuestionMark
+	QuestionMark,
 } from '@mui/icons-material';
 
 import { images } from '../../assets';
@@ -38,7 +38,7 @@ const AccountNavBar = () => {
 	});
 
 	React.useEffect(() => {
-		console.log(profile.base64URL);
+		// console.log(profile.base64URL);
 	}, [profile]);
 
 	const convertBase64 = (file) => {
@@ -63,12 +63,12 @@ const AccountNavBar = () => {
 		convertBase64(file)
 			.then((result) => {
 				setProfile({ ...profile, base64URL: result });
+				dispatch(putUserData(userData.id, { image: result }));
 			})
 			.catch((error) => {
 				console.log(error);
 			});
 
-		dispatch(putUserData(userData.id, { image: profile.base64URL }));
 	};
 
 	return (
@@ -161,11 +161,7 @@ const AccountNavBar = () => {
 				</ListItem>
 				<Divider />
 				<ListItem>
-					<MuiLink
-						component={Link}
-						to="/account/questions"
-						underline="none"
-					>
+					<MuiLink component={Link} to="/account/questions" underline="none">
 						<ListItemButton>
 							<ListItemIcon>
 								<QuestionMark />
