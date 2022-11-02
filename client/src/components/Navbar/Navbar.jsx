@@ -172,7 +172,7 @@ const Navbar = () => {
                     Wish list
                   </Button>
                 </Link>
-                <Link style={styles.link} to="/purchases">
+                <Link style={styles.link} to="/account/purchases">
                   <Button
                     sx={{
                       my: 1,

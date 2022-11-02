@@ -134,7 +134,7 @@ export default function MainCard({
         name={name}
         picture={background_image}
         price={price}
-        styles={{ position: "absolute", right: 0, bottom: 0 }}
+        styles={{ position: "absolute", right: 0, bottom: 0,  }}
       />
     </Box>
   );
