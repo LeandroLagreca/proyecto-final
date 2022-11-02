@@ -10,18 +10,18 @@ export default function useStatusChecker() {
 	const [ user, setUser ] = useState()
 	const dispatch = useDispatch()
 
-  onAuthStateChanged(auth, (usuarioFirebase) => {
-    if (usuarioFirebase) {
-      setUser(usuarioFirebase);
-    } else {
-      setUser(null);
+  return function () {
+    onAuthStateChanged(auth, (usuarioFirebase) => {
+      if (usuarioFirebase) {
+        setUser(usuarioFirebase);
+      } else {
+        setUser(null);
+      }
+    });
+  
+    if(user) {
+      dispatch(getUserInfo(user.email))
+      dispatch(setSigned('logged'))
     }
-  });
-
-	if(user) {
-    dispatch(getUserInfo(user.email))
-		dispatch(setSigned('logged'))
-	}
-
-  return user
+  }
 }

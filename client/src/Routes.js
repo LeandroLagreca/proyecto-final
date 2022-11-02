@@ -2,6 +2,9 @@ import { Routes as Rutas, Route } from 'react-router-dom';
 
 
 import useStatusChecker from './firebase/statusCheck';
+import signWithGoogle from './firebase/signWithGoogle';
+import { getRedirectResult } from "firebase/auth";
+import { auth } from './firebase/credenciales';
 
 import {
 	Detail,
@@ -23,8 +26,16 @@ import LandingPage from './components/Landing/LandingPage';
 import Nosotros from "./components/Nosotros/Nosotros"
 
 const Routes = ({ setMode, mode }) => {
-
-	useStatusChecker();
+	const statusChecker = useStatusChecker()
+	getRedirectResult(auth)
+  .then((result) => {
+    if(result) {
+		signWithGoogle(result.user)
+		.then(() => statusChecker())
+	}
+  });
+  
+	statusChecker();
 
 	return (
 		<>
