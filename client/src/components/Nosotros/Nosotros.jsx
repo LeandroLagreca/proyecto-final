@@ -18,6 +18,9 @@ import imagen from '../Nosotros/mario.png';
 import natal from '../Nosotros/natal.png';
 import lea from '../Nosotros/lea.png';
 import fondo from '../Nosotros/fondo.png';
+import leanlg from '../Nosotros/leanlg.png';
+import cris from '../Nosotros/cristian.png';
+import fede from '../Nosotros/fede.png';
 
 
 export default function MediaControlCard() {
@@ -60,7 +63,7 @@ export default function MediaControlCard() {
 					<CardMedia
 						component="img"
 						sx={{ width: 151 }}
-						image={fondo}
+						image={cris}
 						alt="Live from space album cover"
 					/>
 				</Card>		
@@ -225,7 +228,7 @@ export default function MediaControlCard() {
 					<CardMedia
 						component="img"
 						sx={{ width: 151 }}
-						image={fondo}
+						image={leanlg}
 						alt="Live from space album cover"
 					/>
 				</Card>		
@@ -258,7 +261,7 @@ export default function MediaControlCard() {
 					<CardMedia
 						component="img"
 						sx={{ width: 151 }}
-						image={fondo}
+						image={fede}
 						alt="Live from space album cover"
 					/>
 				</Card>		

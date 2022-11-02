@@ -25,7 +25,7 @@ export const getUserInfo = (email, auth) => {
 				`${API}orders/user/${data.id}`
 			);
 			dispatch(getUserData(updatedData.data.user));
-			dispatch(addToPurchases(purchases.data.PurchaseOrders));
+			dispatch(addPurchases(purchases.data.PurchaseOrders));
 		} catch (error) {
 			return null;
 		}
