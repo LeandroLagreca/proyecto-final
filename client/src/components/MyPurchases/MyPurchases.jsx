@@ -34,11 +34,15 @@ const MyPurchases = () => {
 				clave del juego
 			</Typography>
 			<Box display="flex" flexDirection={'column'}>
-				{purchases?.map((e) => {
-					return e.games.map((game) => {
-						return <Game game={game} />;
-					});
-				})}
+				{Array.isArray(purchases)
+					? Array.isArray(purchases)
+						? purchases.map((e) => {
+								return e.games.map((game) => {
+									return <Game game={game} />;
+								});
+						  })
+						: null
+					: null}
 			</Box>
 		</Container>
 	);

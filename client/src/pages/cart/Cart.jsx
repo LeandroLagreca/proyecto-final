@@ -110,13 +110,13 @@ const Cart = () => {
         dispatch(clearCart())
         setOpen(true);
         makeEmail(email, address.firstName, order.data.data)
+        dispatch(addPurchases(order.data.data))
         elements.getElement(CardElement).clear();
       } catch (error) {}
     }
     setLoading(false);
-
+    
     setActiveStep(activeStep + 1);
-    dispatch(addPurchases(cartList));
   };
 
   const handleUserInfo = (e) => {
