@@ -89,6 +89,7 @@ export default function TextForm({ cb, value }) {
           border: 1,
           borderRadius: 1,
           display: "inline-block",
+          boxShadow:"3"
         }}
       >
         <TextField
@@ -102,6 +103,8 @@ export default function TextForm({ cb, value }) {
           rows={4}
           placeholder="Escribe aqui..."
           variant="standard"
+          InputProps={{ inputProps: { style: { color: 'black' }}}}
+          sx={{color:"black",}}
         />
         <Box
           className="postActions"
