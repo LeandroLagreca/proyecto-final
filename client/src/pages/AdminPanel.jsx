@@ -17,14 +17,21 @@ const paths = {
 
 export default function AdminPanel() {
   const { admin } = useSelector(state => state.user)
+  const [loading, setLoading] = useState(true)
+  const navigate = useNavigate()
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 2500)
+    
+  }, [admin])
 
-  // if(!admin) return <h1>No tienes los permisos necesarios</h1>
+  if(loading) return <Loader />
+  if(!loading && !admin) return navigate('/')
 
   return (
     <AdminContainer>
-      {/* {
-        !admin ? <></> : <AdminNavBar />
-      } */}
       <AdminNavBar />
       <Sidebar></Sidebar>
         <Routes>
