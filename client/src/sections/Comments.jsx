@@ -31,12 +31,12 @@ import { AnswerModal, Answer } from "../components";
 import "./Comments.css";
 
 const parse = require("html-react-parser"); //funcion para parsear html
-const imgLink = "Url de imagen de usuario"; //aqui cuando agreguen la funcion de Imagen Profile
 
 export default function Comments({ list, type }) {
   const { pathname } = useLocation();
   const gameComment = list;
   const user = useSelector((state) => state.user.status);
+  const userImage = useSelector((state) => state.user.image);
   const dispatch = useDispatch();
   var userId = "";
   var userName = "";
@@ -78,6 +78,7 @@ export default function Comments({ list, type }) {
           comment: {
             id: "",
             text: "",
+            image: userImage,
             userComment: "",
             rating_like: 3,
           },
@@ -101,6 +102,7 @@ export default function Comments({ list, type }) {
     comment: {
       id: "",
       text: "",
+      image: userImage,
       userComment: "",
       rating_like: 3,
     },
@@ -304,7 +306,7 @@ export default function Comments({ list, type }) {
 
             <Grid container wrap="nowrap" spacing={2}>
               <Grid item>
-                <Avatar alt={c.userComment} src={imgLink} />{" "}
+                <Avatar alt={c.userComment} src={c.image} />{" "}
                 {/* Imagen usuario//alt nombreUsuario */}
               </Grid>
               <Grid justifyContent="left" item xs zeroMinWidth>

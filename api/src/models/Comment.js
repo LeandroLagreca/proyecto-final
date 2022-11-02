@@ -19,6 +19,9 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    image: {
+      type: DataTypes.TEXT
+    },
     rating_like: {
       type: DataTypes.INTEGER,
       defaultValue: 0,

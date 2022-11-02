@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@mui/material";
-import { AddShoppingCart, RemoveShoppingCart } from "@mui/icons-material";
+import { AddShoppingCart, ShoppingCart } from "@mui/icons-material";
 
 import { addToCart, deleteFromCart } from "../../redux/actions/user";
 import Swal from "sweetalert2";
@@ -79,8 +79,9 @@ export default function AddToCartButton({
     <>
       {!alreadyIs ? (
         <Button
+        variant="contained" 
           {...props}
-          sx={{ ...styles, ...buttonStyles }}
+          sx={{ ...styles, color:"white", bgcolor: 'primary.main' }}
           onClick={() => {
             handleAdd();
           }}
@@ -89,14 +90,15 @@ export default function AddToCartButton({
         </Button>
       ) : (
         <Button
+        variant="contained" 
           {...props}
           color="primary"
-          sx={{ ...styles, ...buttonStyles }}
+          sx={{ ...styles, bgcolor: 'secondary.main' }}
           onClick={() => {
             handleDelete();
           }}
         >
-          <RemoveShoppingCart />
+          <ShoppingCart />
         </Button>
       )}
     </>
