@@ -21,7 +21,8 @@ import fondo from '../Nosotros/fondo.png';
 import leanlg from '../Nosotros/leanlg.png';
 import cris from '../Nosotros/cristian.png';
 import fede from '../Nosotros/fede.png';
-
+import gustavo from '../Nosotros/gustavo.png';
+import david from '../Nosotros/david.png';
 
 export default function MediaControlCard() {
 	const theme = useTheme();
@@ -195,7 +196,7 @@ export default function MediaControlCard() {
 					<CardMedia
 						component="img"
 						sx={{ width: 151 }}
-						image={fondo}
+						image={gustavo}
 						alt="Live from space album cover"
 					/>
 				</Card>		
@@ -294,7 +295,7 @@ export default function MediaControlCard() {
 					<CardMedia
 						component="img"
 						sx={{ width: 151 }}
-						image={fondo}
+						image={david}
 						alt="Live from space album cover"
 					/>
 				</Card>		
