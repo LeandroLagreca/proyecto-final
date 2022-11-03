@@ -6,7 +6,11 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { ColorContextProvider } from '../Theme/Theme';
 
-const AddressForm = ({handleInfo}) => {
+const AddressForm = ({handleInfo, handleSave}) => {
+  function handleCheck(e) {
+    const status = e.target.checked
+    handleSave(status)
+  }
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -100,7 +104,7 @@ const AddressForm = ({handleInfo}) => {
         </Grid>
         <Grid item xs={12}>
           <FormControlLabel
-            control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
+            control={<Checkbox onClick={handleCheck} color="secondary" name="saveAddress" value="true" />}
             label="Use this address for payment details"
           />
         </Grid>

@@ -125,7 +125,12 @@ export default function Detail() {
                       {details.name} {/* NOMBRE */}
                     </Typography>
                     <Typography variant="h6" color={"white"}>
-                      ${details.price} {/* PRECIO */}
+                      {
+                        details.stock < 1 ? 
+                          'No disponible' :
+                          `$${details.price} `
+                      }
+                      
                     </Typography>
                   </Box>
                   <Box display="flex" sx={{ border: "" }}>
