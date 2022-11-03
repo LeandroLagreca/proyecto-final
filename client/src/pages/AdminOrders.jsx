@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Card, CardContent, CardActions, FormControl, Select, MenuItem, InputLabel, Input, Box } from "@mui/material";
+import { Card, CardContent, CardActions, FormControl, Select, MenuItem, InputLabel, Input, Box, Typography } from "@mui/material";
 import Swal from "sweetalert2";
 
 import { AdminOrdersContainer } from "../containers";
@@ -14,12 +14,13 @@ const styles = {
     paddingTop: 2
 },
   card: {
-    width: 275,
-    height: 300,
+    width: 500,
+    height: 'max-content',
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-around",
     alignItems: "center",
+    paddingY: 3
   },
   content: {
     display: "flex",
@@ -81,22 +82,6 @@ export default function AdminOrders() {
     <AdminOrdersContainer>
       <Container sx={{display:'flex'}} component={'form'}>
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-          <InputLabel>Status</InputLabel>
-          <Select
-            value={filters.status}
-            onChange={handleFilters}
-            name="status"
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value='created'>Creada</MenuItem>
-            <MenuItem value='inprocess'>En proceso</MenuItem>
-            <MenuItem value='canceled'>Cancelada</MenuItem>
-            <MenuItem value='completed'>Finalizada</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
           <InputLabel>Name</InputLabel>
           <Input onChange={handleFilters} name='name' />
         </FormControl>
@@ -105,18 +90,23 @@ export default function AdminOrders() {
         {orders.map((order) => (
           <Card key={order.id} sx={styles.card}>
             <CardContent sx={styles.content}>
-              <div>Id: {order.id}</div>
-              <div>User: {order.user.name}</div>
+              <div variant='h6' textAlign={'start'}>Id: {order.id}</div>
+              <Typography variant='h6' textAlign={'start'}>User: {order.user.name}</Typography>
               <div>Fecha: {order.date}</div>
-              <div>Productos: {
-                  order.games.map(el => (
-                    <Box sx={{display: 'flex'}}>
-                      <div>Name: {el.name}</div>
-                      <div>Price: {el.price} x{el.cant}</div>
-                    </Box>
-                  ))
-                }</div>
-              <div>Total: {order.totalprice}</div>
+              <div>
+                <Typography variant='h6' textAlign={'start'}>Productos:</Typography>
+                <Container sx={{display:'flex', flexDirection:'column', gap: 2}}>
+                  {
+                    order.games.map(el => (
+                      <Box display='flex' flexDirection='column' alignItems={'flex-start'} >
+                        <div>Name: {el.name}</div>
+                        <div>Price: {el.price} x{el.cant}</div>
+                      </Box>
+                    ))
+                  }
+                </Container>
+              </div>
+              <Typography variant='h6' textAlign={'start'}>Total: {order.totalprice}</Typography>
               <div>Status: {order.status}</div>
             </CardContent>
             <CardActions>

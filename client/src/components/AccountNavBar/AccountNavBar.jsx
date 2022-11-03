@@ -21,6 +21,7 @@ import {
 	NotificationsActive,
 	PhotoCamera,
 	QuestionMark,
+	ConfirmationNumber,
 } from '@mui/icons-material';
 
 import { images } from '../../assets';
@@ -167,6 +168,17 @@ const AccountNavBar = () => {
 								<QuestionMark />
 							</ListItemIcon>
 							<ListItemText primary={'My Questions'} />
+						</ListItemButton>
+					</MuiLink>
+				</ListItem>
+				<Divider />
+				<ListItem>
+					<MuiLink component={Link} to="/account/orders" underline="none">
+						<ListItemButton>
+							<ListItemIcon>
+								<ConfirmationNumber />
+							</ListItemIcon>
+							<ListItemText primary={'My Orders'} />
 						</ListItemButton>
 					</MuiLink>
 				</ListItem>

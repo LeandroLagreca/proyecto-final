@@ -25,3 +25,4 @@ export { default as AnswerModal } from './AnswerModal';
 export { default as Answer } from './Answer';
 export { default as NotificationsWidget } from './NotificationsWidget';
 export { default as NotificationCard } from './NotificationCard';
+export { default as MyOrders } from './MyOrders';

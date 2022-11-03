@@ -10,7 +10,7 @@ import {
   Divider,
   Link as MuiLink,
 } from "@mui/material";
-import { People, Games, ConfirmationNumber } from "@mui/icons-material";
+import { People, Games, ConfirmationNumber, QuestionMark } from "@mui/icons-material";
 
 
 export default function AdminNavBar() {
@@ -60,7 +60,7 @@ export default function AdminNavBar() {
           <MuiLink color={'secondary'} component={Link} to='/admin/questions' underline="none">
             <ListItemButton>
               <ListItemIcon>
-                <ConfirmationNumber />
+                <QuestionMark />
               </ListItemIcon>
               <ListItemText primary={"Preguntas"} />
             </ListItemButton>

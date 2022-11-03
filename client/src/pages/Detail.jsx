@@ -24,7 +24,7 @@ import Sidebar from "../components/Sidebar/Sidebar";
 
 export default function Detail() {
   const { id } = useParams();
-  const { status, id: userId } = useSelector((state) => state.user);
+  const { status, id: userId, admin } = useSelector((state) => state.user);
   const { loading, gameComments, gameQuestions, details } = useSelector((state) => state.videogames);
   const [questionText, setQuestionText] = useState('');
 
@@ -209,15 +209,15 @@ export default function Detail() {
                     : null}
                 </Typography>
               </Box>
-              {status !== "guest" && <FloatingActionButtons />}
+              {admin === true && <FloatingActionButtons />}
             </Box>
           </Paper>
           {/*---------------- SECCION RESEÑAS ---------------------*/}
           <section>
             <Box className="newComment">
-              <form onSubmit={handleSubmit} className="formComment">
-                <TextForm cb={setQuestionText} value={questionText} />
-                <Button type="submit" sx={{ marginLeft: 5, marginY: 3 }} variant="outlined">
+              <form onSubmit={handleSubmit} className="formComment" >
+                <TextForm cb={setQuestionText} value={questionText}  />
+                <Button type="submit" sx={{ marginLeft: 5, marginY: 3 }} variant="contained">
                   Submit
                 </Button>
               </form>

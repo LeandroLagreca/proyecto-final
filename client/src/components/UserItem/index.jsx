@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   IconButton,
@@ -11,12 +12,14 @@ import { DeleteForever } from "@mui/icons-material";
 import DotMenu from "./dotMenu";
 
 export default function UserItem({ username, email, admin, id }) {
+  const navigate = useNavigate()
 
-	function changeAdmin(e) {
+	async function changeAdmin(e) {
 		const value = e.target.value;
-		axios.put("http://localhost:3001/user/" + id, {
+		await axios.put("http://localhost:3001/user/" + id, {
 			admin: value
 		});
+    navigate(0)
 	}
 
 	
