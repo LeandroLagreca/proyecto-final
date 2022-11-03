@@ -23,9 +23,12 @@ import cris from '../Nosotros/cristian.png';
 import fede from '../Nosotros/fede.png';
 import gustavo from '../Nosotros/gustavo.png';
 import david from '../Nosotros/david.png';
+import { ColorModeContext } from '../Theme/Theme';
+import { useContext } from 'react';
 
 export default function MediaControlCard() {
 	const theme = useTheme();
+	const { mode, toggleMode } = useContext(ColorModeContext);
 
 	return (
 		<div>
@@ -53,10 +56,14 @@ export default function MediaControlCard() {
 							</Typography>
 						</CardContent>
 						<Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-							<Link href='https://www.linkedin.com/in/cristian-benitez/'>
+							<Link
+							 href='https://www.linkedin.com/in/cristian-benitez/'
+							 sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}>
 								<LinkedInIcon sx={{ height: 38, width: 38 }}/>
 								</Link>
-							<Link href='https://github.com/Cristianbenz'>
+							<Link
+							 href='https://github.com/Cristianbenz'
+							 sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}>
 								<GitHubIcon  sx={{ height: 34, width: 34 }}/>
 							</Link>
 						</Box>
@@ -86,10 +93,12 @@ export default function MediaControlCard() {
 							</Typography>
 						</CardContent>
 						<Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-							<Link href='https://www.linkedin.com/in/natal-escudero-0a0020210/'>
+							<Link href='https://www.linkedin.com/in/natal-escudero-0a0020210/'
+								  sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}>
 								<LinkedInIcon sx={{ height: 38, width: 38 }}/>
 								</Link>
-							<Link href='https://github.com/NatalEscudero190254'>
+							<Link href='https://github.com/NatalEscudero190254'
+								  sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}>
 								<GitHubIcon  sx={{ height: 34, width: 34 }}/>
 							</Link>
 						</Box>
@@ -119,10 +128,12 @@ export default function MediaControlCard() {
 							</Typography>
 						</CardContent>
 						<Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-							<Link href='https://www.linkedin.com/in/mario-villalba-8b7136179/'>
+							<Link href='https://www.linkedin.com/in/mario-villalba-8b7136179/'
+								  sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}>
 								<LinkedInIcon sx={{ height: 38, width: 38 }}/>
 								</Link>
-							<Link href='https://github.com/Mariovillalba98'>
+							<Link href='https://github.com/Mariovillalba98'
+								  sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}>
 								<GitHubIcon  sx={{ height: 34, width: 34 }}/>
 							</Link>
 						</Box>
@@ -152,10 +163,12 @@ export default function MediaControlCard() {
 							</Typography>
 						</CardContent>
 						<Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-							<Link href='https://www.linkedin.com/in/leandro-martin%C3%B3/'>
+							<Link href='https://www.linkedin.com/in/leandro-martin%C3%B3/'
+								  sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}>
 								<LinkedInIcon sx={{ height: 38, width: 38 }}/>
 								</Link>
-							<Link href='https://github.com/lemarti'>
+							<Link href='https://github.com/lemarti'
+								  sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}>
 								<GitHubIcon  sx={{ height: 34, width: 34 }}/>
 							</Link>
 						</Box>
@@ -185,10 +198,12 @@ export default function MediaControlCard() {
 							</Typography>
 						</CardContent>
 						<Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-							<Link href='https://www.linkedin.com/in/gacr1990/'>
+							<Link href='https://www.linkedin.com/in/gacr1990/'
+								  sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}>
 								<LinkedInIcon sx={{ height: 38, width: 38 }}/>
 								</Link>
-							<Link href='https://github.com/megagus182'>
+							<Link href='https://github.com/megagus182'
+								  sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}>
 								<GitHubIcon  sx={{ height: 34, width: 34 }}/>
 							</Link>
 						</Box>
@@ -218,10 +233,12 @@ export default function MediaControlCard() {
 							</Typography>
 						</CardContent>
 						<Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-							<Link href='https://www.linkedin.com/in/leandro-la-greca-7582ab240/'>
+							<Link href='https://www.linkedin.com/in/leandro-la-greca-7582ab240/'
+								  sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}>
 								<LinkedInIcon sx={{ height: 38, width: 38 }}/>
 								</Link>
-							<Link href='https://github.com/LeandroLagreca'>
+							<Link href='https://github.com/LeandroLagreca'
+								  sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}>
 								<GitHubIcon  sx={{ height: 34, width: 34 }}/>
 							</Link>
 						</Box>
@@ -251,10 +268,12 @@ export default function MediaControlCard() {
 							</Typography>
 						</CardContent>
 						<Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-							<Link href='https://www.linkedin.com/in/federico-goldammer-084196232/'>
+							<Link href='https://www.linkedin.com/in/federico-goldammer-084196232/'
+								  sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}>
 								<LinkedInIcon sx={{ height: 38, width: 38 }}/>
 								</Link>
-							<Link href='https://github.com/Zaikkoz'>
+							<Link href='https://github.com/Zaikkoz'
+								  sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}>
 								<GitHubIcon  sx={{ height: 34, width: 34 }}/>
 							</Link>
 						</Box>
@@ -284,10 +303,12 @@ export default function MediaControlCard() {
 							</Typography>
 						</CardContent>
 						<Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-							<Link href='https://www.linkedin.com/in/davidjss04/'>
+							<Link href='https://www.linkedin.com/in/davidjss04/'
+								  sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}>
 								<LinkedInIcon sx={{ height: 38, width: 38 }}/>
 								</Link>
-							<Link href='https://github.com/davidjss04'>
+							<Link href='https://github.com/davidjss04'
+								  sx={mode === 'dark' ? { color: 'white' } : { color: 'black' }}>
 								<GitHubIcon  sx={{ height: 34, width: 34 }}/>
 							</Link>
 						</Box>
