@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 
 export default function DotMenu({ id }) {
   const [anchorEl, setAnchorEl] = useState(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -26,7 +26,7 @@ export default function DotMenu({ id }) {
     sendPasswordResetEmail(auth, email, actionCodeSettings);
   }
 
-  function handleDelete(id) {
+  function handleDelete() {
     Swal.fire({
       title: "¿Seguro que quieres eliminar este usuario?",
       icon: "info",
@@ -39,7 +39,7 @@ export default function DotMenu({ id }) {
         await axios.put("http://localhost:3001/user/" + id, {
           available: false,
         });
-        navigate(0)
+        navigate(0);
       }
     });
   }
