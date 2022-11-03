@@ -47,7 +47,7 @@ const Cart = () => {
     country: "",
   });
   const [loading, setLoading] = useState(false);
-
+  const [saveInfo, setSaveInfo] = useState(false)
   const [activeStep, setActiveStep] = useState(0);
 
   const { id: userId, cartList, email } = useSelector((state) => state.user);
@@ -97,7 +97,7 @@ const Cart = () => {
           amount: totalPrice, //cents
         });
 
-        const order = await axios.post("http://localhost:3001/orders", {
+        const order = await axios.post(`http://localhost:3001/orders?saveData=${saveInfo}}`, {
           userData: {
             userID: userId,
             ...address,
@@ -141,7 +141,7 @@ const Cart = () => {
             Checkout
           </Typography>
           <>
-            <AddressForm handleInfo={handleUserInfo} />
+            <AddressForm handleInfo={handleUserInfo} handleSave={setSaveInfo} />
             <Review />
             <>
               <Typography variant="h6" gutterBottom>
