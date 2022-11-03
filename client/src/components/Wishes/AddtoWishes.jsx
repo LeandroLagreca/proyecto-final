@@ -73,8 +73,11 @@ const Wishes = () => {
                   >
                     <b>${e.price}</b>{" "} {/*Precio*/}
                   </Typography>
-                  <Button sx={{minWidth: 277}} variant="contained">Add to shopping cart
+                  <Button  sx={{minWidth: 277}} variant="contained">Add to shopping cart
                   <AddToCartButton
+                    style={{ 
+                      backgroundColor: "#091d36" }
+                     }
                     id={e.id}
                     name={e.name}
                     picture={e.background_image}
@@ -85,6 +88,7 @@ const Wishes = () => {
                   style={{ 
                     width: 10, 
                     height: 40, 
+                    bgcolor: "primary.main",
                     marginLeft: 10,  
                     onMouseOver:"backgroundColor: red",
                     borderRadius: 8 }

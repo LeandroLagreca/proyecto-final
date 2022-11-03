@@ -64,13 +64,13 @@ export default function AddToWishBtn({ name, image, id, price, styles, ...props}
   return (
     <>
       {!already ? (
-        <Button {...props}  sx={{...styles, ...buttonStyles}} onClick={() => {
+        <Button variant="contained"  {...props}  sx={{...styles, bgcolor: 'primary.main'}} onClick={() => {
           addToWishes();          
           }}>
         <FavoriteBorder />
         </Button>
       ) : (
-        <Button {...props} sx={{...styles, ...buttonStyles}} onClick={() => {
+        <Button variant="contained" {...props} sx={{...styles, bgcolor: 'secondary.main'}} onClick={() => {
           handleDelete();
           Swal.fire({
             toast: true,
@@ -82,7 +82,7 @@ export default function AddToWishBtn({ name, image, id, price, styles, ...props}
             timer: 3000,
           })
           }}>
-        <Favorite />
+        <Favorite  />
           
         </Button>
       )}

@@ -9,9 +9,12 @@ import {
 	IconButton,
 } from '@mui/material';
 import { Visibility, VisibilityOff, VpnKey } from '@mui/icons-material';
+import { ReviewForm } from '../'
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Games = ({ game }) => {
+	const { id } = useSelector(state => state.user)
 	const handleClose = () => setOpen(false);
 	const [open, setOpen] = React.useState(false);
 
@@ -33,7 +36,7 @@ const Games = ({ game }) => {
 
 	return (
 		<Box key={game.id} align-items="center" display="flex" width={'96%'}>
-			{/* <ReviewForm gameId={e.id} userId={id} /> */}
+			<ReviewForm gameId={game.id} userId={id} />
 			<ul
 				style={{
 					display: 'flex',

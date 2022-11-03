@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Avatar, Box, IconButton, TextField } from "@mui/material";
 import {
   FormatBold,
@@ -19,8 +20,8 @@ export default function TextForm({ cb, value }) {
     link: false,
     quote: false,
   });
-
-  const imgLink = "Url de imagen de usuario"; //Imagen cuando se implemente el profile
+  const userImage = useSelector((state) => state.user.image)
+  const imgLink = userImage
 
   useEffect(() => {
     cb(localValue)

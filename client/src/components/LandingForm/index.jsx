@@ -19,7 +19,6 @@ import {
 } from "@mui/material";
 import { Check, PriorityHigh } from "@mui/icons-material";
 import { auth } from "../../firebase/credenciales";
-import signWithGoogle from "../../firebase/signWithGoogle";
 import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
@@ -52,7 +51,7 @@ export default function LandingForm({ register, setRegister }) {
   });
   const [errors, setErrors] = useState({});
   
-
+  
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -137,7 +136,8 @@ export default function LandingForm({ register, setRegister }) {
     })
   }
   async function handleGoogle() {
-    signWithGoogle(auth)
+    const provider = new GoogleAuthProvider();
+    signInWithRedirect(auth, provider);
   }
   return (
    
