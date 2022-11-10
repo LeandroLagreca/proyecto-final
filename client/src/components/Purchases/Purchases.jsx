@@ -1,17 +1,7 @@
-import { ForkLeft } from '@mui/icons-material';
-import { Box, Typography } from '@mui/material';
-import { Container } from '@mui/system';
+
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import Card from '../Cards/Card';
-import Footer from '../Footer/Footer';
-import Sidebar from '../Sidebar/Sidebar';
 
 const Purchases = () => {
-    const purchases = useSelector((state) => state.user.purchases);
-
-    console.log(purchases)
     
     return(
         <div>

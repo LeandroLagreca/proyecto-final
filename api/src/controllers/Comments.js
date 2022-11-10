@@ -40,7 +40,6 @@ const postComment = async (req, res) => {
         .json({ msg: "please tell us more about your experience" });
     }
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -76,7 +75,6 @@ const getUserComments = async (req, res) => {
       }
     }
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -117,10 +115,8 @@ const getGameComments = async (req, res) => {
 
 const updateComment = async (req, res) => {
   let props = {...req.body};
-  console.log(props)
   try {
     let find = await Comment.findOne({ where: { id: props.id } });
-    console.log(find)
     if (find) {
       await Comment.update({
         text: props.text ? props.text : find.text,

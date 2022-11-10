@@ -64,7 +64,6 @@ ul {
 .iconsComment {
 	display: flex;
 	align-items: center;
-	justify-content: start;
 	margin-left: 20px;
 	opacity: 70%;
 }

@@ -174,7 +174,6 @@ export const addPurchases = (game) => {
 		try {
 			dispatch(addToPurchases(game));
 		} catch (error) {
-			console.log(error);
 		}
 	};
 };
@@ -184,7 +183,6 @@ export const addCollection = (game) => {
 		try {
 			dispatch(addToCollection(game));
 		} catch (error) {
-			console.log(error);
 		}
 	};
 };
@@ -204,7 +202,6 @@ export const putUserData = (ID, data) => {
 	return async function (dispatch) {
 		try {
 			const updatedData = await axios.put(API + `user/${ID}`, data);
-			console.log(updatedData.data.user, 'updatedData console.log');
 			dispatch(getUserData(updatedData.data.user));
 		} catch (error) {
 			return null;

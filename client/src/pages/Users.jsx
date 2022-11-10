@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Container, FormControl, Select, MenuItem, InputLabel, Input } from "@mui/material";
 import { UsersContainer } from '../containers'
 import { UsersList } from '../sections'
+import { AdminLayout } from '../components';
 
 export default function Users() {
   const [ users, setUsers ] = useState([])
@@ -34,30 +35,30 @@ export default function Users() {
   }
 
   return (
-    <UsersContainer>
-      <Container sx={{display:'flex'}} component={'form'}>
-        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-          <InputLabel>Status</InputLabel>
-          <Select
-            value={filters.admin}
-            onChange={handleFilters}
-            name="status"
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value='created'>Creada</MenuItem>
-            <MenuItem value='inprocess'>En proceso</MenuItem>
-            <MenuItem value='canceled'>Cancelada</MenuItem>
-            <MenuItem value='finalized'>Finalizada</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-          <InputLabel>Name</InputLabel>
-          <Input value={filters.name} onChange={handleFilters} name='name' />
-        </FormControl>
-      </Container>
-        <UsersList users={users} />
-    </UsersContainer>
+    <AdminLayout>
+        <Container sx={{display:'flex'}} component={'form'}>
+          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+            <InputLabel>Status</InputLabel>
+            <Select
+              value={filters.admin}
+              onChange={handleFilters}
+              name="status"
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value='created'>Creada</MenuItem>
+              <MenuItem value='inprocess'>En proceso</MenuItem>
+              <MenuItem value='canceled'>Cancelada</MenuItem>
+              <MenuItem value='finalized'>Finalizada</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+            <InputLabel>Name</InputLabel>
+            <Input value={filters.name} onChange={handleFilters} name='name' />
+          </FormControl>
+        </Container>
+          <UsersList users={users} />
+    </AdminLayout>
   )
 }

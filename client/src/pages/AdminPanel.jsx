@@ -1,46 +1,38 @@
-import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { Routes, Route, useNavigate } from 'react-router-dom'
-import { AdminContainer } from '../containers'
-import { Users, AdminGames, AdminOrders, AdminQuestions } from './'
-import { AdminNavBar, Footer, Loader } from '../components'
-import { useState } from 'react'
-import Sidebar from '../components/Sidebar/Sidebar'
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { Users, AdminGames, AdminOrders, AdminQuestions, NotFound } from "./";
+import { Loader } from "../components";
+import { useState } from "react";
 
 const paths = {
-  admin: 'admin',
-  users: '/users',
-  games: '/games',
-  orders: '/orders',
-  questions: '/questions'
-}
+  users: "/",
+  games: "/games",
+  orders: "/orders",
+  questions: "/questions",
+};
 
 export default function AdminPanel() {
-  const { admin } = useSelector(state => state.user)
-  const [loading, setLoading] = useState(true)
-  const navigate = useNavigate()
+  const { admin } = useSelector((state) => state.user);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     setTimeout(() => {
-      setLoading(false)
-    }, 2500)
-    
-  }, [admin])
+      setLoading(false);
+    }, 2500);
+  }, [admin]);
 
-  if(loading) return <Loader />
-  if(!loading && !admin) return navigate('/')
+  if (loading) return <Loader />;
+  if (!loading && !admin) return navigate("/");
 
   return (
-    <AdminContainer>
-      <AdminNavBar />
-      <Sidebar></Sidebar>
-        <Routes>
-          <Route path={paths.users} element={<Users />} />
-          <Route path={paths.games} element={<AdminGames />} />
-          <Route path={paths.orders} element={<AdminOrders />} />
-          <Route path={paths.questions} element={<AdminQuestions />} />
-        </Routes>
-        <Footer></Footer>
-    </AdminContainer>
-  )
+    <Routes>
+      <Route path={paths.users} element={<Users />} />
+      <Route path={paths.games} element={<AdminGames />} />
+      <Route path={paths.orders} element={<AdminOrders />} />
+      <Route path={paths.questions} element={<AdminQuestions />} />
+      <Route path={'*'} element={<NotFound />} />
+    </Routes>
+  );
 }

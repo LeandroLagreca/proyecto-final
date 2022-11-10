@@ -8,7 +8,6 @@ export default function SelectRating() {
 	const dispatch = useDispatch();
 
 	const handleRating = (event) => {
-		console.log(event.target.value);
 		dispatch(filterByRating(event.target.value));
 	};
 
