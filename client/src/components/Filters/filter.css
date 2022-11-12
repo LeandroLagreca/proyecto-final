@@ -4,15 +4,6 @@
     border-radius: 8px;
 }
 
-.FiltersFather{
-    display: block;
-    height: 400px;
-    position: sticky;
-    top: 6.875rem;
-    height: calc(100vh - 6.875rem);
-    overflow: hidden auto;
-}
-
 .FiltersTitle{
     background-color: rgb(179, 179, 179);
 }

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import {
   Button,
@@ -33,7 +32,7 @@ export default function AnswerModal({userId, questionId, game}) {
   return (
     <>
       <div>
-        <Button variant="outlined" onClick={handleClickOpen}>
+        <Button variant="outlined" onClick={handleClickOpen} sx={{mt:3}}>
           Responder
         </Button>
         <Dialog open={open} onClose={handleClose}>

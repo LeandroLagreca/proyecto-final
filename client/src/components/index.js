@@ -1,3 +1,5 @@
+export { default as ClientLayout } from './ClientLayout';
+export { default as AdminLayout } from './AdminLayout';
 export { default as Card } from './Cards/Card';
 export { default as Social } from './Social/Social';
 export { default as Footer } from './Footer/Footer';

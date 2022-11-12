@@ -8,22 +8,18 @@ import {
   Box,
   Toolbar,
   IconButton,
-  Badge,
   MenuItem,
   Menu,
   Button,
   Divider,
+  Container,
 } from "@mui/material";
 
-import {
-  AccountCircle,
-  Mail as MailIcon,
-  Notifications as NotificationsIcon,
-  MoreVert as MoreIcon,
-} from "@mui/icons-material";
+import { AccountCircle } from "@mui/icons-material";
 
 import { CartWidget, SessionButton, NotificationsWidget } from "../";
 import Searchbar from "./Searchbar";
+import Sidebar from "../Sidebar/Sidebar";
 
 const styles = {
   brand: {
@@ -39,30 +35,18 @@ const Navbar = () => {
   const [input, setInput] = React.useState("");
   const { status } = useSelector((state) => state.user);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const { pathname } = useLocation();
-  const idUser = useSelector((state) => state.user.id);
 
   if (pathname === "/") return <></>;
 
   const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
   const handleMenuClose = () => {
     setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
   };
 
   const menuId = "primary-search-account-menu";
@@ -92,151 +76,49 @@ const Navbar = () => {
     </Menu>
   );
 
-  const mobileMenuId = "primary-search-account-menu-mobile";
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
-
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
+    <AppBar position='sticky'>
+      <Container maxWidth="lg" sx={{ marginX: "auto" }}>
+        <Toolbar sx={{ display: "flex", gap:{xs:1, md:10}, justifyContent:{xs:'space-between', md:'center'} }}>
+          <Sidebar />
           <Link className={styles.link} to="/home">
             <img style={styles.brand} src={logo} alt={"logo"} />
           </Link>
-
-          <Searchbar setInput={setInput} input={input} />
-
-          <Box sx={{ flexGrow: 1 }} />
-
-          <Box sx={{ display: { xs: "none", md: "flex", height: 50 } }}>
-            {status !== "guest" ? (
-              <>
-                <Link style={styles.link} to="/wishes">
-                  <Button
-                    sx={{
-                      my: 1,
-                      color: "white",
-                      display: "block",
-                      fontSize: 12,
-                      minWidth: 80,
-                    }}
+            <Searchbar setInput={setInput} input={input} />
+          <Box sx={{display: 'flex'}}>
+            <Box display={'flex'} alignItems='center'>
+              <CartWidget />
+              {Boolean(status !== "guest") && (
+                <>
+                  <NotificationsWidget />
+                  <IconButton
+                    size="large"
+                    edge="end"
+                    aria-label="account of current user"
+                    aria-controls={menuId}
+                    aria-haspopup="true"
+                    onClick={handleProfileMenuOpen}
+                    color="inherit"
                   >
-                    Wish list
-                  </Button>
-                </Link>
-                <Link style={styles.link} to="/account/purchases">
-                  <Button
-                    sx={{
-                      my: 1,
-                      color: "white",
-                      display: "block",
-                      fontSize: 12,
-                    }}
-                  >
-                    Purchases
-                  </Button>
-                </Link>
-              </>
-            ) : (
-              ""
-            )}
-          </Box>
-
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <CartWidget />
-            {status !== "guest" ? (
-              <>
-                <NotificationsWidget />
-                <IconButton
-                  size="large"
-                  edge="end"
-                  aria-label="account of current user"
-                  aria-controls={menuId}
-                  aria-haspopup="true"
-                  onClick={handleProfileMenuOpen}
-                  color="inherit"
-                >
-                  <AccountCircle />
-                </IconButton>
-              </>
-            ) : (
-              ""
-            )}
-          </Box>
-          <Divider
-            orientation="vertical"
-            variant="middle"
-            flexItem
-            sx={{ marginX: 3, color: "white" }}
-          />
-          <Box>
-            <SessionButton />
-          </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
+                    <AccountCircle />
+                  </IconButton>
+                </>
+              )}
+              <Divider
+                orientation="vertical"
+                variant="middle"
+                flexItem
+                sx={{ marginX: 3, color: "secondary", display: {xs:'none', md:'block'} }}
+              />
+              <Box display={{xs:'none', md:'block'}}>
+                <SessionButton  />
+              </Box>
+            </Box>
           </Box>
         </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
+      </Container>
       {renderMenu}
-    </Box>
+    </AppBar>
   );
 };
 

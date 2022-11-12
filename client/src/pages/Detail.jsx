@@ -12,29 +12,30 @@ import {
   AddToWishes,
   Loader,
   AddToCartButton,
-  Footer,
   TextForm,
+  ClientLayout,
 } from "../components";
 import Carousel from "react-material-ui-carousel";
 import Item from "../components/Items/Item";
 import Comments from "../sections/Comments";
 import { Typography, Container, Box, Paper, Button } from "@mui/material";
 import FloatingActionButtons from "../components/EditForm/BotonEditar";
-import Sidebar from "../components/Sidebar/Sidebar";
 
 export default function Detail() {
   const { id } = useParams();
   const { status, id: userId, admin } = useSelector((state) => state.user);
-  const { loading, gameComments, gameQuestions, details } = useSelector((state) => state.videogames);
-  const [questionText, setQuestionText] = useState('');
+  const { loading, gameComments, gameQuestions, details } = useSelector(
+    (state) => state.videogames
+  );
+  const [questionText, setQuestionText] = useState("");
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setLoading());
     dispatch(getDetails(id));
-    dispatch(getComments(id))
-    dispatch(getQuestions(id))
+    dispatch(getComments(id));
+    dispatch(getQuestions(id));
   }, [id, dispatch]);
 
   var imgCarousel = [];
@@ -56,12 +57,14 @@ export default function Detail() {
         timer: 3000,
       });
     } else {
-      dispatch(postQuestion({
-        userId,
-        gameId: id,
-        text: questionText
-      }))
-      setQuestionText('');
+      dispatch(
+        postQuestion({
+          userId,
+          gameId: id,
+          text: questionText,
+        })
+      );
+      setQuestionText("");
       Swal.fire({
         toast: true,
         icon: "success",
@@ -76,14 +79,12 @@ export default function Detail() {
   if (loading) return <Loader />;
 
   return (
-    <>
-      <div className="boxBanner2">
-        <Container>
-          <Sidebar />
+    <div className="boxBanner2">
+      <ClientLayout>
           <Paper elevation={8} sx={{ padding: 2 }}>
             <Typography variant="caption" display="flex" mb={1}>
               <Link className="redir" to={"/home"}>
-                Games  {' >>'}
+                Games {" >>"}
               </Link>
               <Typography
                 variant="caption"
@@ -93,7 +94,7 @@ export default function Detail() {
               ></Typography>
               <b>{details.name}</b>
             </Typography>
-            <Box display="flex" alignItems="flex-start" className="boxDivisor">
+            <Box display="flex" flexDirection={{xs: 'column', md:'row'}} justifyContent='center' alignItems={{xs: 'center', md:'flex-start'}} className="boxDivisor">
               <Box
                 className="containerNombreImagenDescription"
                 backgroundColor="secondary.light"
@@ -125,12 +126,9 @@ export default function Detail() {
                       {details.name} {/* NOMBRE */}
                     </Typography>
                     <Typography variant="h6" color={"white"}>
-                      {
-                        details.stock < 1 ? 
-                          'No disponible' :
-                          `$${details.price} `
-                      }
-                      
+                      {details.stock < 1
+                        ? "No disponible"
+                        : `$${details.price} `}
                     </Typography>
                   </Box>
                   <Box display="flex" sx={{ border: "" }}>
@@ -179,9 +177,7 @@ export default function Detail() {
                     color="text.primary"
                     component={"span"}
                   >
-                    {details.description
-                      ? parse(details.description)
-                      : null}{" "}
+                    {details.description ? parse(details.description) : null}{" "}
                     {/* DESCRIPCION */}
                   </Typography>
                 </Box>
@@ -189,29 +185,28 @@ export default function Detail() {
               <Box
                 className="requeriments"
                 margin={1.5}
-                sx={{ borderRadius: 1, padding: 1 }}
+                sx={{ borderRadius: 1}}
+                backgroundColor="secondary.light"
               >
                 {/* REQUERIMIENTOS */}
                 <Typography
                   className="ReqTit"
-                  backgroundColor="primary.main"
-                  variant="body1"
-                  height={35}
+                backgroundColor="primary.main"
+                variant="body1"
                   color="white"
+                  padding={1}
                 >
                   Requeriments
                 </Typography>
                 <Typography
                   className="borderReq"
                   component={"div"}
-                  backgroundColor="secondary.light"
                   variant="body2"
                   color="text.primary"
                   textAlign="start"
+                  padding={2}
                 >
-                  {details.requirements
-                    ? parse(details.requirements)
-                    : null}
+                  {details.requirements ? parse(details.requirements) : null}
                 </Typography>
               </Box>
               {admin === true && <FloatingActionButtons />}
@@ -220,21 +215,23 @@ export default function Detail() {
           {/*---------------- SECCION RESEÑAS ---------------------*/}
           <section>
             <Box className="newComment">
-              <form onSubmit={handleSubmit} className="formComment" >
-                <TextForm cb={setQuestionText} value={questionText}  />
-                <Button type="submit" sx={{ marginLeft: 5, marginY: 3 }} variant="contained">
+              <form onSubmit={handleSubmit} className="formComment">
+                <TextForm cb={setQuestionText} value={questionText} />
+                <Button
+                  type="submit"
+                  sx={{ marginLeft: 5, marginY: 3 }}
+                  variant="contained"
+                >
                   Submit
                 </Button>
               </form>
             </Box>
-            <Container sx={{display: 'flex', gap: 3}}>
-              <Comments list={gameComments} type='review' />
+            <Container sx={{ display: "flex", flexDirection:{xs:'column', md:'row'}, gap: 3, mx:'auto', width:'max-content' }}>
+              <Comments list={gameComments} type="review" />
               <Comments list={gameQuestions} />
             </Container>
           </section>
-        </Container>
-      </div>
-      <Footer />
-    </>
+      </ClientLayout>
+    </div>
   );
 }

@@ -18,8 +18,6 @@ const ContactComponent = () => {
       email:""
     })
     const [errors, setErrors] = useState({})
-    console.log(contactInfo)
-    console.log(errors)
     
    
     useEffect(() => {
@@ -44,11 +42,7 @@ const ContactComponent = () => {
         e.preventDefault();
     
         emailjs.sendForm('service_dnv4ntv', 'template_hnrenol', e.target, '4zpSHHNBQ0hkdXKkq')
-          .then((result) => {
-              console.log(result.text);
-          }, (error) => {
-              console.log(error.text);
-          });
+          
           e.target.reset();
           setResult(true)
           Swal.fire({

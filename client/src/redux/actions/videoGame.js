@@ -7,7 +7,6 @@ import {
   cleanFilter,
   getAllGenres,
   postAllGames,
-  putAllGames
 } from "../reducers/videoGame";
 
 const API = "http://localhost:3001/";
@@ -17,7 +16,6 @@ export const getGames = ({ name, rating, price, genre } = "", sort, page) => {
   return async function (dispatch) {
     try {
       const { data } = await axios(API + `videogames?${queries}`);
-      console.log(data);
       dispatch(
         getAllGames({
           games: data.games,
@@ -61,7 +59,6 @@ export const cleanToFilter = (clean) => {
     try {
       dispatch(cleanFilter(clean));
     } catch (error) {
-      console.log(error);
     }
   };
 };
@@ -91,7 +88,6 @@ export const getGenres = () =>
   export const putGames = (input, id) =>
   async function () { 
     try {
-      const response = await axios.put(API + `videogames/${id}`, input);
     } catch (error) {
       return;
     }

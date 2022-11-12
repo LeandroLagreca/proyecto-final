@@ -50,7 +50,6 @@ const UserByName = async (req, res) => {
 	const { name } = req.body;
 	if (name) {
 		try {
-			console.log(name);
 			let found = await User.findAll({
 				where: { name: { [Op.iLike]: `%${name}%` } },
 			});
@@ -61,7 +60,6 @@ const UserByName = async (req, res) => {
 				res.status(404).send({ msg: 'user not found' });
 			}
 		} catch (error) {
-			console.log(error);
 		}
 	} else {
 		return res.status(404).send({ msg: 'a name is required by body' });
@@ -123,7 +121,6 @@ const UserUpdate = async (req, res) => {
 
 const PostLogin = async (req, res) => {
 		const { email } = req.body;
-		console.log(req.body)
 		try {
 			let found = await User.findOne({ where: { email: email } });
 			if(found?.available === false) return res.status(400).send('User does not available');
@@ -137,7 +134,6 @@ const PostLogin = async (req, res) => {
 				return res.status(404).send({ msg: 'sorry, this email is not exist' });
 			}
 		} catch (error) {
-			console.log(error)
 			res.status(400).send(error);
 		}
 };
