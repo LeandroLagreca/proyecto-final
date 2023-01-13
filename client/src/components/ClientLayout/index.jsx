@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Box } from "@mui/material";
 import React from "react";
 import { Navbar, Footer } from "..";
 
@@ -6,7 +6,7 @@ export default function ClientLayout({ children }) {
   return (
     <>
       <Navbar />
-      <Container maxWidth="lg">{children}</Container>
+      <Box maxWidth="lg">{children}</Box>
       <Footer />
     </>
   );
