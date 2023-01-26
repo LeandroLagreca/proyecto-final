@@ -3,29 +3,45 @@ import React from 'react';
 import './LandingPage.css';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import { Link } from 'react-router-dom';
+import gameScript from "../../assets/logogame.png"
 
 const LandingPage = () => {
 	return (
-		<Box className="landing">
-			<div className="btnContainer">
+		<div className='eldiv' >
+		<Box 
+		sx={{
+			mt: 8,
+			mb: 12,
+			p: 2,
+			maxWidth: "1200px",
+			mx: "auto",
+			backgroundImage:""
+		}}
+		>
+			    <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "1rem",
+
+                }}
+                > 
+				<img className='foto' src={gameScript} alt="Logo not found" />     
 				<MuiLink component={Link} to={'/home'} underline="none">
-					<Button
-						className="btn"
-						color="secondary"
-						sx={{
-							backgroundColor: 'white',
-						}}
+					<Button sx={{color:"white"}}
+						className="button-recipe3"
+						
 					>
 						Start Game
-						<SportsEsportsIcon
-							sx={{
-								marginLeft: '8px',
-							}}
-						/>
 					</Button>
 				</MuiLink>
-			</div>
+				</Box>
 		</Box>
+		</div>
+				
+
 	);
 };
 
