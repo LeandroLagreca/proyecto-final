@@ -7,6 +7,7 @@ Desarrollada utilizando React para el Front End y Redux Toolkit como state manag
 
 Algunas features del proyecto: Caché de búsquedas y búsqueda por nombre, ordenamientos, filtros, creación de productos, login, método de pago, carrito de compras, favoritos, edición del perfil, pedidos, entre otros.
 
+Ver el proyecto deployado en ([Gamescript](https://gamescript-app.vercel.app/home)).
 Video del proyecto en ([Drive](https://drive.google.com/file/d/1hR-2fzEgHdGFOaECHu9B1Zk4uMHf_1mp/view)).
 
 ## Construido con 🛠️
