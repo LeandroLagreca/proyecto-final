@@ -14,10 +14,18 @@ Ejecute 2 consolas separadas en los directorios anteriormente mencionados y escr
 
 ## Construido con 🛠️
 
-*
+*Javascript
+*React
+*Redux
+*Node
+*Express
+*Material UI
+*Firebase
+*Sequelize
+*Stripe
 
 ## Autores ✒️
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
+_Aquellos que levantaron este proyecto_
 
 * **Nombre y apellido** - *puesto* - [usuario](github)(linkedin)
