@@ -9,14 +9,6 @@ Algunas features del proyecto: Caché de búsquedas y búsqueda por nombre, orde
 
 Video del proyecto en ([Drive](https://drive.google.com/file/d/1hR-2fzEgHdGFOaECHu9B1Zk4uMHf_1mp/view)).
 
-### Instalación 🔧
-
-Deberas tener instalado npm, descargar el proyecto, correr "npm i" en la consola de los directorios Api y Client.
-
-## Despliegue 📦
-
-Ejecute 2 consolas separadas en los directorios anteriormente mencionados y escriba el comando npm start en ambas.
-
 ## Construido con 🛠️
 
 * Javascript  
