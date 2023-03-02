@@ -2,12 +2,13 @@
 
 # GameScript App
 
-Ecommerce of digital video games carried out during the final group stage of the SoyHenry bootcamp.
+Ecommerce of digital video games carried out during the final group stage of the SoyHenry bootcamp.  
+
 Developed using React for the Front End and Redux Toolkit as state management. All components were styled with the Material UI Framework. The App consumes data through Back End developed in Node.JS using Express and for the connection to the database the Sequelize ORM with the PostgresSQL database system was used.
 
 Some features of the project: Search cache and search by name, ordering, filters, product creation, login, payment method, shopping cart, favorites, profile editing, orders, among others.
 
-See the deployed project in ([Gamescript](https://gamescript-app.vercel.app/)).
+See the deployed project in ([Gamescript](https://gamescript-app.vercel.app/)).  
 Project video in ([Drive](https://drive.google.com/file/d/1hR-2fzEgHdGFOaECHu9B1Zk4uMHf_1mp/view)).
 
 ## Built with 🛠️
