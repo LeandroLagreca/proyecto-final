@@ -6,47 +6,13 @@ Ecommerce de videojuegos digitales realizado durante la etapa grupal final del b
 
 ### Instalación 🔧
 
-Deberas tener instalado npm, descargar el proyecto, correr "npm i" en la consola de los directorios 
-
-```
-Da un ejemplo
-```
-
-_Y repite_
-
-```
-hasta finalizar
-```
-
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
-
-## Ejecutando las pruebas ⚙️
-
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-### Y las pruebas de estilo de codificación ⌨️
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
+Deberas tener instalado npm, descargar el proyecto, correr "npm i" en la consola de los directorios Api y Client.
 
 ## Despliegue 📦
 
-_Agrega notas adicionales sobre como hacer deploy_
+Ejecute 2 consolas separadas en los directorios anteriormente mencionados y escriba el comando npm start en ambas.
 
 ## Construido con 🛠️
-
-_Menciona las herramientas que utilizaste para crear tu proyecto_
 
 * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
 * [Maven](https://maven.apache.org/) - Manejador de dependencias
