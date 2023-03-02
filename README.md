@@ -1,16 +1,16 @@
-# Proyecto Final Bootcamp SoyHenry
+# Henry Bootcamp Final Project
 
 # GameScript App
 
-Ecommerce de videojuegos digitales realizado durante la etapa grupal final del bootcamp de SoyHenry.
-Desarrollada utilizando React para el Front End y Redux Toolkit como state management. Todos los componentes fueron estilizados con el Framework Material UI. La App consume datos a través de un Back End desarrollado en Node.JS utilizando Express, y para la conexión a la base de datos se utilizó el ORM Sequelize con el motor de base de datos PostgresSQL.
+Ecommerce of digital video games carried out during the final group stage of the SoyHenry bootcamp.
+Developed using React for the Front End and Redux Toolkit as state management. All components were styled with the Material UI Framework. The App consumes data through Back End developed in Node.JS using Express and for the connection to the database the Sequelize ORM with the PostgresSQL database system was used.
 
-Algunas features del proyecto: Caché de búsquedas y búsqueda por nombre, ordenamientos, filtros, creación de productos, login, método de pago, carrito de compras, favoritos, edición del perfil, pedidos, entre otros.
+Some features of the project: Search cache and search by name, ordering, filters, product creation, login, payment method, shopping cart, favorites, profile editing, orders, among others.
 
-Ver el proyecto deployado en ([Gamescript](https://gamescript-app.vercel.app/home)).
-Video del proyecto en ([Drive](https://drive.google.com/file/d/1hR-2fzEgHdGFOaECHu9B1Zk4uMHf_1mp/view)).
+See the deployed project in ([Gamescript](https://gamescript-app.vercel.app/)).
+Project video in ([Drive](https://drive.google.com/file/d/1hR-2fzEgHdGFOaECHu9B1Zk4uMHf_1mp/view)).
 
-## Construido con 🛠️
+## Built with 🛠️
 
 * Javascript  
 * React  
@@ -22,9 +22,9 @@ Video del proyecto en ([Drive](https://drive.google.com/file/d/1hR-2fzEgHdGFOaEC
 * Sequelize  
 * Stripe  
 
-## Autores ✒️
+## Authors ✒️
 
-_Aquellos que levantaron este proyecto y con quienes fue un placer trabajar:_
+_Those who raised this project and with whom it was a pleasure to work:_
 
 * **Federico Goldammer** - *Full Stack Developer* - [Zaikkoz] ([github](https://github.com/Zaikkoz)) ([linkedin](https://www.linkedin.com/in/federico-goldammer-084196232/))
 * **David Huaricancha** - *Full Stack Developer* - [davidjss04] ([github](https://github.com/davidjss04)) ([linkedin](https://www.linkedin.com/in/davidjss04/))
