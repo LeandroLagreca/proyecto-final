@@ -14,15 +14,15 @@ Ejecute 2 consolas separadas en los directorios anteriormente mencionados y escr
 
 ## Construido con 🛠️
 
-*Javascript
-*React
-*Redux
-*Node
-*Express
-*Material UI
-*Firebase
-*Sequelize
-*Stripe
+*Javascript  
+*React  
+*Redux  
+*Node  
+*Express  
+*Material UI  
+*Firebase  
+*Sequelize  
+*Stripe  
 
 ## Autores ✒️
 
