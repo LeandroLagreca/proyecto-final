@@ -2,7 +2,9 @@
 
 # GameScript App
 
-Ecommerce de videojuegos digitales realizado durante la etapa grupal final del bootcamp de SoyHenry
+Ecommerce de videojuegos digitales realizado durante la etapa grupal final del bootcamp de SoyHenry.
+
+Video del proyecto en ([Drive](https://drive.google.com/file/d/1hR-2fzEgHdGFOaECHu9B1Zk4uMHf_1mp/view)).
 
 ### Instalación 🔧
 
@@ -26,7 +28,7 @@ Ejecute 2 consolas separadas en los directorios anteriormente mencionados y escr
 
 ## Autores ✒️
 
-_Aquellos que levantaron este proyecto y con quienes fue un placer trabajar_
+_Aquellos que levantaron este proyecto y con quienes fue un placer trabajar:_
 
 * **Federico Goldammer** - *Full Stack Developer* - [Zaikkoz] ([github](https://github.com/Zaikkoz)) ([linkedin](https://www.linkedin.com/in/federico-goldammer-084196232/))
 * **David Huaricancha** - *Full Stack Developer* - [davidjss04] ([github](https://github.com/davidjss04)) ([linkedin](https://www.linkedin.com/in/davidjss04/))
