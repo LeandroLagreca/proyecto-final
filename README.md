@@ -3,6 +3,9 @@
 # GameScript App
 
 Ecommerce de videojuegos digitales realizado durante la etapa grupal final del bootcamp de SoyHenry.
+Desarrollada utilizando React para el Front End y Redux Toolkit como state management. Todos los componentes fueron estilizados con el Framework Material UI. La App consume datos a través de un Back End desarrollado en Node.JS utilizando Express, y para la conexión a la base de datos se utilizó el ORM Sequelize con el motor de base de datos PostgresSQL.
+
+Algunas features del proyecto: Caché de búsquedas y búsqueda por nombre, ordenamientos, filtros, creación de productos, login, método de pago, carrito de compras, favoritos, edición del perfil, pedidos, entre otros.
 
 Video del proyecto en ([Drive](https://drive.google.com/file/d/1hR-2fzEgHdGFOaECHu9B1Zk4uMHf_1mp/view)).
 
